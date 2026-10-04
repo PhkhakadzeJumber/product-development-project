@@ -12,9 +12,9 @@ Accountabilities below say who makes sure something happens. They do not say who
 | Name | GitHub | Primary accountability | First outreach target (a real person) |
 |---|---|---|---|
 | [name] | @[user] | Discovery: interview quality, synthesis | [name, connection to a pooled problem] |
-| Jumber Pkhakadze | PhkhakadzeJumber | Build: repo, code | David K, who has the experience of vibe coding an entire app without understanding the structure and the code and not doing as well at the presentation day |
+| Jumber Pkhakadze | @PhkhakadzeJumber | Build: repo, code | David K, who has the experience of vibe coding an entire app without understanding the structure and the code and not doing as well at the presentation day |
 | [name] | @[user] | Delivery: deadlines, submissions, milestone tags | [name, connection] |
-| [if 4] | @[user] | code, CI, deployment | [name, connection] |
+| Luka Mikautadze | @LuDeVing | code, CI, deployment | Giorgi T, a classmate whose project ran fine locally but broke on deployment the night before demo day, with no CI to catch it |
 
 Teams of 2: each person carries one and a half accountabilities. Write which.
 
@@ -39,3 +39,4 @@ Committing this file is signing it.
 | Name | GitHub | Date |
 | :--- | :--- | :--- |
 | J. Pkhakadze | PhkhakadzeJumber | 04.10.2026 |
+| L. Mikautadze | LuDeVing | 04.10.2026 |
