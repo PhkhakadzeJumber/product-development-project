@@ -12,17 +12,17 @@ Accountabilities below say who makes sure something happens. They do not say who
 | Name | GitHub | Primary accountability | First outreach target (a real person) |
 |---|---|---|---|
 | [name] | @[user] | Discovery: interview quality, synthesis | [name, connection to a pooled problem] |
-| [name] | @[user] | Build: repo, code, deployment | [name, connection] |
+| Jumber Pkhakadze | PhkhakadzeJumber | Build: repo, code | David K, who has the experience of vibe coding an entire app without understanding the structure and the code and not doing as well at the presentation day |
 | [name] | @[user] | Delivery: deadlines, submissions, milestone tags | [name, connection] |
-| [if 4] | @[user] | [double an accountability, say which part] | [name, connection] |
+| [if 4] | @[user] | code, CI, deployment | [name, connection] |
 
 Teams of 2: each person carries one and a half accountabilities. Write which.
 
 ## How we work
-- **Channel:** [the specific group, by name]
-- **Standup:** [days and time, 15 minutes max]
-- **Response window:** messages acknowledged within [X] hours between [start] and [end]
-- **Silent teammate with a deadline near:** [who follows up, after how long, then what]
+- **Channel:** Messenger group Team One CS-PD
+- **Standup:** Tuesdays and Wednesdays at 8 pm, 15 minutes max, on a call
+- **Response window:** messages acknowledged within 3 hours between 4 pm and 10 pm; messages sent outside that window are acknowledged by 5 pm the next day
+- **Silent teammate with a deadline near:** If a member has not replied for 24 hours, Jumber Pkhakadze messages them directly, then calls after another 12 hours. If Jumber is the silent one, [Member 2] does the same for him. If there is still no answer, the follower messages the whole team in the group, and the others split the silent member's urgent tasks so the deadline is not missed. It is then raised at the next standup.
 - **Demo-ready:** any member can screen-share the current product state in any lab, on 2 minutes notice
 
 ## How we decide
@@ -38,4 +38,4 @@ Committing this file is signing it.
 
 | Name | GitHub | Date |
 | :--- | :--- | :--- |
-| J. Pkhakadze | PhkhakadzeJumber | 29.09.2026 |
+| J. Pkhakadze | PhkhakadzeJumber | 04.10.2026 |
