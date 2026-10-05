@@ -19,7 +19,7 @@ One person, not a segment. If a stranger could not pick them out of a room from 
 **How we reach five of them this week:**
 | Person or channel | Who on our team | Contacted? |
 |---|---|---|
-| An acquaintance of Luka's, long-term patient at one clinic (not family; the course asks for people we don't know well) | Luka | yes, interviewed 06.10 |
+| An acquaintance of Luka's, long-term patient at one clinic | Luka | yes, interviewed 06.10 |
 | Patients in the waiting area at the Kutaisi hospital where Jumber's sister interns | Jumber | no |
 | | Beka | |
 | | Giorgi | |
