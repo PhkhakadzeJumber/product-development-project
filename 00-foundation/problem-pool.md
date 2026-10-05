@@ -4,9 +4,9 @@ One statement, three lines. Three statements per member, all into `00-foundation
 
 ```
 AUTHOR: Jumber Pkhakadze
-WHO I watched: [a specific, reachable person]
-STRUGGLE I saw: [the behavior, when and where it happens]
-COST I can name: [time, money, apologies, angry calls]
+WHO I watched: my sister, who is currently doing an internship at a large hospital in Kutaisi
+STRUGGLE I saw: During her internship, I observed that patients often have to wait for hours at the hospital before they can see their doctors.
+COST I can name: Patients lose several hours of their day waiting, while the crowded waiting areas also create unnecessary stress and effort for both patients and hospital staff.
 ```
 
 ## The quality bar
