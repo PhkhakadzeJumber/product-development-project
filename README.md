@@ -1,7 +1,7 @@
 # Team One
 
 **Investigating:** People who are ill cannot get an answer from their doctor between visits without calling again and again or going back to the clinic in person.
-**Team:** PhkhakadzeJumber (@github) · love697 (@github) · beka-169 (@github) · LudeVing (@github)
+**Team:** PhkhakadzeJumber (@github) · mr-irrational (@github) · beka-169 (@github) · LuDeVing (@github)
 
 | Link | Status |
 |---|---|
@@ -12,4 +12,4 @@
 | Pitch deck | coming Week 13 |
 | One-pager | coming Week 15 |
 
-See DECISIONS.md for every product decision and the evidence behind it.# product-development-project
+See DECISIONS.md for every product decision and the evidence behind it.
