@@ -30,6 +30,62 @@ STRUGGLE I saw: he and a teammate pushed changes to the same files, the merge co
 COST I can name: he had to redo the lost work and spent more than an hour sorting it out instead of moving the project forward
 ```
 
+```
+AUTHOR: Jumber Pkhakadze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Jumber Pkhakadze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Beka Shekiladze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Beka Shekiladze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Beka Shekiladze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Giorgi Phurtseladze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Giorgi Phurtseladze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Giorgi Phurtseladze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
 ## The quality bar
 | Weak | Strong |
 |---|---|

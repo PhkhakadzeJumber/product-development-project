@@ -8,7 +8,11 @@ Start from your ICP's five, then add everyone they introduce, until three interv
 
 | Who (first name or code, role) | Fits our ICP because | Channel | Sent (week, by) | Reply | Interview (day, time, asker, logger) |
 |---|---|---|---|---|---|
-| | | | | | |
+| Acquaintance of Luka's, long-term patient at one clinic | needed his doctor between visits, 5 or 6 calls over 2 days for one answer | phone | W2, Luka | yes | 06.10, phone, asker Luka, logger Luka |
+| His friend, deals with clinics a lot (introduction via Luka's acquaintance) | | | | | |
+| [Jumber: a patient from the hospital where your sister interns] | | | | | |
+| [Beka: a person you know who has the problem] | | | | | |
+| [Giorgi: a person you know who has the problem] | | | | | |
 
 ## The message (adapt it, never paste it)
 > Hi [name], I'm [you], a student at KIU. We're learning how [their world, not your idea] actually works day to day. Not selling anything. Could I ask you about it for 20 minutes this week? [Day] or [day], whichever suits you.
