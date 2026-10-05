@@ -11,7 +11,7 @@ Accountabilities below say who makes sure something happens. They do not say who
 ## Members and primary accountabilities
 | Name | GitHub | Primary accountability | First outreach target (a real person) |
 |---|---|---|---|
-| [name] | @[user] | Discovery: interview quality, synthesis | [name, connection to a pooled problem] |
+| Beka Shekiladze | @beka-169 | Discovery: interview quality, synthesis | David K, a student who has experience vibe coding an entire app without fully understanding its structure and code, which affected his presentation performance. |
 | Jumber Pkhakadze | @PhkhakadzeJumber | Build: repo, code | David K, who has the experience of vibe coding an entire app without understanding the structure and the code and not doing as well at the presentation day |
 | Giorgi Phurtseladze | @mr-irrational | planning, code, management| people of the city |
 | Luka Mikautadze | @LuDeVing | code, CI, deployment | Giorgi T, a classmate whose project ran fine locally but broke on deployment the night before demo day, with no CI to catch it |
@@ -37,7 +37,7 @@ Small stuff: any two members. Direction: evidence first, then majority; the diss
 Committing this file is signing it.
 
 | Name | GitHub | Date |
-| :--- | :--- | :--- |
+| B. Shekiladze | beka-169 | 05.10.2026 |
 | G. Phurtseladze | mr-irrational | 05.10.2026 |
 | J. Pkhakadze | PhkhakadzeJumber | 04.10.2026 |
 | L. Mikautadze | LuDeVing | 04.10.2026 |
