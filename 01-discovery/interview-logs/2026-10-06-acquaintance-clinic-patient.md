@@ -1,9 +1,9 @@
-# Interview log: L's uncle, long-term patient at one clinic
+# Interview log: acquaintance of Luka's, long-term patient at one clinic
 
 **We are wrong if:** people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits.
 
 **Date:** 06.10.2026 · **Asker:** Luka Mikautadze · **Logger:** Luka Mikautadze (solo call, no second teammate) · **Where / how:** phone
-**Who they are:** Luka's uncle, has gone to the same doctor at the same clinic for four or five years. Not in this course. Quotes translated to English by Luka.
+**Who they are:** an acquaintance of Luka's, not a friend or family member, who has gone to the same doctor at the same clinic for four or five years. Not in this course. Quotes translated to English by Luka.
 
 ## What happened (their story, in order)
 - A few months ago he got test results and a new medication. At home he was not sure when to take one of the medicines.
