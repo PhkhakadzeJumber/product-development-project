@@ -9,6 +9,27 @@ STRUGGLE I saw: During her internship, I observed that patients often have to wa
 COST I can name: Patients lose several hours of their day waiting, while the crowded waiting areas also create unnecessary stress and effort for both patients and hospital staff.
 ```
 
+```
+AUTHOR: Luka Mikautadze
+WHO I watched: Giorgi T, a classmate, the night before demo day
+STRUGGLE I saw: his project ran fine locally but broke on deployment, with no CI to catch it
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Luka Mikautadze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
+```
+AUTHOR: Luka Mikautadze
+WHO I watched: [a specific, reachable person]
+STRUGGLE I saw: [the behavior, when and where it happens]
+COST I can name: [time, money, apologies, angry calls]
+```
+
 ## The quality bar
 | Weak | Strong |
 |---|---|
