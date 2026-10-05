@@ -11,7 +11,7 @@ Accountabilities below say who makes sure something happens. They do not say who
 ## Members and primary accountabilities
 | Name | GitHub | Primary accountability | First outreach target (a real person) |
 |---|---|---|---|
-| Beka Shekiladze | @beka-169 | Discovery: interview quality, synthesis | David Sh, a student who has experience vibe coding an entire app without fully understanding its structure and code, which affected his presentation performance. |
+| Beka Shekiladze | @beka-169 | Discovery: interview quality, synthesis | Luka S, a startup owner, who has experience in frequently interviewing lots of different people and finding out problems they deal with connected to his startup |
 | Jumber Pkhakadze | @PhkhakadzeJumber | Build: repo, code | David K, who has the experience of vibe coding an entire app without understanding the structure and the code and not doing as well at the presentation day |
 | Giorgi Phurtseladze | @mr-irrational | planning, code, management| people of the city |
 | Luka Mikautadze | @LuDeVing | code, CI, deployment | Giorgi T, a classmate whose project ran fine locally but broke on deployment the night before demo day, with no CI to catch it |
