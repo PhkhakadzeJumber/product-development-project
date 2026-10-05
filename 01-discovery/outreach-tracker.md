@@ -10,9 +10,9 @@ Start from your ICP's five, then add everyone they introduce, until three interv
 |---|---|---|---|---|---|
 | Acquaintance of Luka's, long-term patient at one clinic | needed his doctor between visits, 5 or 6 calls over 2 days for one answer | phone | W2, Luka | yes | 06.10, phone, asker Luka, logger Luka |
 | His friend, deals with clinics a lot (introduction via Luka's acquaintance) | | | | | |
-| [Jumber: a patient from the hospital where your sister interns] | | | | | |
-| [Beka: a person you know who has the problem] | | | | | |
-| [Giorgi: a person you know who has the problem] | | | | | |
+| Gocha, about 60, patient on the ward where Jumber's sister interns, comes in every two weeks for his heart | sees the same doctors regularly, has questions between visits, waits at the hospital each time | in person, via Jumber's sister | W2, Jumber | yes | Sat 11.10, 11:00, in person at the hospital café, asker Jumber, loggers Luka and Beka |
+| Beka's grandmother, blood pressure prescription at a clinic | goes to the clinic in person every month for the same prescription, and the doctor is often out that day | in person, at Sunday lunch | W2 Sunday, Beka | yes | Mon 13.10, 16:00, in person at her flat, asker Beka, logger Giorgi |
+| Zura, Giorgi's neighbour, diabetic with one regular endocrinologist | called the clinic three days in a row about a new tablet, then gave up and went in person | in person, knock on his door | W2 Thursday, Giorgi | yes | Sun 12.10, 17:00, in person at his flat, asker Giorgi, logger Beka |
 
 ## The message (adapt it, never paste it)
 > Hi [name], I'm [you], a student at KIU. We're learning how [their world, not your idea] actually works day to day. Not selling anything. Could I ask you about it for 20 minutes this week? [Day] or [day], whichever suits you.

@@ -21,9 +21,9 @@ One person, not a segment. If a stranger could not pick them out of a room from 
 |---|---|---|
 | An acquaintance of Luka's, long-term patient at one clinic | Luka | yes, interviewed 06.10 |
 | Patients in the waiting area at the Kutaisi hospital where Jumber's sister interns | Jumber | no |
-| | Beka | |
-| | Giorgi | |
-| | | |
+| Beka's grandmother, monthly prescription renewal at a clinic, often finds the doctor out that day | Beka | yes, interview Mon 13.10 |
+| Zura, Giorgi's neighbour, monthly endocrinologist visits, called the clinic for three days about a dose change before going in person | Giorgi | yes, interview Sun 12.10 |
+| Gocha, about 60, heart patient on the ward where Jumber's sister interns, comes in every two weeks | Jumber | yes, interview Sat 11.10 |
 
 **Evidence so far:** [problem pool](problem-pool.md): Luka's statement about his uncle (several calls and trips for one answer) and Jumber's statement about patients waiting for hours at the hospital.
 

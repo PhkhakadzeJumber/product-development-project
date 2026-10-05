@@ -40,8 +40,8 @@ COST I can name: around an hour of her shift every day, and one evening a value 
 ```
 AUTHOR: Jumber Pkhakadze
 WHO I watched: a close friend from my year who is unhappy with how he looks and has been considering a cosmetic procedure
-STRUGGLE I saw: before deciding, he spent evenings comparing photos of other people's results and asking us whether it would suit him, because he had no way to try a change on his own face first, whether a small one or a version of himself that looks completely different. I also wonder how I and my friends would look as a different gender
-COST I can name: two paid consultations with different clinics, about 150 GEL each, and he still postponed the decision because he could not picture the result
+STRUGGLE I saw: before deciding, he spent evenings comparing photos of other people's results and asking us whether it would suit him, because he had no way to try a change on his own face first, whether a small one or a version of himself that looks completely different
+COST I can name: one paid consultation at 120 GEL and a second free one at another clinic, and he still postponed the decision because he could not picture the result
 ```
 
 ```

@@ -6,9 +6,9 @@ Commit it **before your first real interview**. The commit date is your proof.
 | Teammate | What I believe the real problem is |
 |---|---|
 | Luka Mikautadze | Ill people cannot get a quick answer from their doctor between visits, so they keep calling or go back in person |
-| Jumber Pkhakadze | Patients lose hours waiting at the hospital before they can see their doctor (from his pool statement) |
-| Beka Shekiladze | |
-| Giorgi Phurtseladze | |
+| Jumber Pkhakadze | Patients lose two to four hours waiting at the hospital before they can see their doctor (from his pool statement) |
+| Beka Shekiladze | Older patients with a standing treatment have to show up at the clinic for things that need no examination, like a repeat prescription or a yes/no question, and often leave without it |
+| Giorgi Phurtseladze | People with a chronic illness have no way to ask their own doctor a small question between visits, so a two-minute question turns into a trip to the clinic |
 
 ## Step 2: The hypothesis we test first
 > **We believe** people like Gela, 56, who have a long-running illness and one regular doctor at a public clinic
@@ -27,7 +27,7 @@ Each one becomes at least one question in your interview script, so you still he
 - [x] No product words (app, platform, tool, AI, bot)
 - [x] "When" is a moment, not "sometimes" or "when busy"
 - [x] "We are wrong if" could be seen in a single interview log
-- [ ] The "we are wrong if" line is copied to the top of your script and your log template (script done; no log template yet)
+- [x] The "we are wrong if" line is copied to the top of your script and your log template
 
 ## After interviews (fill in Week 3)
 **Verdict:** [confirmed / weakened / killed] · **Evidence:** [links to logs] · Record the verdict in `DECISIONS.md`.
