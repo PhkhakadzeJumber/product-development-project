@@ -13,21 +13,21 @@ COST I can name: Patients lose several hours of their day waiting, while the cro
 AUTHOR: Luka Mikautadze
 WHO I watched: Giorgi T, a classmate, the night before demo day
 STRUGGLE I saw: his project ran fine locally but broke on deployment, with no CI to catch it
-COST I can name: [time, money, apologies, angry calls]
+COST I can name: he lost hours that night trying to fix it, and the demo still went badly the next day
 ```
 
 ```
 AUTHOR: Luka Mikautadze
-WHO I watched: [a specific, reachable person]
-STRUGGLE I saw: [the behavior, when and where it happens]
-COST I can name: [time, money, apologies, angry calls]
+WHO I watched: my uncle, when he was ill and needed to talk to his doctor
+STRUGGLE I saw: he called the doctor and could not get through, so he kept calling and going back in person for the same issue
+COST I can name: several calls and several trips to get one answer
 ```
 
 ```
 AUTHOR: Luka Mikautadze
-WHO I watched: [a specific, reachable person]
-STRUGGLE I saw: [the behavior, when and where it happens]
-COST I can name: [time, money, apologies, angry calls]
+WHO I watched: a friend outside this course, working on a shared code repository with his teammates
+STRUGGLE I saw: he and a teammate pushed changes to the same files, the merge conflict wiped out part of his work
+COST I can name: he had to redo the lost work and spent more than an hour sorting it out instead of moving the project forward
 ```
 
 ## The quality bar
