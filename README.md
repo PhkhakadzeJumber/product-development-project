@@ -1,6 +1,6 @@
 # Team One
 
-**Investigating:** <one line, from the first line of DECISIONS.md>
+**Investigating:** People who are ill cannot get an answer from their doctor between visits without calling again and again or going back to the clinic in person.
 **Team:** PhkhakadzeJumber (@github) · love697 (@github) · beka-169 (@github) · LudeVing (@github)
 
 | Link | Status |

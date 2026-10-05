@@ -1,23 +1,22 @@
 # Interview Script v1
 
-Copy to `01-discovery/interview-script-v1.md`. Full how-to: `resources/interview-script.md`. Finished example: `examples/sakhli-interview-script-v1.md`.
-
-**Problem we are investigating:** [line 1 of DECISIONS.md]
-**Our prediction:** [copy the "We are wrong if" line from problem-hypothesis.md; never say it aloud]
-**Language:** [the language you will interview in; keep an English version beside it]
+**Problem we are investigating:** People who are ill cannot get an answer from their doctor between visits without calling again and again or going back to the clinic in person.
+**Our prediction:** We are wrong if people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits. (Never say this aloud.)
+**Language:** Georgian. This is the English version; keep the Georgian wording beside it before the first interview.
 
 ## Opening (2 min, word for word)
-[Who you are · that you are learning, not selling, with nothing to show · consent: "Is it okay if my teammate takes notes? We won't use your name."]
+"Hello, I'm [name], a student at KIU, and this is my teammate [name]. We are learning how people deal with their doctors and clinics day to day. We are not selling anything and we have nothing to show you. There are no right or wrong answers; we just want to hear what really happened to you. Is it okay if my teammate takes notes? We won't use your name."
 
 ## Warm-up (2 min)
-1. [One easy, open question about their world]
+1. Tell me a bit about your doctor: who do you usually go to, and how long have you been going to them?
 
 ## Core (12 to 15 min): your own words, your own problem
-2. Walk me through the last time [problem moment] happened.
-3. [The last time it went wrong]
-4. What did that cost you? [push for a number]
-5. What have you tried to fix it? [then: can you show me?]
-6. [One past-tense question for each belief you did NOT pick in the hypothesis. Do not name the belief.]
+2. Walk me through the last time you had a question for your doctor after you had already left the clinic.
+3. Tell me about the time that was hardest: when you needed an answer and could not get one.
+4. What did that cost you? How many calls, how many trips, how many hours, how much money?
+5. What have you tried so you can get answers faster? Can you show me (the call log, the messages, the notes you keep)?
+6. The last time you went to the clinic in person, what happened from the moment you arrived until you saw the doctor?
+7. The last time you needed to see a doctor, how did you get that appointment?
 
 ## Close (2 min)
 - Who else should we talk to about this?
