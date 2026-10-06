@@ -1,6 +1,6 @@
 # Interview log: Gocha, heart patient seen every two weeks on the ward
 
-**We are wrong if:** people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits.
+**We are wrong if:** people tell us they saw their doctor and left the hospital, haivng their time spent efficiently, or cannot remember a time they had to wait for hours until their turn came for the appointment.
 
 **Date:** 05.10.2026 · **Asker:** Jumber · **Logger(s):** Luka, Beka · **Where / how:** in person, hospital café after his check-up · **Length:** about 30 minutes
 **Who they are:** about 60, heart failure, comes to the ward every two weeks for a check and bloods. Same two doctors for over a year. Introduced by Jumber's sister, who interns on the ward. Not in this course. Spoke Georgian, translated by Jumber.
