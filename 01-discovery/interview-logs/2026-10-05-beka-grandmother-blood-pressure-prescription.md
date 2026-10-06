@@ -2,7 +2,7 @@
 
 **We are wrong if:** people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits.
 
-**Date:** 13.10.2026 · **Asker:** Beka · **Logger(s):** Giorgi · **Where / how:** in person, her flat · **Length:** about 35 minutes, with tea
+**Date:** 05.10.2026 · **Asker:** Beka · **Logger(s):** Giorgi · **Where / how:** in person, her flat · **Length:** about 35 minutes, with tea
 **Who they are:** 72, hypertension, same prescription for years, same family doctor at a district clinic. Beka's grandmother. Not in this course. Spoke Georgian, translated by Beka. Giorgi watched for places where Beka answered for her.
 
 ## What happened (their story, in order)

@@ -2,7 +2,7 @@
 
 **We are wrong if:** people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits.
 
-**Date:** 12.10.2026 · **Asker:** Giorgi · **Logger(s):** Beka, Jumber · **Where / how:** in person, his flat · **Length:** not recorded, with tea
+**Date:** 05.10.2026 · **Asker:** Giorgi · **Logger(s):** Beka, Jumber · **Where / how:** in person, his flat · **Length:** not recorded, with tea
 **Who they are:** diabetic for six or seven years, same endocrinologist at a public polyclinic once a month. Keeps a sugar diary, she checks it and writes the prescription. Runs a shop. Giorgi's neighbour. Not in this course. Spoke Georgian, translated by Giorgi.
 
 ## What happened (their story, in order)
