@@ -17,7 +17,7 @@ See DECISIONS.md for every product decision and the evidence behind it.
 ## Week 3 checklist
 - [x] Two more real interviews logged in `01-discovery/interview-logs/`, 3+ verbatim quotes each. Logged, all on 05.10: Gocha (4 quotes, supports), Zura (5 quotes, supports, showed his call log), Beka's grandmother (4 quotes, half a yes). See `01-discovery/outreach-tracker.md`.
 - [x] Four Filters scorecard in `00-foundation/`, three problems scored at Tuesday's standup: between-visits answers (pick), hospital waiting (runner-up), repeat prescription trip.
-- [ ] Hypothesis verdict (confirmed / weakened / killed) in `DECISIONS.md` after scoring, with links to the logs.
+- [x] Hypothesis verdict (confirmed / weakened / killed) in `DECISIONS.md` after scoring, with links to the logs. Confirmed 06.10.
 - [ ] Script audit by another team in lab, every red fixed before the script is called v1.
 - [x] Jumber logs one interview (Zura, 05.10, second logger with Beka).
 - [x] Everyone watched the Week 3 recording before lab.

@@ -9,3 +9,4 @@ Wk3 · Luka · Claude Code · turned the Zura interview transcript into a log in
 Wk3 · Luka · Claude Code · corrected the dates on the Gocha, Zura and grandmother logs from a draft's planned dates (11 to 13.10) to the real date, 05.10, in the file names, the logs, the tracker, the README and the ICP · the interview content itself was not touched
 
 Wk3 · Luka · Claude Code · drafted the Four Filters scorecard: three hospital problems shortlisted and scored with numbers from the four logs, the other nine pool statements listed with a reason each · the course template was not in the repo, so the four filter names are the tool's; check them against the course template and rename if they differ
+Wk3 · Luka · Claude Code · wrote the hypothesis verdict line and the matching DECISIONS.md line after the team confirmed the verdict, ticked the item in the README · verdict was the team's, links and numbers checked against the four logs
