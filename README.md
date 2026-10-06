@@ -21,3 +21,6 @@ See DECISIONS.md for every product decision and the evidence behind it.
 - [ ] Script audit by another team in lab, every red fixed before the script is called v1.
 - [x] Jumber logs one interview (Zura, 05.10, second logger with Beka).
 - [x] Everyone watched the Week 3 recording before lab.
+- [ ] Beka, Giorgi and Luka each create `members/<github-username>/pattern-journal.md` from their own account. Only Jumber's exists. This is the proof that everyone can push.
+- [ ] All four write their Week 1 and Week 2 journal entries. Jumber's are still empty.
+- [ ] Luka is logger on someone else's interview. He asked and logged the same one, and Homework 1 needs ask in one, log a different one. Next candidates in the tracker: Gocha's neighbour, Nino, Dato.
