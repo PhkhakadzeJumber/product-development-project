@@ -2,7 +2,6 @@
 
 **Problem we are investigating:** People who are ill cannot get an answer from their doctor between visits without calling again and again or going back to the clinic in person.
 **Our prediction:** We are wrong if people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits. (Never say this aloud.)
-**Language:** Georgian. This is the English version; keep the Georgian wording beside it before the first interview.
 
 ## Opening (2 min, word for word)
 "I'm [name], a student at KIU, and this is my teammate [name]. We're doing a university project about how people deal with their doctors and clinics. We're not selling anything and we have nothing to show you. We just want to hear what actually happened to you, so there are no wrong answers. Is it okay if my teammate takes notes? We won't use your name."
