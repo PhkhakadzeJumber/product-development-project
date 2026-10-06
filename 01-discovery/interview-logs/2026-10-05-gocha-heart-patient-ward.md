@@ -1,54 +1,58 @@
 # Interview log: Gocha, heart patient seen every two weeks on the ward
 
-**We are wrong if:** people tell us they saw their doctor and left the hospital, haivng their time spent efficiently, or cannot remember a time they had to wait for hours until their turn came for the appointment.
+**We are wrong if:** people tell us they saw their doctor and left the hospital, having their time spent efficiently, or cannot remember a time they had to wait for hours until their turn came for the appointment.
 
 **Date:** 05.10.2026 · **Asker:** Jumber · **Logger(s):** Luka, Beka · **Where / how:** in person, hospital café after his check-up · **Length:** about 30 minutes
 **Who they are:** about 60, heart failure, comes to the ward every two weeks for a check and bloods. Same two doctors for over a year. Introduced by Jumber's sister, who interns on the ward. Not in this course. Spoke Georgian, translated by Jumber.
 
-## What happened (their story, in order)
-- Three weeks ago the doctor changed his water tablet. Two days later his ankles were more swollen than usual and he had gained two kilos on the bathroom scale.
-- He had been told to watch his weight, so he phoned the ward on the Thursday. A nurse answered, said the doctor was on rounds, and took his name.
-- Friday nobody called. He phoned again. Different nurse, "call Monday, the doctor isn't here Friday afternoons."
-- Over the weekend he cut the new tablet in half on his own because he was worried.
-- Monday his daughter drove him in without an appointment. He sat in the ward corridor about an hour and a half until the doctor came past. She looked at his ankles, told him to go back to the full dose and add a second tablet, and had the nurse weigh him. About five minutes.
-- He said the two-weekly visits themselves are fine. "They know me there." The problem is the time in between.
+## Warm-up
 
-## Verbatim quotes (at least 3, word for word, written as they were said, not reconstructed afterwards)
-1. "They tell you, 'if you gain two kilos call us.' So I called. And then what? Nothing."
-2. "I cut the tablet in half myself. I know I shouldn't. But who do I ask?"
-3. "An hour and a half in the corridor and she fixed it in five minutes standing up."
-4. "When I'm here every two weeks it's fine, they know me. It's the days in between."
+**1. How often do you usually need to visit a doctor or hospital?**
+Every two weeks for a check-up and blood tests.
 
-## Numbers they gave
-- Calls: 2 over 2 days · Days: 4 from first call to answer, over a weekend · Trips: 1 unplanned, daughter drove · Time per trip: about 3 hours including the drive · Waiting: about 1.5 hours in the corridor · Money: none, but his daughter took a half day off work
-- Weight gain: 2 kg in 2 days, from his own scale. He was precise about this because the ward told him to track it.
+## Core
 
-## The "we are wrong if" check
-- Did they get an answer on the first call or message? No. Two calls, two nurses, no call back.
-- Can they recall a specific time they needed the doctor between visits? Yes, the water tablet change, three weeks ago.
+**2. Walk me through the last time you had to go to the doctor, from when you decided to go until you left the hospital.**
+His medication was changed, he gained 2 kg and had swollen ankles. He called the ward twice without getting an answer, then went in without an appointment on Monday.
 
-## What they do about it today
-- Calls the ward and leaves his name with whichever nurse answers.
-- If nothing by the next day, adjusts the dose himself or waits for the next scheduled visit, depending on how scared he is.
-- Showed us the notebook where he writes his weight each morning. The ward gave him the notebook.
+**3. How long did it take you to get to the hospital that day?**
+About 3 hours including the drive and waiting. His daughter drove him.
 
-## Did this support or weaken the hypothesis?
-Supports it, and adds something: the hospital itself asks him to call with a specific trigger and then has no way to take the call (quote 1). The self-dosing in quote 2 is the cost. On the unpicked beliefs: his scheduled visits are quick and he does not mind the wait, so "waiting at the clinic" is not his problem.
+**4. How long did it take you to wait in the waiting hall until you saw the doctor?**
+About 1.5 hours.
 
-## Asker's green and red
-- Green: "What did you do on the Saturday?" Silence, then the tablet-cutting came out. He had skipped it in the first telling.
-- Red: "Would it help if you could message the doctor directly?" He said "of course." Solution-shaped, not usable.
+**5. Tell me about the last time you had to wait a long time to see a doctor.**
+That Monday. He waited 1.5 hours, while the doctor only needed about 5 minutes to see him.
 
-## Who else they told us to talk to
-- A man he sits next to on check-up days, also every two weeks, "same story." Jumber to ask his sister to pass on a message.
+**6. Tell me about the last time you had difficulty getting an appointment with a doctor.**
+He called the ward twice but nobody called him back, so he eventually went without an appointment.
 
-## Raw notes
-- water tablet changed ~3 wks ago. ankles + 2kg in 2 days. ward said call if +2kg
-- Thu called ward. nurse, "on rounds," took name. nothing
-- Fri called again. diff nurse. "Mon, doc not here Fri PM"
-- weekend cut tablet in half himself
-- Mon daughter drove. no appt. corridor ~1.5h. doc 5 min standing. full dose + 2nd tablet
-- daughter half day off
-- weight notebook from ward, showed it
-- 2-weekly visits fine, "they know me". between is the problem
-- neighbour on check-up days, same thing. via sister
+**7. What did you have to do while waiting to see the doctor?**
+Wait in the ward corridor.
+
+**8. What did the last hospital visit cost you in terms of your time or other things you had to give up?**
+About 3 hours of time, and his daughter had to take a half day off work.
+
+**9. Tell me about the busiest day you have experienced at a hospital.**
+Not discussed. His regular two-weekly visits are fine; the problem is getting help between visits.
+
+## Close
+
+**17. Thinking about everything we've talked about, is there anything important about dealing with doctors or hospitals that I didn't ask about?**
+His regular visits are fine. The difficult part is getting help between visits.
+
+**18. Who else should we talk to about this?**
+Another man he sees at the hospital who comes every two weeks and has "the same story."
+
+**19. Could we come back when we have something to show you?**
+Not recorded.
+
+## Follow-up bank
+
+* **And then what happened?** — He eventually went to the hospital without an appointment.
+* **Why was that a problem?** — He could not get an answer from the ward.
+* **When was the last time that happened?** — Three weeks ago.
+* **What did you do?** — Called twice, then went to the hospital.
+* **How long did it take?** — About 1.5 hours waiting.
+* **How many times did that happen?** — 2 calls.
+* **Can you show me?** — Showed his weight notebook.
