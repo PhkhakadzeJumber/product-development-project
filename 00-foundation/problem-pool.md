@@ -66,9 +66,9 @@ COST I can name: half a day and a taxi fare each month, sometimes twice when the
 
 ```
 AUTHOR: Giorgi Phurtseladze
-WHO I watched: my brother, who rents out two guest rooms in our family house in Kutaisi
-STRUGGLE I saw: he gets bookings from Booking, Facebook and phone calls, and keeps track of them in a paper notebook
-COST I can name: two double bookings this summer, one of which meant refunding a guest and a bad review
+WHO I watched: my neighbour, old lady Nani, who wanted to get doctors appointment in Baghdati
+STRUGGLE I saw: She did not know when specialist doctor would visit our town or any neighbouring town, and she couldnt travel to Tbilisi for it.
+COST I can name: Time she spent waiting for the specialist doctor she needed while having the health problem
 ```
 
 ```
@@ -80,9 +80,9 @@ COST I can name: five visits, a week of delay, and she submitted the application
 
 ```
 AUTHOR: Giorgi Phurtseladze
-WHO I watched: my uncle, who runs a small furniture workshop outside Kutaisi
-STRUGGLE I saw: he quotes prices by phone from memory, then recalculates material costs on paper once the customer agrees, and the numbers often don't match
-COST I can name: he says he underquotes about one job in five and eats the difference, roughly 100 to 300 GEL each time
+WHO I watched: my aunt, who was the doctor at Kutaisi Central Hospital
+STRUGGLE I saw: she couldnt handle stressfull environmet at the hospital, because of a great number of patients and a low number of colleagues being there daily
+COST I can name: she wants to quit her job, because she no longer enjoyes working long hours there
 ```
 
 ## The quality bar
