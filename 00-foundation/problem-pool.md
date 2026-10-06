@@ -33,16 +33,15 @@ COST I can name: he had to redo the lost work and spent more than an hour sortin
 ```
 AUTHOR: Jumber Pkhakadze
 WHO I watched: my sister, during her internship at a large hospital in Kutaisi
-STRUGGLE I saw: nurses on her ward write patient temperatures and pressure on paper sheets, then one of them retypes everything into the computer at the end of the shift
+STRUGGLE I saw: nurses on her ward write patient's current information on the paper, then one of them retypes everything into the computer at the end of the shift
 COST I can name: around an hour of her shift every day, and one evening a value was typed wrong and the doctor had to be called back
 ```
 
 ```
 AUTHOR: Jumber Pkhakadze
-WHO I watched: a close friend from my year who is unhappy with how he looks and has been considering a cosmetic procedure
-STRUGGLE I saw: before deciding, he spent evenings comparing photos of other people's results and asking us whether it would suit him, because he had no way to try a change on his own face first, whether a small one or a version of himself that looks completely different
-COST I can name: one paid consultation at 120 GEL and a second free one at another clinic, and he still postponed the decision because he could not picture the result
-```
+WHO I watched: close friend's mother, who struggled with serious health issues and had to visit a doctor once every 3 weeks
+STRUGGLE I saw: she had to pay for the visit every time she went there to have some tests taken and current state checked
+COST I can name: one consultation with those tests costed around 150 GEL 
 
 ```
 AUTHOR: Beka Shekiladze
