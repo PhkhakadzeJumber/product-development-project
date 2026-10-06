@@ -13,8 +13,8 @@ Accountabilities below say who makes sure something happens. They do not say who
 |---|---|---|---|
 | Beka Shekiladze | @beka-169 | Discovery: interview quality, synthesis | Luka S, a startup owner, who has experience in frequently interviewing lots of different people and finding out problems they deal with connected to his startup |
 | Jumber Pkhakadze | @PhkhakadzeJumber | Build: repo, code | David K, who has the experience of vibe coding an entire app without understanding the structure and the code and not doing as well at the presentation day |
-| Giorgi Phurtseladze | @mr-irrational | planning, code, management| Zura, my neighbour on the 3rd floor, diabetic, who sees the same endocrinologist at a public clinic every month |
-| Luka Mikautadze | @LuDeVing | code, CI, deployment | Giorgi T, a classmate whose project ran fine locally but broke on deployment the night before demo day, with no CI to catch it |
+| Giorgi Phurtseladze | @mr-irrational | planning, code, management| Zura, my neighbour on the 3rd floor, diabetic, who sees the same cardiologist at a public clinic every month |
+| Luka Mikautadze | @LuDeVing | code, CI, deployment | An acquaintance, a general practitioner at a public polyclinic in Kutaisi, who takes patients without an appointment in the gaps between booked ones and leaves hours after his shift ends |
 
 Teams of 2: each person carries one and a half accountabilities. Write which.
 

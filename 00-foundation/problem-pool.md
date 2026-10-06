@@ -11,9 +11,9 @@ COST I can name: Patients lose several hours of their day waiting, while the cro
 
 ```
 AUTHOR: Luka Mikautadze
-WHO I watched: the driver of the Kutaisi to Tbilisi bus I take, who takes seat reservations on his own phone
-STRUGGLE I saw: he answered booking calls while driving and wrote the names on a scrap of paper, and at the station two passengers who had both called ahead argued over the last seat
-COST I can name: one passenger was left behind to wait for the next departure, and he takes calls at the wheel on every trip
+WHO I watched: an acquaintance who works as a general practitioner at a public polyclinic in Kutaisi
+STRUGGLE I saw: patients without an appointment kept coming to his door with short questions, so he saw them in the gaps between booked patients and every booked appointment started late
+COST I can name: he left about two hours after his shift ended, with no lunch break, and wrote the last patients' notes the next morning
 ```
 
 ```
@@ -42,6 +42,7 @@ AUTHOR: Jumber Pkhakadze
 WHO I watched: close friend's mother, who struggled with serious health issues and had to visit a doctor once every 3 weeks
 STRUGGLE I saw: she had to pay for the visit every time she went there to have some tests taken and current state checked
 COST I can name: one consultation with those tests costed around 150 GEL 
+```
 
 ```
 AUTHOR: Beka Shekiladze

@@ -1,6 +1,6 @@
 # Interview log: Gocha, heart patient seen every two weeks on the ward
 
-**We are wrong if:** people tell us they saw their doctor and left the hospital, having their time spent efficiently, or cannot remember a time they had to wait for hours until their turn came for the appointment.
+**We are wrong if:** patients generally get appointments easily, reach the hospital without significant difficulty, see their doctor without long waits, and do not feel that the process takes too much of their time. We are also wrong if doctors generally do not experience large numbers of patients as stressful or disruptive to their work.
 
 **Date:** 05.10.2026 · **Asker:** Jumber · **Logger(s):** Luka, Beka · **Where / how:** in person, hospital café after his check-up · **Length:** about 30 minutes
 **Who they are:** about 60, heart failure, comes to the ward every two weeks for a check and bloods. Same two doctors for over a year. Introduced by Jumber's sister, who interns on the ward. Not in this course. Spoke Georgian, translated by Jumber.

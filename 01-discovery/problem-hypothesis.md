@@ -11,17 +11,19 @@ Commit it **before your first real interview**. The commit date is your proof.
 | Giorgi Phurtseladze | People with a chronic illness have no way to ask their own doctor a small question between visits, so a two-minute question turns into a trip to the clinic |
 
 ## Step 2: The hypothesis we test first
-> **We believe** people like Gela, 56, who have a long-running illness and one regular doctor at a public clinic
-> **struggle with** getting an answer from that doctor between visits
-> **when** a question comes up a day or two after a visit (a new symptom, a medicine, a test result) and they call the clinic
-> **which costs them** several calls and several trips to the clinic for a single answer
-> **Today they** keep calling until someone picks up, then go in person and wait to be seen
-> **We are wrong if** people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits
+Revised 06.10.2026 together with the interview script. The first version tested getting an answer from the doctor between visits; that belief is now in Step 3.
+
+> **We believe** people like Gela, 56, who have a long-running illness and one regular doctor at a public clinic far from home
+> **struggle with** the time a single visit takes: getting an appointment, travelling to the clinic and waiting to be seen, while the doctor works through more patients than the day has room for
+> **when** the day of the visit comes and they arrive to a corridor already full of patients
+> **which costs them** half a day for a few minutes with the doctor, and sometimes a relative's working day too
+> **Today they** go anyway and wait, come without an appointment when they cannot get one that fits, or leave without being seen
+> **We are wrong if** patients generally get appointments easily, reach the hospital without significant difficulty, see their doctor without long waits, and do not feel that the process takes too much of their time. We are also wrong if doctors generally do not experience large numbers of patients as stressful or disruptive to their work.
 
 ## Step 3: The beliefs we did not pick
 Each one becomes at least one question in your interview script, so you still hear about it.
-- The real pain is the hours spent waiting at the hospital, not the unanswered question → script question 6
-- The real pain is getting an appointment at all, not what happens after it → script question 7
+- The real pain is getting an answer from the doctor between visits, not the visit itself → script questions 2 and 6 (why they came without an appointment) and question 17
+- The real pain is having to show up in person for something that needs no examination, like a repeat prescription → script questions 1 and 2
 
 ## Checks before you commit
 - [x] No product words (app, platform, tool, AI, bot)
@@ -30,4 +32,4 @@ Each one becomes at least one question in your interview script, so you still he
 - [x] The "we are wrong if" line is copied to the top of your script and your log template
 
 ## After interviews (fill in Week 3)
-**Verdict:** confirmed (06.10.2026) · **Evidence:** four real interviews, none got an answer on the first call and all four named a specific time they needed the doctor between visits. [Luka's acquaintance](interview-logs/2026-10-06-acquaintance-clinic-patient.md): 5 or 6 calls over 2 days. [Gocha](interview-logs/2026-10-05-gocha-heart-patient-ward.md): 2 calls, no call back, one unplanned trip, cut his tablet in half. [Zura](interview-logs/2026-10-05-zura-diabetic-monthly-endocrinologist.md): 6 calls over 3 days, call log shown, one unplanned 4 hour trip, took half an old tablet. [Beka's grandmother](interview-logs/2026-10-05-beka-grandmother-blood-pressure-prescription.md): 1 call, no answer, stopped her pills for a weekend, waited 10 days; half a yes, since she does not see calling as an option at all. Scored in the [Four Filters scorecard](../00-foundation/four-filters-scorecard.md). Recorded in `DECISIONS.md`.
+**Verdict:** confirmed, with one caveat (06.10.2026) · **Evidence:** four real interviews, three patients and one doctor. All three patients described a wait of 1.5 to 2 hours on their last difficult visit, and the doctor described the same day from the other side. [Gocha](interview-logs/2026-10-05-gocha-heart-patient-ward.md): about 1.5 hours in the ward corridor for about 5 minutes with the doctor, about 3 hours in total, and his daughter took a half day off work. [Beka's grandmother](interview-logs/2026-10-05-beka-grandmother-blood-pressure-prescription.md): several tries to find an appointment that fit, about an hour each way by bus, about two hours of waiting with an appointment, and she left without seeing the doctor. [Zura](interview-logs/2026-10-05-zura-diabetic-monthly-cardiologist.md): forty minutes by bus, about two hours in the corridor for three minutes with the doctor, about four hours door to door and a lost shop morning. [Luka's acquaintance, a polyclinic doctor](interview-logs/2026-10-06-acquaintance-polyclinic-doctor.md): 22 booked patients and 9 more without an appointment on his last bad Monday, appointments cut from about 15 minutes to under 10, and he left about two hours late. The caveat: Gocha and Zura only waited that long because they came without an appointment, and both came that way because their calls went unanswered. With an appointment Zura waits twenty to thirty minutes and calls it normal, and Gocha says his regular visits are fine. Scored in the [Four Filters scorecard](../00-foundation/four-filters-scorecard.md). Recorded in `DECISIONS.md`.
