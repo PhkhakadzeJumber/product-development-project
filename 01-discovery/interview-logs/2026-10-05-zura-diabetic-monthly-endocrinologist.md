@@ -1,16 +1,16 @@
-# Interview log: Zura, diabetic seen once a month by one endocrinologist at a polyclinic
+# Interview log: Zura, diabetic seen once a month by one cardiologist at a polyclinic
 
 **We are wrong if:** people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits.
 
 **Date:** 05.10.2026 · **Asker:** Giorgi · **Logger(s):** Beka, Jumber · **Where / how:** in person, his flat · **Length:** not recorded, with tea
-**Who they are:** diabetic for six or seven years, same endocrinologist at a public polyclinic once a month. Keeps a sugar diary, she checks it and writes the prescription. Runs a shop. Giorgi's neighbour. Not in this course. Spoke Georgian, translated by Giorgi.
+**Who they are:** diabetic for four or five years, same cardiologist at a public polyclinic once a month. Keeps a sugar diary, she checks it and writes the prescription. Runs a shop. Giorgi's neighbour. Not in this course. Spoke Georgian, translated by Giorgi.
 
 ## What happened (their story, in order)
-- In August the endocrinologist swapped his tablet for a new one. He took it in the morning and by eleven he was shaking and sweating. He measured 3.4.
+- In August the cardiologist swapped his tablet for a new one. He took it in the morning and by eleven he was shaking and sweating. He measured 3.4.
 - He ate something, then phoned the clinic. It rang, nobody picked up. He called again after lunch. Reception said the doctor was seeing patients and to call tomorrow.
 - Day two he called in the morning. Reception said the doctor was in but busy, leave your number. Nobody called back. He took the tablet again and the same thing happened at eleven.
 - Day three he did not take the new tablet. He took half of the old one from the drawer. He called again and reception said, "Why do you keep calling, come in if it's urgent." So he went.
-- Marshrutka, forty minutes. No appointment, so he sat in the corridor outside her room for about two hours, waiting for a gap between booked patients. She looked at the diary, said the dose was too high for him, wrote half a tablet. Three minutes.
+- Bus, forty minutes. No appointment, so he sat in the corridor outside her room for about two hours, waiting for a gap between booked patients. She looked at the diary, said the dose was too high for him, wrote half a tablet. Three minutes.
 - Left at nine, home by one. He did not open the shop that morning.
 - While waiting for a call back he also asked reception for the doctor's mobile (they don't give it), asked his daughter to look on the internet (nothing useful), and asked the nurse on the fifth floor (she would not comment on his dose).
 - In the spring he had a test result with a number he did not understand. That one he just waited for the monthly visit. "It wasn't urgent."
@@ -46,7 +46,7 @@ Supports it. Six calls, three days, no call back, then a four-hour unplanned tri
 - Red: "Would it help if you could just message her when something like the tablet happens?" He said "of course it would help, who wouldn't want that." Solution-shaped, not usable.
 
 ## Who else they told us to talk to
-- Dato, same endocrinologist, "we were in the same ward years ago, he'll talk, he likes to talk." Zura is passing on Giorgi's number. Giorgi follows up.
+- Dato, same cardiologist, "we were in the same ward years ago, he'll talk, he likes to talk." Zura is passing on Giorgi's number. Giorgi follows up.
 - He said we can come back when we have something to show him.
 
 ## Raw notes
