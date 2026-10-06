@@ -52,9 +52,9 @@ COST I can name: 10 to 20 interruptions a day, and last month a customer waited 
 
 ```
 AUTHOR: Beka Shekiladze
-WHO I watched: my groupmate Mariam, who leads our project team in the databases course
-STRUGGLE I saw: she sends the task list in the group chat, it gets buried under memes, and by Friday nobody remembers who agreed to do what
-COST I can name: two tasks done twice and one not done at all before the last deadline
+WHO I watched: my cousin, who is a first-year student and shares a rented flat with three other students
+STRUGGLE I saw: at the end of each month they split the electricity, internet and water bills over a group chat, and because nobody wrote down who paid what, they argue about who already transferred money and who still owes
+COST I can name: about an hour of arguing every month, and twice one roommate ended up paying 30 GEL extra before it was noticed
 ```
 
 ```
