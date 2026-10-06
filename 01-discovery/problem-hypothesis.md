@@ -6,7 +6,7 @@ Commit it **before your first real interview**. The commit date is your proof.
 | Teammate | What I believe the real problem is |
 |---|---|
 | Luka Mikautadze | Ill people cannot get a quick answer from their doctor between visits, so they keep calling or go back in person |
-| Jumber Pkhakadze | Patients lose two to four hours waiting at the hospital before they can see their doctor (from his pool statement) |
+| Jumber Pkhakadze | Patients lose two to four hours waiting at the hospital before they can see their doctor |
 | Beka Shekiladze | Older patients with a standing treatment have to show up at the clinic for things that need no examination, like a repeat prescription or a yes/no question, and often leave without it |
 | Giorgi Phurtseladze | People with a chronic illness have no way to ask their own doctor a small question between visits, so a two-minute question turns into a trip to the clinic |
 
