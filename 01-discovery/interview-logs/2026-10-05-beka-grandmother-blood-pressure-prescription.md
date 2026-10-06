@@ -1,53 +1,59 @@
 # Interview log: Beka's grandmother, monthly blood pressure prescription at a clinic
 
-**We are wrong if:** people tell us they got their answer on the first call or message, or cannot remember a time they needed their doctor between visits.
+*We are wrong if:* people tell us they can easily get appointments, know when they will actually see their doctor, and do not have to spend significant time waiting.
 
-**Date:** 05.10.2026 · **Asker:** Beka · **Logger(s):** Giorgi · **Where / how:** in person, her flat · **Length:** about 35 minutes, with tea
-**Who they are:** 72, hypertension, same prescription for years, same family doctor at a district clinic. Beka's grandmother. Not in this course. Spoke Georgian, translated by Beka. Giorgi watched for places where Beka answered for her.
+*Date:* 05.10.2026 · *Asker:* Beka · *Logger(s):* Giorgi · *Where / how:* in person, her flat · *Length:* about 35 minutes, with tea
 
-## What happened (their story, in order)
-- Every month she goes to the clinic in person to get the same prescription renewed. The doctor is there three days a week. Twice this year she went on a day the doctor was out and had to come back.
-- Asked about a time she needed the doctor between visits, she first said "no, I just go every month." Beka waited. Then she remembered: in the spring the pharmacy gave her a different brand of the same pill and she felt dizzy in the afternoons.
-- She phoned the clinic. Reception said the doctor was not in that day and would not give a mobile number.
-- She stopped the pills for the weekend "to be safe." Her neighbour, a retired nurse, told her to start again.
-- She asked the doctor at the next monthly visit, about ten days later. The doctor said the dizziness was normal for the first week and to keep taking them.
+*Who they are:* 72, hypertension, same prescription for years, same family doctor at a district clinic. Beka's grandmother. Not in this course. Spoke Georgian, translated by Beka. Giorgi watched for places where Beka answered for her.
 
-## Verbatim quotes (at least 3, word for word, written as they were said, not reconstructed afterwards)
-1. "I don't call them. What for? I go on the day and I see her."
-2. "They don't give you her number. The girl at reception, she knows nothing."
-3. "I stopped them for the Saturday and Sunday. Nino next door told me I was being silly."
-4. "I asked her when I went for the prescription. It was fine by then."
+## Warm-up
 
-## Numbers they gave
-- Calls: 1 · Days: about 10, until the next scheduled visit · Trips: 0 extra for the dizziness; 2 wasted trips this year for the prescription when the doctor was out · Time per trip: about an hour each way by bus · Waiting: 30 to 40 minutes "if she is there" · Money: bus fare, "nothing"
-- Pushed on calls: "One. Maybe I tried again, I don't remember."
+*1. How often do you usually need to visit a doctor or hospital?*
+Every month to renew her blood pressure prescription.
 
-## The "we are wrong if" check
-- Did they get an answer on the first call or message? No, but she only called once and then waited for the scheduled visit rather than trying again.
-- Can they recall a specific time they needed the doctor between visits? Yes, the brand change, but only after a long pause and a second prompt. Her first answer was that she never needs to.
+## Core
 
-## What they do about it today
-- Does not call. Waits for the monthly visit, or asks the retired nurse next door.
-- Stopped medication on her own once. Showed us the two different pill boxes, still in the drawer.
+*2. Walk me through the last time you had to go to the doctor, from when you decided to go until you left the hospital.*
+She needed to renew her prescription, had difficulty finding a suitable appointment, and eventually went to the clinic. Another patient was already with the doctor, so she waited about two hours before leaving without seeing the doctor.
 
-## Did this support or weaken the hypothesis?
-Mixed. The brand-change story supports it: one call, no answer, no number, stopped the pills (quotes 2 and 3). But her own framing weakens it: she does not see calling as an option at all (quote 1) and the question was not urgent to her by the time she asked. Her real pain is the prescription trip on days the doctor is out, which belongs under the belief we did not pick. Count this as half a yes.
+*3. How long did it take you to get to the hospital that day?*
+About an hour each way by bus.
 
-## Asker's green and red
-- Green: waiting after "I just go every month." About ten seconds of silence brought out the dizziness story unprompted.
-- Red: "But remember when you were dizzy, you were worried, right?" Beka supplied the memory and the feeling. Giorgi flagged it. Her "yes" is not usable; the details that followed are, because she gave those herself.
+*4. How long did it take you to wait in the waiting hall until you saw the doctor?*
+She waited about two hours but eventually left without seeing the doctor.
 
-## Who else they told us to talk to
-- Nino, retired nurse next door, "half the building asks her instead of the clinic." Beka to ask at the next Sunday lunch.
+*5. Tell me about the last time you had to wait a long time to see a doctor.*
+This visit. She had an appointment but waited about two hours because another patient was still with the doctor.
 
-## Raw notes
-- monthly prescription in person. doc 3 days/wk. 2x this year came on wrong day, went home
-- "I don't call. what for?"
-- pause. spring: pharmacy diff brand, dizzy afternoons
-- called 1x. "doc not in." no mobile number. "reception girl knows nothing"
-- stopped pills Sat Sun. neighbour Nino (ret nurse) said restart
-- asked at next monthly ~10 days later. doc: normal first week
-- B led: "you were worried right" - flagged
-- 2 pill boxes in drawer, showed
-- bus ~1h each way. wait 30-40 if she's there
-- Nino: half the building asks her
+*6. Tell me about the last time you had difficulty getting an appointment with a doctor.*
+She had difficulty finding an appointment that fit her schedule and had to try several times.
+
+*7. What did you have to do while waiting to see the doctor?*
+She waited in the clinic until she had to leave for something else.
+
+*8. What did the last hospital visit cost you in terms of your time or other things you had to give up?*
+She lost about two hours waiting and had to leave before seeing the doctor because she had somewhere else to be.
+
+*9. Tell me about the busiest day you have experienced at a hospital.*
+She did not describe a particular busiest day, but said that sometimes there are already several patients waiting when she arrives.
+
+## Close
+
+*17. Thinking about everything we've talked about, is there anything important about dealing with doctors or hospitals that I didn't ask about?*
+She said that having an appointment does not necessarily mean she knows when she will actually see the doctor.
+
+*18. Who else should we talk to about this?*
+A neighbour who also visits the same clinic and has experienced long waits.
+
+*19. Could we come back when we have something to show you?*
+Not recorded.
+
+## Follow-up bank
+
+* *And then what happened?* — She waited about two hours and eventually left.
+* *Why was that a problem?* — She had somewhere else to be.
+* *When was the last time that happened?* — During her most recent clinic visit.
+* *What did you do?* — Left and had to arrange another visit.
+* *How long did it take?* — About two hours waiting.
+* *How many times did that happen?* — Several attempts to find a suitable appointment; one two-hour wait was described.
+* *Can you show me?* — Not recorded.
