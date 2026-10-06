@@ -20,4 +20,4 @@ See DECISIONS.md for every product decision and the evidence behind it.
 - [ ] Hypothesis verdict (confirmed / weakened / killed) in `DECISIONS.md` after scoring, with links to the logs.
 - [ ] Script audit by another team in lab, every red fixed before the script is called v1.
 - [ ] Jumber logs one interview (Sunday, Zura).
-- [ ] Everyone watches the Week 3 recording before lab.
+- [x] Everyone watched the Week 3 recording before lab.
