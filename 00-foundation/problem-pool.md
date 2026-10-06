@@ -11,9 +11,9 @@ COST I can name: Patients lose several hours of their day waiting, while the cro
 
 ```
 AUTHOR: Luka Mikautadze
-WHO I watched: Giorgi T, a classmate, the night before demo day
-STRUGGLE I saw: his project ran fine locally but broke on deployment, with no CI to catch it
-COST I can name: he lost hours that night trying to fix it, and the demo still went badly the next day
+WHO I watched: the driver of the Kutaisi to Tbilisi bus I take, who takes seat reservations on his own phone
+STRUGGLE I saw: he answered booking calls while driving and wrote the names on a scrap of paper, and at the station two passengers who had both called ahead argued over the last seat
+COST I can name: one passenger was left behind to wait for the next departure, and he takes calls at the wheel on every trip
 ```
 
 ```
@@ -25,9 +25,9 @@ COST I can name: several calls and several trips to get one answer
 
 ```
 AUTHOR: Luka Mikautadze
-WHO I watched: a friend outside this course, working on a shared code repository with his teammates
-STRUGGLE I saw: he and a teammate pushed changes to the same files, the merge conflict wiped out part of his work
-COST I can name: he had to redo the lost work and spent more than an hour sorting it out instead of moving the project forward
+WHO I watched: a neighbour who bakes birthday cakes at home and takes orders through Instagram and Facebook messages
+STRUGGLE I saw: each order's date, flavour and inscription sat somewhere in a long chat, so she scrolled back through messages to find them, and one confirmed order was missed until the customer wrote on the pickup day
+COST I can name: one refunded order and an unhappy customer, plus time every evening re-reading chats to plan the next day
 ```
 
 ```
