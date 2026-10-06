@@ -23,4 +23,4 @@ See DECISIONS.md for every product decision and the evidence behind it.
 - [x] Everyone watched the Week 3 recording before lab.
 - [ ] Beka, Giorgi and Luka each make one commit to their own `members/<github-username>/pattern-journal.md` from their own account. The files exist with drafted Week 1 and Week 2 entries, but they were committed from Luka's account, so each person still has to push to theirs. This is the proof that everyone can push.
 - [x] All four read their drafted Week 1 and Week 2 entries and confirmed them.
-- [ ] Luka is logger on someone else's interview. He asked and logged the same one, and Homework 1 needs ask in one, log a different one. Next candidates in the tracker: Gocha's neighbour, Nino, Dato.
+- [x] Everyone asked in one interview and logged a different one. Luka asked the acquaintance, logged Gocha. Jumber asked Gocha, logged Zura. Beka asked his grandmother, logged Gocha and Zura. Giorgi asked Zura, logged the grandmother.
