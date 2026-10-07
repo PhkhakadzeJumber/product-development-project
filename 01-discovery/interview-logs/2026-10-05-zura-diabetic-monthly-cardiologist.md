@@ -1,8 +1,8 @@
 # Interview log: Zura, diabetic seen once a month by one cardiologist at a polyclinic
 
-**We are wrong if:** patients generally get appointments easily, reach the hospital without significant difficulty, see their doctor without long waits, and do not feel that the process takes too much of their time. We are also wrong if doctors generally do not experience large numbers of patients as stressful or disruptive to their work.
+**We are wrong if:** patients generally get appointments easily, reach the hospital without significant difficulty, see their doctor without long waits, and do not feel that the process takes too much of their time and financial effort. We are also wrong if doctors generally do not experience large numbers of patients as stressful or disruptive to their work.
 
-**Date:** 05.10.2026 · **Asker:** Giorgi · **Logger(s):** Beka, Jumber · **Where / how:** in person, his flat · **Length:** not recorded, with tea
+**Date:** 05.10.2026 · **Asker:** Giorgi · **Logger(s):** Beka, Jumber · **Where / how:** in person, his flat · **Length:** about 35 minutes, with tea
 **Who they are:** diabetic for four or five years, same cardiologist at a public polyclinic once a month. Keeps a sugar diary, she checks it and writes the prescription. Runs a shop. Giorgi's neighbour. Not in this course. Spoke Georgian, translated by Giorgi.
 
 ## Warm-up
@@ -13,19 +13,19 @@ Once a month, the same cardiologist at a public polyclinic.
 ## Core
 
 **2. Walk me through the last time you had to go to the doctor, from when you decided to go until you left the hospital.**
-In August the cardiologist swapped his tablet for a new one. He took it in the morning and by eleven he was shaking and sweating, and measured 3.4. He called the clinic six times over three days and nobody called back. On day three reception said, "Why do you keep calling, come in if it's urgent," so he went without an appointment. He sat in the corridor for about two hours, she looked at his diary, said the dose was too high for him and wrote half a tablet. Three minutes. He left home at nine and was back by one.
+In August the cardiologist swapped his tablet for a new one. He took it in the morning and by eleven he was shaking and sweating, and measured 3.4. He called the clinic, then went without an appointment on day three after reception told him to come in. Forty minutes by bus each way, about two hours in the corridor, three minutes with the doctor for a half-tablet correction. Left home at nine, back by one.
 
 **3. How long did it take you to get to the hospital that day?**
-Forty minutes by bus.
+Forty minutes by bus each way, 2 GEL each way.
 
 **4. How long did it take you to wait in the waiting hall until you saw the doctor?**
 About two hours in the corridor outside her room, waiting for a gap between booked patients.
 
 **5. Tell me about the last time you had to wait a long time to see a doctor.**
-That visit: about two hours for three minutes with the doctor. With an appointment he waits twenty to thirty minutes and calls that normal. The two hours only happen when he comes without one.
+That visit: about two hours for three minutes with the doctor. With an appointment he waits twenty to thirty minutes and calls that normal.
 
 **6. Tell me about the last time you had difficulty getting an appointment with a doctor.**
-Not with booking. The doctor books his next visit before he leaves, so he never calls to book. The difficulty was reaching her between visits: six calls over three days and no call back.
+Booking is fine — the doctor books his next visit before he leaves. This time the issue was reaching her between visits before coming in.
 
 **7. What did you have to do while waiting to see the doctor?**
 Sat in the corridor outside her room.
@@ -34,7 +34,7 @@ Sat in the corridor outside her room.
 About four hours door to door, 4 GEL for transport, and he did not open the shop that morning: "fifty, eighty lari I didn't make, who knows."
 
 **9. Tell me about the busiest day you have experienced at a hospital.**
-Not discussed.
+That same day. Corridor full, booked patients going in late.
 
 ## Close
 
@@ -52,8 +52,8 @@ Yes. He said we can come back when we have something to show him.
 * **And then what happened?** — She said the dose was too high for him and wrote half a tablet.
 * **Why was that a problem?** — "The tablet, you can't wait a month with 3.4."
 * **When was the last time that happened?** — August.
-* **What did you do?** — Called the clinic twice a day, took half of the old tablet from the drawer on day three, then went in.
-* **How long did it take?** — Three days from the first call to the answer, about four hours for the trip.
+* **What did you do?** — Called the clinic, took half of the old tablet from the drawer on day three, then went in.
+* **How long did it take?** — About four hours for the trip, forty minutes each way.
 * **How many times did that happen?** — First "many", then "six or seven, twice a day". The call log showed six.
 * **Can you show me?** — Showed the call log on his phone: six calls to the clinic number on the 18th, 18th, 19th, 19th, 19th and 20th.
 
@@ -65,18 +65,18 @@ Yes. He said we can come back when we have something to show him.
 5. "Only that the girl at reception decides everything. If she likes you, she passes the message. If not, nothing."
 
 ## Numbers they gave
-- Calls: 6 over 3 days · Days: 3 from first call to answer · Trips: 1 unplanned, by bus · Time per trip: about 4 hours door to door · Waiting: about 2 hours in the corridor · Money: 4 GEL transport plus a lost shop morning, "fifty, eighty lari I didn't make, who knows"
+- Calls: 6 over 3 days · Days: 3 from first call to answer · Trips: 1 unplanned, by bus · Time per trip: about 4 hours door to door · Travel: 40 min each way · Waiting: about 2 hours in the corridor · Money: 4 GEL transport plus a lost shop morning, "fifty, eighty lari I didn't make, who knows"
 - Pushed on calls: first "many", then "six or seven, twice a day". His call log showed six calls to the clinic number: 18th, 18th, 19th, 19th, 19th, 20th.
 - Sugar 3.4 on the first morning. Three minutes with the doctor once he got in.
 
 ## What they do about it today
-- Calls the clinic twice a day until reception tells him to come in.
+- Calls the clinic until reception tells him to come in.
 - Adjusts the dose himself from the old tablets in the drawer.
 - Tried three other routes for a faster answer: the doctor's mobile from reception (they don't give it), his daughter searching online (nothing useful), the nurse on the fifth floor (she would not comment on his dose).
 - A question that is not urgent waits for the monthly visit. In the spring he had a test result with a number he did not understand and waited. "It wasn't urgent."
 
 ## Did this support or weaken the hypothesis?
-Supports it for an unplanned visit: forty minutes by bus, about two hours in the corridor and four hours door to door for three minutes with the doctor, plus a lost shop morning. It weakens it for his regular monthly visit: with an appointment he waits twenty to thirty minutes and calls it normal, and the doctor books his next visit herself. He only came without an appointment because six calls over three days got no answer (quotes 1 and 2), which is the belief we did not pick.
+Supports the travel hero: forty minutes by bus each way, four hours door to door for three minutes with the doctor, plus a lost shop morning and 4 GEL. Wait is the consequence (2 hours for a gap). Appointment booking itself is fine.
 
 ## Asker's green and red
 - Green: "Three? Five? More?" turned "many" into "six or seven", and "Can you show me the calls on your phone?" turned that into six exact dates. Also the three seconds of silence after he mentioned the half tablet, which brought out "I know you shouldn't do that" and his wife shouting at him to go to the hospital.
@@ -89,7 +89,7 @@ Supports it for an unplanned visit: forty minutes by bus, about two hours in the
 - day 3 didn't take it. half old one from drawer. called: "why do you keep calling, come in if urgent"
 - "many" → 3? 5? more? → "six or seven, twice a day"
 - silence ~3s. "I know you shouldn't. sit and shake?" wife shouting go to hospital
-- bus 40 min. no appt. corridor ~2h, gaps between booked ppl. diary, "dose too high", half tablet. 3 min
+- bus 40 min each way. no appt. corridor ~2h, gaps between booked ppl. diary, "dose too high", half tablet. 3 min
 - left 9 home 1. shop closed that morning. 2 GEL each way. 50-80 lost
 - call log shown: 18, 18, 19, 19, 19, 20. six. matches
 - tried: mobile (refused), daughter internet (nothing), nurse 5th floor (won't say on dose)

@@ -46,9 +46,9 @@ COST I can name: one consultation with those tests costed around 150 GEL
 
 ```
 AUTHOR: Beka Shekiladze
-WHO I watched: my father, who owns a small car repair garage in Kutaisi
-STRUGGLE I saw: when a customer calls asking if their car is ready, he walks out to the yard to check, because nothing is written down about which car is at which stage
-COST I can name: 10 to 20 interruptions a day, and last month a customer waited two extra days because a finished car was simply forgotten
+WHO I watched: my father, when he needed to see a doctor at a public clinic in Kutaisi for his back pain
+STRUGGLE I saw: he called the clinic registry for three days to get an appointment and could not get through, then went there in person and was told the next free slot with his doctor was in two weeks
+COST I can name: three days of calling, one wasted trip to the clinic, and two weeks waiting in pain — plus a lost working day when he finally went
 ```
 
 ```
