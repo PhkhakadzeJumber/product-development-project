@@ -1,12 +1,12 @@
 import { get, post, patch, del } from "@/lib/api-client";
-import type { Appointment, AppointmentDetail, DoctorPublic, DoctorReviews, DoctorReview, Drug, Hospital, Prescription, Slot, Specialization, Token, TreatmentCase, Message } from "@/types/api";
+import type { Appointment, AppointmentDetail, DoctorContact, DoctorPublic, DoctorReviews, DoctorReview, Drug, Hospital, PatientProfile, Prescription, Slot, Specialization, TimelineConsultation, Token, TreatmentCase, Message, VisitDetailed } from "@/types/api";
 
 export const AuthApi = {
   login: (email: string, password: string) => post<Token>("/auth/login", { email, password }),
   registerPatient: (b: Record<string, unknown>) => post<Token>("/auth/register/patient", b),
   registerDoctor: (b: Record<string, unknown>) => post<Token>("/auth/register/doctor", b),
   registerAdmin: (b: Record<string, unknown>) => post<Token>("/auth/register/admin", b),
-  myProfile: () => get<{ avatar_url?: string | null; photo_url?: string | null }>("/auth/me/profile"),
+  myProfile: () => get<{ avatar_url?: string | null; photo_url?: string | null; hospital_id?: number | null }>("/auth/me/profile"),
   updateProfile: (b: Record<string, unknown>) => patch<{ avatar_url?: string | null; photo_url?: string | null }>("/auth/me/profile", b),
 };
 export const CatalogApi = {
@@ -42,6 +42,7 @@ export const SlotApi = {
 };
 export const AppointmentApi = {
   mine: () => get<Appointment[]>("/appointments/mine"),
+  mineDetailed: () => get<VisitDetailed[]>("/appointments/mine/detailed"),
   get: (id: number) => get<AppointmentDetail>(`/appointments/${id}`),
   book: (slot_id: number, reason?: string) => post<Appointment>("/appointments", { slot_id, reason }),
   cancel: (id: number, cancel_reason?: string) => post<Appointment>(`/appointments/${id}/cancel`, { cancel_reason }),
@@ -49,12 +50,22 @@ export const AppointmentApi = {
 };
 export const ClinicalApi = {
   createCase: (b: Record<string, unknown>) => post<TreatmentCase>("/treatment-cases", b),
+  updateCase: (id: number, b: Record<string, unknown>) => patch<TreatmentCase>(`/treatment-cases/${id}`, b),
   cases: (patient_id?: number) => get<TreatmentCase[]>(`/treatment-cases${patient_id ? `?patient_id=${patient_id}` : ""}`),
-  timeline: (id: number) => get<{ case: Record<string, unknown>; consultations: Record<string, unknown>[] }>(`/treatment-cases/${id}/timeline`),
+  myCases: () => get<TreatmentCase[]>("/treatment-cases/mine"),
+  timeline: (id: number) => get<{ case: Record<string, unknown>; consultations: TimelineConsultation[] }>(`/treatment-cases/${id}/timeline`),
   createConsultation: (b: Record<string, unknown>) => post<{ consultation_id: number }>("/consultations", b),
+  updateConsultation: (id: number, b: Record<string, unknown>) => patch<{ ok: boolean }>(`/consultations/${id}`, b),
   createPrescription: (b: Record<string, unknown>) => post<Prescription>("/prescriptions", b),
+  updatePrescription: (id: number, b: Record<string, unknown>) => patch<Prescription>(`/prescriptions/${id}`, b),
+  discontinuePrescription: (id: number, reason?: string) => post<Prescription>(`/prescriptions/${id}/discontinue`, { reason: reason || null }),
+  substitutePrescription: (id: number, b: Record<string, unknown>) => post<Prescription>(`/prescriptions/${id}/substitute`, b),
   myPrescriptions: () => get<Prescription[]>("/prescriptions/mine"),
   completePrescription: (id: number) => patch<{ ok: boolean }>(`/prescriptions/${id}/complete`),
+};
+export const ProfileApi = {
+  patient: (id: number) => get<PatientProfile>(`/patients/${id}/profile`),
+  doctorContact: (id: number) => get<DoctorContact>(`/doctors/${id}/contact`),
 };
 export const FeedbackChatApi = {
   review: (appointment_id: number, rating: number, comment?: string) => post<{ review_id: number }>("/reviews", { appointment_id, rating, comment: comment || null }),

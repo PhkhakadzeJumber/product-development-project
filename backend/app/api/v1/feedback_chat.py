@@ -46,6 +46,8 @@ def get_review(appointment_id: int | None = None, db: Session = Depends(get_db),
     if not r:
         return None
     role = UserRole(user.role)
+    if role == UserRole.HOSPITAL_ADMIN:
+        raise HTTPException(403, "Admins cannot view reviews")
     if role == UserRole.PATIENT and r.patient_id != user.user_id:
         raise HTTPException(403, "Not your review")
     if role == UserRole.DOCTOR and r.doctor_id != user.user_id:

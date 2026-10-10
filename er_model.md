@@ -15,6 +15,8 @@ erDiagram
     REGION ||--o{ HOSPITAL : "located in"
     REGION ||--o{ PATIENT : "lives in"
     HOSPITAL ||--o{ DOCTOR : employs
+    HOSPITAL ||--o{ DOCTOR_HOSPITAL : "employs via"
+    DOCTOR ||--o{ DOCTOR_HOSPITAL : "works in"
     HOSPITAL ||--o{ HOSPITAL_ADMIN : "administered by"
     SPECIALIZATION ||--o{ DOCTOR : "classifies"
 
@@ -66,7 +68,7 @@ erDiagram
     USER_ACCOUNT {
         int user_id PK
         string email
-        string phone
+        string phone "required at registration"
         string password_hash
         enum role
         bool is_active
@@ -89,7 +91,7 @@ erDiagram
     }
     DOCTOR {
         int doctor_id PK,FK
-        int hospital_id FK
+        int hospital_id FK "primary hospital"
         int specialization_id FK
         string first_name
         string last_name
@@ -97,13 +99,19 @@ erDiagram
         string qualifications
         int years_of_experience
         string license_number
-        string photo_url
+        string photo_url "null until file upload lands; UI shows initials"
         bool is_active
+    }
+    DOCTOR_HOSPITAL {
+        int doctor_id PK,FK
+        int hospital_id PK,FK
     }
     HOSPITAL_ADMIN {
         int admin_id PK,FK
         int hospital_id FK
-        string full_name
+        string first_name
+        string last_name
+        string full_name "compat, First + Last"
     }
     DOCTOR_PERFORMANCE {
         int doctor_id PK,FK
@@ -183,11 +191,27 @@ erDiagram
         string dosage
         string frequency
         string route
-        date start_date
-        date end_date
+        date start_date "required, defaults to today"
+        date end_date "optional, NULL = ongoing until doctor updates"
+        string duration_note "human text, e.g. for about a month"
         string instructions
+        string discontinue_reason
+        int supersedes_id FK "substitute chain, self-ref"
         enum status
         timestamp completed_at
+    }
+    NOTIFICATION_OUTBOX {
+        int notification_id PK
+        string channel "EMAIL | SMS"
+        string recipient
+        string subject
+        string body "minimal: drug + schedule + doctor, no exam notes"
+        string status "PENDING | SENT | LOGGED | SKIPPED | FAILED"
+        int prescription_id FK
+        int patient_id
+        string error
+        timestamp created_at
+        timestamp sent_at
     }
     CONVERSATION {
         int conversation_id PK

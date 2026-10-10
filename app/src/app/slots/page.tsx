@@ -1,9 +1,9 @@
 "use client";
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { SlotApi, DoctorApi, AppointmentApi } from "@/lib/api";
+import { SlotApi, DoctorApi, AuthApi } from "@/lib/api";
 import { ApiError } from "@/lib/api-client";
+import { RoleGate } from "@/components/RoleGate";
 import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill, EmptyState, ConfirmModal, inputCls } from "@/components/ui";
 import { dayKey, fmtDay, timeKey } from "@/lib/format";
@@ -30,13 +30,26 @@ function diffMinutes(start: string, end: string): number | null {
 }
 
 export default function AdminSlotsPage() {
+  return <RoleGate allow={["HOSPITAL_ADMIN"]}><AdminSlotsInner /></RoleGate>;
+}
+
+function AdminSlotsInner() {
   const [doctorId, setDoctorId] = useState("");
-  const { data: doctors } = useQuery({ queryKey: ["doctors-all"], queryFn: () => DoctorApi.list() });
+  // Admins manage only their own hospital: the doctor picker is loaded
+  // pre-filtered server-side, never the full cross-hospital directory.
+  const { data: me, isLoading: meLoading, isError: meError } = useQuery({
+    queryKey: ["my-profile"], queryFn: AuthApi.myProfile,
+  });
+  const hospitalId = me?.hospital_id ?? null;
+  const { data: doctors } = useQuery({
+    queryKey: ["doctors-own-hospital", hospitalId],
+    queryFn: () => DoctorApi.list(hospitalId!),
+    enabled: hospitalId != null,
+  });
   const { data: slots } = useQuery({
     queryKey: ["admin-slots", doctorId], queryFn: () => SlotApi.list(doctorId ? Number(doctorId) : undefined),
     enabled: !!doctorId,
   });
-  const { data: appts } = useQuery({ queryKey: ["admin-appointments"], queryFn: AppointmentApi.mine });
   const [form, setForm] = useState({ start_time: "", end_time: "", consultation_mode: "IN_PERSON" });
   const [createErr, setCreateErr] = useState("");
   const [createdId, setCreatedId] = useState<number | null>(null);
@@ -80,6 +93,10 @@ export default function AdminSlotsPage() {
   return <div className="space-y-6">
     <div><h1 className="text-3xl font-bold">Slots manager</h1>
     <p className="text-slate-500 mt-1">Pick a doctor, see the Teams-style week grid, add or remove times.</p></div>
+    {(meError || (!meLoading && hospitalId == null)) && (
+      <Card><EmptyState title="Could not load your hospital"
+        hint="Doctors stay hidden until your hospital is known. Try reloading the page." /></Card>
+    )}
     <Card className="p-4">
       <div className="flex flex-wrap items-center gap-3">
         <select className={`${inputCls} !w-auto min-w-[240px]`} value={doctorId} onChange={(e) => setDoctorId(e.target.value)} aria-label="Doctor">
@@ -144,13 +161,10 @@ export default function AdminSlotsPage() {
     {offGrid.length > 0 && <Card className="p-4 text-sm text-slate-600">+ {offGrid.length} slot(s) outside the 09:00–15:30 grid.</Card>}
     <Card className="p-5">
       <h2 className="font-bold text-lg">Hospital visits</h2>
-      {!appts?.length ? <p className="text-sm text-slate-500 mt-2">No appointments for your hospital yet.</p>
-      : <ul className="mt-2 space-y-1.5 text-sm">{appts.map((a) => (
-        <li key={a.appointment_id} className="flex items-center gap-2 border border-slate-200 rounded-xl px-3 py-2">
-          <Link href={`/appointments/${a.appointment_id}`} className="font-semibold hover:text-teal-700 hover:underline">#{a.appointment_id}</Link>
-          <span className="text-slate-500">Doctor #{a.doctor_id} · Patient #{a.patient_id}</span>
-          <span className="ml-auto"><StatusPill status={a.status} /></span>
-        </li>))}</ul>}
+      <p className="text-sm text-slate-500 mt-2">
+        Visits moved to their own page with doctor & patient cards.{" "}
+        <a className="text-teal-700 font-semibold hover:underline" href="/visits">Open hospital visits →</a>
+      </p>
     </Card>
     {delId !== null && <ConfirmModal title={`Remove slot #${delId}?`} body="Booked slots cannot be removed."
       confirmLabel="Remove" onClose={() => setDelId(null)} onConfirm={async () => { await remove.mutateAsync(delId); }} />}

@@ -7,7 +7,7 @@ from app.core.deps import get_current_user
 from app.db.session import get_db
 from app.models.catalog import Hospital, Region, Specialization
 from app.models.enums import UserRole
-from app.models.subtypes import Doctor, HospitalAdmin, Patient
+from app.models.subtypes import Doctor, DoctorHospital, HospitalAdmin, Patient
 from app.models.user_account import UserAccount
 from app.schemas.auth import Login, RegisterAdmin, RegisterDoctor, RegisterPatient, Token
 from app.schemas.misc import ProfileUpdate
@@ -83,15 +83,27 @@ def register_patient(data: RegisterPatient, db: Session = Depends(get_db)):
 @router.post("/register/doctor", response_model=Token)
 def register_doctor(data: RegisterDoctor, db: Session = Depends(get_db)):
     """DEV ONLY — open self-registration for testing. Restrict to admins before prod."""
-    _require_hospital(db, data.hospital_id)
+    try:
+        hospital_ids = data.resolved_hospital_ids()
+    except ValueError as exc:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(exc))
+    for hid in hospital_ids:
+        _require_hospital(db, hid)
     _require_optional_fk(db, Specialization, data.specialization_id, "Specialization")
     if data.license_number and db.query(Doctor).filter_by(license_number=data.license_number).first():
         raise HTTPException(status.HTTP_409_CONFLICT, "License number already registered")
     user = _create_user(db, data.email, data.phone, data.password, UserRole.DOCTOR)
-    db.add(Doctor(doctor_id=user.user_id, hospital_id=data.hospital_id,
+    db.add(Doctor(doctor_id=user.user_id, hospital_id=hospital_ids[0],
                  specialization_id=data.specialization_id, first_name=data.first_name,
                  last_name=data.last_name, license_number=data.license_number,
                  photo_url=data.photo_url))
+    try:
+        db.flush()
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(status.HTTP_409_CONFLICT, "Registration failed")
+    for hid in hospital_ids:
+        db.add(DoctorHospital(doctor_id=user.user_id, hospital_id=hid))
     _commit_or_409(db)
     return _token_for(user)
 
@@ -100,8 +112,14 @@ def register_doctor(data: RegisterDoctor, db: Session = Depends(get_db)):
 def register_admin(data: RegisterAdmin, db: Session = Depends(get_db)):
     """DEV ONLY — open self-registration for testing. Restrict to admins before prod."""
     _require_hospital(db, data.hospital_id)
+    try:
+        first_name, last_name = data.resolved_names()
+    except ValueError as exc:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(exc))
     user = _create_user(db, data.email, data.phone, data.password, UserRole.HOSPITAL_ADMIN)
-    db.add(HospitalAdmin(admin_id=user.user_id, hospital_id=data.hospital_id, full_name=data.full_name))
+    db.add(HospitalAdmin(admin_id=user.user_id, hospital_id=data.hospital_id,
+                         first_name=first_name, last_name=last_name,
+                         full_name=f"{first_name} {last_name}"))
     _commit_or_409(db)
     return _token_for(user)
 
@@ -120,6 +138,10 @@ def login(data: Login, db: Session = Depends(get_db)):
 def update_my_profile(data: ProfileUpdate, db: Session = Depends(get_db),
                       user: UserAccount = Depends(get_current_user)):
     role = UserRole(user.role)
+    if data.phone is not None:
+        if not data.phone.strip():
+            raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "Phone number is required")
+        user.phone = data.phone.strip()
     if role == UserRole.PATIENT:
         patient = db.get(Patient, user.user_id)
         if not patient:
@@ -128,7 +150,8 @@ def update_my_profile(data: ProfileUpdate, db: Session = Depends(get_db),
             patient.avatar_url = data.avatar_url
         db.commit()
         db.refresh(patient)
-        return {"patient_id": patient.patient_id, "avatar_url": patient.avatar_url}
+        return {"patient_id": patient.patient_id, "avatar_url": patient.avatar_url,
+                "email": user.email, "phone": user.phone}
     if role == UserRole.DOCTOR:
         doctor = db.get(Doctor, user.user_id)
         if not doctor:
@@ -139,8 +162,12 @@ def update_my_profile(data: ProfileUpdate, db: Session = Depends(get_db),
             doctor.photo_url = data.photo_url
         db.commit()
         db.refresh(doctor)
-        return {"doctor_id": doctor.doctor_id, "photo_url": doctor.photo_url}
-    raise HTTPException(status.HTTP_403_FORBIDDEN, "Admins have no photo profile")
+        return {"doctor_id": doctor.doctor_id, "photo_url": doctor.photo_url,
+                "email": user.email, "phone": user.phone}
+    if data.avatar_url is not None or data.photo_url is not None:
+        raise HTTPException(status.HTTP_403_FORBIDDEN, "Admins have no photo profile")
+    db.commit()
+    return {"admin_id": user.user_id, "email": user.email, "phone": user.phone}
 
 
 @router.get("/me/profile")
@@ -151,11 +178,19 @@ def get_my_profile(db: Session = Depends(get_db), user: UserAccount = Depends(ge
         return {"patient_id": user.user_id,
                 "first_name": patient.first_name if patient else None,
                 "last_name": patient.last_name if patient else None,
-                "avatar_url": patient.avatar_url if patient else None}
+                "avatar_url": patient.avatar_url if patient else None,
+                "email": user.email, "phone": user.phone}
     if role == UserRole.DOCTOR:
         doctor = db.get(Doctor, user.user_id)
         return {"doctor_id": user.user_id,
                 "first_name": doctor.first_name if doctor else None,
                 "last_name": doctor.last_name if doctor else None,
-                "photo_url": doctor.photo_url if doctor else None}
-    return {"admin_id": user.user_id}
+                "photo_url": doctor.photo_url if doctor else None,
+                "email": user.email, "phone": user.phone}
+    admin = db.get(HospitalAdmin, user.user_id)
+    return {"admin_id": user.user_id,
+            "first_name": admin.first_name if admin else None,
+            "last_name": admin.last_name if admin else None,
+            "full_name": admin.full_name if admin else None,
+            "hospital_id": admin.hospital_id if admin else None,
+            "email": user.email, "phone": user.phone}

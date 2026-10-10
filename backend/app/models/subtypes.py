@@ -38,9 +38,23 @@ class Doctor(Base):
     is_active: Mapped[bool] = mapped_column(default=True, nullable=False)
 
 
+class DoctorHospital(Base):
+    """Join table: a doctor may work in multiple hospitals.
+
+    doctors.hospital_id remains the primary hospital for backward compat.
+    """
+
+    __tablename__ = "doctor_hospitals"
+
+    doctor_id: Mapped[int] = mapped_column(ForeignKey("doctors.doctor_id", ondelete="CASCADE"), primary_key=True)
+    hospital_id: Mapped[int] = mapped_column(ForeignKey("hospitals.hospital_id", ondelete="CASCADE"), primary_key=True, index=True)
+
+
 class HospitalAdmin(Base):
     __tablename__ = "hospital_admins"
 
     admin_id: Mapped[int] = mapped_column(ForeignKey("user_accounts.user_id", ondelete="CASCADE"), primary_key=True)
     hospital_id: Mapped[int] = mapped_column(ForeignKey("hospitals.hospital_id"), nullable=False, index=True)
+    first_name: Mapped[str] = mapped_column(String(100), nullable=False, default="")
+    last_name: Mapped[str] = mapped_column(String(100), nullable=False, default="")
     full_name: Mapped[str] = mapped_column(String(200), nullable=False)

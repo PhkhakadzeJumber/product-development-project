@@ -66,7 +66,14 @@ class Prescription(Base):
     route: Mapped[str | None] = mapped_column(String(50), nullable=True)
     start_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     end_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    # Human-readable intended duration, e.g. "for about a month".
+    # end_date stays NULL (open-ended) until the doctor stops the drug.
+    duration_note: Mapped[str | None] = mapped_column(String(120), nullable=True)
     instructions: Mapped[str | None] = mapped_column(String(1000), nullable=True)
+    discontinue_reason: Mapped[str | None] = mapped_column(String(1000), nullable=True)
+    # Substitute chain: new prescription points at the one it replaces.
+    supersedes_id: Mapped[int | None] = mapped_column(
+        ForeignKey("prescriptions.prescription_id"), nullable=True, index=True)
     status: Mapped[PrescriptionStatus] = mapped_column(
         Enum(PrescriptionStatus, name="prescription_status"), nullable=False, default=PrescriptionStatus.ACTIVE, index=True
     )

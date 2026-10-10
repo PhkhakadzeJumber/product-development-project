@@ -5,7 +5,7 @@ from app.core.deps import get_current_user
 from app.db.session import get_db
 from app.models.enums import AppointmentStatus, UserRole
 from app.models.scheduling import Appointment
-from app.models.subtypes import Doctor, HospitalAdmin
+from app.models.subtypes import Doctor, DoctorHospital, HospitalAdmin
 from app.models.user_account import UserAccount
 from app.schemas.scheduling import AppointmentCancel, AppointmentCreate, AppointmentDetailOut, AppointmentOut
 from app.services.booking import book_appointment, cancel_appointment
@@ -55,12 +55,79 @@ def my_appointments(db: Session = Depends(get_db), user: UserAccount = Depends(g
         q = q.filter_by(doctor_id=user.user_id)
     elif role == UserRole.HOSPITAL_ADMIN:
         admin = db.get(HospitalAdmin, user.user_id)
-        doc_ids = [d.doctor_id for d in db.query(Doctor).filter_by(hospital_id=admin.hospital_id).all()] if admin else []
+        doc_ids: list[int] = []
+        if admin:
+            try:
+                doc_ids = [r.doctor_id for r in
+                           db.query(DoctorHospital).filter_by(hospital_id=admin.hospital_id).all()]
+            except Exception:
+                doc_ids = []
+            if not doc_ids:
+                doc_ids = [d.doctor_id for d in db.query(Doctor).filter_by(hospital_id=admin.hospital_id).all()]
         q = q.filter(Appointment.doctor_id.in_(doc_ids)) if doc_ids else q.filter(False)
     rows = q.order_by(Appointment.booked_at.desc()).limit(200).all()
     slot_ids = list({a.slot_id for a in rows})
     slots = {s.slot_id: s for s in db.query(TimeSlot).filter(TimeSlot.slot_id.in_(slot_ids)).all()} if slot_ids else {}
     return [_appt_out(a, slots.get(a.slot_id)) for a in rows]
+
+
+@router.get("/appointments/mine/detailed")
+def my_appointments_detailed(db: Session = Depends(get_db), user: UserAccount = Depends(get_current_user)):
+    """Enriched visits for admin/doctor cards: doctor + patient identity and contacts."""
+    from app.models.scheduling import TimeSlot
+    from app.models.subtypes import Patient
+    from app.models.user_account import UserAccount as UA
+    role = UserRole(user.role)
+    q = db.query(Appointment)
+    if role == UserRole.PATIENT:
+        q = q.filter_by(patient_id=user.user_id)
+    elif role == UserRole.DOCTOR:
+        q = q.filter_by(doctor_id=user.user_id)
+    elif role == UserRole.HOSPITAL_ADMIN:
+        admin = db.get(HospitalAdmin, user.user_id)
+        doc_ids: list[int] = []
+        if admin:
+            try:
+                doc_ids = [r.doctor_id for r in
+                           db.query(DoctorHospital).filter_by(hospital_id=admin.hospital_id).all()]
+            except Exception:
+                doc_ids = []
+            if not doc_ids:
+                doc_ids = [d.doctor_id for d in db.query(Doctor).filter_by(hospital_id=admin.hospital_id).all()]
+        q = q.filter(Appointment.doctor_id.in_(doc_ids)) if doc_ids else q.filter(False)
+    else:
+        raise HTTPException(403, "Forbidden")
+    rows = q.order_by(Appointment.booked_at.desc()).limit(200).all()
+    if not rows:
+        return []
+    slot_ids = list({a.slot_id for a in rows})
+    slots = {s.slot_id: s for s in db.query(TimeSlot).filter(TimeSlot.slot_id.in_(slot_ids)).all()} if slot_ids else {}
+    doc_ids = list({a.doctor_id for a in rows})
+    pat_ids = list({a.patient_id for a in rows})
+    doctors = {d.doctor_id: d for d in db.query(Doctor).filter(Doctor.doctor_id.in_(doc_ids)).all()} if doc_ids else {}
+    patients = {p.patient_id: p for p in db.query(Patient).filter(Patient.patient_id.in_(pat_ids)).all()} if pat_ids else {}
+    accounts = {u.user_id: u for u in db.query(UA).filter(UA.user_id.in_(doc_ids + pat_ids)).all()} if (doc_ids + pat_ids) else {}
+    out = []
+    for a in rows:
+        s = slots.get(a.slot_id)
+        d = doctors.get(a.doctor_id)
+        p = patients.get(a.patient_id)
+        d_acc = accounts.get(a.doctor_id)
+        p_acc = accounts.get(a.patient_id)
+        out.append({
+            **_appt_out(a, s),
+            "doctor_first_name": d.first_name if d else None,
+            "doctor_last_name": d.last_name if d else None,
+            "doctor_photo_url": d.photo_url if d else None,
+            "doctor_email": d_acc.email if d_acc else None,
+            "doctor_phone": d_acc.phone if d_acc else None,
+            "patient_first_name": p.first_name if p else None,
+            "patient_last_name": p.last_name if p else None,
+            "patient_avatar_url": p.avatar_url if p else None,
+            "patient_email": p_acc.email if p_acc else None,
+            "patient_phone": p_acc.phone if p_acc else None,
+        })
+    return out
 
 
 def _check_visit_access(appt: Appointment, user: UserAccount, db: Session) -> None:
@@ -72,7 +139,14 @@ def _check_visit_access(appt: Appointment, user: UserAccount, db: Session) -> No
     if role == UserRole.HOSPITAL_ADMIN:
         admin = db.get(HospitalAdmin, user.user_id)
         doctor = db.get(Doctor, appt.doctor_id)
-        if not admin or not doctor or doctor.hospital_id != admin.hospital_id:
+        if not admin or not doctor:
+            raise HTTPException(403, "Not your hospital's visit")
+        try:
+            member = db.query(DoctorHospital).filter_by(
+                doctor_id=doctor.doctor_id, hospital_id=admin.hospital_id).first()
+        except Exception:
+            member = None
+        if not member and doctor.hospital_id != admin.hospital_id:
             raise HTTPException(403, "Not your hospital's visit")
 
 
@@ -122,6 +196,7 @@ def cancel(appointment_id: int, data: AppointmentCancel, db: Session = Depends(g
     appt = db.get(Appointment, appointment_id)
     if not appt:
         raise HTTPException(404, "Not found")
+    _check_visit_access(appt, user, db)
     role = UserRole(user.role)
     if role == UserRole.PATIENT and appt.patient_id != user.user_id:
         raise HTTPException(403, "Not your appointment")

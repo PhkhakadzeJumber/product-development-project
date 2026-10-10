@@ -5,13 +5,16 @@ import { useParams } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { DoctorApi, SlotApi, AppointmentApi, CatalogApi } from "@/lib/api";
 import { ApiError } from "@/lib/api-client";
+import { useAuth } from "@/lib/auth";
 import { Avatar } from "@/components/Avatar";
+import { MessageButton } from "@/components/VisitCard";
 import { Card, StatusPill, EmptyState, Skeleton } from "@/components/ui";
 import { fmtDateTime } from "@/lib/format";
 
 export default function DoctorDetailPage() {
   const params = useParams();
   const id = Number(params.id);
+  const { role } = useAuth();
   const qc = useQueryClient();
   const { data: doctor, isLoading } = useQuery({
     queryKey: ["doctor", id],
@@ -26,7 +29,7 @@ export default function DoctorDetailPage() {
   const { data: slots, isLoading: slotsLoading } = useQuery({
     queryKey: ["slots", id],
     queryFn: () => SlotApi.list(id, "AVAILABLE", true),
-    enabled: Number.isFinite(id),
+    enabled: Number.isFinite(id) && (!role || role === "PATIENT"),
   });
   const { data: hospitals } = useQuery({ queryKey: ["hospitals"], queryFn: () => CatalogApi.hospitals() });
   const hospital = hospitals?.find((h) => h.hospital_id === doctor?.hospital_id);
@@ -68,6 +71,7 @@ export default function DoctorDetailPage() {
                 : "No reviews yet"}
             </p>
           )}
+          <div className="mt-4"><MessageButton label="Message doctor" /></div>
         </div>
       </Card>
 
@@ -90,6 +94,7 @@ export default function DoctorDetailPage() {
         </Card>
       </div>
 
+      {(!role || role === "PATIENT") && (
       <Card className="p-6">
         <div className="flex items-center gap-3 flex-wrap">
           <h2 className="font-bold text-lg">Available slots</h2>
@@ -119,6 +124,7 @@ export default function DoctorDetailPage() {
         {bookErr && <p className="mt-3 text-sm text-rose-600" role="alert">{bookErr}</p>}
         {bookedId && <p className="mt-3 text-sm bg-emerald-50 border border-emerald-200 text-emerald-700 p-2.5 rounded-xl">Booked! Appointment #{bookedId} — see it under <Link href="/appointments" className="underline font-semibold">My visits</Link>.</p>}
       </Card>
+      )}
 
       <Card className="p-6">
         <h2 className="font-bold text-lg">Patient reviews</h2>

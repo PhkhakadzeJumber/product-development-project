@@ -67,17 +67,32 @@ def _validate_required_image_url(value: str | None) -> str:
     return result
 
 
+PHONE_PATTERN = re.compile(r"^\+?[0-9][0-9\s\-()]{5,30}$")
+
+
+def validate_phone(value: str) -> str:
+    cleaned = value.strip() if isinstance(value, str) else ""
+    if not cleaned:
+        raise ValueError("Phone number is required")
+    digits = re.sub(r"\D", "", cleaned)
+    if len(digits) < 7 or len(digits) > 15:
+        raise ValueError("Enter a valid phone number (7-15 digits, optional leading +)")
+    if not PHONE_PATTERN.match(cleaned):
+        raise ValueError("Enter a valid phone number (7-15 digits, optional leading +)")
+    if len(cleaned) > 32:
+        raise ValueError("Phone number must be at most 32 characters")
+    return cleaned
+
+
 class RegisterBase(BaseModel):
     email: EmailStr
-    phone: str | None = Field(default=None, max_length=32)
+    phone: str = Field(min_length=7, max_length=32)
     password: str = Field(min_length=PASSWORD_MIN_LENGTH, max_length=256)
 
     _normalize_email = field_validator("email", mode="before")(lambda v: v.strip().lower() if isinstance(v, str) else v)
     _check_password = field_validator("password", mode="after")(lambda v: validate_password_strength(v))
 
-    _normalize_phone = field_validator("phone", mode="before")(
-        lambda v: v.strip() if isinstance(v, str) and v.strip() else None
-    )
+    _normalize_phone = field_validator("phone", mode="before")(lambda v: validate_phone(v))
 
 
 class RegisterPatient(RegisterBase):
@@ -98,26 +113,71 @@ class RegisterPatient(RegisterBase):
 
 
 class RegisterDoctor(RegisterBase):
-    hospital_id: int
+    # Multi-hospital: prefer hospital_ids; hospital_id kept as legacy fallback.
+    hospital_id: int | None = None
+    hospital_ids: list[int] | None = None
     specialization_id: int | None = None
     first_name: str = Field(min_length=1, max_length=100)
     last_name: str = Field(min_length=1, max_length=100)
     license_number: str | None = Field(default=None, max_length=100)
-    photo_url: str = Field(min_length=1, max_length=500)
+    # Photo upload during registration removed — doctors get initials
+    # placeholders until the later file-upload feature lands.
+    photo_url: str | None = Field(default=None, max_length=500)
 
     _first = field_validator("first_name", mode="before")(lambda v: v.strip() if isinstance(v, str) else v)
     _last = field_validator("last_name", mode="before")(lambda v: v.strip() if isinstance(v, str) else v)
     _lic = field_validator("license_number", mode="before")(
         lambda v: v.strip() if isinstance(v, str) and v.strip() else None
     )
-    _photo = field_validator("photo_url", mode="before")(lambda v: _validate_required_image_url(v))
+    _photo = field_validator("photo_url", mode="before")(lambda v: _validate_optional_image_url(v))
+
+    def resolved_hospital_ids(self) -> list[int]:
+        raw: list[int] = []
+        if self.hospital_ids:
+            raw.extend(self.hospital_ids)
+        if self.hospital_id is not None:
+            raw.append(self.hospital_id)
+        # dedupe, preserve order
+        seen: set[int] = set()
+        out: list[int] = []
+        for hid in raw:
+            if hid not in seen:
+                seen.add(hid)
+                out.append(hid)
+        if not out:
+            raise ValueError("Select at least one hospital")
+        return out
 
 
 class RegisterAdmin(RegisterBase):
     hospital_id: int
-    full_name: str = Field(min_length=1, max_length=200)
+    first_name: str = Field(default="", max_length=100)
+    last_name: str = Field(default="", max_length=100)
+    # Legacy single-field name; accepted for backward compat.
+    full_name: str | None = Field(default=None, max_length=200)
 
-    _full = field_validator("full_name", mode="before")(lambda v: v.strip() if isinstance(v, str) else v)
+    _first = field_validator("first_name", mode="before")(
+        lambda v: v.strip() if isinstance(v, str) else ""
+    )
+    _last = field_validator("last_name", mode="before")(
+        lambda v: v.strip() if isinstance(v, str) else ""
+    )
+    _full = field_validator("full_name", mode="before")(
+        lambda v: v.strip() if isinstance(v, str) and v.strip() else None
+    )
+
+    def resolved_names(self) -> tuple[str, str]:
+        first = (self.first_name or "").strip()
+        last = (self.last_name or "").strip()
+        if first and last:
+            return first, last
+        if self.full_name:
+            parts = self.full_name.split(None, 1)
+            if len(parts) == 2:
+                return parts[0], parts[1]
+            if len(parts) == 1:
+                raise ValueError("Enter both first and last name")
+        raise ValueError("First name and last name are required")
 
 
 class Login(BaseModel):

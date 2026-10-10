@@ -47,6 +47,7 @@ export default function LoginPage() {
           <PrimaryButton loading={loading}>Login</PrimaryButton>
           <div className="text-sm text-slate-600 space-y-1 pt-1">
             <p>No account? <Link className="text-teal-700 font-semibold underline underline-offset-4" href="/register/patient">Register as patient</Link></p>
+            <p className="text-sm text-slate-600">Doctor? <Link className="text-teal-700 font-semibold underline underline-offset-4" href="/register/doctor">Register as doctor</Link> · Admin? <Link className="text-teal-700 font-semibold underline underline-offset-4" href="/register/admin">Register as hospital admin</Link></p>
             <p className="text-xs">Demo password <code className="bg-slate-100 px-1 rounded">Test123!</code>: patient@demo.ge · doctor@demo.ge · admin@demo.ge</p>
           </div>
         </form>

@@ -30,7 +30,7 @@ from app.models.enums import (
 )
 from app.models.feedback import DoctorPerformance, DoctorReview
 from app.models.scheduling import Appointment, TimeSlot
-from app.models.subtypes import Doctor, HospitalAdmin, Patient
+from app.models.subtypes import Doctor, DoctorHospital, HospitalAdmin, Patient
 from app.models.user_account import UserAccount
 from app.services.maintenance import refresh_performance
 
@@ -166,19 +166,22 @@ ADMINS = [
 user_ids: dict[str, int] = {}
 
 
-def ensure_user(email: str, role: UserRole) -> int:
+def ensure_user(email: str, role: UserRole, phone: str | None = None) -> int:
     u = db.query(UserAccount).filter_by(email=email).first()
     if not u:
-        u = UserAccount(email=email, password_hash=hash_password(DEMO_PASSWORD), role=role, is_active=True)
+        u = UserAccount(email=email, phone=phone, password_hash=hash_password(DEMO_PASSWORD), role=role, is_active=True)
         db.add(u)
         db.flush()
+        db.commit()
+    elif phone and not u.phone:
+        u.phone = phone
         db.commit()
     user_ids[email] = u.user_id
     return u.user_id
 
 
-for email, first, last, dob, gender, city in PATIENTS:
-    uid = ensure_user(email, UserRole.PATIENT)
+for i, (email, first, last, dob, gender, city) in enumerate(PATIENTS):
+    uid = ensure_user(email, UserRole.PATIENT, phone=f"+995 555 00 01 0{i}")
     region = batumi if city == "Batumi" else tbilisi
     p = db.get(Patient, uid)
     avatar = f"/avatars/patients/{first.lower()}.svg"
@@ -192,8 +195,8 @@ for email, first, last, dob, gender, city in PATIENTS:
         db.commit()
 
 hosp_map = {"central": central, "seaside": seaside}
-for email, first, last, hosp, spec_name, exp, bio in DOCTORS:
-    uid = ensure_user(email, UserRole.DOCTOR)
+for i, (email, first, last, hosp, spec_name, exp, bio) in enumerate(DOCTORS):
+    uid = ensure_user(email, UserRole.DOCTOR, phone=f"+995 555 00 02 0{i}")
     h = hosp_map[hosp]
     d = db.get(Doctor, uid)
     photo = f"/avatars/doctors/{first.lower()}.svg"
@@ -205,18 +208,43 @@ for email, first, last, hosp, spec_name, exp, bio in DOCTORS:
                       license_number=f"GE-MED-{uid:05d}", is_active=True,
                       photo_url=photo))
         db.commit()
+        d = db.get(Doctor, uid)
     elif not d.photo_url:
         d.photo_url = photo
         db.commit()
+    # keep join table in sync (supports multi-hospital doctors)
+    try:
+        if d and not db.query(DoctorHospital).filter_by(
+                doctor_id=uid, hospital_id=h.hospital_id).first():
+            db.add(DoctorHospital(doctor_id=uid, hospital_id=h.hospital_id))
+            db.commit()
+    except Exception:
+        db.rollback()
 
 admin_ids: dict[str, int] = {}
-for email, full, hosp in ADMINS:
-    uid = ensure_user(email, UserRole.HOSPITAL_ADMIN)
+for i, (email, full, hosp) in enumerate(ADMINS):
+    uid = ensure_user(email, UserRole.HOSPITAL_ADMIN, phone=f"+995 555 00 03 0{i}")
     admin_ids[email] = uid
     a = db.get(HospitalAdmin, uid)
+    parts = full.split(None, 1)
+    first, last = (parts + [""])[:2] if len(parts) == 2 else (parts[0], "")
     if not a:
-        db.add(HospitalAdmin(admin_id=uid, hospital_id=hosp_map[hosp].hospital_id, full_name=full))
+        db.add(HospitalAdmin(admin_id=uid, hospital_id=hosp_map[hosp].hospital_id,
+                             first_name=first, last_name=last, full_name=full))
         db.commit()
+    else:
+        updated = False
+        if not getattr(a, "first_name", None):
+            a.first_name = first
+            updated = True
+        if not getattr(a, "last_name", None):
+            a.last_name = last
+            updated = True
+        if not getattr(a, "full_name", None):
+            a.full_name = full
+            updated = True
+        if updated:
+            db.commit()
 
 central_admin = user_ids["admin@demo.ge"]
 seaside_admin = user_ids["batumi.admin@demo.ge"]
@@ -478,24 +506,30 @@ def ensure_rx(consult: Consultation, case: TreatmentCase, patient_email: str, do
 ensure_rx(con1, case_hyper, "patient@demo.ge", "doctor@demo.ge", "Metoprolol",
           "25mg", "once daily", PrescriptionStatus.ACTIVE, route="oral",
           start_date=date.today(), end_date=date.today() + timedelta(days=30),
+          duration_note="for about a month",
           instructions="Take in the morning with water. Monitor pulse.")
 ensure_rx(con1, case_hyper, "patient@demo.ge", "doctor@demo.ge", "Atorvastatin",
           "20mg", "once daily at night", PrescriptionStatus.ACTIVE, route="oral",
           start_date=date.today(), end_date=date.today() + timedelta(days=30),
+          duration_note="for about a month",
           instructions="Lipid control alongside BP management.")
 ensure_rx(con3, case_bronch, "giorgi@demo.ge", "doctor@demo.ge", "Paracetamol",
           "500mg", "3x daily as needed", PrescriptionStatus.COMPLETED, route="oral",
-          start_date=P2, end_date=P1, instructions="Fever control. Course finished.")
+          start_date=P2, end_date=P1, duration_note="for about a week",
+          instructions="Fever control. Course finished.")
 ensure_rx(con3, case_bronch, "giorgi@demo.ge", "doctor@demo.ge", "Amoxicillin",
           "500mg", "3x daily", PrescriptionStatus.DISCONTINUED, route="oral",
-          start_date=P2, end_date=P1, instructions="Stopped after 2 days — mild rash, switched to symptomatic care.")
+          start_date=P2, end_date=P1, duration_note="for a week",
+          instructions="Stopped after 2 days — mild rash, switched to symptomatic care.")
 ensure_rx(con4, case_neuro, "giorgi@demo.ge", "neuro.doctor@demo.ge", "Ibuprofen",
           "400mg", "as needed, max 3/day", PrescriptionStatus.ACTIVE, route="oral",
           start_date=date.today(), end_date=date.today() + timedelta(days=14),
+          duration_note="for about 2 weeks",
           instructions="Take with food. Keep headache diary.")
 ensure_rx(con2, case_migr, "nino@demo.ge", "doctor@demo.ge", "Cetirizine",
           "10mg", "once daily", PrescriptionStatus.COMPLETED, route="oral",
           start_date=P1 - timedelta(days=10), end_date=P1 - timedelta(days=3),
+          duration_note="for about a week",
           instructions="Trial for possible allergic trigger. Completed.")
 db.commit()
 

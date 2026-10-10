@@ -7,9 +7,14 @@ import { DoctorApi, SlotApi, AppointmentApi } from "@/lib/api";
 import { ApiError } from "@/lib/api-client";
 import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill, EmptyState, Skeleton } from "@/components/ui";
+import { RoleGate } from "@/components/RoleGate";
 import { fmtDateTime } from "@/lib/format";
 
 export default function DoctorSlotsPage() {
+  return <RoleGate allow={["PATIENT"]}><DoctorSlotsInner /></RoleGate>;
+}
+
+function DoctorSlotsInner() {
   const params = useParams();
   const id = Number(params.id);
   const qc = useQueryClient();

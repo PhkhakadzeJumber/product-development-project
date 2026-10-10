@@ -32,6 +32,11 @@ class _FakeQuery:
     def first(self):
         return self._result
 
+    def all(self):
+        if self._result is None:
+            return []
+        return self._result if isinstance(self._result, list) else [self._result]
+
 
 class FakeDB:
     """Minimal Session stand-in: auto-assigns user_ids on flush like the DB would."""
@@ -86,20 +91,34 @@ def teardown_function():
 
 # --- registration -----------------------------------------------------------
 
-def test_register_doctor_requires_photo():
-    _override(FakeDB())
+def test_register_doctor_photo_optional_and_multi_hospital():
+    from app.models.catalog import Hospital
+    db = FakeDB(get_by_key={(Hospital, 1): object(), (Hospital, 2): object()})
+    _override(db)
     r = client.post("/api/v1/auth/register/doctor", json={
-        "email": "d1@t.ge", "password": PASSWORD, "first_name": "A", "last_name": "B",
-        "hospital_id": 1,
+        "email": "d1@t.ge", "password": PASSWORD, "phone": "+995555000001",
+        "first_name": "A", "last_name": "B",
+        "hospital_ids": [1, 2],
     })
-    assert r.status_code == 422, r.text
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["role"] == "DOCTOR" and body["access_token"]
 
 
 def test_register_doctor_bad_photo_rejected():
     _override(FakeDB())
     r = client.post("/api/v1/auth/register/doctor", json={
-        "email": "d2@t.ge", "password": PASSWORD, "first_name": "A", "last_name": "B",
-        "hospital_id": 1, "photo_url": "not-a-url",
+        "email": "d2@t.ge", "password": PASSWORD, "phone": "+995555000002",
+        "first_name": "A", "last_name": "B",
+        "hospital_ids": [1], "photo_url": "not-a-url",
+    })
+    assert r.status_code == 422, r.text
+
+
+def test_register_doctor_missing_hospitals_rejected():
+    _override(FakeDB())
+    r = client.post("/api/v1/auth/register/doctor", json={
+        "email": "dx@t.ge", "password": PASSWORD, "first_name": "A", "last_name": "B",
     })
     assert r.status_code == 422, r.text
 
@@ -109,7 +128,8 @@ def test_register_doctor_with_photo_ok():
     db = FakeDB(get_by_key={(Hospital, 1): object()})
     _override(db)
     r = client.post("/api/v1/auth/register/doctor", json={
-        "email": "d3@t.ge", "password": PASSWORD, "first_name": "Davit", "last_name": "M",
+        "email": "d3@t.ge", "password": PASSWORD, "phone": "+995555000003",
+        "first_name": "Davit", "last_name": "M",
         "hospital_id": 1, "photo_url": "/avatars/doctors/davit.svg",
     })
     assert r.status_code == 200, r.text
@@ -123,7 +143,8 @@ def test_register_patient_avatar_optional_and_stored():
     db = FakeDB()
     _override(db)
     r = client.post("/api/v1/auth/register/patient", json={
-        "email": "p1@t.ge", "password": PASSWORD, "first_name": "Ana", "last_name": "M",
+        "email": "p1@t.ge", "password": PASSWORD, "phone": "+995555000011",
+        "first_name": "Ana", "last_name": "M",
     })
     assert r.status_code == 200, r.text
     pats = [o for o in db.added if isinstance(o, Patient)]
@@ -132,12 +153,34 @@ def test_register_patient_avatar_optional_and_stored():
     db2 = FakeDB()
     _override(db2)
     r = client.post("/api/v1/auth/register/patient", json={
-        "email": "p2@t.ge", "password": PASSWORD, "first_name": "Ana", "last_name": "M",
+        "email": "p2@t.ge", "password": PASSWORD, "phone": "+995555000012",
+        "first_name": "Ana", "last_name": "M",
         "avatar_url": "/avatars/patients/ana.svg",
     })
     assert r.status_code == 200, r.text
     pats2 = [o for o in db2.added if isinstance(o, Patient)]
     assert pats2[0].avatar_url == "/avatars/patients/ana.svg"
+
+
+def test_register_admin_split_names():
+    from app.models.catalog import Hospital
+    from app.models.subtypes import HospitalAdmin
+    db = FakeDB(get_by_key={(Hospital, 1): object()})
+    _override(db)
+    r = client.post("/api/v1/auth/register/admin", json={
+        "email": "a1@t.ge", "password": PASSWORD, "phone": "+995555000021",
+        "first_name": "Nino", "last_name": "Admin", "hospital_id": 1,
+    })
+    assert r.status_code == 200, r.text
+    admins = [o for o in db.added if isinstance(o, HospitalAdmin)]
+    assert len(admins) == 1 and admins[0].first_name == "Nino" and admins[0].full_name == "Nino Admin"
+
+    db2 = FakeDB(get_by_key={(Hospital, 1): object()})
+    _override(db2)
+    r = client.post("/api/v1/auth/register/admin", json={
+        "email": "a2@t.ge", "password": PASSWORD, "hospital_id": 1,
+    })
+    assert r.status_code == 422, r.text
 
 
 # --- login ------------------------------------------------------------------

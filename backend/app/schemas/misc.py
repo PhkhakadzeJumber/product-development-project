@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 def validate_image_url(value: str | None, *, required: bool = False) -> str | None:
@@ -22,6 +22,7 @@ class DoctorPublicOut(BaseModel):
 
     doctor_id: int
     hospital_id: int
+    hospital_ids: list[int] | None = None
     specialization_id: int | None = None
     first_name: str
     last_name: str
@@ -48,9 +49,13 @@ class DrugOut(BaseModel):
 class ProfileUpdate(BaseModel):
     avatar_url: str | None = None
     photo_url: str | None = None
+    phone: str | None = Field(default=None, max_length=32)
 
     _avatar = field_validator("avatar_url", mode="before")(lambda v: validate_image_url(v) if v is not None else None)
     _photo = field_validator("photo_url", mode="before")(lambda v: validate_image_url(v) if v is not None else None)
+    _phone = field_validator("phone", mode="before")(
+        lambda v: v.strip() if isinstance(v, str) and v.strip() else None
+    )
 
 
 class DrugImageUpdate(BaseModel):

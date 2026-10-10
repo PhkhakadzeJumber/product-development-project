@@ -4,11 +4,13 @@ import Link from "next/link";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { CatalogApi, DoctorApi, SlotApi, AppointmentApi } from "@/lib/api";
 import { ApiError } from "@/lib/api-client";
+import { useAuth } from "@/lib/auth";
 import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill, EmptyState, Skeleton, inputCls } from "@/components/ui";
 import { fmtDateTime } from "@/lib/format";
 
 export default function DoctorsPage() {
+  const { role } = useAuth();
   const [hospitalId, setHospitalId] = useState("");
   const [specId, setSpecId] = useState("");
   const [search, setSearch] = useState("");
@@ -24,7 +26,7 @@ export default function DoctorsPage() {
   const { data: slots, isLoading: slotsLoading } = useQuery({
     queryKey: ["slots", selected],
     queryFn: () => SlotApi.list(selected!, "AVAILABLE", true),
-    enabled: !!selected,
+    enabled: !!selected && (!role || role === "PATIENT"),
   });
   const qc = useQueryClient();
   const [bookErr, setBookErr] = useState("");
@@ -74,16 +76,18 @@ export default function DoctorsPage() {
                 className="text-sm font-semibold px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-700">
                 View profile
               </Link>
+              {(!role || role === "PATIENT") && (
               <button onClick={() => { setSelected(d.doctor_id); setBookedId(null); setBookErr(""); }}
                 className={`text-sm font-semibold px-4 py-2 rounded-xl ${selected === d.doctor_id ? "bg-teal-600 text-white" : "bg-teal-50 text-teal-700 hover:bg-teal-100"}`}>
                 {selected === d.doctor_id ? "Selected" : "View slots"}
               </button>
+              )}
             </div>
           </div>
         </Card>
       ))}
     </div>}
-    {selected && <Card className="p-5">
+    {selected && (!role || role === "PATIENT") && <Card className="p-5">
       <div className="flex items-center gap-3">
         <h2 className="font-bold text-lg">Available slots {selDoc ? `— ${selDoc.first_name} ${selDoc.last_name}` : ""}</h2>
         <button onClick={() => { setSelected(null); setBookErr(""); setBookedId(null); }} className="ml-auto text-sm font-semibold text-slate-500 hover:text-slate-800">Clear selection ✕</button>

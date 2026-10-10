@@ -3,10 +3,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { AppointmentApi } from "@/lib/api";
+import { AppointmentApi, ClinicalApi, ProfileApi } from "@/lib/api";
 import { ApiError } from "@/lib/api-client";
 import { useAuth } from "@/lib/auth";
 import { Avatar } from "@/components/Avatar";
+import { MessageButton } from "@/components/VisitCard";
 import { Card, StatusPill, EmptyState, Skeleton, ConfirmModal, inputCls } from "@/components/ui";
 import { fmtDateTime } from "@/lib/format";
 
@@ -22,6 +23,17 @@ export default function VisitDetailPage() {
   });
   const [cancelOpen, setCancelOpen] = useState(false);
   const [cancelReason, setCancelReason] = useState("");
+  const [caseTitle, setCaseTitle] = useState("");
+  const { data: patientProfile } = useQuery({
+    queryKey: ["patient-profile", v?.patient_id],
+    queryFn: () => ProfileApi.patient(v!.patient_id),
+    enabled: !!v && role === "DOCTOR",
+  });
+  const { data: doctorContact } = useQuery({
+    queryKey: ["doctor-contact", v?.doctor_id],
+    queryFn: () => ProfileApi.doctorContact(v!.doctor_id),
+    enabled: !!v && role === "PATIENT",
+  });
   const cancel = useMutation({
     mutationFn: () => AppointmentApi.cancel(id, cancelReason.trim() || undefined),
     onSuccess: () => {
@@ -37,6 +49,14 @@ export default function VisitDetailPage() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["appointment", id] });
       qc.invalidateQueries({ queryKey: ["doctor-appointments"] });
+    },
+  });
+  const createCase = useMutation({
+    mutationFn: () => ClinicalApi.createCase({ patient_id: v!.patient_id, title: caseTitle.trim() }),
+    onSuccess: (c) => {
+      setCaseTitle("");
+      qc.invalidateQueries({ queryKey: ["appointment", id] });
+      window.location.href = `/cases/${c.treatment_id}`;
     },
   });
 
@@ -84,8 +104,15 @@ export default function VisitDetailPage() {
           <Avatar src={v.patient_avatar_url} firstName={v.patient_first_name ?? "P"} lastName={v.patient_last_name ?? String(v.patient_id)} size={56} />
           <div>
             <h2 className="font-bold text-lg">Patient</h2>
-            <p className="font-semibold">{patientName}</p>
+            <Link href={`/patients/${v.patient_id}`} className="font-semibold hover:text-teal-700 hover:underline">{patientName}</Link>
             <p className="text-sm text-slate-500">ID #{v.patient_id}</p>
+            {role === "DOCTOR" && patientProfile && (
+              <p className="text-sm text-slate-600 mt-1">
+                {patientProfile.email}{patientProfile.phone ? ` · ${patientProfile.phone}` : ""}
+                {patientProfile.city ? ` · ${patientProfile.city}` : ""}
+              </p>
+            )}
+            {role === "DOCTOR" && <div className="mt-3"><MessageButton label="Message patient" /></div>}
           </div>
         </Card>
         <Card className="p-5 flex gap-4 items-start">
@@ -94,6 +121,12 @@ export default function VisitDetailPage() {
             <h2 className="font-bold text-lg">Doctor</h2>
             <Link href={`/doctors/${v.doctor_id}`} className="font-semibold hover:text-teal-700 hover:underline">{doctorName}</Link>
             <p className="text-sm text-slate-500">ID #{v.doctor_id}</p>
+            {role === "PATIENT" && doctorContact && (
+              <p className="text-sm text-slate-600 mt-1">
+                {doctorContact.email}{doctorContact.phone ? ` · ${doctorContact.phone}` : ""}
+              </p>
+            )}
+            {role === "PATIENT" && <div className="mt-3"><MessageButton label="Message doctor" /></div>}
           </div>
         </Card>
       </div>
@@ -109,10 +142,27 @@ export default function VisitDetailPage() {
             {v.cancel_reason && <div><dt className="inline font-semibold text-slate-800">Cancel reason: </dt><dd className="inline">{v.cancel_reason}</dd></div>}
           </>}
           {v.consultation_id && <div><dt className="inline font-semibold text-slate-800">Consultation: </dt><dd className="inline">#{v.consultation_id}</dd></div>}
-          {v.treatment_id && <div><dt className="inline font-semibold text-slate-800">Treatment case: </dt><dd className="inline"><Link className="text-teal-700 hover:underline font-semibold" href={`/cases/${v.treatment_id}`}>#{v.treatment_id} — view case</Link></dd></div>}
+          {v.treatment_id && (role === "DOCTOR" || role === "PATIENT") && <div><dt className="inline font-semibold text-slate-800">Treatment case: </dt><dd className="inline"><Link className="text-teal-700 hover:underline font-semibold" href={`/cases/${v.treatment_id}`}>#{v.treatment_id} — view case</Link></dd></div>}
         </dl>
-        {!v.treatment_id && v.status === "COMPLETED" && role === "DOCTOR" && (
-          <p className="text-sm text-slate-500 mt-3">Add a consultation / case from the doctor workflow; it will be linked here.</p>
+        {v.treatment_id && role === "DOCTOR" && (
+          <Link href={`/cases/${v.treatment_id}`}
+            className="mt-3 inline-block text-sm font-semibold px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-700">
+            Record visit / update tracking →
+          </Link>
+        )}
+        {!v.treatment_id && role === "DOCTOR" && (v.status === "COMPLETED" || v.status === "SCHEDULED") && (
+          <div className="mt-3 flex gap-2 flex-wrap">
+            <input className={`${inputCls} max-w-xs`} placeholder="New case title (e.g. Hypertension)"
+              value={caseTitle} onChange={(e) => setCaseTitle(e.target.value)} />
+            <button disabled={createCase.isPending || !caseTitle.trim()} onClick={() => createCase.mutate()}
+              className="text-sm font-semibold px-4 py-2 rounded-xl bg-teal-600 text-white disabled:opacity-40">
+              Start tracking case
+            </button>
+          </div>
+        )}
+        {createCase.isError && <p className="mt-2 text-sm text-rose-600" role="alert">Could not start case.</p>}
+        {!v.treatment_id && v.status === "COMPLETED" && role !== "DOCTOR" && (
+          <p className="text-sm text-slate-500 mt-3">Your doctor will add the visit record here.</p>
         )}
       </Card>
 

@@ -12,8 +12,10 @@ const LINKS: Record<string, { href: string; label: string }[]> = {
   ],
   DOCTOR: [
     { href: "/timetable", label: "Timetable" },
+    { href: "/my-patients", label: "My patients" },
   ],
   HOSPITAL_ADMIN: [
+    { href: "/visits", label: "Visits" },
     { href: "/slots", label: "Slots" },
     { href: "/doctors", label: "Doctors" },
   ],

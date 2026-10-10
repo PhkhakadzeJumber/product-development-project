@@ -2,8 +2,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { AppointmentApi, DoctorApi, FeedbackChatApi } from "@/lib/api";
+import { AppointmentApi, ClinicalApi, DoctorApi, FeedbackChatApi } from "@/lib/api";
 import { ApiError } from "@/lib/api-client";
+import { RoleGate } from "@/components/RoleGate";
 import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill, EmptyState, Skeleton, Stars, ConfirmModal, inputCls } from "@/components/ui";
 import { fmtDateTime } from "@/lib/format";
@@ -66,7 +67,12 @@ function ReviewBox({ appointmentId }: { appointmentId: number }) {
 }
 
 export default function AppointmentsPage() {
-  const { data, isLoading } = useQuery({ queryKey: ["my-appointments"], queryFn: AppointmentApi.mine });
+  return <RoleGate allow={["PATIENT"]}><AppointmentsInner /></RoleGate>;
+}
+
+function AppointmentsInner() {
+  const { data, isLoading, isError } = useQuery({ queryKey: ["my-appointments"], queryFn: AppointmentApi.mine });
+  const { data: myCases } = useQuery({ queryKey: ["my-cases"], queryFn: ClinicalApi.myCases });
   const { data: doctors } = useQuery({ queryKey: ["doctors-all"], queryFn: () => DoctorApi.list() });
   const docById = new Map((doctors ?? []).map((d) => [d.doctor_id, d]));
   const qc = useQueryClient();
@@ -85,7 +91,23 @@ export default function AppointmentsPage() {
   return <div className="space-y-5">
     <div><h1 className="text-3xl font-bold">My visits</h1>
     <p className="text-slate-500 mt-1">Upcoming and past appointments, cancellations and reviews.</p></div>
+    {!!myCases?.length && (
+      <Card className="p-4">
+        <h2 className="font-bold">My treatment tracking</h2>
+        <ul className="mt-2 grid sm:grid-cols-2 gap-2">
+          {myCases.map((c) => (
+            <li key={c.treatment_id} className="border border-slate-200 rounded-xl p-3 text-sm">
+              <Link className="font-semibold text-teal-700 hover:underline" href={`/cases/${c.treatment_id}`}>
+                #{c.treatment_id} {c.title}
+              </Link>
+              <span className="ml-2"><StatusPill status={c.status} /></span>
+            </li>
+          ))}
+        </ul>
+      </Card>
+    )}
     {isLoading ? <div className="space-y-3"><Skeleton className="h-24" /><Skeleton className="h-24" /></div>
+    : isError ? <Card><EmptyState title="Could not load visits" hint="Check your connection and try again." /></Card>
     : !data?.length ? <Card><EmptyState title="No appointments yet" hint="Find a doctor and book your first visit." /></Card>
     : <div className="space-y-3">{data.map((a) => {
       const d = docById.get(a.doctor_id);

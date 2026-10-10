@@ -4,10 +4,16 @@ import { useQuery } from "@tanstack/react-query";
 import { ClinicalApi, CatalogApi } from "@/lib/api";
 import { useState } from "react";
 import { DrugImage } from "@/components/Avatar";
+import { ScheduleLine } from "@/components/RxSchedule";
 import { Card, StatusPill, EmptyState, Skeleton } from "@/components/ui";
+import { RoleGate } from "@/components/RoleGate";
 
 export default function PrescriptionsPage() {
-  const { data, isLoading } = useQuery({ queryKey: ["my-prescriptions"], queryFn: ClinicalApi.myPrescriptions });
+  return <RoleGate allow={["PATIENT"]}><PrescriptionsInner /></RoleGate>;
+}
+
+function PrescriptionsInner() {
+  const { data, isLoading, isError } = useQuery({ queryKey: ["my-prescriptions"], queryFn: ClinicalApi.myPrescriptions });
   const { data: drugs } = useQuery({ queryKey: ["drugs"], queryFn: () => CatalogApi.drugs() });
   const [tab, setTab] = useState<"ACTIVE" | "ALL">("ACTIVE");
   const byId = new Map((drugs ?? []).map((d) => [d.drug_id, d]));
@@ -25,6 +31,7 @@ export default function PrescriptionsPage() {
       </div>
     </div>
     {isLoading ? <div className="grid sm:grid-cols-2 gap-4"><Skeleton className="h-28" /><Skeleton className="h-28" /></div>
+    : isError ? <Card><EmptyState title="Could not load prescriptions" hint="Check your connection and try again." /></Card>
     : rows.length === 0 ? <Card><EmptyState title={tab === "ACTIVE" ? "No active prescriptions" : "No prescriptions"} hint="Prescriptions from your consultations appear here." /></Card>
     : <div className="grid sm:grid-cols-2 gap-4">{rows.map((p) => {
       const drug = byId.get(p.drug_id);
@@ -38,6 +45,10 @@ export default function PrescriptionsPage() {
           <p className="text-xs text-slate-500 mt-0.5">#{p.prescription_id}{drug?.form ? ` · ${drug.form}` : ""}{drug?.generic_name ? ` · ${drug.generic_name}` : ""}</p>
           {(p.dosage || p.frequency || p.instructions) && (
             <p className="text-sm text-slate-600 mt-1">{[p.dosage, p.frequency, p.route].filter(Boolean).join(" · ")}{p.instructions ? ` — ${p.instructions}` : ""}</p>
+          )}
+          <ScheduleLine rx={p} status={p.status} />
+          {p.supersedes_id != null && (
+            <p className="mt-1 text-xs font-semibold text-slate-500">Replaces prescription #{p.supersedes_id}</p>
           )}
           <Link href={`/drugs/${p.drug_id}`} className="inline-block mt-1 text-sm font-semibold text-teal-700 hover:underline">View drug details →</Link>
         </div>
