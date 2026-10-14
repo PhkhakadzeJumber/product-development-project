@@ -36,4 +36,4 @@ Each one becomes at least one question in your interview script, so you still he
 
 **Update 07.10.2026, +2 interviews (six total):** [Beka's father](interview-logs/2026-10-07-beka-father-back-pain-appointment.md) supports the appointment sub-problem without the wait: 6 calls over 3 days, 1 wasted in-person booking trip (closed the garage for an hour), 2 weeks waiting in pain, then 30 minutes in the corridor and 10 minutes with the doctor, slip shown. [Giorgi's aunt](interview-logs/2026-10-07-giorgi-aunt-central-hospital-doctor.md) supports the doctor-pressure sub-problem as staffing/exhaustion, distinct from the polyclinic volume-flow: last Saturday 2 doctors became 1 sick, 12 hours with one short tea break, 3 arrivals in 30 minutes at midnight, short-staffed at least one shift every week, wants to quit. Father proves S1 can hurt without S3; aunt proves S4 is understaffing, not just gaps between booked patients.
 
-Week 3 verdict: <confirmed/weakened/killed>. Evidence: logs <numbers>. See DECISIONS.md.
+Week 3 verdict (Jumber Pkhakadze personal trial): weakened. Evidence: logs 01, 02, 03 hit ~1.5-2h; log 05 miss (30 min). See DECISIONS.md.
