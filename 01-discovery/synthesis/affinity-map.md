@@ -1,12 +1,13 @@
 # Affinity Map
 
-**Interviews behind the clusters (6 logs total):**
+**Interviews behind the clusters (7 logs total):**
 - 01 = `2026-10-05-beka-grandmother-blood-pressure-prescription.md` (72, hypertension, monthly prescription, district clinic)
 - 02 = `2026-10-05-gocha-heart-patient-ward.md` (60, heart failure, every-two-weeks ward check)
 - 03 = `2026-10-05-zura-diabetic-monthly-cardiologist.md` (diabetic, monthly cardiologist, polyclinic)
 - 04 = `2026-10-06-acquaintance-polyclinic-doctor.md` (GP, public polyclinic, Kutaisi)
 - 05 = `2026-10-07-beka-father-back-pain-appointment.md` (garage owner, back pain, public clinic)
 - 06 = `2026-10-07-giorgi-aunt-central-hospital-doctor.md` (doctor, Kutaisi Central Hospital)
+- 07 = `2026-10-05-acquaintance-long-term-clinic-patient.md` (long-term patient of one doctor at a clinic, Luka's solo phone call)
 
 A cluster counts as a pattern only when it holds quotes from 2 or more different interviews. All quotes below are verbatim from the logs, each tagged with its log number.
 
@@ -26,9 +27,9 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 
 ## Pattern 2
 
-**Pattern:** When something changes between visits, patients cannot reach the clinic by phone and must come in person.
+**Pattern:** When something changes between visits, patients cannot reach the doctor by phone, so they keep calling for days or come in person.
 
-**Interviews behind it:** 02, 03, 05, 04
+**Interviews behind it:** 02, 03, 05, 04, 07
 
 **Quotes:**
 - "Nothing happened. It rang. Nobody picked up." (03 — 6 calls over 3 days, 18th/19th/20th per call log)
@@ -37,6 +38,8 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "I closed the garage for an hour just to book." (05)
 - "He called the ward twice but nobody called him back, so he went without an appointment." (02 — logged, not verbatim; consequence: "I sat an hour and a half for five minutes.")
 - "Many walk-ins have a two-minute question and could not reach him by phone." (04 — Q17 answer, logged; he does not give out his mobile number)
+- "I first called the clinic. They didn't answer, so I called again later. The third time somebody answered and told me the doctor was with another patient and that they would pass on the message." (07 — 4 calls over 2 days; the doctor called back on day 2, so no trip)
+- "I've also asked the doctor before whether I can call directly, but normally they don't give you a direct number." (07 — same wall as 03's mobile refused and 04 not giving his out)
 
 ## Pattern 3
 
@@ -68,6 +71,17 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "Then you go home and think about quitting." (06)
 - "I liked medicine. I no longer enjoy the job." (06 — skipped full examinations to triage, postponed discharge papers to next day)
 
+## Pattern 5
+
+**Pattern:** Questions that are not urgent are held until the next routine visit instead of being asked between visits.
+
+**Interviews behind it:** 03, 07
+
+**Quotes:**
+- "It wasn't urgent." (03 — spring test result with a number he did not understand, waited for the monthly visit)
+- "Sometimes I just wait until the next appointment if it's not urgent." (07)
+- "The difficult part was just not knowing. You don't want to keep calling them, but at the same time you don't want to wait several days without knowing what's going on." (07)
+
 ## Not yet a pattern
 
 Quotes that stand alone so far (one interview). Keep them here; if a later interview echoes one, it moves up.
@@ -75,7 +89,6 @@ Quotes that stand alone so far (one interview). Keep them here; if a later inter
 - "Only that the girl at reception decides everything. If she likes you, she passes the message. If not, nothing." (03). One mention. Watching for reception-gatekeeping echo — ask who else is blocked or passed through by reception.
 - "I know you shouldn't do that. But what do I do, sit and shake?" (03 — took half an old tablet from the drawer while waiting 3 days). Partial echo in 05 working half-strength for 2 weeks with neighbour help lifting, but not yet a full self-managed-risk pattern. Watching.
 - Village first-bus surge: "Ten people outside my door before the first patient left." (04 — people from villages arrive ~9 on the first bus). Single doctor mention so far; needs patient-side echo.
-- "It wasn't urgent." (03 — spring test result with a number he did not understand, waited for the monthly visit). Single mention of non-urgent questions deferred to the routine visit. Watching.
 
 ---
 

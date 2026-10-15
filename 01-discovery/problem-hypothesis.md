@@ -40,6 +40,6 @@ Week 3 verdict (Jumber Pkhakadze personal trial): weakened. Evidence: logs 01, 0
 
 Week 3 verdict (Giorgi Phurtseladze personal trial): confirmed with boundary. Evidence: logs 02, 03 hit (2 calls / 6 calls -> trip for 5 min / 3 min); log 04 confirms 2-min question mechanism; logs 01, 05, 06 miss (different variants). See DECISIONS.md.
 
-Week 3 verdict (Luka Mikautadze personal trial): confirmed, narrowed. Evidence: logs 02, 03 hit (2 / 6 unanswered calls -> walk-in); log 04 confirms from the doctor side; logs 01, 05 miss (no between-visit question). See DECISIONS.md.
+Week 3 verdict (Luka Mikautadze personal trial): confirmed, narrowed. Evidence: logs 02, 03, 07 hit (2 / 6 / 4 calls; 02 and 03 then went in); log 04 confirms from the doctor side; logs 01, 05 miss (no between-visit question). See DECISIONS.md.
 
 Week 3 verdict (Beka Shekiladze personal trial): weakened, narrowed. Evidence: log 01 directly supports a repeat-prescription trip ending without the prescription; logs 02 and 03 support adjacent brief between-visit needs becoming walk-ins after failed calls; log 04 confirms the doctor-side two-minute-question pattern. "Often leave without it" is not established by one direct case. See DECISIONS.md.

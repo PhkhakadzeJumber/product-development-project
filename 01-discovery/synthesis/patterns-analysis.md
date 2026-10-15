@@ -7,6 +7,7 @@
 - 04 = `2026-10-06-acquaintance-polyclinic-doctor.md` (GP, public polyclinic, Kutaisi)
 - 05 = `2026-10-07-beka-father-back-pain-appointment.md` (garage owner, back pain, public clinic)
 - 06 = `2026-10-07-giorgi-aunt-central-hospital-doctor.md` (doctor, Kutaisi Central Hospital)
+- 07 = `2026-10-05-acquaintance-long-term-clinic-patient.md` (long-term patient of one doctor at a clinic)
 
 One section per pattern from the affinity map. Each why is answered in one sentence with the log that supports it. Stop when the next answer would be a guess.
 
@@ -23,17 +24,17 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 **Which of the answers above is a guess rather than a quote? (be honest; this becomes a question for your next interview):** Why 4's "nobody else to send them to" is clean in 06 (hospital queue outlasts the shift) but inferred for the polyclinic in 04. Added to script v2: what happens if you refuse a walk-in?
 
-## Pattern 2: When something changes between visits, patients cannot reach the clinic by phone and must come in person
+## Pattern 2: When something changes between visits, patients cannot reach the doctor by phone, so they keep calling for days or come in person
 
-**Interviews behind it:** 02, 03, 05, 04
+**Interviews behind it:** 02, 03, 05, 04, 07
 
-1. Why does this happen? Lines are busy, ring with no pickup, and give no callback. (03: "Nothing happened. It rang. Nobody picked up."; 05: "I called three days, nobody picks up." — morning and afternoon, ~6 calls; 02: called twice, no callback.)
-2. Why does that force a trip? The only fallback offered is showing up. (03, reception as reported: "Why do you keep calling, come in if it's urgent."; 05: "I closed the garage for an hour just to book."; 02 went Monday without an appointment.)
-3. Why is there no other channel? Doctor mobiles are withheld and the tried alternatives failed. (04: does not give mobile to avoid evening calls; 03 tried mobile — refused, daughter searched online — nothing useful, 5th-floor nurse — would not comment on dose.)
+1. Why does this happen? Lines are busy, ring with no pickup, and give no callback. (03: "Nothing happened. It rang. Nobody picked up."; 05: "I called three days, nobody picks up." — morning and afternoon, ~6 calls; 02: called twice, no callback; 07: 4 calls over 2 days, message passed through reception, no callback the first day.)
+2. Why does that force a trip? The only fallback offered is showing up. (03, reception as reported: "Why do you keep calling, come in if it's urgent."; 05: "I closed the garage for an hour just to book."; 02 went Monday without an appointment. 07 is the exception that proves it: the doctor called back on day 2, so no trip.)
+3. Why is there no other channel? Doctor mobiles are withheld and the tried alternatives failed. (04: does not give mobile to avoid evening calls; 07: "normally they don't give you a direct number"; 03 tried mobile — refused, daughter searched online — nothing useful, 5th-floor nurse — would not comment on dose.)
 
 **Root cause, one sentence:** All between-visit contact funnels through an overloaded reception/registry line with no async fallback, so any change forces a physical trip.
 
-**Which of the answers above is a guess rather than a quote?** "Overloaded" for reception is inferred from call volumes (6 + 6 + 2 unanswered) and 04's 31-patient day, not from a receptionist interview. Next interview: the referred receptionist in 04 — ask her call volume and callback practice.
+**Which of the answers above is a guess rather than a quote?** "Overloaded" for reception is inferred from call volumes (6 + 6 + 2 + 4 calls) and 04's 31-patient day, not from a receptionist interview. Next interview: the referred receptionist in 04 — ask her call volume and callback practice.
 
 ## Pattern 3: A 3- to 10-minute visit costs half a day, bus fare, and lost work — and repeats every month
 
@@ -59,8 +60,19 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 **Which of the answers above is a guess rather than a quote?** Merging 04 (flow mechanics) and 06 (staffing/exhaustion) into one shock-absorber cause is an inference — each log alone supports its own half. Keep them merged only if the next interviews (receptionist, nurse referrals in 04/06) echo the merge.
 
+## Pattern 5: Questions that are not urgent are held until the next routine visit instead of being asked between visits
+
+**Interviews behind it:** 03, 07
+
+1. Why does this happen? Getting an answer between visits costs days of calls, so only an urgent change seems worth it. (03: 6 calls over 3 days for a sugar of 3.4, but the spring test result waited: "It wasn't urgent."; 07: 4 calls over 2 days, "You don't want to keep calling them".)
+2. Why does holding the question still hurt? The patient lives with not knowing until the visit. (07: "The difficult part was just not knowing.")
+
+**Root cause, one sentence:** Between-visit contact is so costly that patients ration it to urgent changes and carry the rest as worry until the next visit.
+
+**Which of the answers above is a guess rather than a quote?** We do not know whether a held question ever caused harm or an extra visit; neither 03 nor 07 was asked. Next interview: "What happened with the last question you saved for your visit?"
+
 ---
 
 **Strongest pattern (most interviews, clearest root cause):** Pattern 3 — a 3- to 10-minute visit costs half a day, bus fare, and lost work, and repeats.
 
-**Why it is the strongest, in two sentences, citing log numbers:** Four of six interviews pay it directly (01 monthly same prescription "Every month half a day, and this month twice."; 02 "My daughter had to miss work to bring me."; 03 shop morning "fifty, eighty lari I didn't make" plus 4 GEL for 3 minutes; 05 closed garage plus 2 weeks "in pain"), and its root cause — routine and short needs forcing physical presence — is exactly what the website attacks: remote renewal, async check-in, and booking without the extra trip.
+**Why it is the strongest, in two sentences, citing log numbers:** Four of seven interviews pay it directly (01 monthly same prescription "Every month half a day, and this month twice."; 02 "My daughter had to miss work to bring me."; 03 shop morning "fifty, eighty lari I didn't make" plus 4 GEL for 3 minutes; 05 closed garage plus 2 weeks "in pain"), and its root cause — routine and short needs forcing physical presence — is exactly what the website attacks: remote renewal, async check-in, and booking without the extra trip.
