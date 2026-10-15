@@ -39,3 +39,5 @@ Each one becomes at least one question in your interview script, so you still he
 Week 3 verdict (Jumber Pkhakadze personal trial): weakened. Evidence: logs 01, 02, 03 hit ~1.5-2h; log 05 miss (30 min). See DECISIONS.md.
 
 Week 3 verdict (Giorgi Phurtseladze personal trial): confirmed with boundary. Evidence: logs 02, 03 hit (2 calls / 6 calls -> trip for 5 min / 3 min); log 04 confirms 2-min question mechanism; logs 01, 05, 06 miss (different variants). See DECISIONS.md.
+
+Week 3 verdict (Luka Mikautadze personal trial): confirmed, narrowed. Evidence: logs 02, 03 hit (2 / 6 unanswered calls -> walk-in); log 04 confirms from the doctor side; logs 01, 05 miss (no between-visit question). See DECISIONS.md.
