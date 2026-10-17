@@ -1,47 +1,22 @@
 # Problem Statement
 
-**Save this file as:** `01-discovery/problem-statement.md`
-**Filled-in example:** `Lab-4/examples/problem-statement.md` (Sakhli)
+## The statement
 
-This is not the three-line statement from your Lab 1 pool. That one recorded something you saw once. This one is what your interviews proved, and every claim in it cites a log by number. Write it from your `synthesis/patterns-analysis.md`, not from memory.
-
-## The statement (one paragraph, five sentences, each sentence ends with log numbers)
-
-1. **Who has the problem** (the specific kind of person, from your ICP, as your logs actually found them):
-
-2. **When it happens** (a moment you could film, not "sometimes" or "when busy"):
-
-3. **What it costs them** (a number, a refund, a lost customer, an hour; something a log records):
-
-4. **What they do about it today** (the workaround they described or showed you):
-
-5. **Why that workaround fails them** (in their words, quoted, with the log number):
+1. **Who:** People with ongoing conditions who return to the same doctor at a public clinic or hospital for recurring prescriptions, monitoring, or check-ups, such as the monthly hypertension and diabetes patients and the heart patient seen every two weeks. (01, 02, 03)
+2. **When:** On a visit day, they arrive at a corridor where a booked visit may already be running late or walk-ins are being fitted between appointments, and wait outside the doctor's room to be seen. (01, 02, 03, 04)
+3. **Cost:** In the Week 3 patient trial, 3 of 4 patients waited 1.5–2 hours on a difficult visit and one waited 30 minutes; one monthly prescription trip took half a day and had to be repeated, while another visit cost four hours door-to-door, 4 GEL in transport, and an estimated 50–80 lari in missed shop earnings. (01, 02, 03, 05)
+4. **Today:** They book the next routine visit before leaving, call the clinic or ward when something changes, and otherwise travel in, wait in the corridor, or ask a relative to help with calls or transport. (01, 02, 03, 07)
+5. **Why it fails:** An appointment does not guarantee a predictable wait or a brief visit: “I had an appointment, but what does that mean? I still waited.” (01); “I sat an hour and a half for five minutes.” (02)
 
 ## What the evidence ruled out
 
-The problem you believed before interviewing, and the count that ruled it out or narrowed it. Copy the numbers from your Week 3 verdict line in `DECISIONS.md`.
-
--
+We expected patients might wait two to four hours just in the waiting area. Week 3 narrowed that claim to about 1.5–2 hours: 3 of 4 patients hit that range on a difficult visit, while one waited 30 minutes and identified booking as the problem; the doctor described 31 patients in a day with 22 booked and leaving two hours late. The long waits for Gocha and Zura followed unanswered calls and visits without appointments, so the evidence does not show that every scheduled visit has a long wait. (01, 02, 03, 04, 05)
 
 ## What is still open
 
-One thing your logs cannot answer yet. It becomes a question for your next interview or a test for your prototype.
-
--
+How often do recurring patients with appointments face a 1.5–2-hour wait, compared with patients who arrive without an appointment after failing to reach the clinic? The logs show both a long wait despite an appointment and long waits after unanswered calls, but do not establish how common either situation is across clinics or ordinary visit days. (01, 02, 03)
 
 ## Pattern behind it
 
-Paste the pattern sentence from `synthesis/patterns-analysis.md` that this statement is built on, and its root cause sentence.
-
-- Pattern:
-- Root cause:
-
----
-
-**Self-check before committing**
-
-- [ ] Every one of the five sentences ends with at least one log number.
-- [ ] No product words: app, platform, tool, AI, bot, solution, we will build.
-- [ ] Read sentence 1 aloud. Could a stranger find this person in a room of fifty?
-- [ ] Swap in a different team's product. If the paragraph still reads true, it is too generic. Go back to the quotes.
-- [ ] Nothing here came from a search engine. If it is not in a log, it is not in this file.
+- **Pattern:** A 3- to 10-minute visit costs half a day, bus fare, and lost work — and repeats every month. (01, 02, 03, 05)
+- **Root cause:** Routine and short-duration needs require physical presence, so travel plus queue plus lost work repeat on every cycle. (01, 02, 03, 05)

@@ -90,6 +90,3 @@ Quotes that stand alone so far (one interview). Keep them here; if a later inter
 - "I know you shouldn't do that. But what do I do, sit and shake?" (03 — took half an old tablet from the drawer while waiting 3 days). Partial echo in 05 working half-strength for 2 weeks with neighbour help lifting, but not yet a full self-managed-risk pattern. Watching.
 - Village first-bus surge: "Ten people outside my door before the first patient left." (04 — people from villages arrive ~9 on the first bus). Single doctor mention so far; needs patient-side echo.
 
----
-
-Self-check before committing: swap your product's name for a competitor's in each pattern sentence. If the sentence still reads true, it is a topic, not a pattern. Go back to the quotes.

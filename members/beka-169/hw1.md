@@ -1,53 +1,46 @@
-# Homework 1 · [your name] (@[github-username]) · Team [team name]
-
-**Save this file as:** `members/<your-github-username>/hw1.md`
-**Filled-in example:** `Lab-4/examples/hw1.md` (Luka, Sakhli team)
-**Individual. 5 points. Commit it from your own account, then upload the same file to the LMS.**
-
-Everything below must link to files in your team repo. A claim with no link counts as not there.
+# Homework 1 · Beka Shekiladze (@beka-169) · Team MediBook
 
 ## 1. My interview log
 
-Every real interview you took part in. At least 2 where you were the **asker**.
-
-| Log file (link) | My role (asked / logged / both) | What this interview changed, in one sentence |
+| Log file | My role | What this interview changed |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+| [01-grandmother-district-clinic.md](../../01-discovery/interview-logs/01-grandmother-district-clinic.md) | asked | My grandmother's two-hour wait despite an appointment and leaving without the monthly prescription made the repeat-visit cost concrete, but did not establish that patients often leave unseen. |
+| [02-heart-patient-ward.md](../../01-discovery/interview-logs/02-heart-patient-ward.md) | logged | Gocha's regular visits were booked ahead and fine; the 1.5-hour wait followed unanswered calls and an unplanned visit. |
+| [03-diabetic-polyclinic.md](../../01-discovery/interview-logs/03-diabetic-polyclinic.md) | logged | Zura's six calls and unplanned visit supported the between-visit contact problem, while his normal booked wait showed that this was not the same as routine appointment delay. |
+| [05-father-clinic.md](../../01-discovery/interview-logs/05-father-clinic.md) | asked | My father's six unanswered calls, in-person booking trip, and two-week wait showed that booking access can be the main pain even when the visit-day wait is only 30 minutes. |
+| [06-aunt-hospital.md](../../01-discovery/interview-logs/06-aunt-hospital.md) | logged | The doctor's weekly short-staffed shifts and 12-hour night shift showed a staffing and exhaustion problem distinct from clinic appointment flow. |
 
 **The quote I heard myself that mattered most, with its log number:**
 
-> ""
+> “Every month half a day, and this month twice.” (01)
 
 **One moment I broke the Mom Test, and what I asked instead next time** (name the log):
 
-## 2. Pattern journal, Weeks 1 to 4
+In log 03, I was logger when Giorgi asked, “Would it help if you could just message her when something like the tablet happens?” Zura agreed, but that hypothetical answer was not evidence. In my next interview, log 05, I focused on the last real booking attempt: what he did, how often he called, and what happened next. That produced the specific sequence of six calls over three days, an in-person trip, and a two-week wait.
 
-Copy your entries from `members/<your-github-username>/pattern-journal.md`. Each week answers the same prompt: Where did you apply this pattern this week, where did you exercise agency beyond your assigned lane, and what did you hack together to test something faster than the plan allowed? Each entry links at least one file or commit.
+## 2. Pattern journal, Weeks 1 to 4
 
 ### Week 1 · Act like an owner, not a role
 
+My lane is discovery: interview quality and synthesis. I filled in my part of the contract and wrote three statements from things I had watched myself: my father walking out to the yard to check on a car, my cousin's flat arguing every month over who paid which bill, and my grandmother's monthly trip for the same prescription. The grandmother one is the one I had seen most often. It did not become the pick, but it is in the scorecard as the third shortlisted problem and it comes up in her log under question 1. ([problem pool](../../00-foundation/problem-pool.md), [Four Filters scorecard](../../00-foundation/four-filters-scorecard.md), [team contract](../../00-foundation/team-contract.md))
+
 ### Week 2 · Evidence over opinion
+
+I asked in one interview and logged two. I interviewed my grandmother on 05.10 at her flat with Giorgi logging. She goes every month to renew the same prescription. On her last visit it took several tries to find an appointment that fit, the bus is about an hour each way, and she waited about two hours with an appointment before she had to leave without seeing the doctor. Giorgi watched for places where I answered for her. I was second logger for Gocha at the hospital café and for Zura at his flat, where I kept Giorgi on the calls when Zura jumped ahead to the trip, and made sure the six call-log dates were written down exactly. The thing I learned this week: having an appointment did not tell her when she would actually be seen, and she said that herself at the end, when I asked what I had missed. ([grandmother log](../../01-discovery/interview-logs/01-grandmother-district-clinic.md), [Gocha log](../../01-discovery/interview-logs/02-heart-patient-ward.md), [Zura log](../../01-discovery/interview-logs/03-diabetic-polyclinic.md))
 
 ### Week 3 · Kill your favorite idea
 
+My favorite idea was that older patients with a standing treatment often have to make a clinic trip for a repeat prescription or a brief question, and often leave without it. I checked it against the interviews rather than treating every long wait or walk-in as proof. My grandmother's visit directly supported the repeat-prescription part: she waited about two hours with an appointment, left without the prescription, and had to make the trip again (log 01). Gocha and Zura also came in without appointments after calls went unanswered, but their visits were between-visit problems, not repeat-prescription renewals (logs 02 and 03); the doctor confirmed that brief questions can become walk-ins (log 04). I narrowed my claim: only one interview showed a patient leaving without a repeat prescription, so “often leave without it” is not established. This was a useful boundary to preserve, not a reason to overstate the evidence. ([grandmother log](../../01-discovery/interview-logs/01-grandmother-district-clinic.md), [Gocha log](../../01-discovery/interview-logs/02-heart-patient-ward.md), [Zura log](../../01-discovery/interview-logs/03-diabetic-polyclinic.md), [polyclinic doctor log](../../01-discovery/interview-logs/04-polyclinic-doctor.md), [DECISIONS.md](../../DECISIONS.md))
+
 ### Week 4 · The prototype is the conversation
+
+I moved from discovery into the first version of our MediBook prototype: patients can find doctors and book visits, doctors can manage visits and treatment records, and hospital admins can manage appointment slots and see visits. I used the ER model to shape the app around the patient, doctor, hospital-admin, time-slot, appointment, treatment-case, consultation, and prescription relationships, with the backend supporting the booking and care-tracking flows. I also translated the discovery evidence into the five-part problem statement and mapped the alternatives people actually use—clinic visits, calling reception, relatives' help, and other workarounds—in the competitive landscape. The prototype makes our assumptions tangible enough to discuss and test; it does not yet prove that online slots match real clinic availability or reduce waiting. ([app](../../app/), [backend](../../backend/), [ER model](../../er_model.md), [problem statement](../../01-discovery/problem-statement.md), [competitive landscape](../../01-discovery/competitive-landscape-seed.md), [DECISIONS.md](../../DECISIONS.md))
 
 ## 3. My DECISIONS.md citations
 
-Each `DECISIONS.md` line you drove or supplied the evidence for. Copy the line exactly, then say what you did.
-
 | The line, copied | What I did for it |
 |---|---|
-| | |
-| | |
-
----
-
-**Before you upload, check**
-
-- [ ] 2 or more rows say "asked" or "both", and each links a real log in `01-discovery/interview-logs/`.
-- [ ] Four journal entries, each with a link. The commit history shows they were written across the weeks, not tonight.
-- [ ] Every DECISIONS.md line is copied word for word, and the owner or evidence on it connects to you.
-- [ ] Committed from your own GitHub account. Uploaded to the LMS before the deadline.
+| `Wk3 · Prediction "older patients with standing treatment must come in for repeat prescriptions or brief questions, and often leave without them" verdict: weakened, narrowed to one direct repeat-prescription case plus two adjacent failed-contact walk-ins; only log 01 left unseen without the prescription, so "often" is unproven · evidence: 01-discovery/interview-logs/01-grandmother-district-clinic.md, 01-discovery/interview-logs/02-heart-patient-ward.md, 01-discovery/interview-logs/03-diabetic-polyclinic.md, 01-discovery/interview-logs/04-polyclinic-doctor.md · owner: Beka Shekiladze` | Asked my grandmother about her repeat prescription and compared her direct case with the between-visit cases I logged and the doctor's account of walk-ins. This evidence narrowed my original claim. |
+| `Wk4 · Beka made the first MediBook prototype, an appointment and treatment-tracking app with patient doctor search and booking, doctor visit/treatment workflows, and hospital-admin slot and visit management · evidence: [app](app/), [backend](backend/), [ER model](er_model.md) · owner: Beka Shekiladze` | Made the first prototype version and connected its app and backend scope to the ER model. |
+| `Wk4 · Beka turned the discovery evidence into a five-part, log-cited statement about recurring clinic visits, the time and financial cost, today's workarounds, and the unresolved question of how often booked patients face long waits · evidence: [problem statement](01-discovery/problem-statement.md), [patterns analysis](01-discovery/synthesis/patterns-analysis.md), interview logs 01–05 · owner: Beka Shekiladze` | Wrote the problem statement from the discovery logs and synthesis, citing the evidence and keeping the unresolved frequency question open. |
+| `Wk4 · Beka mapped the actual alternatives named in interviews—including routine visits, calls to the clinic, relatives' help, self-adjusting medication, waiting, walk-in handling, and triage—using log references and interviewee quotes rather than assumed software competitors · evidence: [competitive landscape](01-discovery/competitive-landscape-seed.md), interview logs 01–07 · owner: Beka Shekiladze` | Filled the competitive landscape from the interview logs, using the named workarounds and quotes instead of assumed competitors. |
