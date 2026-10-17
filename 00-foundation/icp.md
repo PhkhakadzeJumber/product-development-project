@@ -16,7 +16,7 @@ One person, not a segment. If a stranger could not pick them out of a room from 
 - Someone with an emergency. They call 112 or go to the emergency room; waiting and wasting time is not their issue in this case.
 - Someone with a doctor in the family. They already get the treatment they need with the help of their family member.
 
-**How we reach five of them this week:**
+**How we reach them this week:**
 | Person or channel | Who on our team | Contacted? |
 |---|---|---|
 | An acquaintance of Luka's, general practitioner at a public polyclinic (the doctor's side, not a Gela) | Luka | yes, interviewed 06.10 |
@@ -30,4 +30,4 @@ One person, not a segment. If a stranger could not pick them out of a room from 
 
 **Evidence so far:** [problem pool](problem-pool.md): Giorgi's statement about his neighbour (did not know when a specialist would visit her town and could not travel to Tbilisi), Jumber's statement about patients waiting for hours at the hospital, Beka's statement about his grandmother, Beka's statement about his father (3 days calling, in-person trip, 2-week wait), Giorgi's statement about his aunt (great number of patients, low colleagues, wants to quit), and Luka's statement about his polyclinic acquaintance. Interviews: [Gocha](../01-discovery/interview-logs/2026-10-05-gocha-heart-patient-ward.md), [Zura](../01-discovery/interview-logs/2026-10-05-zura-diabetic-monthly-cardiologist.md), [Beka's grandmother](../01-discovery/interview-logs/2026-10-05-beka-grandmother-blood-pressure-prescription.md), [polyclinic doctor](../01-discovery/interview-logs/2026-10-06-acquaintance-polyclinic-doctor.md), [Beka's father](../01-discovery/interview-logs/2026-10-07-beka-father-back-pain-appointment.md), [Giorgi's aunt](../01-discovery/interview-logs/2026-10-07-giorgi-aunt-central-hospital-doctor.md), [Luka's acquaintance, long-term clinic patient](../01-discovery/interview-logs/2026-10-05-acquaintance-long-term-clinic-patient.md).
 
-This is v1. It will change after your first three interviews, and that is the point.
+This is v1. It already reflects seven interviews and will change as more come in — that is the point.
