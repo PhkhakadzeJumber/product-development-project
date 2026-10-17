@@ -34,3 +34,4 @@ Wk3 · Giorgi Phurtseladze · Opencode · filled ICP part, filled problem pool, 
 Wk4 · Jumber Phkhakadze · Opencode · fixed all inconsistencies, improved website, added Lab 3 templates, updated affinity map and patterns analysis, filled predictions vs results · checked website correctness and diff
 Wk4 · Beka Shekiladze · Opencode · updated problem hypothesis and DECISIONS.md · checked against logs
 Wk4 · Giorgi Phurtseladze · Opencode · updated problem hypothesis and DECISIONS.md with predictions · checked predictions against logs
+Wk4 · Beka · Copilot · updated 01-discovery/interview-script-v2.md from v1 and all seven interview logs: retained focused questions, documented the v1 keep/cut decisions, and added questions based on repeated patterns · cross-checked pattern log numbers and examples against the logs and affinity map; ran git diff --check
