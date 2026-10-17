@@ -5,10 +5,10 @@ Format: Wk<N> · who · tool · what it produced · what you checked or changed
 
 Wk1 · Jumber Phkhakadze · Opencode · drafted three problem statements: sister's hospital wait hours, nurses retyping patient info, friend's mother paying 150 GEL per consultation · checked each against the three tests (room/camera/desk)
 Wk1 · Luka Mikautadze · Claude Code · drafted three problem statements: polyclinic GP walk-ins, uncle phone calls between visits, home baker cake orders in chats
-Wk1 · Beka Shekiladze · Opencode · drafted three problem statements: father's back-pain clinic appointment, cousin's flat bill splitting, grandmother's monthly BP prescription · [verify]
-Wk1 · Giorgi Phurtseladze · Opencode · drafted three problem statements: neighbour Nani specialist visit in Baghdati, friend Ana exchange transcript, aunt's hospital overload · [verify]
+Wk1 · Beka Shekiladze · Opencode · drafted three problem statements: father's back-pain clinic appointment, cousin's flat bill splitting, grandmother's monthly BP prescription · 
+Wk1 · Giorgi Phurtseladze · Opencode · drafted three problem statements: neighbour Nani specialist visit in Baghdati, friend Ana exchange transcript, aunt's hospital overload · 
 
-Wk2 · Team · Opencode · drafted ICP v1 (Gela profile), outreach tracker with first contacts, and each teammate's belief statement for the problem hypothesis · [verify] checked ICP one-person sketch and that each belief has a reachable interviewee
+Wk2 · Team · Opencode · drafted ICP v1 (Gela profile), outreach tracker with first contacts, and each teammate's belief statement for the problem hypothesis · checked ICP one-person sketch and that each belief has a reachable interviewee
 
 Wk3 · Luka · Claude Code · pasted teammates' problem statements into the pool, drafted Jumber's third statement, fixed the contract sign-off table and README team list, added the runner-up to DECISIONS.md · checked each statement against the three tests; Jumber still has to confirm the person and numbers in his third statement
 Wk3 · Luka · Claude Code · filed the Gocha and grandmother interview logs as written, added their two referrals (Gocha's neighbour, Nino) to the outreach tracker, ticked the two-interviews item in the README · logs pasted in verbatim, nothing in them was changed by the tool
