@@ -1,13 +1,13 @@
 # Affinity Map
 
 **Interviews behind the clusters (7 logs total):**
-- 01 = `2026-10-05-beka-grandmother-blood-pressure-prescription.md` (72, hypertension, monthly prescription, district clinic)
-- 02 = `2026-10-05-gocha-heart-patient-ward.md` (60, heart failure, every-two-weeks ward check)
-- 03 = `2026-10-05-zura-diabetic-monthly-cardiologist.md` (diabetic, monthly cardiologist, polyclinic)
-- 04 = `2026-10-06-acquaintance-polyclinic-doctor.md` (GP, public polyclinic, Kutaisi)
-- 05 = `2026-10-07-beka-father-back-pain-appointment.md` (garage owner, back pain, public clinic)
-- 06 = `2026-10-07-giorgi-aunt-central-hospital-doctor.md` (doctor, Kutaisi Central Hospital)
-- 07 = `2026-10-05-acquaintance-long-term-clinic-patient.md` (long-term patient of one doctor at a clinic, Luka's solo phone call)
+- 01 = `01-grandmother-district-clinic.md` (72, hypertension, monthly prescription, district clinic)
+- 02 = `02-heart-patient-ward.md` (60, heart failure, every-two-weeks ward check)
+- 03 = `03-diabetic-polyclinic.md` (diabetic, monthly cardiologist, polyclinic)
+- 04 = `04-polyclinic-doctor.md` (GP, public polyclinic, Kutaisi)
+- 05 = `05-father-clinic.md` (garage owner, back pain, public clinic)
+- 06 = `06-aunt-hospital.md` (doctor, Kutaisi Central Hospital)
+- 07 = `07-long-term-patient-clinic.md` (long-term patient of one doctor at a clinic, Luka's solo phone call)
 
 A cluster counts as a pattern only when it holds quotes from 2 or more different interviews. All quotes below are verbatim from the logs, each tagged with its log number.
 

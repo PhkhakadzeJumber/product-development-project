@@ -73,6 +73,9 @@ Yes, at the café after his next check-up.
 ## Did this support or weaken the hypothesis?
 Supports the wait hero: 1.5 hours in the corridor for 5 minutes with the doctor, half a day lost for patient plus daughter. Travel and appointment are minor overlap: short drive, only 2 unanswered calls.
 
+## What surprised me
+His regular booked visits are fine — the long wait only happened because he came without an appointment after his calls went unanswered. So the system works when you can actually get through.
+
 ## Asker's green and red
 - Green: "How did you know it was an hour and a half?" — he looked at the clock on the wall when he sat down and when called in.
 - Red: none recorded.

@@ -1,13 +1,13 @@
 # Patterns Analysis
 
 **Interviews behind the patterns (same numbering as `affinity-map.md`):**
-- 01 = `2026-10-05-beka-grandmother-blood-pressure-prescription.md` (72, hypertension, monthly prescription, district clinic)
-- 02 = `2026-10-05-gocha-heart-patient-ward.md` (60, heart failure, every-two-weeks ward check)
-- 03 = `2026-10-05-zura-diabetic-monthly-cardiologist.md` (diabetic, monthly cardiologist, polyclinic)
-- 04 = `2026-10-06-acquaintance-polyclinic-doctor.md` (GP, public polyclinic, Kutaisi)
-- 05 = `2026-10-07-beka-father-back-pain-appointment.md` (garage owner, back pain, public clinic)
-- 06 = `2026-10-07-giorgi-aunt-central-hospital-doctor.md` (doctor, Kutaisi Central Hospital)
-- 07 = `2026-10-05-acquaintance-long-term-clinic-patient.md` (long-term patient of one doctor at a clinic)
+- 01 = `01-grandmother-district-clinic.md` (72, hypertension, monthly prescription, district clinic)
+- 02 = `02-heart-patient-ward.md` (60, heart failure, every-two-weeks ward check)
+- 03 = `03-diabetic-polyclinic.md` (diabetic, monthly cardiologist, polyclinic)
+- 04 = `04-polyclinic-doctor.md` (GP, public polyclinic, Kutaisi)
+- 05 = `05-father-clinic.md` (garage owner, back pain, public clinic)
+- 06 = `06-aunt-hospital.md` (doctor, Kutaisi Central Hospital)
+- 07 = `07-long-term-patient-clinic.md` (long-term patient of one doctor at a clinic)
 
 One section per pattern from the affinity map. Each why is answered in one sentence with the log that supports it. Stop when the next answer would be a guess.
 

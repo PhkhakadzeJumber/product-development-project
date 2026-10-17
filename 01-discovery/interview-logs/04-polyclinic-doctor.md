@@ -66,6 +66,9 @@ Yes, by phone, in the evening after the clinic closes.
 ## Did this support or weaken the hypothesis?
 Supports the volume-flow hero: more patients than the day has room for, corridor fills, booked go late, slots cut, 2h overtime. Distinct from burnout — this is flow mechanics.
 
+## What surprised me
+Many of the walk-ins filling the corridor have just a two-minute question they couldn't ask by phone — so failed phone contact is partly what creates the crowding, not just more patients showing up.
+
 ## Asker's green and red
 - Green: "How many Mondays? Every Monday?" turned "most" into three of last four; "How many by half past nine?" gave the ten-people count.
 - Red: none recorded.

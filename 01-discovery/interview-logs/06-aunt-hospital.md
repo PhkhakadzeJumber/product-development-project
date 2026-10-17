@@ -65,6 +65,9 @@ Yes, by phone in the evening.
 ## Did this support or weaken the hypothesis?
 Supports the stress/burnout hero: too many patients plus too few colleagues, long hours, wants to quit. Distinct from polyclinic volume-flow — this is staffing and exhaustion.
 
+## What surprised me
+Short-staffing isn't occasional — at least one shift every week she covers alone what two or three doctors should do. It's chronic, not a one-off emergency.
+
 ## Asker's green and red
 - Green: "Every week? How often short?" turned "often" into at least one shift a week; silence after "quitting" brought the "go home and think" line.
 - Red: none recorded.

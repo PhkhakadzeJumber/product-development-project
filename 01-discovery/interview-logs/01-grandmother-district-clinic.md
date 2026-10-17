@@ -76,6 +76,9 @@ Yes, at her flat.
 ## Did this support or weaken the hypothesis?
 Supports the financial-repeat hero: same no-exam prescription trip every month costs half a day plus fare, doubled when she leaves unseen. Travel and wait are the mechanism, cost is the pain.
 
+## What surprised me
+She had an appointment and still left without seeing the doctor — the appointment slip didn't guarantee she'd be seen, and she has to repeat the whole half-day trip again this month.
+
 ## Asker's green and red
 - Green: "Twice? Three times? More?" turned "several tries" into two-three phone tries; "Can you show me the slip?" brought the old prescription and bus tickets.
 - Red: none recorded.

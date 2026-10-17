@@ -73,6 +73,9 @@ Yes, at the garage.
 ## Did this support or weaken the hypothesis?
 Supports the appointment hero: getting the slot cost 3 days + 1 trip + 2 weeks in pain. Travel and corridor wait are minor overlap by design.
 
+## What surprised me
+The long part wasn't the corridor wait — it was the two weeks waiting for the slot and three days of calling. The actual visit day was quick: 30 minutes in the corridor, 10 minutes with the doctor.
+
 ## Asker's green and red
 - Green: "Morning? Evening? How many times?" turned "many calls" into twice a day for three days; "Can you show me the slip?" gave the two-week gap in writing.
 - Red: none recorded.

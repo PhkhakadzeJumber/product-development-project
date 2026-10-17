@@ -78,6 +78,9 @@ Yes. He said we can come back when we have something to show him.
 ## Did this support or weaken the hypothesis?
 Supports the travel hero: forty minutes by bus each way, four hours door to door for three minutes with the doctor, plus a lost shop morning and 4 GEL. Wait is the consequence (2 hours for a gap). Appointment booking itself is fine.
 
+## What surprised me
+Booking itself is fine — he books his next visit before leaving. The pain is only reaching the doctor between visits, not the visit itself. So the visit process works; the between-visit channel is broken.
+
 ## Asker's green and red
 - Green: "Three? Five? More?" turned "many" into "six or seven", and "Can you show me the calls on your phone?" turned that into six exact dates. Also the three seconds of silence after he mentioned the half tablet, which brought out "I know you shouldn't do that" and his wife shouting at him to go to the hospital.
 - Red: "Would it help if you could just message her when something like the tablet happens?" He said "of course it would help, who wouldn't want that." Solution-shaped, not usable.
