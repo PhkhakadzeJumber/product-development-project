@@ -20,4 +20,10 @@ My favorite idea was my own Step 1 belief: ill people cannot get a quick answer 
 
 Links: [log 07](../../01-discovery/interview-logs/07-long-term-patient-clinic.md), [affinity map, Patterns 2 and 5](../../01-discovery/synthesis/affinity-map.md), [DECISIONS.md](../../DECISIONS.md)
 
+## Week 4 · The prototype is the conversation
+
+The prototype itself this week was Jumber's backend and Beka's app and prototype plan; I stayed on the evidence it is built on. With log 07 back in the repo, I brought the ICP, the Four Filters scorecard and my journal in line with the logs, so Milestone 1 rests on what they actually say (Gocha's "waiting is the hard part" had been misquoted in the scorecard and my journal). Reading the prototype plan against my evidence, the first test is booking, which is the right riskiest assumption from log 05, but booking is not where the between-visits pain sits: in log 07 booking took one call, Gocha and Zura say their regular bookings are fine, and their trouble was reaching the doctor once something changed (Pattern 2), plus questions held until the next visit (Pattern 5). The plan explicitly leaves medical advice and triage out of the test, so a passing booking test will not tell us anything about our runner-up; that has to be a later test. Beyond my lane: my lane is code, CI and deployment, and this week I wrote no code, the build was Jumber's and Beka's. The hack: instead of waiting for the first tester session, I checked the plan's riskiest assumption against the seven logs we already have.
+
+Links: [prototype plan](../../02-design/prototype-plan.md), [log 07](../../01-discovery/interview-logs/07-long-term-patient-clinic.md), [affinity map, Patterns 2 and 5](../../01-discovery/synthesis/affinity-map.md), [Four Filters scorecard](../../00-foundation/four-filters-scorecard.md)
+
 DECISIONS.md lines I drove: the problem pick with the runner-up, the Week 3 confirmed verdict, the change of my outreach target, and my prediction verdict.
