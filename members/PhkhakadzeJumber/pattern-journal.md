@@ -19,3 +19,11 @@ My favorite idea was my own Step 1 belief: patients lose two to four hours waiti
 Links: [grandmother log](../../01-discovery/interview-logs/01-grandmother-district-clinic.md), [Gocha log](../../01-discovery/interview-logs/02-heart-patient-ward.md), [Zura log](../../01-discovery/interview-logs/03-diabetic-polyclinic.md), [father log](../../01-discovery/interview-logs/05-father-clinic.md), [Four Filters scorecard](../../00-foundation/four-filters-scorecard.md), [affinity map, Patterns 2 and 5](../../01-discovery/synthesis/affinity-map.md), [DECISIONS.md](../../DECISIONS.md)
 
 DECISIONS.md lines I drove: the problem we picked, hospital waiting, is my statement, and I rewrote the interview script around it. The Gocha log is one of the four pieces of evidence behind the Week 3 verdict. My Week 3 verdict: weakened — 3 of 4 patients hit the ~1.5–2 h wait (grandmother, Gocha, Zura), 1 missed (father, 30 min), with the caveat that long waits cluster on walk-ins after unanswered calls.
+
+## Week 4 · The prototype is the conversation
+
+I moved from discovery into build for Week 4: I built the backend side of the first MediBook prototype. The backend (FastAPI + Postgres) implements the booking flow — patients browse doctors and book from admin-created time slots — and the care-tracking flow — doctors record consultations and prescriptions within treatment cases. I shaped the data layer from the ER model (user accounts, patients, doctors, hospital admins, time slots, appointments, consultations, prescriptions, chat) and connected it to the app repo so the team had a working prototype to demo and discuss rather than just an idea. It does not yet prove online slots match real clinic availability or reduce waiting.
+
+Links: [backend](backend/), [ER model](er_model.md), [app](app/), [DECISIONS.md](../../DECISIONS.md)
+
+DECISIONS.md lines I drove: the Week 4 entries for the backend side of the first prototype and the ER-model-to-data-layer translation.

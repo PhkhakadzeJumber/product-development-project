@@ -5,7 +5,7 @@ Format: Wk<N> · who · tool · what it produced · what you checked or changed
 
 Wk1 · Jumber Phkhakadze · Opencode · drafted three problem statements: sister's hospital wait hours, nurses retyping patient info, friend's mother paying 150 GEL per consultation · checked each against the three tests (room/camera/desk)
 Wk1 · Luka Mikautadze · Claude Code · drafted three problem statements: polyclinic GP walk-ins, uncle phone calls between visits, home baker cake orders in chats
-Wk1 · Beka Shekiladze · Opencode · drafted three problem statements: father's back-pain clinic appointment, cousin's flat bill splitting, grandmother's monthly BP prescription · 
+Wk1 · Beka Shekiladze · Copilot · drafted three problem statements: father's back-pain clinic appointment, cousin's flat bill splitting, grandmother's monthly BP prescription · 
 Wk1 · Giorgi Phurtseladze · Opencode · drafted three problem statements: neighbour Nani specialist visit in Baghdati, friend Ana exchange transcript, aunt's hospital overload · 
 
 Wk2 · Team · Opencode · drafted ICP v1 (Gela profile), outreach tracker with first contacts, and each teammate's belief statement for the problem hypothesis · checked ICP one-person sketch and that each belief has a reachable interviewee
@@ -28,10 +28,10 @@ Wk4 · Luka · Claude Code · drafted members/LuDeVing/hw1.md from the course te
 Wk4 · Luka · Claude Code · updated 01-discovery/interview-script-v2.md from v1 and all seven interview logs: retained focused questions, documented the v1 keep/cut decisions, and added questions based on repeated patterns · cross-checked pattern log numbers and examples against the logs and affinity map; ran git diff --check
 
 Wk3 · Jumber Phkhakadze · Opencode · updated Gocha interview log to v2 layout, fixed interview description, fixed interview script to v2, updated ICP to v2, fixed interview part, filled problem pool part, filled problem hypothesis part · checked each file against v2 script and pool
-Wk3 · Beka Shekiladze · Opencode · updated grandmother interview to v2, changed problem pool part · checked against v2 script
+Wk3 · Beka Shekiladze · Copilot · updated grandmother interview to v2, changed problem pool part · checked against v2 script
 Wk3 · Giorgi Phurtseladze · Opencode · filled ICP part, filled problem pool, added interview logs · checked pool statements and ICP links
 
 Wk4 · Jumber Phkhakadze · Opencode · fixed all inconsistencies, improved website, added Lab 3 templates, updated affinity map and patterns analysis, filled predictions vs results · checked website correctness and diff
-Wk4 · Beka Shekiladze · Opencode · updated problem hypothesis and DECISIONS.md · checked against logs
+Wk4 · Beka Shekiladze · Copilot · updated problem hypothesis and DECISIONS.md · checked against logs
 Wk4 · Giorgi Phurtseladze · Opencode · updated problem hypothesis and DECISIONS.md with predictions · checked predictions against logs
 Wk4 · Beka · Copilot · updated 01-discovery/interview-script-v2.md from v1 and all seven interview logs: retained focused questions, documented the v1 keep/cut decisions, and added questions based on repeated patterns · cross-checked pattern log numbers and examples against the logs and affinity map; ran git diff --check
