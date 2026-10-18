@@ -8,7 +8,8 @@ import { ApiError } from "@/lib/api-client";
 import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill, EmptyState, Skeleton } from "@/components/ui";
 import { RoleGate } from "@/components/RoleGate";
-import { fmtDateTime } from "@/lib/format";
+import { fmtDateTime, fmtTime } from "@/lib/format";
+import { JoinWaitlist } from "@/components/Care";
 
 export default function DoctorSlotsPage() {
   return <RoleGate allow={["PATIENT"]}><DoctorSlotsInner /></RoleGate>;
@@ -37,6 +38,7 @@ function DoctorSlotsInner() {
       setBookErr("");
       qc.invalidateQueries({ queryKey: ["slots"] });
       qc.invalidateQueries({ queryKey: ["my-appointments"] });
+      qc.invalidateQueries({ queryKey: ["my-waitlist"] });
     },
     onError: (e) => setBookErr(e instanceof ApiError ? e.message : "Booking failed"),
   });
@@ -59,6 +61,7 @@ function DoctorSlotsInner() {
             <li key={s.slot_id} className="flex items-center gap-2 border border-slate-200 rounded-xl px-3 py-2.5 text-sm">
               <span className="font-medium">{fmtDateTime(s.start_time)}</span>
               <StatusPill status={s.consultation_mode} />
+              {s.held_for_me && <span className="text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">Held for you{s.held_until ? ` until ${fmtTime(s.held_until)}` : ""}</span>}
               <button disabled={book.isPending} onClick={() => book.mutate(s.slot_id)}
                 className="ml-auto bg-teal-600 hover:bg-teal-700 disabled:opacity-40 text-white text-sm font-semibold px-3 py-1.5 rounded-lg">Book</button>
             </li>
@@ -67,6 +70,7 @@ function DoctorSlotsInner() {
         {bookErr && <p className="mt-3 text-sm text-rose-600" role="alert">{bookErr}</p>}
         {bookedId && <p className="mt-3 text-sm bg-emerald-50 border border-emerald-200 text-emerald-700 p-2.5 rounded-xl">Booked! Appointment #{bookedId} — see it under <Link href="/appointments" className="underline font-semibold">My visits</Link>.</p>}
       </Card>
+      {!isLoading && Number.isFinite(id) && <JoinWaitlist doctorId={id} noSlots={!slots?.length} />}
     </div>
   );
 }

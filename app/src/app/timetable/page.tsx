@@ -9,6 +9,7 @@ import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill, EmptyState, Skeleton, inputCls } from "@/components/ui";
 import { PatientCard, type PatientCardData } from "@/components/VisitCard";
 import { dayKey, fmtDay, timeKey, fmtDateTime } from "@/lib/format";
+import { DelayControl } from "@/components/Care";
 
 // Teams-style week grid: columns = days, rows = half-hour times. Matches seed DAY_GRID.
 const ROWS = ["09:00", "09:30", "10:00", "10:30", "14:00", "14:30", "15:00", "15:30"];
@@ -98,6 +99,7 @@ function TimetableInner() {
   return <div className="space-y-6">
     <div><h1 className="text-3xl font-bold">Timetable</h1>
     <p className="text-slate-500 mt-1">Your week at a glance — like Teams calendar. Click complete / no-show inline.</p></div>
+    {userId && <DelayControl doctorId={userId} />}
     {isLoading ? <Skeleton className="h-96" />
     : days.length === 0 ? <Card><EmptyState title="No scheduled visits with times" hint="Appointments appear here once slots carry start times." /></Card>
     : <Card className="overflow-x-auto">
@@ -128,6 +130,7 @@ function TimetableInner() {
                         </div>
                         <div className="mt-1 flex items-center gap-1.5 flex-wrap">
                           <StatusPill status={a.status} />
+                          {a.checked_in_at && a.status === "SCHEDULED" && <span className="text-[11px] font-semibold text-emerald-700">✓ Here</span>}
                           <Link href={`/appointments/${a.appointment_id}`} className="text-[11px] font-semibold text-teal-700 hover:underline">Open visit</Link>
                         </div>
                         {a.status === "SCHEDULED" && <div className="mt-1.5 flex gap-1">

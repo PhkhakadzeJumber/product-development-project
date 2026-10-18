@@ -8,6 +8,7 @@ import { ApiError } from "@/lib/api-client";
 import { useAuth } from "@/lib/auth";
 import { Avatar } from "@/components/Avatar";
 import { MessageButton } from "@/components/VisitCard";
+import { CheckInButton, DelayBanner } from "@/components/Care";
 import { Card, StatusPill, EmptyState, Skeleton, ConfirmModal, inputCls } from "@/components/ui";
 import { fmtDateTime } from "@/lib/format";
 
@@ -83,6 +84,8 @@ export default function VisitDetailPage() {
           {v.end_time ? ` – ${fmtDateTime(v.end_time)}` : ""}
           {` · Slot #${v.slot_id}`}
         </p>
+        <DelayBanner a={v} />
+        {(role === "PATIENT" || role === "HOSPITAL_ADMIN") && <div className="mt-2"><CheckInButton a={v} /></div>}
         {v.reason && <p className="text-sm text-slate-700 mt-3"><span className="font-semibold">Reason: </span>{v.reason}</p>}
         {v.status === "SCHEDULED" && role === "DOCTOR" && (
           <div className="mt-4 flex gap-2">
@@ -112,7 +115,7 @@ export default function VisitDetailPage() {
                 {patientProfile.city ? ` · ${patientProfile.city}` : ""}
               </p>
             )}
-            {role === "DOCTOR" && <div className="mt-3"><MessageButton label="Message patient" /></div>}
+            {role === "DOCTOR" && <div className="mt-3"><MessageButton label="Patient questions" /></div>}
           </div>
         </Card>
         <Card className="p-5 flex gap-4 items-start">
@@ -126,7 +129,7 @@ export default function VisitDetailPage() {
                 {doctorContact.email}{doctorContact.phone ? ` · ${doctorContact.phone}` : ""}
               </p>
             )}
-            {role === "PATIENT" && <div className="mt-3"><MessageButton label="Message doctor" /></div>}
+            {role === "PATIENT" && <div className="mt-3"><MessageButton label="Ask a question" href={`/questions?doctor=${v.doctor_id}`} /></div>}
           </div>
         </Card>
       </div>

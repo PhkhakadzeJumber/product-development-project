@@ -1,5 +1,5 @@
-import { get, post, patch, del } from "@/lib/api-client";
-import type { Appointment, AppointmentDetail, DoctorContact, DoctorPublic, DoctorReviews, DoctorReview, Drug, Hospital, PatientProfile, Prescription, Slot, Specialization, TimelineConsultation, Token, TreatmentCase, Message, VisitDetailed } from "@/types/api";
+import { get, post, patch, put, del } from "@/lib/api-client";
+import type { Appointment, AppointmentDetail, DoctorContact, DoctorDelay, DoctorPublic, DoctorReviews, DoctorReview, Drug, Hospital, PatientProfile, Prescription, Question, QuestionSettings, QuestionStatus, QuestionSummary, QuestionUrgency, Renewal, RenewalStatus, Slot, Specialization, TimelineConsultation, Token, TreatmentCase, Message, VisitDetailed, WaitlistEntry } from "@/types/api";
 
 export const AuthApi = {
   login: (email: string, password: string) => post<Token>("/auth/login", { email, password }),
@@ -73,4 +73,40 @@ export const FeedbackChatApi = {
   conversation: (patient_id: number, doctor_id: number) => post<{ conversation_id: number }>(`/conversations?patient_id=${patient_id}&doctor_id=${doctor_id}`),
   messages: (id: number) => get<Message[]>(`/conversations/${id}/messages`),
   send: (id: number, body?: string, message_type = "TEXT") => post<{ message_id: number }>(`/conversations/${id}/messages`, { body, message_type }),
+};
+
+// Between-visit care: running late + check-in, renewals, questions, waitlist.
+export const DelayApi = {
+  get: (doctor_id: number) => get<DoctorDelay>(`/doctors/${doctor_id}/delay`),
+  set: (doctor_id: number, delay_minutes: number, note?: string) =>
+    put<DoctorDelay>(`/doctors/${doctor_id}/delay`, { delay_minutes, note: note || null }),
+  checkIn: (appointment_id: number) => post<Appointment>(`/appointments/${appointment_id}/check-in`),
+};
+export const RenewalApi = {
+  request: (prescription_id: number, note?: string) => post<Renewal>(`/prescriptions/${prescription_id}/renewals`, { note: note || null }),
+  list: (status?: RenewalStatus) => get<Renewal[]>(`/renewals${status ? `?status=${status}` : ""}`),
+  approve: (id: number, days: number | null, doctor_note?: string) => post<Renewal>(`/renewals/${id}/approve`, { days, doctor_note: doctor_note || null }),
+  decline: (id: number, doctor_note?: string) => post<Renewal>(`/renewals/${id}/decline`, { doctor_note: doctor_note || null }),
+  cancel: (id: number) => post<Renewal>(`/renewals/${id}/cancel`),
+};
+export const QuestionApi = {
+  askableDoctors: () => get<QuestionSettings[]>("/questions/doctors"),
+  list: (status?: QuestionStatus) => get<Question[]>(`/questions${status ? `?status=${status}` : ""}`),
+  summary: () => get<QuestionSummary>("/questions/summary"),
+  ask: (doctor_id: number, body: string, urgency: QuestionUrgency, treatment_id?: number | null) =>
+    post<Question>("/questions", { doctor_id, body, urgency, treatment_id: treatment_id ?? null }),
+  answer: (id: number, answer: string) => post<Question>(`/questions/${id}/answer`, { answer }),
+  seen: (id: number) => post<Question>(`/questions/${id}/seen`),
+  close: (id: number) => post<Question>(`/questions/${id}/close`),
+  settings: (doctor_id: number) => get<QuestionSettings>(`/doctors/${doctor_id}/question-settings`),
+  updateSettings: (b: Partial<Pick<QuestionSettings, "questions_open" | "reply_within_hours" | "reply_note">>) =>
+    patch<QuestionSettings>("/doctors/me/question-settings", b),
+};
+export const WaitlistApi = {
+  mine: (activeOnly = true) => get<WaitlistEntry[]>(`/waitlist${activeOnly ? "" : "?active_only=false"}`),
+  join: (doctor_id: number, wanted_before?: string | null, note?: string) =>
+    post<WaitlistEntry>("/waitlist", { doctor_id, wanted_before: wanted_before || null, note: note || null }),
+  accept: (id: number) => post<WaitlistEntry>(`/waitlist/${id}/accept`),
+  decline: (id: number) => post<WaitlistEntry>(`/waitlist/${id}/decline`),
+  leave: (id: number) => post<WaitlistEntry>(`/waitlist/${id}/cancel`),
 };

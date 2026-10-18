@@ -1,5 +1,5 @@
 from datetime import date
-from sqlalchemy import Date, Enum, ForeignKey, Integer, String
+from sqlalchemy import Date, Enum, ForeignKey, Integer, String, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -36,6 +36,11 @@ class Doctor(Base):
     license_number: Mapped[str | None] = mapped_column(String(100), unique=True, nullable=True)
     photo_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
     is_active: Mapped[bool] = mapped_column(default=True, nullable=False)
+    # Between-visit questions: the doctor sets when they answer, so patients know
+    # what to expect and nobody needs the doctor's private mobile (log 04).
+    questions_open: Mapped[bool] = mapped_column(default=True, server_default=text("true"), nullable=False)
+    reply_within_hours: Mapped[int] = mapped_column(Integer, default=48, server_default=text("48"), nullable=False)
+    reply_note: Mapped[str | None] = mapped_column(String(200), nullable=True)
 
 
 class DoctorHospital(Base):

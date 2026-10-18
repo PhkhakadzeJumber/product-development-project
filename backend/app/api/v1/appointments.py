@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException 
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException 
 from sqlalchemy.orm import Session  
 
 from app.core.deps import get_current_user
@@ -13,7 +13,8 @@ from app.services.booking import book_appointment, cancel_appointment
 router = APIRouter(tags=["appointments"])
 
 
-def _appt_out(a: Appointment, s=None) -> dict:
+def _appt_out(a: Appointment, s=None, delays: dict | None = None) -> dict:
+    from app.services.care import appointment_timing
     return {
         "appointment_id": a.appointment_id,
         "slot_id": a.slot_id,
@@ -24,7 +25,13 @@ def _appt_out(a: Appointment, s=None) -> dict:
         "start_time": s.start_time if s else None,
         "end_time": s.end_time if s else None,
         "consultation_mode": s.consultation_mode if s else None,
+        **appointment_timing(a, s, delays or {}),
     }
+
+
+def _delays_for(db: Session, rows: list[Appointment]) -> dict:
+    from app.services.care import delays_today
+    return delays_today(db, list({a.doctor_id for a in rows}))
 
 
 @router.post("/appointments", response_model=AppointmentOut)
@@ -68,7 +75,8 @@ def my_appointments(db: Session = Depends(get_db), user: UserAccount = Depends(g
     rows = q.order_by(Appointment.booked_at.desc()).limit(200).all()
     slot_ids = list({a.slot_id for a in rows})
     slots = {s.slot_id: s for s in db.query(TimeSlot).filter(TimeSlot.slot_id.in_(slot_ids)).all()} if slot_ids else {}
-    return [_appt_out(a, slots.get(a.slot_id)) for a in rows]
+    delays = _delays_for(db, rows)
+    return [_appt_out(a, slots.get(a.slot_id), delays) for a in rows]
 
 
 @router.get("/appointments/mine/detailed")
@@ -107,6 +115,7 @@ def my_appointments_detailed(db: Session = Depends(get_db), user: UserAccount = 
     doctors = {d.doctor_id: d for d in db.query(Doctor).filter(Doctor.doctor_id.in_(doc_ids)).all()} if doc_ids else {}
     patients = {p.patient_id: p for p in db.query(Patient).filter(Patient.patient_id.in_(pat_ids)).all()} if pat_ids else {}
     accounts = {u.user_id: u for u in db.query(UA).filter(UA.user_id.in_(doc_ids + pat_ids)).all()} if (doc_ids + pat_ids) else {}
+    delays = _delays_for(db, rows)
     out = []
     for a in rows:
         s = slots.get(a.slot_id)
@@ -115,7 +124,7 @@ def my_appointments_detailed(db: Session = Depends(get_db), user: UserAccount = 
         d_acc = accounts.get(a.doctor_id)
         p_acc = accounts.get(a.patient_id)
         out.append({
-            **_appt_out(a, s),
+            **_appt_out(a, s, delays),
             "doctor_first_name": d.first_name if d else None,
             "doctor_last_name": d.last_name if d else None,
             "doctor_photo_url": d.photo_url if d else None,
@@ -164,7 +173,9 @@ def get_appointment(appointment_id: int, db: Session = Depends(get_db),
     doctor = db.get(Doctor, appt.doctor_id)
     patient = db.get(Patient, appt.patient_id)
     consult = db.query(Consultation).filter_by(appointment_id=appt.appointment_id).first()
+    from app.services.care import appointment_timing
     return {
+        **appointment_timing(appt, slot, _delays_for(db, [appt])),
         "appointment_id": appt.appointment_id,
         "slot_id": appt.slot_id,
         "doctor_id": appt.doctor_id,
@@ -190,8 +201,8 @@ def get_appointment(appointment_id: int, db: Session = Depends(get_db),
 
 
 @router.post("/appointments/{appointment_id}/cancel", response_model=AppointmentOut)
-def cancel(appointment_id: int, data: AppointmentCancel, db: Session = Depends(get_db),
-           user: UserAccount = Depends(get_current_user)):
+def cancel(appointment_id: int, data: AppointmentCancel, background: BackgroundTasks,
+           db: Session = Depends(get_db), user: UserAccount = Depends(get_current_user)):
     from app.models.scheduling import TimeSlot
     appt = db.get(Appointment, appointment_id)
     if not appt:
@@ -206,6 +217,9 @@ def cancel(appointment_id: int, data: AppointmentCancel, db: Session = Depends(g
     appt = cancel_appointment(db, appt, cancelled_by=who, reason=data.cancel_reason)
     db.commit()
     db.refresh(appt)
+    # The freed slot may have been offered to a waitlisted patient.
+    from app.api.v1.clinical import _schedule_notify
+    _schedule_notify(background)
     slot = db.get(TimeSlot, appt.slot_id)
     return _appt_out(appt, slot)
 

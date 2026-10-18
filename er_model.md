@@ -231,6 +231,66 @@ erDiagram
     }
 ```
 
+### Between-visit care (migration 0008)
+
+```mermaid
+erDiagram
+    DOCTOR ||--o{ DOCTOR_DELAY : "runs late on"
+    PRESCRIPTION ||--o{ PRESCRIPTION_RENEWAL : "renewal requested for"
+    PRESCRIPTION_RENEWAL |o--o| PRESCRIPTION : "issues new"
+    PATIENT ||--o{ PATIENT_QUESTION : asks
+    DOCTOR ||--o{ PATIENT_QUESTION : answers
+    TREATMENT_CASE |o--o{ PATIENT_QUESTION : "about"
+    PATIENT ||--o{ WAITLIST_ENTRY : joins
+    DOCTOR ||--o{ WAITLIST_ENTRY : "has waitlist"
+    TIME_SLOT |o--o{ WAITLIST_ENTRY : "offered as"
+    WAITLIST_ENTRY |o--o| APPOINTMENT : "becomes"
+
+    DOCTOR_DELAY {
+        int delay_id PK
+        int doctor_id FK
+        date day "clinic day, UNIQUE with doctor_id"
+        int delay_minutes
+        string note
+        int notified_minutes "last value patients were told"
+    }
+    PRESCRIPTION_RENEWAL {
+        int renewal_id PK
+        int prescription_id FK
+        int patient_id FK
+        int doctor_id FK
+        string status "PENDING / APPROVED / DECLINED / CANCELLED"
+        string patient_note
+        string doctor_note
+        int new_prescription_id FK
+        timestamp decided_at
+    }
+    PATIENT_QUESTION {
+        int question_id PK
+        int patient_id FK
+        int doctor_id FK
+        int treatment_id FK
+        string urgency "ROUTINE / SOON"
+        string body
+        string status "OPEN / ANSWERED / CLOSED"
+        string answer
+        timestamp doctor_seen_at
+        timestamp patient_seen_at
+    }
+    WAITLIST_ENTRY {
+        int entry_id PK
+        int patient_id FK
+        int doctor_id FK
+        date wanted_before
+        string status "WAITING / OFFERED / BOOKED / CANCELLED"
+        int offered_slot_id FK
+        timestamp offer_expires_at
+        int appointment_id FK
+    }
+```
+
+New columns on existing tables: `APPOINTMENT.checked_in_at`, `TIME_SLOT.held_for_patient_id` + `held_until` (waitlist hold), `DOCTOR.questions_open` + `reply_within_hours` + `reply_note`, `NOTIFICATION_OUTBOX.kind`.
+
 ## 3. Key design decisions
 
 1. **Supertype/subtype for users.** One `USER_ACCOUNT` (login, role) with 1:0..1 subtype tables. Chat messages can then reference a single sender key regardless of role.
@@ -242,6 +302,10 @@ erDiagram
 7. **Prescriptions.** One row per prescribed drug, linked to the consultation, the case, the drug catalogue entry, patient and doctor. Status is `ACTIVE → COMPLETED | DISCONTINUED`. Marking a drug done never deletes it: the patient view filters `status = 'ACTIVE'`, the doctor view shows everything.
 8. **Private doctor metrics are separate entities.** `DOCTOR_REVIEW` and `DOCTOR_PERFORMANCE` (rating, popularity) are split from `DOCTOR` so that the public profile (specialization, bio, qualifications, experience) can be exposed to patients without any risk of leaking rating data. Only hospital admins may read them; patients may only insert a review for their own completed appointment (one per appointment).
 9. **Chat.** One `CONVERSATION` per patient–doctor pair, many `MESSAGE`s. `message_type` (`TEXT / IMAGE / VOICE / FILE`) with `attachment_url` covers "speaking" via voice notes. Real-time calls would be handled by a separate service.
+10. **Running late is per doctor per clinic day.** `DOCTOR_DELAY` holds one delay for today (clinic time, UTC+4); each scheduled visit today shows `expected_start = slot.start_time + delay`. `notified_minutes` stops a text for every small change. `APPOINTMENT.checked_in_at` records arrival without adding a status, so the status lifecycle above is unchanged.
+11. **Renewal = new prescription.** Approving a `PRESCRIPTION_RENEWAL` creates a new `PRESCRIPTION` with the same drug, dose and frequency and `supersedes_id` pointing at the old one (same chain as substitution); an active old one becomes `COMPLETED`. History is never edited.
+12. **Questions are not chat.** `PATIENT_QUESTION` is one short question and one answer, with an urgency, a reply window the doctor sets (`DOCTOR.reply_within_hours`) and "seen" receipts. The doctor gets no texts; the patient gets a text that an answer exists, never the clinical text itself.
+13. **Waitlist holds instead of first-come booking.** A freed or new slot is held for the first matching `WAITLIST_ENTRY` (FIFO, `wanted_before` respected) via `TIME_SLOT.held_for_patient_id/held_until`; others cannot book it until the hold lapses. Lapsed holds are expired lazily and passed to the next patient.
 
 ## 4. Business rules not expressible as plain keys (enforce in service layer or triggers)
 
@@ -252,6 +316,11 @@ erDiagram
 - A patient may cancel only while `status = SCHEDULED` and before a cutoff time (policy parameter).
 - Booking = one transaction: lock the slot row, check `AVAILABLE`, insert appointment, set slot `BOOKED`. Cancellation reverses it.
 - Prescription becomes `COMPLETED` when the doctor marks it, or automatically by a job once `end_date` has passed.
+- A delay can be set by the doctor (own) or a hospital admin (own hospital's doctors); delay texts go out from 15 minutes and again only after a 10-minute change.
+- Check-in only for a `SCHEDULED` visit on its clinic day, by the patient, the doctor or reception.
+- At most one `PENDING` renewal per prescription; no renewal for a `DISCONTINUED` drug or a `RESOLVED`/`CLOSED` case.
+- A patient may question only a doctor they have a non-cancelled appointment with, at most 3 open questions per doctor, and only while the doctor has `questions_open`.
+- One active (`WAITING`/`OFFERED`) waitlist entry per patient per doctor. Booking a held slot is refused for everyone except the holder until `held_until`.
 
 ## 5. Access matrix
 
@@ -264,5 +333,10 @@ erDiagram
 | Treatment cases, consultations | no | read/write own patients | no |
 | Prescriptions | own, `ACTIVE` only | all, read/write | no |
 | Chat | own conversations | own conversations | no |
+| Doctor delay (running late) | read | read/write own | read/write own hospital |
+| Check-in | own visits | own visits | own hospital's visits |
+| Prescription renewals | own: request, cancel, read | own: approve, decline, read | no |
+| Patient questions | own: ask, close, read | own: answer, close, read | no |
+| Waitlist | own: join, accept, decline, leave | read own | read own hospital |
 
 Implement the "no" cells with database views plus role-based checks in the API (and optionally Row-Level Security); the SQL file provides the views `v_doctor_public_profile` and `v_patient_active_prescription`.

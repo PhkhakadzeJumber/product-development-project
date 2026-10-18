@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.v1 import auth, appointments, catalog, clinical, doctors, feedback_chat, profiles, slots
+from app.api.v1 import (
+    auth, appointments, catalog, clinical, delays, doctors, feedback_chat, profiles, questions,
+    renewals, slots, waitlist,
+)
 from app.core.config import settings
 
 app = FastAPI(title="Hospital Appointment & Treatment Tracking API")
@@ -21,5 +24,6 @@ def health():
 
 
 for r in (auth.router, catalog.router, doctors.router, slots.router,
-          appointments.router, clinical.router, feedback_chat.router, profiles.router):
+          appointments.router, clinical.router, feedback_chat.router, profiles.router,
+          delays.router, renewals.router, questions.router, waitlist.router):
     app.include_router(r, prefix="/api/v1")

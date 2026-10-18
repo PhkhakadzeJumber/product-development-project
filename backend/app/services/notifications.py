@@ -1,4 +1,5 @@
-"""Prescription change notifications (Gmail SMTP + Twilio SMS).
+"""Patient notifications (Gmail SMTP + Twilio SMS): prescription changes,
+running-late notices, renewal decisions, answered questions, waitlist offers.
 
 SAFETY MODEL — read before touching:
 - Both channels default OFF (config NOTIFY_EMAIL_ENABLED / NOTIFY_SMS_ENABLED).
@@ -8,8 +9,10 @@ SAFETY MODEL — read before touching:
 - Allowlist: when NOTIFY_ALLOWLIST is non-empty and delivery is on, only
   listed recipients get real messages; everyone else is marked SKIPPED
   (still logged). Use this when testing with your own address.
-- Bodies carry minimal info (drug + schedule + doctor), never exam notes.
-- `enqueue_prescription_change` only writes inert DB rows; it never sends.
+- Bodies carry minimal info (drug + schedule + doctor), never exam notes or
+  the text of a patient's question or the doctor's answer.
+- `enqueue_prescription_change` / `enqueue_patient_message` only write inert
+  DB rows; they never send.
 """
 import logging
 import smtplib
@@ -61,6 +64,7 @@ def build_prescription_messages(*, action: str, drug_name: str, dosage: str | No
         "discontinued": f"Dr. {doctor_name} stopped {drug_name}.",
         "substituted": f"Dr. {doctor_name} replaced {old_drug_name or 'your previous drug'} with {drug_name}.",
         "ended": f"Dr. {doctor_name} set an end date for {drug_name}.",
+        "renewed": f"Dr. {doctor_name} renewed your {drug_name} prescription.",
     }.get(action, f"Dr. {doctor_name} updated your prescription for {drug_name}.")
     email_body = (
         f"{headline}\n\nSchedule: {schedule}.\nUsage: {dates}.\n\n"
@@ -82,12 +86,37 @@ def enqueue_prescription_change(db, *, action: str, patient_email: str | None,
         db.add(_outbox("SMS", patient_phone, sms_body, prescription_id, patient_id))
 
 
+def enqueue_patient_message(db, *, patient_id: int, kind: str, subject: str,
+                            email_body: str, sms_body: str,
+                            prescription_id: int | None = None) -> int:
+    """Queue one email + one SMS to a patient's account contacts.
+
+    Same guarantee as prescriptions: writes outbox rows in the current
+    transaction and never sends. Returns how many rows were queued.
+    """
+    from app.models.user_account import UserAccount
+    account = db.get(UserAccount, patient_id)
+    if not account:
+        return 0
+    queued = 0
+    if account.email:
+        db.add(_outbox("EMAIL", account.email, email_body, prescription_id, patient_id,
+                       subject=subject, kind=kind))
+        queued += 1
+    if account.phone:
+        db.add(_outbox("SMS", account.phone, sms_body[:300], prescription_id, patient_id,
+                       subject=None, kind=kind))
+        queued += 1
+    return queued
+
+
 def _outbox(channel: str, recipient: str, body: str,
-            prescription_id: int | None, patient_id: int | None):
+            prescription_id: int | None, patient_id: int | None,
+            subject: str | None = EMAIL_SUBJECT, kind: str = "prescription"):
     from app.models.notifications import NotificationOutbox
     return NotificationOutbox(channel=channel, recipient=recipient,
-                              subject=EMAIL_SUBJECT if channel == "EMAIL" else None,
-                              body=body, status="PENDING",
+                              subject=subject if channel == "EMAIL" else None,
+                              body=body, status="PENDING", kind=kind,
                               prescription_id=prescription_id, patient_id=patient_id)
 
 

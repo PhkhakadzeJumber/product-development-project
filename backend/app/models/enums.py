@@ -64,6 +64,31 @@ class PrescriptionStatus(str, enum.Enum):
     DISCONTINUED = "DISCONTINUED"
 
 
+class RenewalStatus(str, enum.Enum):
+    PENDING = "PENDING"
+    APPROVED = "APPROVED"
+    DECLINED = "DECLINED"
+    CANCELLED = "CANCELLED"
+
+
+class QuestionUrgency(str, enum.Enum):
+    ROUTINE = "ROUTINE"  # can wait a couple of days
+    SOON = "SOON"        # something changed, needs an answer within the reply window
+
+
+class QuestionStatus(str, enum.Enum):
+    OPEN = "OPEN"
+    ANSWERED = "ANSWERED"
+    CLOSED = "CLOSED"
+
+
+class WaitlistStatus(str, enum.Enum):
+    WAITING = "WAITING"
+    OFFERED = "OFFERED"      # a freed slot is held for this patient until offer_expires_at
+    BOOKED = "BOOKED"
+    CANCELLED = "CANCELLED"
+
+
 class MessageType(str, enum.Enum):
     TEXT = "TEXT"
     IMAGE = "IMAGE"

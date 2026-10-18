@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.core.deps import get_current_user, require_role
@@ -39,11 +39,23 @@ def list_slots(doctor_id: int | None = None, status: SlotStatus | None = None,
         q = q.filter_by(status=status)
     if future_only:
         q = q.filter(TimeSlot.start_time > datetime.now(timezone.utc))
-    return q.order_by(TimeSlot.start_time).limit(200).all()
+    from app.services.care import hold_active
+    rows = q.order_by(TimeSlot.start_time).limit(200).all()
+    is_patient = UserRole(user.role) == UserRole.PATIENT
+    out = []
+    for s in rows:
+        held = hold_active(s)
+        mine = held and s.held_for_patient_id == user.user_id
+        if is_patient and held and not mine:
+            continue  # held for another patient on the waitlist: not bookable right now
+        out.append({**SlotOut.model_validate(s).model_dump(),
+                    "held_for_me": mine,
+                    "held_until": s.held_until if (held and (mine or not is_patient)) else None})
+    return out
 
 
 @router.post("/slots", response_model=SlotOut)
-def create_slot(data: SlotCreate, db: Session = Depends(get_db),
+def create_slot(data: SlotCreate, background: BackgroundTasks, db: Session = Depends(get_db),
                 user: UserAccount = Depends(require_role(UserRole.HOSPITAL_ADMIN))):
     admin = db.get(HospitalAdmin, user.user_id)
     doctor = db.get(Doctor, data.doctor_id)
@@ -75,8 +87,15 @@ def create_slot(data: SlotCreate, db: Session = Depends(get_db),
                     start_time=data.start_time, end_time=data.end_time,
                     consultation_mode=data.consultation_mode, status=SlotStatus.AVAILABLE)
     db.add(slot)
+    db.flush()
+    # New capacity goes to the doctor's waitlist first (log 05).
+    from app.services.care import offer_slot
+    offered = offer_slot(db, slot)
     db.commit()
     db.refresh(slot)
+    if offered:
+        from app.api.v1.clinical import _schedule_notify
+        _schedule_notify(background)
     return slot
 
 

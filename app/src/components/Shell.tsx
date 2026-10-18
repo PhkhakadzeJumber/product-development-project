@@ -1,18 +1,23 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/lib/auth";
+import { QuestionApi, RenewalApi } from "@/lib/api";
 
 const LINKS: Record<string, { href: string; label: string }[]> = {
   PATIENT: [
     { href: "/doctors", label: "Find doctors" },
     { href: "/appointments", label: "My visits" },
     { href: "/prescriptions", label: "Prescriptions" },
+    { href: "/questions", label: "Questions" },
     { href: "/drugs", label: "Drugs" },
   ],
   DOCTOR: [
     { href: "/timetable", label: "Timetable" },
     { href: "/my-patients", label: "My patients" },
+    { href: "/questions", label: "Questions" },
+    { href: "/renewals", label: "Renewals" },
   ],
   HOSPITAL_ADMIN: [
     { href: "/visits", label: "Visits" },
@@ -21,10 +26,29 @@ const LINKS: Record<string, { href: string; label: string }[]> = {
   ],
 };
 
+/** Unread counts for the menu: answers a patient has not read, questions and
+ *  renewals waiting for a doctor. Polls gently; never blocks the page. */
+function useBadges(role: string | null, token: string | null): Record<string, number> {
+  const careRole = !!token && (role === "PATIENT" || role === "DOCTOR");
+  const { data: q } = useQuery({
+    queryKey: ["question-summary"], queryFn: QuestionApi.summary,
+    enabled: careRole, refetchInterval: 60_000, retry: false,
+  });
+  const { data: renewals } = useQuery({
+    queryKey: ["renewal-count"], queryFn: () => RenewalApi.list("PENDING"),
+    enabled: !!token && role === "DOCTOR", refetchInterval: 60_000, retry: false,
+  });
+  return {
+    "/questions": role === "DOCTOR" ? (q?.open ?? 0) : (q?.unseen ?? 0),
+    "/renewals": renewals?.length ?? 0,
+  };
+}
+
 export function Shell({ children }: { children: React.ReactNode }) {
   const { role, logout, token } = useAuth();
   const path = usePathname();
   const links = (role && LINKS[role]) ?? [];
+  const badges = useBadges(role, token);
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
@@ -33,11 +57,15 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <span className="bg-teal-600 text-white rounded-xl w-8 h-8 flex items-center justify-center">✚</span>
             MediBook
           </Link>
-          <nav className="flex gap-1 text-sm font-medium">
+          <nav className="flex gap-1 text-sm font-medium overflow-x-auto">
             {links.map((l) => (
               <Link key={l.href} href={l.href}
                 className={`px-3 py-2 rounded-lg ${path === l.href || (l.href !== "/" && path.startsWith(l.href)) ? "bg-teal-50 text-teal-700" : "text-slate-600 hover:bg-slate-100"}`}>
                 {l.label}
+                {!!badges[l.href] && (
+                  <span className="ml-1.5 inline-flex min-w-[1.25rem] justify-center rounded-full bg-rose-600 px-1.5 text-[11px] font-bold leading-5 text-white"
+                    aria-label={`${badges[l.href]} new`}>{badges[l.href]}</span>
+                )}
               </Link>
             ))}
           </nav>

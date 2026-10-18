@@ -26,6 +26,9 @@ class SlotOut(BaseModel):
     end_time: datetime
     consultation_mode: ConsultationMode
     status: SlotStatus
+    # Waitlist hold on an AVAILABLE slot: true when it is held for the caller.
+    held_for_me: bool = False
+    held_until: datetime | None = None
 
 
 class AppointmentCreate(BaseModel):
@@ -45,6 +48,10 @@ class AppointmentOut(BaseModel):
     start_time: datetime | None = None
     end_time: datetime | None = None
     consultation_mode: ConsultationMode | None = None
+    # Running late (today's scheduled visits only) + arrival.
+    delay_minutes: int = 0
+    expected_start: datetime | None = None
+    checked_in_at: datetime | None = None
 
 
 class AppointmentCancel(BaseModel):
@@ -73,3 +80,6 @@ class AppointmentDetailOut(BaseModel):
     patient_avatar_url: str | None = None
     consultation_id: int | None = None
     treatment_id: int | None = None
+    delay_minutes: int = 0
+    expected_start: datetime | None = None
+    checked_in_at: datetime | None = None

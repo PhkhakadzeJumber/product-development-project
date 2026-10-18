@@ -19,7 +19,8 @@ class NotificationStatus(str):
 
 
 class NotificationOutbox(Base):
-    """One row per outbound prescription message.
+    """One row per outbound patient message (prescriptions, delays, renewals,
+    answers, waitlist offers).
 
     Written in the same DB transaction as the clinical change so the intent
     is never lost. The sender (BackgroundTasks in v1) delivers or logs it.
@@ -37,6 +38,8 @@ class NotificationOutbox(Base):
     subject: Mapped[str | None] = mapped_column(String(255), nullable=True)
     body: Mapped[str] = mapped_column(String(4000), nullable=False)
     status: Mapped[str] = mapped_column(String(16), nullable=False, default="PENDING", index=True)
+    # What the message is about, e.g. "prescription", "delay", "waitlist_offer".
+    kind: Mapped[str | None] = mapped_column(String(32), nullable=True)
     prescription_id: Mapped[int | None] = mapped_column(
         ForeignKey("prescriptions.prescription_id"), nullable=True, index=True)
     patient_id: Mapped[int | None] = mapped_column(nullable=True, index=True)

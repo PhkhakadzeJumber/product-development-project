@@ -88,4 +88,5 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
 export const get = <T>(p: string) => api<T>(p);
 export const post = <T>(p: string, body?: unknown) => api<T>(p, { method: "POST", body: body ? JSON.stringify(body) : undefined });
 export const patch = <T>(p: string, body?: unknown) => api<T>(p, { method: "PATCH", body: body ? JSON.stringify(body) : undefined });
+export const put = <T>(p: string, body?: unknown) => api<T>(p, { method: "PUT", body: body ? JSON.stringify(body) : undefined });
 export const del = <T>(p: string) => api<T>(p, { method: "DELETE" });

@@ -20,6 +20,10 @@ class TimeSlot(Base):
     status: Mapped[SlotStatus] = mapped_column(
         Enum(SlotStatus, name="slot_status"), nullable=False, default=SlotStatus.AVAILABLE, index=True
     )
+    # Waitlist hold: an AVAILABLE slot offered to one patient. Others cannot book
+    # it until held_until passes (expired holds are simply ignored).
+    held_for_patient_id: Mapped[int | None] = mapped_column(ForeignKey("patients.patient_id"), nullable=True)
+    held_until: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     # NOTE: no-overlap enforced in migration via Postgres EXCLUDE USING gist
     # (doctor_id WITH =, tstzrange(start_time, end_time) WITH &&).
@@ -40,9 +44,12 @@ class Appointment(Base):
     cancelled_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     cancelled_by: Mapped[CancelledBy | None] = mapped_column(Enum(CancelledBy, name="cancelled_by"), nullable=True)
     cancel_reason: Mapped[str | None] = mapped_column(String(1000), nullable=True)
+    # Patient arrived at the clinic ("I'm here"), set by the patient or reception.
+    checked_in_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     __table_args__ = (
         # One non-cancelled appointment per slot prevents double booking.
         Index("uq_slot_single_active", "slot_id", unique=True,
-              postgresql_where=(status != AppointmentStatus.CANCELLED)),
+              postgresql_where=(status != AppointmentStatus.CANCELLED),
+              sqlite_where=(status != AppointmentStatus.CANCELLED)),
     )

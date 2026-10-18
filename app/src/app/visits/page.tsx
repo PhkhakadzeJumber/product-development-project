@@ -6,6 +6,7 @@ import { RoleGate } from "@/components/RoleGate";
 import { Card, EmptyState, Skeleton, inputCls } from "@/components/ui";
 import { VisitCard } from "@/components/VisitCard";
 import { dayKey } from "@/lib/format";
+import { DelayControl } from "@/components/Care";
 
 export default function AdminVisitsPage() {
   return <RoleGate allow={["HOSPITAL_ADMIN"]}><AdminVisitsInner /></RoleGate>;
@@ -34,6 +35,19 @@ function AdminVisitsInner() {
     });
   }, [data, search, status, scope, todayKey]);
 
+  // Reception can post "running late" for any doctor with visits today.
+  const todaysDoctors = useMemo(() => {
+    const m = new Map<number, string>();
+    for (const v of data ?? []) {
+      if (v.status === "SCHEDULED" && v.start_time && dayKey(v.start_time) === todayKey) {
+        m.set(v.doctor_id, v.doctor_first_name ? `Dr. ${v.doctor_first_name} ${v.doctor_last_name ?? ""}`.trim() : `Doctor #${v.doctor_id}`);
+      }
+    }
+    return Array.from(m.entries());
+  }, [data, todayKey]);
+  const [delayDoctor, setDelayDoctor] = useState<number | null>(null);
+  const delayFor = delayDoctor ?? todaysDoctors[0]?.[0] ?? null;
+
   const counts = useMemo(() => ({
     all: data?.length ?? 0,
     scheduled: (data ?? []).filter((v) => v.status === "SCHEDULED").length,
@@ -47,6 +61,15 @@ function AdminVisitsInner() {
         {counts.all} visit{counts.all === 1 ? "" : "s"} · {counts.scheduled} scheduled · {counts.today} today
       </p>
     </div>
+    {delayFor !== null && <div className="space-y-2">
+      {todaysDoctors.length > 1 && (
+        <select className={`${inputCls} max-w-xs`} value={delayFor} onChange={(e) => setDelayDoctor(Number(e.target.value))} aria-label="Doctor running late">
+          {todaysDoctors.map(([id, name]) => <option key={id} value={id}>{name}</option>)}
+        </select>
+      )}
+      <DelayControl key={delayFor} doctorId={delayFor}
+        title={`Running late today? ${todaysDoctors.find(([id]) => id === delayFor)?.[1] ?? ""}`} />
+    </div>}
     <Card className="p-4">
       <div className="grid sm:grid-cols-4 gap-3">
         <input className={inputCls} placeholder="Search doctor, patient, email, phone…" value={search}

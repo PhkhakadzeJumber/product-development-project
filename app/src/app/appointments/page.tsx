@@ -8,6 +8,7 @@ import { RoleGate } from "@/components/RoleGate";
 import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill, EmptyState, Skeleton, Stars, ConfirmModal, inputCls } from "@/components/ui";
 import { fmtDateTime } from "@/lib/format";
+import { CheckInButton, DelayBanner, MyWaitlist } from "@/components/Care";
 
 function ReviewBox({ appointmentId }: { appointmentId: number }) {
   const qc = useQueryClient();
@@ -91,6 +92,7 @@ function AppointmentsInner() {
   return <div className="space-y-5">
     <div><h1 className="text-3xl font-bold">My visits</h1>
     <p className="text-slate-500 mt-1">Upcoming and past appointments, cancellations and reviews.</p></div>
+    <MyWaitlist />
     {!!myCases?.length && (
       <Card className="p-4">
         <h2 className="font-bold">My treatment tracking</h2>
@@ -130,6 +132,8 @@ function AppointmentsInner() {
             {a.start_time ? ` · ${fmtDateTime(a.start_time)}` : ""}
             {a.reason ? ` · ${a.reason}` : ""}
           </p>
+          <DelayBanner a={a} />
+          <div className="mt-2"><CheckInButton a={a} /></div>
           {a.status === "SCHEDULED" && (
             <button onClick={() => { setCancelId(a.appointment_id); setCancelReason(""); cancel.reset(); }} className="mt-2 text-sm font-semibold text-rose-600 hover:underline">Cancel visit</button>
           )}

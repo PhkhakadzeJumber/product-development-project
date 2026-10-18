@@ -2,21 +2,17 @@
 import Link from "next/link";
 import { Avatar } from "@/components/Avatar";
 import { Card, StatusPill } from "@/components/ui";
+import { CheckInButton } from "@/components/Care";
 import { fmtDateTime } from "@/lib/format";
 import type { VisitDetailed } from "@/types/api";
 
-/** Placeholder message button — disabled until doctor↔patient messaging ships. */
-export function MessageButton({ label = "Message", className = "" }: { label?: string; className?: string }) {
+/** Opens between-visit questions (patients ask a doctor, doctors answer in their inbox). */
+export function MessageButton({ label = "Questions", href = "/questions", className = "" }: { label?: string; href?: string; className?: string }) {
   return (
-    <button
-      type="button"
-      disabled
-      title="Messaging coming soon"
-      aria-label={`${label} (coming soon)`}
-      className={`text-sm font-semibold px-4 py-2 rounded-xl bg-slate-200 text-slate-500 cursor-not-allowed ${className}`}
-    >
+    <Link href={href}
+      className={`inline-block text-sm font-semibold px-4 py-2 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 ${className}`}>
       ✉ {label}
-    </button>
+    </Link>
   );
 }
 
@@ -29,6 +25,8 @@ export function VisitCard({ v }: { v: VisitDetailed }) {
       <div className="flex items-center gap-2 flex-wrap">
         <StatusPill status={v.status} />
         {v.consultation_mode && <StatusPill status={v.consultation_mode} />}
+        {v.checked_in_at && <span className="text-xs font-semibold text-emerald-700">✓ Checked in</span>}
+        {!!v.delay_minutes && v.status === "SCHEDULED" && <span className="text-xs font-semibold text-amber-700">+{v.delay_minutes} min</span>}
         <span className="ml-auto text-xs text-slate-400 font-medium">
           {v.start_time ? fmtDateTime(v.start_time) : "Time TBD"}
         </span>
@@ -63,6 +61,7 @@ export function VisitCard({ v }: { v: VisitDetailed }) {
           className="text-sm font-semibold px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-700">
           View visit #{v.appointment_id}
         </Link>
+        <CheckInButton a={v} label="Check in" />
       </div>
     </Card>
   );
@@ -119,7 +118,7 @@ export function PatientCard({ p }: { p: PatientCardData }) {
               Open tracking
             </Link>
           : null}
-        <MessageButton />
+        <MessageButton label="Questions" />
       </div>
     </Card>
   );

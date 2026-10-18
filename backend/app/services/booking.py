@@ -31,10 +31,15 @@ def book_appointment(db: Session, patient_id: int, slot_id: int, reason: str | N
     start_utc = _as_utc(slot.start_time)
     if start_utc is not None and start_utc <= datetime.now(timezone.utc):
         raise HTTPException(409, "This time slot has already passed. Please choose a future time.")
+    from app.services.care import hold_active, settle_hold_on_booking
+    if hold_active(slot) and slot.held_for_patient_id != patient_id:
+        raise HTTPException(409, "This time is being held for a patient on the waitlist. Please choose another time.")
     appt = Appointment(slot_id=slot_id, doctor_id=slot.doctor_id, patient_id=patient_id,
                        status=AppointmentStatus.SCHEDULED, reason=reason)
     db.add(appt)
     slot.status = SlotStatus.BOOKED
+    db.flush()
+    settle_hold_on_booking(db, slot, patient_id, appt)
     db.flush()
     return appt
 
@@ -60,4 +65,8 @@ def cancel_appointment(db: Session, appt: Appointment, cancelled_by: str, reason
     if slot:
         slot.status = SlotStatus.AVAILABLE
     db.flush()
+    if slot:
+        # A freed slot goes to the first patient on the doctor's waitlist (log 05).
+        from app.services.care import offer_slot
+        offer_slot(db, slot)
     return appt
