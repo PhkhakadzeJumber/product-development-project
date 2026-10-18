@@ -1,12 +1,12 @@
 # Prototype Plan
 
-**Prototype in scope:** The current app is a coded, role-based hospital appointment and treatment prototype. Patients can find doctors, view future available slots, book and cancel visits, see prescriptions and treatment history, and message doctors; doctors manage visits and treatment records; hospital admins manage slots and visits. Its backend stores time slots and appointments but has no queue estimate or delay-update feature, so this test focuses on the patient booking flow, not reducing waiting time.
+**Prototype in scope:** The prototype is a clickable design prototype of the MediBook booking flow, drawn in Figma for Week 5 before any code is written. It covers three screens: finding a doctor, that doctor's available future slots, and the booking confirmation with the visit in "My visits." It is not a working app — no backend, no real accounts, no live clinic data. Patients in our evidence describe booking (a phone call or an in-person trip) as where their time goes, so this test covers only the patient booking flow; it deliberately leaves out queue estimates, delay updates, and everything else so the one action can fail or pass on its own.
 
 ## 1. The riskiest assumption
 
 > We assume a patient seeking a routine visit can independently find a suitable doctor and complete an online booking in MediBook without help.
 
-**Why this one is riskiest:** Beka's father called the registry for three days, closed his garage to book in person, and was given the next available appointment two weeks later (05). In contrast, Gocha's regular appointments are booked ahead without difficulty and Zura books his next visit before leaving (02, 03). The app has a working online booking path, but no log tests whether a patient can complete it without help; this test uses seeded demo doctors and slots, so it tests usability of the flow, not whether patients trust live clinic availability or whether online booking reduces waiting.
+**Why this one is riskiest:** Beka's father called the registry for three days, closed his garage to book in person, and was given the next available appointment two weeks later (05). In contrast, Gocha's regular appointments are booked ahead without difficulty and Zura books his next visit before leaving (02, 03). No log yet tests whether a patient can complete an online booking without help, so this prototype tests whether the flow itself is clear enough to follow — not whether patients trust real clinic availability or whether online booking reduces waiting.
 
 ## 2. The one action
 
@@ -16,7 +16,7 @@
 
 | Choice | Why it is the cheapest thing that can kill the assumption | Tool | Time |
 |---|---|---|---|
-| Coded, full-stack web prototype | This behavior is already implemented: patients search doctors, view future available slots, book, and see confirmation; the backend records the appointment and changes the slot to booked. Testing the actual app will reveal whether people proceed or hesitate, without building new features. | Existing Next.js app, FastAPI backend, and seeded demo data | One 30-minute session per tester |
+| Clickable design prototype (no code) | The flow is three screens, so drawing them is the cheapest way to watch whether a patient can find a doctor and press "Book" without help — before we write any backend or commit to seeded data. | Figma (prototype mode, free plan) | One 30-minute build; one 30-minute session per tester |
 
 ## 4. Screens, each traced to evidence
 
@@ -26,11 +26,11 @@
 | 2. Available slots | Opens that doctor's available future times and chooses one. | Beka's father was told the next free slot was two weeks away; regular visits are booked ahead for Gocha and Zura. The prototype lists available future slots by doctor. (02, 03, 05) |
 | 3. Booking confirmation / My visits | Books the selected slot and verifies that the appointment appears as booked. | A booked slot should become an appointment; log 05 describes the current in-person booking fallback, while the prototype flow makes booking online possible. (05; prototype booking flow) |
 
-**Will not appear in this test task, even if a tool generates them:** delay estimates, arrival-time changes, live queue data, medical advice or triage, emergency booking, payment, and automated diagnosis. Chat, prescriptions, and treatment tracking are already part of the app but are outside this one-action booking test. The current prototype does not calculate or display a queue position or wait estimate.
+**Will not appear in this test task, even if a tool generates them:** delay estimates, arrival-time changes, live queue data, medical advice or triage, emergency booking, payment, and automated diagnosis. Chat, prescriptions, and treatment tracking belong to later iterations and are outside this one-action booking test. This prototype shows no queue position or wait estimate.
 
 ## 5. The test that can fail
 
-- **Task, read aloud to the tester, word for word:** “You need a routine follow-up appointment. Using this demo account, find a general practitioner at Tbilisi Central Hospital, choose a future available time, and show me when the visit is booked.”
+- **Task, read aloud to the tester, word for word:** “You need a routine follow-up appointment. You are already signed in as a patient in this demo. Find a general practitioner at Tbilisi Central Hospital, choose a future available time, and show me when the visit is booked.”
 - **Success looks like:** within two minutes and without help, the tester selects a general practitioner, books one future available slot, and points to the booking confirmation or the visit in “My visits.”
 - **Failure looks like:** the tester cannot find a general practitioner or available future time; stops before pressing “Book”; or completes the booking but cannot tell whether it succeeded.
 - **Decision rule:** if 3 or more of 5 testers fail, do not treat the current booking flow as usable without help. Identify the observed blocker and revise the flow before testing it again; separately validate real clinic availability before claiming that the app can replace clinic calls.
@@ -46,4 +46,4 @@
 | Ward-neighbour | New; Gocha's referral, also attends the same ward every two weeks; contact pending | Jumber, via his sister |
 | Dato | New; Zura's referral, sees the same cardiologist on a monthly rhythm; contact pending | Giorgi |
 
-**Session setup:** Log in each tester to a patient demo account before starting, explain that the doctors and slots are seeded examples, and use a different available slot for each booking. This avoids testing registration and prevents one tester's booking from consuming the next tester's slot.
+**Session setup:** Open the prototype at the patient's home screen before each session, explain that the doctors and slots are invented examples, and use a different available slot for each tester (or reset the prototype between sessions). This avoids testing registration and prevents one tester's booking from consuming the next tester's slot.
