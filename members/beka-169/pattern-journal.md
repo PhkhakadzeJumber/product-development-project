@@ -22,8 +22,8 @@ DECISIONS.md line I drove: my Week 3 prediction verdict, narrowed to one direct 
 
 ## Week 4 · The prototype is the conversation
 
-I moved from discovery into the first version of our MediBook prototype: patients can find doctors and book visits, doctors can manage visits and treatment records, and hospital admins can manage appointment slots and see visits. I used the ER model to shape the app around the patient, doctor, hospital-admin, time-slot, appointment, treatment-case, consultation, and prescription relationships, with the backend supporting the booking and care-tracking flows. I also translated the discovery evidence into the five-part problem statement and mapped the alternatives people actually use—clinic visits, calling reception, relatives' help, and other workarounds—in the competitive landscape. The prototype makes our assumptions tangible enough to discuss and test; it does not yet prove that online slots match real clinic availability or reduce waiting.
+My part of the prototype plan is bringing my father into the five-person test (log 05). His experience makes him a useful tester for the booking assumption: he called the clinic for three days, went in person to book, and waited two weeks for an appointment, but waited only 30 minutes on the visit day. The plan asks him to try finding a doctor and booking a future slot without help. That can show whether the demo flow is clear; it cannot show whether real clinic slots are available or whether online booking reduces waiting. I checked the test against his interview so the task is grounded in a real booking attempt, not a hypothetical need.
 
-Links: [app](../../app/), [backend](../../backend/), [ER model](../../er_model.md), [problem statement](../../01-discovery/problem-statement.md), [competitive landscape](../../01-discovery/competitive-landscape-seed.md), [DECISIONS.md](../../DECISIONS.md)
+Links: [prototype plan](../../02-design/prototype-plan.md), [father's interview](../../01-discovery/interview-logs/05-father-clinic.md), [DECISIONS.md](../../DECISIONS.md)
 
-DECISIONS.md lines I drove: the Week 4 entries for the first prototype, problem statement, and interview-based competitive landscape.
+DECISIONS.md line I drove: the Week 4 entry for my Father-05 tester role in the prototype plan.
