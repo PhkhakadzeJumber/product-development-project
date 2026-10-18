@@ -22,8 +22,4 @@ DECISIONS.md lines I drove: the problem we picked, hospital waiting, is my state
 
 ## Week 4 · The prototype is the conversation
 
-I moved from discovery into build for Week 4: I built the backend side of the first MediBook prototype. The backend (FastAPI + Postgres) implements the booking flow — patients browse doctors and book from admin-created time slots — and the care-tracking flow — doctors record consultations and prescriptions within treatment cases. I shaped the data layer from the ER model (user accounts, patients, doctors, hospital admins, time slots, appointments, consultations, prescriptions, chat) and connected it to the app repo so the team had a working prototype to demo and discuss rather than just an idea. It does not yet prove online slots match real clinic availability or reduce waiting.
-
-Links: [backend](backend/), [ER model](er_model.md), [app](app/), [DECISIONS.md](../../DECISIONS.md)
-
-DECISIONS.md lines I drove: the Week 4 entries for the backend side of the first prototype and the ER-model-to-data-layer translation.
+I own two of the five testers in the plan: Gocha from my own interview (log 02), and a new ward neighbour introduced through my sister. Neither is contacted yet, and Gocha's condition for coming back is that we bring something to show him. My part of the plan is the booking side: the riskiest assumption that a patient can find a doctor and book a future slot without help, plus the seeded demo doctors, slots and demo patient accounts the test needs. Hack: I checked the plan's booking action against logs 02, 03 and 05 first, so I know what that test cannot tell us — that Gocha and Zura book ahead fine and the pain is only reaching the doctor when something changes. `02-design/prototype-plan.md`
