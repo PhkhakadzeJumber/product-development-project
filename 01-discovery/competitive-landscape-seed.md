@@ -1,6 +1,6 @@
 # Competitive Landscape
 
-**Source:** the seven completed interview logs in `01-discovery/interview-logs/`. This landscape records only workarounds and alternatives named in those logs; quotes remain in the interview logs' translated wording.
+**Source:** the eight completed interview logs in `01-discovery/interview-logs/`. This landscape records only workarounds and alternatives named in those logs; quotes remain in the interview logs' translated wording.
 
 ## What interviewees actually use today
 

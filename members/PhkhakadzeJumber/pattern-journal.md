@@ -1,16 +1,18 @@
 # Pattern journal · Jumber Pkhakadze (@PhkhakadzeJumber)
 
-Same prompt every week: Where did you apply this pattern this week, where did you exercise agency beyond your assigned lane, and what did you hack together to test something faster than the plan allowed? Link the DECISIONS.md lines you drove.
-
 ## Week 1 · Act like an owner, not a role
 
-My lane is build: the repo and the code. I created the repo and the semester folder structure on 29.09, drafted the first team contract and the outreach tracker, and fixed the merge conflicts when three of us edited the contract at once. Two of my three statements came from my sister's internship at the hospital in Kutaisi: patients waiting hours for their doctor, and nurses retyping paper notes at the end of the shift. The third is a close friend's mother, who pays around 150 GEL for each three-weekly visit. The waiting statement became the problem we picked. Owner, not role: the repo was my job, but the hospital contacts came from me too, and that is where two of our interviews came from.
+My lane is build: the repo and the code. I created the repo and the semester folder structure on 29.09, drafted the first team contract and the outreach tracker, and fixed the merge conflicts when three of us edited the contract at once. Two of my three statements came from my sister's internship at the hospital in Kutaisi: patients waiting hours for their doctor, and nurses retyping paper notes at the end of the shift. The third is a close friend's mother, who pays around 150 GEL for each three-weekly visit. The waiting statement became the problem we picked. Owner, not role: the repo was my job, but the hospital contacts came from me too, and that is where one of our interviews (Gocha) came from.
+
+Links: [team contract](../../00-foundation/team-contract.md), [outreach tracker](../../01-discovery/outreach-tracker.md), [problem pool](../../00-foundation/problem-pool.md)
 
 ## Week 2 · Evidence over opinion
 
 I asked in one interview and logged two. I interviewed Gocha on 05.10 in the hospital café after his check-up, introduced through my sister, with Luka and Beka logging. Going in I believed the problem was the hours of waiting. Gocha said the two-weekly visits are fine and the hard part is getting help in between: he called the ward twice, nobody called back, so he came in without an appointment and waited an hour and a half for five minutes with the doctor. That is partly against my own statement, and it is in the log as it was said. I was second logger for Zura at his flat and counted the silence before Giorgi spoke after the half-tablet came out. On 06.10 I logged Luka's phone interview with a polyclinic doctor, together with Giorgi. My sister is passing a message to Gocha's neighbour on check-up days for the next interview.
 
-DECISIONS.md lines I drove: the problem we picked, hospital waiting, is my statement, and I rewrote the interview script around it. The Gocha log is one of the four pieces of evidence behind the Week 3 verdict.
+Links: [Gocha log](../../01-discovery/interview-logs/02-heart-patient-ward.md), [Zura log](../../01-discovery/interview-logs/03-diabetic-polyclinic.md), [polyclinic doctor log](../../01-discovery/interview-logs/04-polyclinic-doctor.md)
+
+DECISIONS.md line I drove: my Week 3 prediction verdict on the 2–4 hour wait (see section 3 in homework 1).
 
 ## Week 3 · Kill your favorite idea
 
@@ -18,8 +20,10 @@ My favorite idea was my own Step 1 belief: patients lose two to four hours waiti
 
 Links: [grandmother log](../../01-discovery/interview-logs/01-grandmother-district-clinic.md), [Gocha log](../../01-discovery/interview-logs/02-heart-patient-ward.md), [Zura log](../../01-discovery/interview-logs/03-diabetic-polyclinic.md), [father log](../../01-discovery/interview-logs/05-father-clinic.md), [Four Filters scorecard](../../00-foundation/four-filters-scorecard.md), [affinity map, Patterns 2 and 5](../../01-discovery/synthesis/affinity-map.md), [DECISIONS.md](../../DECISIONS.md)
 
-DECISIONS.md lines I drove: the problem we picked, hospital waiting, is my statement, and I rewrote the interview script around it. The Gocha log is one of the four pieces of evidence behind the Week 3 verdict. My Week 3 verdict: weakened — 3 of 4 patients hit the ~1.5–2 h wait (grandmother, Gocha, Zura), 1 missed (father, 30 min), with the caveat that long waits cluster on walk-ins after unanswered calls.
+DECISIONS.md line I drove: my Week 3 verdict, weakened — 3 of 4 patients hit the ~1.5–2 h wait (grandmother, Gocha, Zura), 1 miss (father, 30 min), with long waits clustering on walk-ins after unanswered calls.
 
 ## Week 4 · The prototype is the conversation
 
-I own two of the five testers in the plan: Gocha from my own interview (log 02), and a new ward neighbour introduced through my sister. Neither is contacted yet, and Gocha's condition for coming back is that we bring something to show him. My part of the plan is the booking side: the riskiest assumption that a patient can find a doctor and book a future slot without help, plus the example doctors and slots the test needs. Hack: I checked the plan's booking action against logs 02, 03 and 05 first, so I know what that test cannot tell us — that Gocha and Zura book ahead fine and the pain is only reaching the doctor when something changes. `02-design/prototype-plan.md`
+I own two of the five testers in the plan: Gocha from my own interview (log 02), and a new ward neighbour introduced through my sister. Neither is contacted yet, and Gocha's condition for coming back is that we bring something to show him. My part of the plan is the booking side: the riskiest assumption that a patient can find a doctor and book a future slot without help, plus the example doctors and slots the test needs. Hack: I checked the plan's booking action against logs 02, 03 and 05 first, so I know what that test cannot tell us — that Gocha and Zura book ahead fine and the pain is only reaching the doctor when something changes.
+
+Links: [prototype plan](../../02-design/prototype-plan.md), [DECISIONS.md](../../DECISIONS.md)

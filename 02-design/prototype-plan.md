@@ -1,6 +1,6 @@
 # Prototype Plan
 
-**Prototype in scope:** The prototype is a clickable design prototype of the MediBook booking flow, drawn in Figma for Week 5 before any code is written. It covers three screens: finding a doctor, that doctor's available future slots, and the booking confirmation with the visit in "My visits." It is not a working app — no backend, no real accounts, no live clinic data. Patients in our evidence describe booking (a phone call or an in-person trip) as where their time goes, so this test covers only the patient booking flow; it deliberately leaves out queue estimates, delay updates, and everything else so the one action can fail or pass on its own.
+**Prototype in scope:** The prototype is a clickable design prototype of the MediBook booking flow, drawn in Figma for the Week 5 test using invented example data. It covers three screens: finding a doctor, that doctor's available future slots, and the booking confirmation with the visit in "My visits." A working build already exists in `app/` and `backend/`, but it is not used for this test — the Figma flow is the test artefact and carries no live clinic data, so the one action can fail or pass on its own. Booking is where the pain sits for one of our interviewees (05), who called the registry for three days and closed his garage to book in person, so this test covers only the patient booking flow; it deliberately leaves out queue estimates, delay updates, and everything else.
 
 ## 1. The riskiest assumption
 
@@ -30,7 +30,7 @@
 
 ## 5. The test that can fail
 
-- **Task, read aloud to the tester, word for word:** “You need a routine follow-up appointment. You are already signed in as a patient in this demo. Find a general practitioner at Tbilisi Central Hospital, choose a future available time, and show me when the visit is booked.”
+- **Task, read aloud to the tester, word for word:** “You need a routine follow-up appointment. You are already signed in as a patient in this demo. Find a general practitioner at the demo polyclinic in Kutaisi, choose a future available time, and show me when the visit is booked.”
 - **Success looks like:** within two minutes and without help, the tester selects a general practitioner, books one future available slot, and points to the booking confirmation or the visit in “My visits.”
 - **Failure looks like:** the tester cannot find a general practitioner or available future time; stops before pressing “Book”; or completes the booking but cannot tell whether it succeeded.
 - **Decision rule:** if 3 or more of 5 testers fail, do not treat the current booking flow as usable without help. Identify the observed blocker and revise the flow before testing it again; separately validate real clinic availability before claiming that the app can replace clinic calls.
@@ -46,4 +46,4 @@
 | Ward-neighbour | New; Gocha's referral, also attends the same ward every two weeks; contact pending | Jumber, via his sister |
 | Dato | New; Zura's referral, sees the same cardiologist on a monthly rhythm; contact pending | Giorgi |
 
-**Session setup:** Open the prototype at the patient's home screen before each session, explain that the doctors and slots are invented examples, and use a different available slot for each tester (or reset the prototype between sessions). This avoids testing registration and prevents one tester's booking from consuming the next tester's slot.
+**Session setup:** Open the prototype at screen 1 (Find doctors) before each session, explain that the doctors and slots are invented examples, and use a different available slot for each tester (or reset the prototype between sessions). This avoids testing registration and prevents one tester's booking from consuming the next tester's slot.

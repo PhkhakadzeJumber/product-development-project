@@ -8,15 +8,16 @@
 - 05 = `05-father-clinic.md` (garage owner, back pain, public clinic)
 - 06 = `06-aunt-hospital.md` (doctor, Kutaisi Central Hospital)
 - 07 = `07-long-term-patient-clinic.md` (long-term patient of one doctor at a clinic)
+- 08 = `08-receptionist-polyclinic.md` (receptionist at the public polyclinic, phone, 10.10.2026; short call, paraphrased notes, no verbatim quotes)
 
 One section per pattern from the affinity map. Each why is answered in one sentence with the log that supports it. Stop when the next answer would be a guess.
 
 ## Pattern 1: An appointment does not mean being seen on time — walk-ins taken in gaps push booked patients late
 
-**Interviews behind it:** 01, 02, 03, 04
+**Interviews behind it:** 01, 02, 03, 04, 08
 
 1. Why does this happen? Reception sends walk-ins to sit outside the door and the doctor takes them in the gaps, so booked patients go in late. (04 logged mechanism; 02 watched three booked patients go in late.)
-2. Why do so many come without an appointment? They could not reach the clinic by phone first, so showing up is the fallback. (03: "Nothing happened. It rang. Nobody picked up." — 6 calls over 3 days; 05: "I called three days, nobody picks up."; 02: 2 calls, no callback.)
+2. Why do so many come without an appointment? They could not reach the clinic by phone first, so showing up is the fallback. (03: "Nothing happened. It rang. Nobody picked up." — 6 calls over 3 days; 02: 2 calls, no callback. 05 hit the same phone wall but booked in person instead of walking in, so his detail sits in Pattern 2.)
 3. Why does phone contact fail? The doctor is seeing patients and gives out no mobile, so everything funnels via the reception/registry line. (04: does not give out mobile number; 03: mobile refused, "Only that the girl at reception decides everything. If she likes you, she passes the message. If not, nothing.")
 4. Why take walk-ins in the gaps at all instead of turning them away? Anyone who looks unwell goes first and there is nobody else to send them to. (04: unwell first; 06: nurses prioritise who looks worst.)
 
@@ -34,7 +35,7 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 **Root cause, one sentence:** All between-visit contact funnels through an overloaded reception/registry line with no async fallback, so any change forces a physical trip.
 
-**Which of the answers above is a guess rather than a quote?** "Overloaded" for reception is inferred from call volumes (6 + 6 + 2 + 4 calls) and 04's 31-patient day, not from a receptionist interview. Next interview: the referred receptionist in 04 — ask her call volume and callback practice.
+**Which of the answers above is a guess rather than a quote?** "Overloaded" for reception is inferred from call volumes (6 + 6 + 2 + 4 calls) and 04's 31-patient day. The receptionist interview (08) was meant to test this, but the short call did not cover call volume or callbacks, so the guess stays open. Follow-up needed: ask 08 again for call volume and callback practice.
 
 ## Pattern 3: A 3- to 10-minute visit costs half a day, bus fare, and lost work — and repeats every month
 
@@ -50,7 +51,7 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 ## Pattern 4: Doctors absorb more patients than the day fits by shortening visits and finishing paperwork after hours
 
-**Interviews behind it:** 04, 06
+**Interviews behind it:** 04, 06, 08
 
 1. Why does this happen? Patient count exceeds slots and staff. (04: 22 booked + 9 walk-in = 31, usual 20–25 booked + 5–8 walk-in; 06: one doctor doing the work of two or three, Saturday 2 → 1 when one called in sick.)
 2. Why does the day still run? Slots are cut and paperwork is deferred. (04: ~15 min cut to under 10, notes written next morning, left after 5 with no lunch: "By the afternoon I am rushing people I want to give more time to."; 06: skipped full examinations to triage, postponed discharge papers, 12 hours with one short tea break.)
@@ -73,6 +74,6 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 ---
 
-**Strongest pattern (most interviews, clearest root cause):** Pattern 3 — a 3- to 10-minute visit costs half a day, bus fare, and lost work, and repeats.
+**Strongest pattern (closest to our pick and the cleanest quote trail):** Pattern 3 — a 3- to 10-minute visit costs half a day, bus fare, and lost work, and repeats. Pattern 2 carries more interviews (02, 03, 04, 05, 07), but Pattern 3 is the one the problem statement is built on and the one the product attacks first.
 
-**Why it is the strongest, in two sentences, citing log numbers:** Four of seven interviews pay it directly (01 monthly same prescription "Every month half a day, and this month twice."; 02 "My daughter had to miss work to bring me."; 03 shop morning "fifty, eighty lari I didn't make" plus 4 GEL for 3 minutes; 05 closed garage plus 2 weeks "in pain"), and its root cause — routine and short needs forcing physical presence — is exactly what the website attacks: remote renewal, async check-in, and booking without the extra trip.
+**Why it is the strongest, in two sentences, citing log numbers:** Four of the eight interviews pay it directly (01 monthly same prescription "Every month half a day, and this month twice."; 02 "My daughter had to miss work to bring me."; 03 shop morning "fifty, eighty lari I didn't make" plus 4 GEL for 3 minutes; 05 closed garage plus 2 weeks "in pain"), and its root cause — routine and short needs forcing physical presence — is exactly what the website attacks: remote renewal, async check-in, and booking without the extra trip.

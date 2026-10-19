@@ -43,3 +43,5 @@ Week 3 verdict (Giorgi Phurtseladze personal trial): confirmed with boundary. Ev
 Week 3 verdict (Luka Mikautadze personal trial): confirmed, narrowed. Evidence: logs 02, 03, 07 hit (2 / 6 / 4 calls; 02 and 03 then went in); log 04 confirms from the doctor side; logs 01, 05 miss (no between-visit question). See DECISIONS.md.
 
 Week 3 verdict (Beka Shekiladze personal trial): weakened, narrowed. Evidence: log 01 directly supports a repeat-prescription trip ending without the prescription; logs 02 and 03 support adjacent brief between-visit needs becoming walk-ins after failed calls; log 04 confirms the doctor-side two-minute-question pattern. "Often leave without it" is not established by one direct case. See DECISIONS.md.
+
+**Log 08 (receptionist, 10.10.2026):** short, paraphrased phone call (asker Jumber, loggers Luka and Giorgi). She estimated booked patients wait about 10 minutes and patients without an appointment about 40 minutes to an hour or more, and described reception strain when the doctors are overloaded. She did not cover callbacks or call volume, so the reception-line half of Pattern 2 stays open and needs a follow-up.

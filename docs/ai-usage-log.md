@@ -4,9 +4,9 @@ One line per AI-assisted piece of work.
 Format: Wk<N> · who · tool · what it produced · what you checked or changed
 
 Wk1 · Jumber Phkhakadze · Opencode · drafted three problem statements: sister's hospital wait hours, nurses retyping patient info, friend's mother paying 150 GEL per consultation · checked each against the three tests (room/camera/desk)
-Wk1 · Luka Mikautadze · Claude Code · drafted three problem statements: polyclinic GP walk-ins, uncle phone calls between visits, home baker cake orders in chats
-Wk1 · Beka Shekiladze · Copilot · drafted three problem statements: father's back-pain clinic appointment, cousin's flat bill splitting, grandmother's monthly BP prescription · 
-Wk1 · Giorgi Phurtseladze · Opencode · drafted three problem statements: neighbour Nani specialist visit in Baghdati, friend Ana exchange transcript, aunt's hospital overload · 
+Wk1 · Luka Mikautadze · Claude Code · drafted three problem statements: polyclinic GP walk-ins, uncle phone calls between visits, home baker cake orders in chats · checked against the three tests (room/camera/desk)
+Wk1 · Beka Shekiladze · Copilot · drafted three problem statements: father's back-pain clinic appointment, cousin's flat bill splitting, grandmother's monthly BP prescription · checked against the three tests (room/camera/desk)
+Wk1 · Giorgi Phurtseladze · Opencode · drafted three problem statements: neighbour Nani specialist visit in Baghdati, friend Ana exchange transcript, aunt's hospital overload · checked against the three tests (room/camera/desk)
 
 Wk2 · Team · Opencode · drafted ICP v1 (Gela profile), outreach tracker with first contacts, and each teammate's belief statement for the problem hypothesis · checked ICP one-person sketch and that each belief has a reachable interviewee
 
@@ -34,6 +34,7 @@ Wk3 · Giorgi Phurtseladze · Opencode · filled ICP part, filled problem pool, 
 Wk4 · Jumber Phkhakadze · Opencode · fixed all inconsistencies, improved website, added Lab 3 templates, updated affinity map and patterns analysis, filled predictions vs results · checked website correctness and diff
 Wk4 · Beka Shekiladze · Copilot · updated problem hypothesis and DECISIONS.md · checked against logs
 Wk4 · Giorgi Phurtseladze · Opencode · updated problem hypothesis and DECISIONS.md with predictions · checked predictions against logs
-Wk4 · Beka · Copilot · updated 01-discovery/interview-script-v2.md from v1 and all seven interview logs: retained focused questions, documented the v1 keep/cut decisions, and added questions based on repeated patterns · cross-checked pattern log numbers and examples against the logs and affinity map; ran git diff --check
 Wk4 · Luka · Claude Code · built the four between-visit features (running late + check-in, prescription renewals, patient questions, waitlist): backend models, migration 0008, services, routers and 16 end-to-end tests, frontend pages and components, er_model.md update; also redrafted Luka's Week 4 journal/HW1 entry and the matching DECISIONS.md line · Luka picked the features from the logs; tests pass on SQLite, TypeScript passes; migration not yet run on Postgres and screens not yet clicked through in a browser
 Wk4 · Luka · Claude Code · redrafted Luka's Week 4 journal/HW1 entry and his Wk4 DECISIONS.md line around his review of the prototype plan instead of the feature build · Luka asked for it; checked every claim against the plan, logs 02, 03, 05, 07 and the affinity map
+
+Wk4 · Jumber Phkhakadze · Opencode · created the log 08 shell (01-discovery/interview-logs/08-receptionist-polyclinic.md) for the receptionist interview, and wired the pending eighth-log references through the affinity map, patterns analysis, ICP, scorecard, landscape, competition count, README and DECISIONS.md · checked the shell matches the v2 log layout and that every "seven logs" reference was updated or explicitly marked pending

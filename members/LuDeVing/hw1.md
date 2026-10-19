@@ -1,11 +1,6 @@
-# Homework 1 · Luka Mikautadze (@LuDeVing) · Team product-development-project
-
-**Individual. 5 points. Commit it from your own account, then upload the same file to the LMS.**
-
+# Homework 1 · Luka Mikautadze (@LuDeVing) · Team One
 
 ## 1. My interview log
-
-Every real interview you took part in. At least 2 where you were the **asker**.
 
 | Log file (link) | My role (asked / logged / both) | What this interview changed, in one sentence |
 |---|---|---|
@@ -44,26 +39,24 @@ Links: [log 07](../../01-discovery/interview-logs/07-long-term-patient-clinic.md
 
 ### Week 4 · The prototype is the conversation
 
-I don't book any of the five testers: Jumber, Giorgi and Beka cover all five from their own interviews, so my part was checking the plan against the evidence before anyone is booked. The riskiest assumption, that a patient can find a doctor and book a future slot without help, is the right one for log 05, where Beka's father called the registry for three days and closed his garage to book in person. But booking is not where most of our pain sits: in log 07 booking took one call, Gocha and Zura book ahead without trouble (logs 02, 03), and what hurt them was not being seen on time (Pattern 1), not reaching the doctor once something changed (Pattern 2) and questions held until the next visit (Pattern 5). The plan itself leaves delay estimates, arrival-time changes, medical advice and triage out of the test, so even if all five testers pass, we learn nothing about our runner-up; that needs its own test after this one. Outside my lane: I brought log 07 back into the repo and into the ICP and the scorecard, where Gocha's "waiting is the hard part" had been misquoted, so the evidence the plan cites matches the logs. Hack: instead of waiting for the first tester session to show us the plan's blind spot, I checked its riskiest assumption against all seven logs we already have.
+I don't book any of the five testers: Jumber, Giorgi and Beka cover all five from their own interviews, so my part was checking the plan against the evidence before anyone is booked. The riskiest assumption, that a patient can find a doctor and book a future slot without help, is the right one for log 05, where Beka's father called the registry for three days and closed his garage to book in person. But booking is not where most of our pain sits: in log 07 booking took one call, Gocha and Zura book ahead without trouble (logs 02, 03), and what hurt them was not being seen on time (Pattern 1), not reaching the doctor once something changed (Pattern 2) and questions held until the next visit (Pattern 5). The plan itself leaves delay estimates, arrival-time changes, medical advice and triage out of the test, so even if all five testers pass, we learn nothing about our runner-up; that needs its own test after this one. Outside my lane: I brought log 07 back into the repo and into the ICP and the scorecard, where Gocha's "waiting is the hard part" had been misquoted, so the evidence the plan cites matches the logs. Hack: instead of waiting for the first tester session to show us the plan's blind spot, I checked its riskiest assumption against all the logs we already have.
 
 Links: [prototype plan](../../02-design/prototype-plan.md), [log 05](../../01-discovery/interview-logs/05-father-clinic.md), [log 07](../../01-discovery/interview-logs/07-long-term-patient-clinic.md), [affinity map, Patterns 1, 2 and 5](../../01-discovery/synthesis/affinity-map.md), [DECISIONS.md](../../DECISIONS.md)
 
 ## 3. My DECISIONS.md citations
-
-Each `DECISIONS.md` line you drove or supplied the evidence for. Copy the line exactly, then say what you did.
 
 | The line, copied | What I did for it |
 |---|---|
 | Wk3 · Prediction "ill people can't get a quick answer between visits, so they keep calling or go in" verdict: confirmed, narrowed to urgent changes between visits; 3/3 patients with such a change kept calling (2, 6 and 4 calls), 2/3 then went in (1.5-2h wait for 3-5 min) and 1 got a callback on day 2; doctor confirms 2-min walk-ins; but only 3/5 patients had one, non-urgent questions wait for the visit, and the block is the phone line/reception, not the doctor · evidence: 01-discovery/interview-logs/02-heart-patient-ward.md, 01-discovery/interview-logs/03-diabetic-polyclinic.md, 01-discovery/interview-logs/07-long-term-patient-clinic.md, 01-discovery/interview-logs/04-polyclinic-doctor.md, 01-discovery/interview-logs/01-grandmother-district-clinic.md, 01-discovery/interview-logs/05-father-clinic.md · owner: Luka Mikautadze | My personal prediction trial: counted every log against my prediction, wrote the verdict and the evidence, and restored log 07, which is part of the evidence. |
 | Wk3 · Hypothesis confirmed, with one caveat: all three patients waited 1.5 to 2 hours on their last difficult visit and lost about half a day to it, and the doctor took 31 patients in a day booked for 22 and left two hours late · evidence: [Gocha, 05.10](01-discovery/interview-logs/02-heart-patient-ward.md), [Zura, 05.10](01-discovery/interview-logs/03-diabetic-polyclinic.md), [Beka's grandmother, 05.10](01-discovery/interview-logs/01-grandmother-district-clinic.md), [Luka's acquaintance, a polyclinic doctor, 06.10](01-discovery/interview-logs/04-polyclinic-doctor.md), [scorecard](00-foundation/four-filters-scorecard.md) · owner: LM · caveat: Gocha and Zura only waited that long when they came without an appointment, after calls that went unanswered, so the runner-up stays open | Wrote the verdict line and the matching hypothesis verdict after the team agreed it, with links and numbers checked against the logs. |
 | Wk3 · Luka's outreach target in the team contract changed from Giorgi T (a classmate whose project broke on deployment) to his acquaintance, a polyclinic doctor, once the pick moved to clinic visits; the bus driver statement in the pool was replaced by the doctor statement for the same reason · evidence: [team contract](00-foundation/team-contract.md), [problem pool](00-foundation/problem-pool.md), [polyclinic doctor, 06.10](01-discovery/interview-logs/04-polyclinic-doctor.md) · owner: LM | Followed the new pick myself: swapped my bus driver pool statement and my contract outreach target for the polyclinic doctor I then interviewed (log 04). |
-| Wk4 · Luka checked the prototype plan against all seven logs: booking is the right riskiest assumption for log 05, but in logs 02, 03 and 07 booking was easy and the pain was being seen late, reaching the doctor after a change and questions held until the next visit (Patterns 1, 2 and 5); the plan leaves delays and triage out of the test, so a pass says nothing about the runner-up, which needs its own test · evidence: [prototype plan](02-design/prototype-plan.md), [log 05](01-discovery/interview-logs/05-father-clinic.md), [log 02](01-discovery/interview-logs/02-heart-patient-ward.md), [log 03](01-discovery/interview-logs/03-diabetic-polyclinic.md), [log 07](01-discovery/interview-logs/07-long-term-patient-clinic.md), [affinity map](01-discovery/synthesis/affinity-map.md) · owner: Luka Mikautadze | Read the prototype plan against all seven logs and wrote down what its booking test can and cannot tell us, before any tester is booked. |
+| Wk4 · Luka checked the prototype plan against all the interview logs: booking is the right riskiest assumption for log 05, but in logs 02, 03 and 07 booking was easy and the pain was being seen late, reaching the doctor after a change and questions held until the next visit (Patterns 1, 2 and 5); the plan leaves delays and triage out of the test, so a pass says nothing about the runner-up, which needs its own test · evidence: [prototype plan](02-design/prototype-plan.md), [log 05](01-discovery/interview-logs/05-father-clinic.md), [log 02](01-discovery/interview-logs/02-heart-patient-ward.md), [log 03](01-discovery/interview-logs/03-diabetic-polyclinic.md), [log 07](01-discovery/interview-logs/07-long-term-patient-clinic.md), [affinity map](01-discovery/synthesis/affinity-map.md) · owner: LM | Read the prototype plan against all the interview logs and wrote down what its booking test can and cannot tell us, before any tester is booked. |
 
 ---
 
 **Before you upload, check**
 
-- [ ] 2 or more rows say "asked" or "both", and each links a real log in `01-discovery/interview-logs/`.
-- [ ] Four journal entries, each with a link. The commit history shows they were written across the weeks, not tonight.
-- [ ] Every DECISIONS.md line is copied word for word, and the owner or evidence on it connects to you.
-- [ ] Committed from your own GitHub account. Uploaded to the LMS before the deadline.
+- [x] 2 or more rows say "asked" or "both", and each links a real log in `01-discovery/interview-logs/`.
+- [x] Four journal entries, each with a link. The commit history shows they were written across the weeks, not tonight.
+- [x] Every DECISIONS.md line is copied word for word, and the owner or evidence on it connects to you.
+- [x] Committed from your own GitHub account. Uploaded to the LMS before the deadline.

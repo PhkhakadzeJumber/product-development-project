@@ -1,7 +1,5 @@
 # Outreach Tracker
 
-Copy to `01-discovery/outreach-tracker.md` (or add these columns to the one you started in Lab 1). Finished example: `examples/sakhli-outreach-tracker.md`.
-
 Start from your ICP's five, then add everyone they introduce, until three interviews have a day and a time. Real means has the problem and is not in this course.
 
 **Privacy:** first name or code name plus a role only ("Tamar, host in Mestia"). Phone numbers, emails, and surnames stay in your team chat, never in the repo.
@@ -11,7 +9,7 @@ Start from your ICP's five, then add everyone they introduce, until three interv
 | Acquaintance of Luka's, general practitioner at a public polyclinic | the doctor's side of the problem, not a patient: 20 to 25 booked patients a day and 5 to 8 more without an appointment | phone | W2, Luka | yes | 06.10, phone, asker Luka, loggers Jumber and Giorgi. Logged. |
 | Acquaintance of Luka's, long-term patient of one doctor at a clinic (not Luka's uncle from the problem pool) | needed his doctor between visits about a new medicine and could not get through by phone | phone | W2, Luka | yes | 05.10, evening, phone, asker and logger Luka (solo). Logged. |
 | His friend who deals with clinics a lot (introduction via Luka's acquaintance) | deals with clinics often, according to the acquaintance | via Luka's acquaintance | W3, Luka | not asked yet | pending |
-| The receptionist at his polyclinic (introduction via Luka's acquaintance) | sees everyone who comes without an appointment | via Luka's acquaintance | W3, Luka | no reply yet | pending |
+| The receptionist at the same polyclinic (introduction via Luka's acquaintance) | sees everyone who comes without an appointment and decides what gets passed on to the doctor | via Luka's acquaintance | W3, Jumber | yes | 10.10, phone, asker Jumber, loggers Luka and Giorgi. Logged. |
 | Gocha, about 60, patient on the ward where Jumber's sister interns, comes in every two weeks for his heart | sees the same doctors regularly, has questions between visits, waits at the hospital each time | in person, via Jumber's sister | W2, Jumber | yes | 05.10, in person at the hospital café, asker Jumber, loggers Luka and Beka. Logged. |
 | Beka's grandmother, blood pressure prescription at a clinic | goes to the clinic in person every month for the same prescription, and the doctor is often out that day | in person, at Sunday lunch | W2 Sunday, Beka | yes | 05.10, in person at her flat, asker Beka, logger Giorgi. Logged. |
 | Zura, Giorgi's neighbour, diabetic with one regular cardiologist | called the clinic three days in a row about a new tablet, then gave up and went in person | in person, knock on his door | W2 Thursday, Giorgi | yes | 05.10, in person at his flat, asker Giorgi, loggers Beka and Jumber. Logged. |
