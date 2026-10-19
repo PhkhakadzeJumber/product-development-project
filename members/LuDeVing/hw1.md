@@ -8,6 +8,7 @@
 | [04 · polyclinic doctor, 06.10](../../01-discovery/interview-logs/04-polyclinic-doctor.md) | asked (Jumber and Giorgi logged) | The only interview from the doctor's side: walk-ins taken in the gaps make booked patients late, which explained the patients' long waits from the other side of the door. |
 | [02 · Gocha, heart patient, 05.10](../../01-discovery/interview-logs/02-heart-patient-ward.md) | logged (with Beka) | His 1.5-hour wait for 5 minutes came only after 2 unanswered calls, which tied the long waits to failed phone contact. |
 | [05 · Beka's father, back pain, 07.10](../../01-discovery/interview-logs/05-father-clinic.md) | logged (with Giorgi) | Getting an appointment can hurt with almost no corridor wait: 6 calls, a wasted booking trip and 2 weeks in pain, then 30 minutes in the corridor. |
+| [08 · receptionist at the same polyclinic, 10.10](../../01-discovery/interview-logs/08-receptionist-polyclinic.md) | logged (with Giorgi; Jumber asked, through my acquaintance the doctor) | Her estimates, about 10 minutes for booked patients against 40 minutes to an hour for those without an appointment, back our caveat that the long waits fall mainly on walk-ins, and from the desk she sees patients with a question come in rather than call because the doctors are rarely free to answer. |
 
 **The quote I heard myself that mattered most, with its log number:**
 
