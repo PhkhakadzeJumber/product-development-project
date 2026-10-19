@@ -20,11 +20,11 @@ See DECISIONS.md for every product decision and the evidence behind it.
 - [x] Four Filters scorecard in `00-foundation/`, three problems scored: the time a hospital visit costs (pick), between-visits answers (runner-up), repeat prescription trip.
 - [x] Hypothesis verdict (confirmed / weakened / killed) in `DECISIONS.md` after scoring, with links to the logs. Confirmed with one caveat, 06.10.
 - [ ] Script audit by another team in lab, every red fixed before the script is called v1.
-- [x] Jumber logs one interview (Zura, 05.10, second logger with Beka; also Luka's doctor interview, 06.10, with Giorgi).
+- [x] Jumber logged three interviews (Zura, 05.10, second logger with Beka; Luka's doctor interview, 06.10, with Giorgi; Giorgi's aunt, 07.10, with Beka) and asked two (Gocha, 05.10; the polyclinic receptionist, 10.10).
 - [x] Everyone watched the Week 3 recording before lab.
 - [x] All four committed to their own `members/<github-username>/pattern-journal.md` from their own account (17–18.10), the proof that everyone can push.
 - [x] All four read their drafted Week 1 and Week 2 entries and confirmed them.
-- [x] Everyone asked in one interview and logged a different one. Luka asked his acquaintance, a polyclinic doctor, and logged Gocha. Jumber asked Gocha, logged Zura and the doctor. Beka asked his grandmother, logged Gocha and Zura. Giorgi asked Zura, logged the grandmother and the doctor.
+- [x] Everyone asked in at least one interview and logged a different one. Luka asked his acquaintance, a polyclinic doctor, and logged Gocha. Jumber asked Gocha and the receptionist (08, 10.10), and logged Zura, the doctor and Giorgi's aunt (06). Beka asked his grandmother, logged Gocha and Zura. Giorgi asked Zura, logged the grandmother and the doctor.
 
 ## Week 4 checklist (Milestone 1)
 - [x] `01-discovery/synthesis/affinity-map.md` finished: every quote from every log, clusters re-sorted, single-interview quotes in "Not yet a pattern".
