@@ -24,6 +24,7 @@ Teams of 2: each person carries one and a half accountabilities. Write which.
 - **Response window:** messages acknowledged within 3 hours between 4 pm and 10 pm; messages sent outside that window are acknowledged by 5 pm the next day
 - **Silent teammate with a deadline near:** If a member has not replied for 24 hours, Jumber Pkhakadze messages them directly, then calls after another 12 hours. If Jumber is the silent one, Giorgi does the same for him. If there is still no answer, the follower messages the whole team in the group, and the others split the silent member's urgent tasks so the deadline is not missed. It is then raised at the next standup.
 - **Demo-ready:** any member can screen-share the current product state in any lab, on 2 minutes notice
+- **Who did what:** everyone commits their own work from their own GitHub account, so the commit history shows who did each piece; every `DECISIONS.md` line names its owner; every interview log names its asker and logger(s); and each member's own journal and homework live in `members/<github-username>/`
 
 ## How we decide
 Small stuff: any two members. Direction: evidence first, then majority; the dissent gets one sentence in the record. From Week 3, product decisions go in `DECISIONS.md` with a link to their evidence. That file is the team memory; keep it honest.
