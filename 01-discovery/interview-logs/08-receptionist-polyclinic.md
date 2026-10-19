@@ -8,13 +8,13 @@
 
 **Context for readers:** This was not a typical interview for our team. Most of our interviews are with patients and doctors, and our interview script was written for them, so it does not cover this exact case of a receptionist. The conversation was also short, and she had to go back to work before we could finish. The team still found it a good and helpful interview. It gave us a view from the reception desk that we had not heard before, but because it was brief and did not follow the script closely, many questions below are marked as not covered.
 
-**Note on question order:** The receptionist sits between patients and doctors, so the clinic-staff questions below are the nearest fit and do not follow the usual patient/doctor order. The structure is similar (warm-up, recent specific events, follow-ups, close), but the core questions focus on the phone line, walk-ins, messages to doctors, and repeat prescriptions. Numbering skips (2-9, 16) because those belong to the patient and doctor scripts. The notes below are paraphrased from the team's memory of the call, not a recording.
+**Note on question order:** The receptionist sits between patients and doctors, so the clinic-staff questions below are the nearest fit and do not follow the usual patient/doctor order. The structure is similar (warm-up, recent specific events, follow-ups, close), but the core questions focus on the phone line, walk-ins, messages to doctors, and repeat prescriptions. Numbering skips (2-9, 16) because those belong to the patient and doctor scripts. The notes below are paraphrased from the team's memory of the call, not a recording, except the three quotes under "Verbatim quotes", which are her exact words (translated from Georgian).
 
 ## Warm-up
 
 **1. How long have you worked at this registry, and what do you usually handle during a normal day?**
 
-She has worked at the registry for 5 years. Her daily responsibilities and the types of requests she handles were not recorded.
+She has worked at the registry since 2022 (she put it at about 5 years), and called it a hard job: "i have been working here since 2022, so yea, 5 for years now and it is pretty hard job to do but we have to take care and make patients lives better" Her daily responsibilities and the types of requests she handles were not recorded.
 
 ## Core (for clinic staff)
 
@@ -40,7 +40,7 @@ She did not describe how she decides. She said a patient without an appointment 
 
 **Follow-up:** Tell me about the last person this happened to. What did they do in the end, and roughly how long did they wait?
 
-Not answered. She gave a general estimate, not a specific recent case.
+She said she is not sure how long the wait usually is, but remembered one case: a patient who had not booked in advance waited about 2.5 hours to see her doctor, with about 10 patients ahead of her. "I am not sure about how long the waiting time is for patients, but i can remember once, when one patient waited around 2 and a half hours to see her doctor because there were around 10 patients in front of her to see the doctor and she did not book an appointment in advance." No date was given for it.
 
 **14. What is the hardest part of your day when the doctors are overloaded? What is the most recent specific example?**
 
@@ -58,7 +58,7 @@ Not answered.
 
 **17. Thinking about everything we've talked about, is there anything important about dealing with doctors or hospitals that I didn't ask you about?**
 
-She said nothing further and had to go back to work.
+She said nothing further and had to go back to work: "i have to go back to work, as u can see, we currently have many patients waiting as well. sorry, but have to go"
 
 **18. Who else should we talk to about this?**
 
@@ -72,22 +72,27 @@ Not asked (she had to leave).
 
 - **And then what happened?** — Not recorded.
 - **Why was that a problem?** — Not recorded.
-- **When was the last time that happened?** — Not recorded; no specific recent case was given.
+- **When was the last time that happened?** — One case remembered (no date): a patient without an appointment waited about 2.5 hours with about 10 patients ahead of her.
 - **What did you do?** — Not recorded.
-- **How long did it take?** — Waits (estimates): about 10 min with an appointment, about 40 min to 1 hour or a little more without one.
+- **How long did it take?** — Waits (estimates): about 10 min with an appointment, about 40 min to 1 hour or a little more without one; one remembered case of about 2.5 hours without one.
 - **How many times did that happen?** — Not known. Only "sometimes" or "rarely" and "more than half" style answers, no counts.
 - **Can you show me?** — Nothing shown (phone call).
 
 ## Verbatim quotes
 
-No exact quotes were recorded. The notes above are paraphrased from the team's memory of the call, so nothing here should be cited as her words.
+Her exact words, translated from Georgian. Everything else in this log is paraphrased and should not be cited as her words.
+
+1. "i have been working here since 2022, so yea, 5 for years now and it is pretty hard job to do but we have to take care and make patients lives better" (question 1)
+2. "I am not sure about how long the waiting time is for patients, but i can remember once, when one patient waited around 2 and a half hours to see her doctor because there were around 10 patients in front of her to see the doctor and she did not book an appointment in advance." (follow-up to question 13)
+3. "i have to go back to work, as u can see, we currently have many patients waiting as well. sorry, but have to go" (the end of the call)
 
 ## Numbers they gave
 
 - Calls per day: not known · Missed/ring-outs: not known · Callbacks: not known
 - Walk-ins per day: not known · Booked patients per day: not known
-- Waits (all estimates, basis not recorded): booked patients about 10 min; patients without an appointment about 40 min to 1 hour, maybe a little more
-- Years at the registry: 5
+- Waits (all estimates, basis not recorded, and she said she is not sure how long the wait is): booked patients about 10 min; patients without an appointment about 40 min to 1 hour, maybe a little more
+- One remembered case: a patient without an appointment waited about 2.5 hours, with about 10 patients ahead of her
+- Years at the registry: since 2022 (she said about 5)
 - Pushed on numbers: no, the wait times were given once and not pressed
 
 ## What they do about it today
@@ -100,12 +105,12 @@ No exact quotes were recorded. The notes above are paraphrased from the team's m
 ## Did this support or weaken the hypothesis?
 
 - **Reception-line hypothesis:** Not tested. She did not mention unanswered calls, repeated attempts, or callbacks, and the missed-call question was not covered. This says nothing for or against it. It stays open for the next interview.
-- **Waiting-time hypothesis:** Partly supports and partly complicates. Her estimate for patients without an appointment (about 40 min to 1 hour or more) fits our caveat that long waits happen mainly to people who come without one. Her estimate for booked patients (about 10 min) matches Zura's 20 to 30 minutes and is not a long wait. Both are estimates with no specific recent case.
+- **Waiting-time hypothesis:** Partly supports and partly complicates. Her estimate for patients without an appointment (about 40 min to 1 hour or more) fits our caveat that long waits happen mainly to people who come without one. Her estimate for booked patients (about 10 min) matches Zura's 20 to 30 minutes and is not a long wait. Both are estimates, and she said herself she is not sure how long the wait is. The one case she remembered, a patient without an appointment who waited about 2.5 hours behind about 10 others, fits the same caveat.
 - **Between-visit question hypothesis:** Supports the mechanism from the staff side. She says patients with a question mostly come in person because doctors are rarely free to answer, which matches the doctor's account in log 04. It is her general belief or observation, not a counted or specific case.
 - **Repeat-prescription hypothesis:** Does not test it. She did not say why a patient must attend in person, and no patient failing to get a prescription was described. What she did describe (forgotten prescription details) is a related small-question problem, handled by phoning the doctor or family.
 - **Counterevidence:** The ~10 min wait with an appointment points toward "appointments are seen promptly." It is a single estimate and does not outweigh the other logs, but it should be recorded.
 
-What she directly observed vs. what she believes: all of her answers were general statements, and it is not recorded whether any came from a specific recent event. Treat all of it as her beliefs and estimates until a specific case is collected.
+What she directly observed vs. what she believes: one answer is a specific case she remembered (the 2.5-hour wait without an appointment, no date). Everything else was a general statement; treat it as her beliefs and estimates.
 
 ## What surprised me
 
@@ -119,7 +124,7 @@ The prescription answer. We expected to hear why patients must come in for repea
 ## Raw notes
 
 - 10.10.26, morning. Jumber asked; Luka and Giorgi logged. Phone call via Luka's acquaintance, the polyclinic doctor. Length not recorded. Interview ended early because she had to return to work.
-- Worked at the registry 5 years. Estimated waits: about 10 min for booked patients; about 40 min to 1 hour or more without an appointment. No counts of calls or patients.
-- No specific examples or outcomes given.
+- Worked at the registry since 2022 (she said about 5 years). Estimated waits: about 10 min for booked patients; about 40 min to 1 hour or more without an appointment. No counts of calls or patients.
+- One specific case: a patient without an appointment waited about 2.5 hours, about 10 patients ahead of her (no date). No other specific examples or outcomes.
 - No referrals given (question not asked).
 - Gaps to cover in a follow-up: missed calls and callbacks, call and walk-in volume, how walk-ins are handled, why a repeat prescription needs a visit, one specific recent case.

@@ -8,7 +8,7 @@
 - 05 = `05-father-clinic.md` (garage owner, back pain, public clinic)
 - 06 = `06-aunt-hospital.md` (doctor, Kutaisi Central Hospital)
 - 07 = `07-long-term-patient-clinic.md` (long-term patient of one doctor at a clinic, Luka's solo phone call)
-- 08 = `08-receptionist-polyclinic.md` (receptionist at the public polyclinic, phone, 10.10.2026; short call, paraphrased notes, no verbatim quotes)
+- 08 = `08-receptionist-polyclinic.md` (receptionist at the public polyclinic, phone, 10.10.2026; short call, mostly paraphrased notes, three verbatim quotes)
 
 A cluster counts as a pattern only when it holds quotes from 2 or more different interviews. Quotes are verbatim from the logs unless marked otherwise, each tagged with its log number.
 
@@ -25,7 +25,8 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "Why do you keep calling, come in if it's urgent." (03 — reception, as he reported it; he then went without an appointment and waited about two hours for a gap between booked patients)
 - "Ten people outside my door before the first patient left." (04)
 - "Thirty-one in one day, twenty-two booked. I left after five." (04 — booked patients went in late while 9 walk-ins were taken in the gaps)
-- *Paraphrased (08), not a quote:* booked patients wait about 10 minutes, but patients without an appointment wait about 40 minutes to an hour or more (the receptionist's estimates from memory, no specific case; supports the size of the gap rather than the mechanism).
+- "I am not sure about how long the waiting time is for patients, but i can remember once, when one patient waited around 2 and a half hours to see her doctor because there were around 10 patients in front of her to see the doctor and she did not book an appointment in advance." (08 — the receptionist; one patient without an appointment, about 10 patients ahead)
+- *Paraphrased (08), not a quote:* booked patients wait about 10 minutes, but patients without an appointment wait about 40 minutes to an hour or more (the receptionist's estimates from memory; she said she is not sure how long the wait is; supports the size of the gap rather than the mechanism).
 
 ## Pattern 2
 
@@ -76,6 +77,8 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "Then you go home and think about quitting." (06)
 - "I liked medicine. I no longer enjoy the job." (06 — skipped full examinations to triage, postponed discharge papers to next day)
 - *Paraphrased (08), not a quote:* when the doctors are overloaded, reception is overloaded too; staff struggle to keep people from waiting a long time (general observation, no specific day).
+- "i have to go back to work, as u can see, we currently have many patients waiting as well. sorry, but have to go" (08 — the end of the call)
+- "i have been working here since 2022, so yea, 5 for years now and it is pretty hard job to do but we have to take care and make patients lives better" (08)
 
 ## Pattern 5
 
@@ -98,5 +101,5 @@ Quotes that stand alone so far (one interview). Keep them here; if a later inter
 
 ## Log 08 (receptionist) — folded in
 
-`08-receptionist-polyclinic.md` (10.10.2026, phone, asker Jumber, loggers Luka and Giorgi) is included above. It was a short call: no verbatim quotes and no call or walk-in counts, so it contributes observations (Patterns 1 and 4) rather than a quotable cluster. It did **not** cover the missed-call/callback question, so the reception-line guess in `patterns-analysis.md` Pattern 2 stays open and needs a follow-up. The reception-gatekeeping quote (03) remains in "Not yet a pattern".
+`08-receptionist-polyclinic.md` (10.10.2026, phone, asker Jumber, loggers Luka and Giorgi) is included above. It was a short call with three verbatim quotes and no call or walk-in counts: it adds one remembered 2.5-hour wait without an appointment to Pattern 1 and reception strain to Pattern 4. It did **not** cover the missed-call/callback question, so the reception-line guess in `patterns-analysis.md` Pattern 2 stays open and needs a follow-up. The reception-gatekeeping quote (03) remains in "Not yet a pattern".
 

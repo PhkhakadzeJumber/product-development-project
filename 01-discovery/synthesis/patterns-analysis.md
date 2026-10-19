@@ -8,7 +8,7 @@
 - 05 = `05-father-clinic.md` (garage owner, back pain, public clinic)
 - 06 = `06-aunt-hospital.md` (doctor, Kutaisi Central Hospital)
 - 07 = `07-long-term-patient-clinic.md` (long-term patient of one doctor at a clinic)
-- 08 = `08-receptionist-polyclinic.md` (receptionist at the public polyclinic, phone, 10.10.2026; short call, paraphrased notes, no verbatim quotes)
+- 08 = `08-receptionist-polyclinic.md` (receptionist at the public polyclinic, phone, 10.10.2026; short call, mostly paraphrased notes, three verbatim quotes)
 
 One section per pattern from the affinity map. Each why is answered in one sentence with the log that supports it. Stop when the next answer would be a guess.
 
