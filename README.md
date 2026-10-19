@@ -15,14 +15,14 @@
 
 See DECISIONS.md for every product decision and the evidence behind it.
 
-## Week 3 checklist (done)
+## Week 3 checklist
 - [x] Real interviews logged in `01-discovery/interview-logs/` with 3+ verbatim quotes each: Gocha (3 quotes), Zura (5 quotes, showed his call log), Beka's grandmother (3 quotes), all on 05.10, written against the script questions. See `01-discovery/outreach-tracker.md`.
 - [x] Four Filters scorecard in `00-foundation/`, three problems scored: the time a hospital visit costs (pick), between-visits answers (runner-up), repeat prescription trip.
 - [x] Hypothesis verdict (confirmed / weakened / killed) in `DECISIONS.md` after scoring, with links to the logs. Confirmed with one caveat, 06.10.
 - [ ] Script audit by another team in lab, every red fixed before the script is called v1.
 - [x] Jumber logs one interview (Zura, 05.10, second logger with Beka; also Luka's doctor interview, 06.10, with Giorgi).
 - [x] Everyone watched the Week 3 recording before lab.
-- [x] Beka, Giorgi and Luka each committed to their own `members/<github-username>/pattern-journal.md` from their own account (17–18.10), the proof that everyone can push.
+- [x] All four committed to their own `members/<github-username>/pattern-journal.md` from their own account (17–18.10), the proof that everyone can push.
 - [x] All four read their drafted Week 1 and Week 2 entries and confirmed them.
 - [x] Everyone asked in one interview and logged a different one. Luka asked his acquaintance, a polyclinic doctor, and logged Gocha. Jumber asked Gocha, logged Zura and the doctor. Beka asked his grandmother, logged Gocha and Zura. Giorgi asked Zura, logged the grandmother and the doctor.
 

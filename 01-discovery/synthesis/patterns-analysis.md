@@ -59,7 +59,7 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 **Root cause, one sentence:** Fixed hours plus open-door walk-ins plus short staffing leave rushing visits and after-hours notes as the only shock absorber.
 
-**Which of the answers above is a guess rather than a quote?** Merging 04 (flow mechanics) and 06 (staffing/exhaustion) into one shock-absorber cause is an inference — each log alone supports its own half. Keep them merged only if the next interviews (receptionist, nurse referrals in 04/06) echo the merge.
+**Which of the answers above is a guess rather than a quote?** Merging 04 (flow mechanics) and 06 (staffing/exhaustion) into one shock-absorber cause is an inference — each log alone supports its own half. The receptionist (08) echoed the flow half — she described reception straining when the doctors are overloaded — but said nothing about staffing, so the merge stays an inference until a nurse or a second doctor echoes the exhaustion half.
 
 ## Pattern 5: Questions that are not urgent are held until the next routine visit instead of being asked between visits
 

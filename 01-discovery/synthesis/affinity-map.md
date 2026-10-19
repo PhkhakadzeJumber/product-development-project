@@ -25,7 +25,7 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "Why do you keep calling, come in if it's urgent." (03 — reception, as he reported it; he then went without an appointment and waited about two hours for a gap between booked patients)
 - "Ten people outside my door before the first patient left." (04)
 - "Thirty-one in one day, twenty-two booked. I left after five." (04 — booked patients went in late while 9 walk-ins were taken in the gaps)
-- Booked patients wait about 10 minutes, but patients without an appointment wait about 40 minutes to an hour or more (08 — the receptionist's estimates, paraphrased from memory, no specific case; supports the size of the gap rather than the mechanism).
+- *Paraphrased (08), not a quote:* booked patients wait about 10 minutes, but patients without an appointment wait about 40 minutes to an hour or more (the receptionist's estimates from memory, no specific case; supports the size of the gap rather than the mechanism).
 
 ## Pattern 2
 
@@ -75,7 +75,7 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "You work tirelessly all day and still leave people waiting." (06 — 12-hour night shift alone, 2 doctors' work for 1, one short tea break)
 - "Then you go home and think about quitting." (06)
 - "I liked medicine. I no longer enjoy the job." (06 — skipped full examinations to triage, postponed discharge papers to next day)
-- When the doctors are overloaded, reception is overloaded too; staff struggle to keep people from waiting a long time (08 — paraphrase, no verbatim quote, general observation, no specific day).
+- *Paraphrased (08), not a quote:* when the doctors are overloaded, reception is overloaded too; staff struggle to keep people from waiting a long time (general observation, no specific day).
 
 ## Pattern 5
 
@@ -94,7 +94,7 @@ Quotes that stand alone so far (one interview). Keep them here; if a later inter
 
 - "Only that the girl at reception decides everything. If she likes you, she passes the message. If not, nothing." (03). One mention. Watching for reception-gatekeeping echo — ask who else is blocked or passed through by reception.
 - "I know you shouldn't do that. But what do I do, sit and shake?" (03 — took half an old tablet from the drawer while waiting 3 days). Partial echo in 05 working half-strength for 2 weeks with neighbour help lifting, but not yet a full self-managed-risk pattern. Watching.
-- Village first-bus surge (quote under Pattern 4, 04): people from villages arrive around 9 on the first bus. Single doctor mention so far; needs patient-side echo.
+- Village first-bus surge (04): “People from the villages come on the first bus and all arrive around 9.” Single doctor mention so far; needs patient-side echo.
 
 ## Log 08 (receptionist) — folded in
 
