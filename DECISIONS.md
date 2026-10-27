@@ -41,3 +41,6 @@ Wk4 · Giorgi locked his Week 3 prediction trial verdict into DECISIONS.md and t
 Wk4 · Problem statement v1: recurring visits to one public-clinic doctor cost patients half a day and money every month · evidence: [problem statement](01-discovery/problem-statement.md), [patterns analysis](01-discovery/synthesis/patterns-analysis.md) · owner: BS
 
 Wk4 · Log 08 corrected: the receptionist call has three verbatim quotes after all, one of them a specific case, a patient without an appointment who waited about 2.5 hours with about 10 patients ahead of her; this replaces "gave no verbatim quotes" and "no specific case" in the Wk3 log 08 line above, and the case fits the caveat that long waits fall on patients without an appointment · evidence: [log 08](01-discovery/interview-logs/08-receptionist-polyclinic.md), [affinity map](01-discovery/synthesis/affinity-map.md) · owner: LM
+
+Wk5 · North star: patient-confirmed remote resolutions of routine needs per active patient per month; rejected app downloads (presence, cumulative) and confirmed appointments (precursor: the visit cost is unchanged) · evidence: 03-build/analytics/event-schema.md, 01-discovery/interview-logs/01, 02, 03, 05, 07 · 
+owner: team
