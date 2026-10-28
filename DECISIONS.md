@@ -44,3 +44,5 @@ Wk4 · Log 08 corrected: the receptionist call has three verbatim quotes after a
 
 Wk5 · North star: patient-confirmed remote resolutions of routine needs per active patient per month; rejected app downloads (presence, cumulative) and confirmed appointments (precursor: the visit cost is unchanged) · evidence: 03-build/analytics/event-schema.md, 01-discovery/interview-logs/01, 02, 03, 05, 07 · 
 owner: team
+
+Wk5 · Prototype-plan testers renamed to code names Patient-1 to Patient-5: Patient-1 = log 03, Patient-2 = log 02, Patient-3 = the ward referral via Patient-2, Patient-4 = log 05, Patient-5 = the referral via Patient-1; the log number stays as the only link back to the interview log, and Jumber added his two testers to the test-planning table as Patient-2 and Patient-3 · evidence: [prototype plan](02-design/prototype-plan.md), [test planning](02-design/user-testing/test-planning.md), [log 02](01-discovery/interview-logs/02-heart-patient-ward.md), [log 03](01-discovery/interview-logs/03-diabetic-polyclinic.md), [log 05](01-discovery/interview-logs/05-father-clinic.md) · owner: JP

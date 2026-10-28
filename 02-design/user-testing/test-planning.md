@@ -24,6 +24,8 @@
 | # | Code name | Role | Why they fit the ICP | Runner | Logger | Target day | Status |
 |---|---|---|---|---|---|---|---|
 | 1 | Patient-1 | Patient, diabetic 4-5 years | Log 03. Spends too much money and time. | LM | GP | Lab week, Thu | not messaged |
+| 2 | Patient-2 | Patient, about 60, heart check-ups every two weeks | Log 02. 1.5-hour wait for 5 minutes after two unanswered calls. | BS | JP | Lab week, Thu | not messaged |
+| 3 | Patient-3 | Patient, two-weekly ward check-ups | referral via Patient-2. Same ward, same rhythm; contact pending. | LM | JP | Lab week, TBD | contact pending |
 
 ## Session protocol (same every time)
 

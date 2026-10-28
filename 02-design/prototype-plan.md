@@ -40,10 +40,10 @@
 
 | Code name | From log, or new | Books them |
 |---|---|---|
-| Gocha | Log 02; previously interviewed, regular two-weekly heart check-ups | Jumber |
-| Zura | Log 03; previously interviewed, monthly visits with the same cardiologist | Giorgi |
-| Father-05 | Log 05; previously interviewed, called for three days and booked in person | Beka |
-| Ward-neighbour | New; Gocha's referral, also attends the same ward every two weeks; contact pending | Jumber, via his sister |
-| Dato | New; Zura's referral, sees the same cardiologist on a monthly rhythm; contact pending | Giorgi |
+| Patient-1 | Log 03; previously interviewed, monthly visits with the same cardiologist | Giorgi |
+| Patient-2 | Log 02; previously interviewed, regular two-weekly heart check-ups | Jumber |
+| Patient-3 | Patient-2's referral, also attends the same ward every two weeks; contact pending | Jumber, via his sister |
+| Patient-4 | Log 05; previously interviewed, called for three days and booked in person | Beka |
+| Patient-5 | Patient-1's referral, sees the same cardiologist on a monthly rhythm; contact pending | Giorgi |
 
 **Session setup:** Open the prototype at screen 1 (Find doctors) before each session, explain that the doctors and slots are invented examples, and use a different available slot for each tester (or reset the prototype between sessions). This avoids testing registration and prevents one tester's booking from consuming the next tester's slot.
