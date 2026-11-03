@@ -1,6 +1,6 @@
 # Prototype Plan
 
-**Prototype in scope:** The prototype is a clickable design prototype of the MediBook booking flow, drawn in Figma for the Week 5 test using invented example data. It covers three screens: finding a doctor, that doctor's available future slots, and the booking confirmation with the visit in "My visits." A working build already exists in `app/` and `backend/`, but it is not used for this test — the Figma flow is the test artefact and carries no live clinic data, so the one action can fail or pass on its own. Booking is where the pain sits for one of our interviewees (05), who called the registry for three days and closed his garage to book in person, so this test covers only the patient booking flow; it deliberately leaves out queue estimates, delay updates, and everything else.
+**Prototype in scope:** The prototype is a clickable design prototype of the MediBook booking flow, drawn in Figma for the Week 5 test using invented example data. It covers three screens: finding a doctor, that doctor's available future slots, and the booking confirmation with the visit in "My visits." The Figma flow is the test artefact and carries no live clinic data, so the one action can fail or pass on its own. Booking is where the pain sits for one of our interviewees (05), who called the registry for three days and closed his garage to book in person, so this test covers only the patient booking flow; it deliberately leaves out queue estimates, delay updates, and everything else.
 
 ## 1. The riskiest assumption
 
@@ -16,7 +16,7 @@
 
 | Choice | Why it is the cheapest thing that can kill the assumption | Tool | Time |
 |---|---|---|---|
-| Clickable design prototype (no code) | The flow is three screens, so drawing them is the cheapest way to watch whether a patient can find a doctor and press "Book" without help — before we write any backend or commit to seeded data. | Figma (prototype mode, free plan) | One 30-minute build; one 30-minute session per tester |
+| Clickable design prototype (Figma only) | The flow is three screens, so drawing them is the cheapest way to watch whether a patient can find a doctor and press "Book" without help — before we commit to seeded data. | Figma (prototype mode, free plan) | One 30-minute build; one 30-minute session per tester |
 
 ## 4. Screens, each traced to evidence
 

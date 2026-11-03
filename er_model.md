@@ -2,11 +2,11 @@
 
 ## 1. Actors and scope
 
-Three roles share one login table (`USER_ACCOUNT`) and are specialised into `PATIENT`, `DOCTOR` and `HOSPITAL_ADMIN`.
+Three roles share one login table (`USER_ACCOUNT`) and are specialised into `PATIENT`, `DOCTOR` and `RECEPTIONIST`.
 
 - **Patient** — browses doctors of any hospital, books/cancels appointments, sees current prescriptions, chats with doctors.
 - **Doctor** — sees a timetable, records consultations, tracks treatment and condition, prescribes drugs, chats.
-- **Hospital admin** — creates and manages doctors' time slots, sees private doctor feedback/rating/popularity.
+- **Receptionist** — guides patients to the right doctor, books for patients who did not book online, and handles schedule exceptions; does not see private doctor feedback/rating/popularity.
 
 ## 2. ER diagram (Mermaid)
 
@@ -17,15 +17,17 @@ erDiagram
     HOSPITAL ||--o{ DOCTOR : employs
     HOSPITAL ||--o{ DOCTOR_HOSPITAL : "employs via"
     DOCTOR ||--o{ DOCTOR_HOSPITAL : "works in"
-    HOSPITAL ||--o{ HOSPITAL_ADMIN : "administered by"
+    HOSPITAL ||--o{ RECEPTIONIST : "employs"
     SPECIALIZATION ||--o{ DOCTOR : "classifies"
 
     USER_ACCOUNT ||--o| PATIENT : "is a"
     USER_ACCOUNT ||--o| DOCTOR : "is a"
-    USER_ACCOUNT ||--o| HOSPITAL_ADMIN : "is a"
+    USER_ACCOUNT ||--o| RECEPTIONIST : "is a"
 
     DOCTOR ||--o{ TIME_SLOT : "offers"
-    HOSPITAL_ADMIN ||--o{ TIME_SLOT : "creates"
+    DOCTOR ||--o{ DOCTOR_WORKING_HOURS : "works"
+    DOCTOR_WORKING_HOURS ||--o{ TIME_SLOT : "generates"
+    RECEPTIONIST ||--o{ TIME_SLOT : "creates exceptions"
     TIME_SLOT ||--o{ APPOINTMENT : "booked via"
     PATIENT ||--o{ APPOINTMENT : "books"
     DOCTOR ||--o{ APPOINTMENT : "attends"
@@ -100,14 +102,21 @@ erDiagram
         int years_of_experience
         string license_number
         string photo_url "null until file upload lands; UI shows initials"
+        int default_appointment_minutes "30 in v2"
         bool is_active
+    }
+    DOCTOR_WORKING_HOURS {
+        int doctor_id PK,FK
+        int day_of_week PK
+        time start_time
+        time end_time
     }
     DOCTOR_HOSPITAL {
         int doctor_id PK,FK
         int hospital_id PK,FK
     }
-    HOSPITAL_ADMIN {
-        int admin_id PK,FK
+    RECEPTIONIST {
+        int receptionist_id PK,FK
         int hospital_id FK
         string first_name
         string last_name
@@ -132,11 +141,12 @@ erDiagram
     TIME_SLOT {
         int slot_id PK
         int doctor_id FK
-        int created_by_admin_id FK
+        int created_by_receptionist_id FK "null for generated slots"
         timestamp start_time
         timestamp end_time
         enum consultation_mode
-        enum status
+        enum source "GENERATED / EXCEPTION"
+        enum status "AVAILABLE / BOOKED / BLOCKED"
     }
     APPOINTMENT {
         int appointment_id PK
@@ -289,18 +299,18 @@ erDiagram
     }
 ```
 
-New columns on existing tables: `APPOINTMENT.checked_in_at`, `TIME_SLOT.held_for_patient_id` + `held_until` (waitlist hold), `DOCTOR.questions_open` + `reply_within_hours` + `reply_note`, `NOTIFICATION_OUTBOX.kind`.
+New table: `DOCTOR_WORKING_HOURS` (weekly bookable window). New columns on existing tables: `DOCTOR.default_appointment_minutes`, `TIME_SLOT.created_by_receptionist_id` + `source`, `APPOINTMENT.checked_in_at`, `TIME_SLOT.held_for_patient_id` + `held_until` (waitlist hold), `DOCTOR.questions_open` + `reply_within_hours` + `reply_note`, `NOTIFICATION_OUTBOX.kind`; `TIME_SLOT.status` is now `AVAILABLE / BOOKED / BLOCKED`.
 
 ## 3. Key design decisions
 
 1. **Supertype/subtype for users.** One `USER_ACCOUNT` (login, role) with 1:0..1 subtype tables. Chat messages can then reference a single sender key regardless of role.
 2. **Region is independent of booking.** A patient's `region_id` is only profile data; slots belong to doctors, so a patient from a remote region books any hospital's slot with no phone numbers involved. `consultation_mode` (`IN_PERSON` / `ONLINE`) lets remote patients take online visits.
-3. **Slots are managed by admins only.** `TIME_SLOT.created_by_admin_id` records who made it. A doctor's slots may not overlap (exclusion constraint in the SQL).
+3. **Normal slots are derived; the receptionist handles exceptions.** `DOCTOR_WORKING_HOURS` plus `DOCTOR.default_appointment_minutes` generate the normal 30-minute grid, and the last block ends by the working-hours end. `TIME_SLOT.source = GENERATED` for these slots and `created_by_receptionist_id` is null. The receptionist creates or removes `EXCEPTION` slots or sets a generated slot to `BLOCKED`; generated slots are not manually deleted. A doctor's slots may not overlap (exclusion constraint in the SQL).
 4. **Cancellation keeps history.** A cancelled appointment stays as a row with `status = CANCELLED`, and its slot returns to `AVAILABLE`. A partial unique index guarantees a slot has at most one non-cancelled appointment, which prevents double booking.
 5. **Appointment status lifecycle:** `SCHEDULED → COMPLETED | CANCELLED | NO_SHOW`.
 6. **Treatment tracking.** `TREATMENT_CASE` is the long-running condition being treated (diagnosis, severity, status). Each `CONSULTATION` (1:0..1 with an appointment) belongs to a case and records symptoms, notes, vitals and `condition_status` (`IMPROVING / STABLE / WORSENING / RESOLVED`). Reading the consultations of a case in time order gives the full progression of the patient's condition.
 7. **Prescriptions.** One row per prescribed drug, linked to the consultation, the case, the drug catalogue entry, patient and doctor. Status is `ACTIVE → COMPLETED | DISCONTINUED`. Marking a drug done never deletes it: the patient view filters `status = 'ACTIVE'`, the doctor view shows everything.
-8. **Private doctor metrics are separate entities.** `DOCTOR_REVIEW` and `DOCTOR_PERFORMANCE` (rating, popularity) are split from `DOCTOR` so that the public profile (specialization, bio, qualifications, experience) can be exposed to patients without any risk of leaking rating data. Only hospital admins may read them; patients may only insert a review for their own completed appointment (one per appointment).
+8. **Private doctor metrics are separate entities.** `DOCTOR_REVIEW` and `DOCTOR_PERFORMANCE` (rating, popularity) are split from `DOCTOR` so that the public profile (specialization, bio, qualifications, experience) can be exposed to patients without any risk of leaking rating data. Private doctor metrics are not part of the receptionist role; they stay parked for a future management role. Patients may only insert a review for their own completed appointment (one per appointment).
 9. **Chat.** One `CONVERSATION` per patient–doctor pair, many `MESSAGE`s. `message_type` (`TEXT / IMAGE / VOICE / FILE`) with `attachment_url` covers "speaking" via voice notes. Real-time calls would be handled by a separate service.
 10. **Running late is per doctor per clinic day.** `DOCTOR_DELAY` holds one delay for today (clinic time, UTC+4); each scheduled visit today shows `expected_start = slot.start_time + delay`. `notified_minutes` stops a text for every small change. `APPOINTMENT.checked_in_at` records arrival without adding a status, so the status lifecycle above is unchanged.
 11. **Renewal = new prescription.** Approving a `PRESCRIPTION_RENEWAL` creates a new `PRESCRIPTION` with the same drug, dose and frequency and `supersedes_id` pointing at the old one (same chain as substitution); an active old one becomes `COMPLETED`. History is never edited.
@@ -314,9 +324,11 @@ New columns on existing tables: `APPOINTMENT.checked_in_at`, `TIME_SLOT.held_for
 - A review requires `appointment.status = COMPLETED`.
 - Conversation creation requires at least one non-cancelled appointment between the pair.
 - A patient may cancel only while `status = SCHEDULED` and before a cutoff time (policy parameter).
+- The normal slot grid is generated from `DOCTOR_WORKING_HOURS` and `DOCTOR.default_appointment_minutes`; the last block ends by the working-hours end. The receptionist creates only `EXCEPTION` slots, blocks generated slots, and removes exception slots; generated slots are not edited or deleted.
+- A `BLOCKED` slot is not bookable. An exception slot can sit outside normal working hours when a doctor agrees.
 - Booking = one transaction: lock the slot row, check `AVAILABLE`, insert appointment, set slot `BOOKED`. Cancellation reverses it.
 - Prescription becomes `COMPLETED` when the doctor marks it, or automatically by a job once `end_date` has passed.
-- A delay can be set by the doctor (own) or a hospital admin (own hospital's doctors); delay texts go out from 15 minutes and again only after a 10-minute change.
+- A delay can be set by the doctor (own) or a receptionist (own hospital's doctors); delay texts go out from 15 minutes and again only after a 10-minute change.
 - Check-in only for a `SCHEDULED` visit on its clinic day, by the patient, the doctor or reception.
 - At most one `PENDING` renewal per prescription; no renewal for a `DISCONTINUED` drug or a `RESOLVED`/`CLOSED` case.
 - A patient may question only a doctor they have a non-cancelled appointment with, at most 3 open questions per doctor, and only while the doctor has `questions_open`.
@@ -324,12 +336,12 @@ New columns on existing tables: `APPOINTMENT.checked_in_at`, `TIME_SLOT.held_for
 
 ## 5. Access matrix
 
-| Data | Patient | Doctor | Hospital admin |
+| Data | Patient | Doctor | Receptionist |
 |---|---|---|---|
-| Doctor public profile (specialization, bio, qualifications, experience) | read | read/edit own | read/edit |
-| Doctor rating, reviews, popularity | no | no | read |
-| Time slots | read available | read own (timetable) | create/update/delete |
-| Appointments | own: create, cancel, read | own: read, update status | read for hospital |
+| Doctor public profile (specialization, bio, qualifications, experience) | read | read/edit own | read |
+| Doctor rating, reviews, popularity | no | no | no |
+| Time slots | read available | read own (timetable) | read all availability; create/update/delete exception slots; block generated slots; generated slots are not edited or deleted |
+| Appointments | own: create, cancel, read | own: read, update status | read for hospital; create for non-online patients |
 | Treatment cases, consultations | no | read/write own patients | no |
 | Prescriptions | own, `ACTIVE` only | all, read/write | no |
 | Chat | own conversations | own conversations | no |
