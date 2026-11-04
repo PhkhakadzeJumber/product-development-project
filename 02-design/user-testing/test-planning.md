@@ -28,6 +28,10 @@
 | 3 | Patient-3 | Patient, two-weekly ward check-ups | referral via Patient-2. Same ward, same rhythm; contact pending. | LM | JP | Lab week, TBD | contact pending |
 | 4 | Patient-4 | Patient, back pain | Log 05. Getting the slot costs 3 days + 1 trip + 2 weeks in pain. | GP | BS | Lab week, TBD | contact pending |
 | 5 | Patient-5 | Patient, sees the same cardiologist every month | referral via Patient-1. | JP | GP | Lab week, TBD | contact pending |
+| 6 | Doctor-1 | GP at the public polyclinic | Log 04. 22 booked + 9 walk-ins on his worst Monday. | LM | JP | Lab week, TBD | contact pending |
+| 7 | Doctor-2 | Doctor at Kutaisi Central Hospital | Log 06. Short-staffed shifts. | LM | BS | Lab week, TBD | contact pending |
+
+Patients 1 to 5 take the frozen patient test above; its "3 or more of 5" rule counts only them. Doctors 6 and 7 take the doctor walkthrough in `02-design/prototype-plan-v2.md` §5.2, with its own task and decision rule (2 doctors: a signal, not a rate).
 
 ## Session protocol (same every time)
 
