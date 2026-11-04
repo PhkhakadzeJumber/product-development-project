@@ -43,3 +43,7 @@ Wk4 · Jumber Phkhakadze · Opencode · corrected Jumber's Week 2 and Week 3 pat
 Wk4 · Luka · Claude Code · added the receptionist's three verbatim quotes, which Luka supplied, to log 08 and updated the parts of the log, affinity map, patterns analysis and hypothesis that said it had no quotes or no specific case; added the correcting DECISIONS.md line; earlier also added log 08 to Luka's HW1 interview table and the who-did-what line to the team contract · quotes are Luka's, copied unchanged
 
 Wk4 · Giorgi Phurtseladze · Opencode · fixed my HW1 and pattern journal Weeks 1 to 2 to match word for word, added log 08 (role: logged) to my interview table and my Week 2 paragraph with the updated count (two asked, four logged), corrected the Week 3 "all six logs" claim to the six logs that existed then · counts and roles checked against every log header (03, 06 asked; 01, 04, 05, 08 logged)
+
+Wk5 · Team · Opencode · made and updated the prototype plan v2 — patient flow unchanged, doctor week timetable and reception desk added · checked every screen against the plan's §4–§5
+
+Wk6 · Team · Opencode · created and updated the event schema to match prototype plan v2 · checked the events against the plan
