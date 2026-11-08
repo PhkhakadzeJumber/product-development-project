@@ -13,7 +13,8 @@ Your metric is only as good as your instrumentation. Every row here becomes one 
 | Step | Event (actor_verb_object) | Fired by | Properties | Owner |
 |---|---|---|---|---|
 | Acquisition | `patient_opens_doctor_list` | patient | patient_id, source (demo_invite, clinic_referral, other) | GP |
-| Retention | `patient_confirms_repeat_booking` | patient | patient_id, doctor_id, slot_id, appointment_id, time_to_book_seconds, days_since_last_confirm | GP |
+| Activation (precursor) | `patient_selects_visit_type` | patient | patient_id, doctor_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, has_description | GP |
+| Retention | `patient_confirms_repeat_booking` | patient | patient_id, doctor_id, slot_id, appointment_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, time_to_book_seconds, days_since_last_confirm | GP |
 | Activation | `doctor_marks_visit_seen` | doctor | doctor_id, patient_id, appointment_id, slot_id | LM |
 | Activation | `doctor_marks_visit_no_show` | doctor | doctor_id, patient_id, appointment_id, slot_id | LM |
 | Activation (north star) ★ | `patient_confirms_remote_resolution` | patient | patient_id, doctor_id, resolution_type (renewal, answer), days_since_request, is_first_resolution_for_patient | LM |
