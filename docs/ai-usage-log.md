@@ -46,4 +46,6 @@ Wk4 · Giorgi Phurtseladze · Opencode · fixed my HW1 and pattern journal Weeks
 
 Wk5 · Team · Opencode · made and updated the prototype plan v2 — patient flow unchanged, doctor week timetable and reception desk added · checked every screen against the plan's §4–§5
 
-Wk6 · Team · Opencode · created and updated the event schema to match prototype plan v2 · checked the events against the plan
+Wk5 · Jumber Phkhakadze · Claude Code · replaced the fixed 30-minute block in prototype plan v2 and er_model.md with a built-in visit-type table (10 / 15 / 30 min, optional brief description, ±5-minute target), adjusted the doctor and receptionist walkthrough times, added the superseding DECISIONS.md line, renamed test-planning.md to test-plan.md and fixed its link · checked every length against logs 01, 03, 04, 05, 07; the event schema was left for each event owner to update
+
+Wk5 · Team · Opencode · created and updated the event schema to match prototype plan v2 · checked the events against the plan
