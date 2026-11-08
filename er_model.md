@@ -29,6 +29,8 @@ erDiagram
     DOCTOR_WORKING_HOURS ||--o{ TIME_SLOT : "generates"
     RECEPTIONIST ||--o{ TIME_SLOT : "creates exceptions"
     TIME_SLOT ||--o{ APPOINTMENT : "booked via"
+    SPECIALIZATION ||--o{ VISIT_TYPE : "has"
+    VISIT_TYPE ||--o{ APPOINTMENT : "sets length of"
     PATIENT ||--o{ APPOINTMENT : "books"
     DOCTOR ||--o{ APPOINTMENT : "attends"
 
@@ -102,8 +104,14 @@ erDiagram
         int years_of_experience
         string license_number
         string photo_url "null until file upload lands; UI shows initials"
-        int default_appointment_minutes "30 in v2"
         bool is_active
+    }
+    VISIT_TYPE {
+        int visit_type_id PK
+        int specialization_id FK
+        string name "plain words, e.g. Regular check-up"
+        string plain_description
+        int minutes "built-in length, agreed once with clinic staff and doctors; demo 10 / 15 / 30"
     }
     DOCTOR_WORKING_HOURS {
         int doctor_id PK,FK
@@ -153,8 +161,11 @@ erDiagram
         int slot_id FK
         int doctor_id FK
         int patient_id FK
+        int visit_type_id FK
+        int planned_minutes "copied from VISIT_TYPE at booking"
         enum status
-        string reason
+        string reason "patient's brief description, for the doctor only"
+        timestamp seen_at "when the doctor tapped Seen; actual vs planned length"
         timestamp booked_at
         timestamp cancelled_at
         enum cancelled_by
@@ -299,13 +310,13 @@ erDiagram
     }
 ```
 
-New table: `DOCTOR_WORKING_HOURS` (weekly bookable window). New columns on existing tables: `DOCTOR.default_appointment_minutes`, `TIME_SLOT.created_by_receptionist_id` + `source`, `APPOINTMENT.checked_in_at`, `TIME_SLOT.held_for_patient_id` + `held_until` (waitlist hold), `DOCTOR.questions_open` + `reply_within_hours` + `reply_note`, `NOTIFICATION_OUTBOX.kind`; `TIME_SLOT.status` is now `AVAILABLE / BOOKED / BLOCKED`.
+New table: `DOCTOR_WORKING_HOURS` (weekly bookable window). New table: `VISIT_TYPE` (built-in visit lengths per specialty). New columns on existing tables: `APPOINTMENT.visit_type_id` + `planned_minutes` + `seen_at`, `TIME_SLOT.created_by_receptionist_id` + `source`, `APPOINTMENT.checked_in_at`, `TIME_SLOT.held_for_patient_id` + `held_until` (waitlist hold), `DOCTOR.questions_open` + `reply_within_hours` + `reply_note`, `NOTIFICATION_OUTBOX.kind`; `TIME_SLOT.status` is now `AVAILABLE / BOOKED / BLOCKED`.
 
 ## 3. Key design decisions
 
 1. **Supertype/subtype for users.** One `USER_ACCOUNT` (login, role) with 1:0..1 subtype tables. Chat messages can then reference a single sender key regardless of role.
 2. **Region is independent of booking.** A patient's `region_id` is only profile data; slots belong to doctors, so a patient from a remote region books any hospital's slot with no phone numbers involved. `consultation_mode` (`IN_PERSON` / `ONLINE`) lets remote patients take online visits.
-3. **Normal slots are derived; the receptionist handles exceptions.** `DOCTOR_WORKING_HOURS` plus `DOCTOR.default_appointment_minutes` generate the normal 30-minute grid, and the last block ends by the working-hours end. `TIME_SLOT.source = GENERATED` for these slots and `created_by_receptionist_id` is null. The receptionist creates or removes `EXCEPTION` slots or sets a generated slot to `BLOCKED`; generated slots are not manually deleted. A doctor's slots may not overlap (exclusion constraint in the SQL).
+3. **Normal slots are derived; the receptionist handles exceptions.** `DOCTOR_WORKING_HOURS` plus the `VISIT_TYPE` table give the free times: the patient (or receptionist) picks a visit type, and the app offers only start times on a 5-minute grid where that type's built-in length fits, packed back to back; the last visit ends by the working-hours end. Lengths are agreed once with clinic staff and doctors and reviewed periodically against `APPOINTMENT.seen_at` (target ±5 minutes); doctors do not set lengths day to day. `TIME_SLOT.source = GENERATED` for these slots and `created_by_receptionist_id` is null. The receptionist creates or removes `EXCEPTION` slots or sets a generated slot to `BLOCKED`; generated slots are not manually deleted. A doctor's slots may not overlap (exclusion constraint in the SQL).
 4. **Cancellation keeps history.** A cancelled appointment stays as a row with `status = CANCELLED`, and its slot returns to `AVAILABLE`. A partial unique index guarantees a slot has at most one non-cancelled appointment, which prevents double booking.
 5. **Appointment status lifecycle:** `SCHEDULED → COMPLETED | CANCELLED | NO_SHOW`.
 6. **Treatment tracking.** `TREATMENT_CASE` is the long-running condition being treated (diagnosis, severity, status). Each `CONSULTATION` (1:0..1 with an appointment) belongs to a case and records symptoms, notes, vitals and `condition_status` (`IMPROVING / STABLE / WORSENING / RESOLVED`). Reading the consultations of a case in time order gives the full progression of the patient's condition.
@@ -324,8 +335,8 @@ New table: `DOCTOR_WORKING_HOURS` (weekly bookable window). New columns on exist
 - A review requires `appointment.status = COMPLETED`.
 - Conversation creation requires at least one non-cancelled appointment between the pair.
 - A patient may cancel only while `status = SCHEDULED` and before a cutoff time (policy parameter).
-- The normal slot grid is generated from `DOCTOR_WORKING_HOURS` and `DOCTOR.default_appointment_minutes`; the last block ends by the working-hours end. The receptionist creates only `EXCEPTION` slots, blocks generated slots, and removes exception slots; generated slots are not edited or deleted.
-- A `BLOCKED` slot is not bookable. An exception slot can sit outside normal working hours when a doctor agrees.
+- Free times are derived from `DOCTOR_WORKING_HOURS` and the chosen `VISIT_TYPE.minutes` on a 5-minute grid; a booking occupies exactly its visit type's length; the last visit ends by the working-hours end. The receptionist creates only `EXCEPTION` slots, blocks generated slots, and removes exception slots; generated slots are not edited or deleted.
+- A `BLOCKED` slot is not bookable. An exception slot is one ad-hoc visit of a chosen visit type (length from `VISIT_TYPE`), added only when the doctor agrees and the patient cannot wait for the next normal free time; it can sit outside normal working hours.
 - Booking = one transaction: lock the slot row, check `AVAILABLE`, insert appointment, set slot `BOOKED`. Cancellation reverses it.
 - Prescription becomes `COMPLETED` when the doctor marks it, or automatically by a job once `end_date` has passed.
 - A delay can be set by the doctor (own) or a receptionist (own hospital's doctors); delay texts go out from 15 minutes and again only after a 10-minute change.
