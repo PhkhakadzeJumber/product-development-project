@@ -17,8 +17,8 @@ Your metric is only as good as your instrumentation. Every row here becomes one 
 | Activation | `doctor_marks_visit_seen` | doctor | doctor_id, patient_id, appointment_id, slot_id | LM |
 | Activation | `doctor_marks_visit_no_show` | doctor | doctor_id, patient_id, appointment_id, slot_id | LM |
 | Activation (north star) ★ | `patient_confirms_remote_resolution` | patient | patient_id, doctor_id, resolution_type (renewal, answer), days_since_request, is_first_resolution_for_patient | LM |
-| Activation | `receptionist_books_appointment` | receptionist | receptionist_id, patient_id, doctor_id, slot_id, appointment_id, routing_basis (patient_preference, specialty_match, closest_available, receptionist_recommendation), time_to_book_seconds, is_new_patient | JP |
-| Activation | `receptionist_adds_ad_hoc_block` | receptionist | receptionist_id, doctor_id, slot_id, duration_minutes, doctor_agreed | JP |
+| Activation | `receptionist_books_appointment` | receptionist | receptionist_id, patient_id, doctor_id, slot_id, appointment_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, routing_basis (patient_preference, specialty_match, closest_available, receptionist_recommendation), time_to_book_seconds, is_new_patient | JP |
+| Activation | `receptionist_adds_ad_hoc_block` | receptionist | receptionist_id, doctor_id, slot_id, visit_type (renewal, check_up, new_or_changed), duration_minutes, doctor_agreed | JP |
 
 Referral and Revenue are empty on purpose. There is nothing to refer and nothing to pay for before Week 12.
 
@@ -31,6 +31,7 @@ Referral and Revenue are empty on purpose. There is nothing to refer and nothing
 
 - One name per event, one spelling, lowercase with underscores.
 - `patient_id` on every patient-facing event. Staff-only schedule events carry `receptionist_id`, `doctor_id` and `slot_id` instead. It is an id our app made up. No names, phone numbers, allergies, or message text anywhere in analytics — the question feature records `thread_id` and character counts, never the text, and a sugar reading like 3.4 is clinical data, not analytics.
+- The patient's brief description of the visit reason never goes into analytics; events carry only `has_description` (true/false) and `visit_type`.
 - The north star event is fired by the patient, because the patient receives the value and the prototype plan's riskiest assumption ("book independently, without help") is about the patient.
 - `patient_views_doctor_slots`, first-booking confirm and the failure-path event stay in the plan, not the schema: when confirms are low we will add them to see whether demand or the booking flow is the problem.
 
