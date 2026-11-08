@@ -6,7 +6,7 @@
 
 | Link | Status |
 |---|---|
-| Prototype | coming Week 5 |
+| Prototype | [MediBook – Prototype v2 (Figma)](https://www.figma.com/design/IpY7rSiyfbMEHxrYnSCr4f/MediBook-%E2%80%93-Prototype-v2?node-id=0-1&p=f&t=59gpbraJl0VLMdPS-0) |
 | Live product | coming Week 7 |
 | Analytics dashboard (PostHog) | coming Week 7 |
 | 12-month model | coming Week 12 |
