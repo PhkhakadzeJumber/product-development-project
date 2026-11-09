@@ -1,6 +1,6 @@
 # Four Filters Scorecard
 
-Scored 06.10.2026, after four real interviews: three patients and one doctor. Updated 07.10.2026 after six real interviews: four patients and two doctors. Shortlist of three from the [problem pool](problem-pool.md), all from the same world: patients with a regular doctor at a public clinic or hospital in Kutaisi, and the doctors who see them. The pick is to **investigate**, not to build. The interviews can still kill it.
+Scored 06.10.2026, after four real interviews: three patients and one doctor. Updated 07.10.2026 after six real interviews: four patients and two doctors. Re-run 09.11.2026 after eight logs: the pick moved to B, see "Re-run, 09.11.2026" below. Shortlist of three from the [problem pool](problem-pool.md), all from the same world: patients with a regular doctor at a public clinic or hospital in Kutaisi, and the doctors who see them. The pick is to **investigate**, not to build. The interviews can still kill it.
 
 Each filter is scored 1 to 5. Evidence is a link to a log or a pool statement, never an opinion.
 
@@ -46,6 +46,22 @@ Each filter is scored 1 to 5. Evidence is a link to a log or a pool statement, n
 **Runner-up: B, answers between visits.** Same people and the same clinics, so it stays open at zero extra cost. It may turn out to be the cause of A: Gocha and Zura only waited that long because they came without an appointment, and they came that way because their calls went unanswered. With an appointment Zura waits twenty to thirty minutes and calls it normal.
 
 **Why C sits third.** Real for one person, but it is a predictable monthly chore rather than an urgent gap, and so far only one voice. It stays in the pool.
+
+## Re-run, 09.11.2026: the pick against Pattern 2, after eight logs
+
+Re-run after the Milestone 1 review, which pointed out that the logs' surprise lines all lead to Pattern 2 (02: booked visits are fine; 03: booking is fine; 05: the long part was not the corridor; 07: four calls that never turned into a trip). The scores above are kept as they were on 06–07.10. This re-run uses the course's four filters and 0–2 scale (`Lab-2/templates/four-filters-scorecard.md`), so it is not comparable with the 1–5 numbers above. A is Pattern 3 in `01-discovery/synthesis/patterns-analysis.md`, B is Pattern 2. C was not re-scored.
+
+| Filter | A: a short visit costs half a day (Pattern 3, the pick until now) | B: patients cannot reach their doctor between visits (Pattern 2) |
+|---|---|---|
+| **1. Do we care?** | 2 · We investigated it for four weeks and still want to. | 2 · It was Luka's and Giorgi's first belief, and our Week 5 north star (`patient_confirms_remote_resolution`) is already this problem. |
+| **2. Can we reach them?** | 2 · The same patients through family and neighbours, and both doctors agreed to a follow-up call (04, 06). | 2 · The same people: Zura (03) and his referral Dato, Gocha (02) and his ward neighbour, the long-term clinic patient (07), the doctor (04) and the receptionist (08). |
+| **3. Can we test it this semester?** | 1 · The corridor wait and the trip belong to the clinic's queue. A thin slice could book a visit, but booking was already fine for 02, 03 and 07, so a slice by Week 7 would not touch the half day. | 2 · The incident has a start (the first unanswered call) and an end (the answer). A thin slice is a patient sending a renewal or a question and one doctor answering it, which one doctor can run without changing the clinic's queue. |
+| **4. Is anyone paying for a workaround today?** | 2 · Half a day and bus fare every month, doubled when she left unseen, slip and tickets shown (01); a daughter's half day off (02); 4 GEL and a lost shop morning (03). | 2 · Six calls in three days, shown on his call log, then half an old tablet from the drawer and a trip (03); two unanswered calls, then a trip without an appointment and 1.5 hours in the corridor (02); four calls and about an hour on the phone over two days (07); the doctor's walk-ins with two-minute questions they could not ask by phone (04). |
+| **Total (max 8)** | **7** | **8** |
+
+**Pick: B, patients cannot reach their doctor between visits.** **Runner-up: A, the time a visit costs.**
+
+B wins on filter 3, and it explains much of A: Gocha and Zura only paid the half day because their calls went unanswered and they came without an appointment (02, 03), while with an appointment Zura waits 20 to 30 minutes and calls it normal (03). Without logs 07 and 08, which the Milestone 1 review did not count, B still has 02, 03 and 04 behind it. A stays the runner-up because log 01 waited about two hours with an appointment and log 05's pain was getting the appointment, not reaching the doctor. Recorded in [DECISIONS.md](../DECISIONS.md).
 
 ## The rest of the pool, not shortlisted
 

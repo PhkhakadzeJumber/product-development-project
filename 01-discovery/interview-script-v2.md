@@ -4,6 +4,10 @@ Updated 17.10.2026 from v1 and all 7 interview logs.
 
 ## What we are testing
 
+**We are wrong if:** a patient whose medicine or result changed between visits tells us they got their doctor's answer on the first call or message, without a trip.
+
+*Added 09.11.2026: the pick moved to Pattern 2 (patients cannot reach their doctor between visits) after the Four Filters re-run; see `01-discovery/problem-hypothesis.md` and DECISIONS.md. The "Current problem" line below is the one this script was written for on 17.10.2026; patient questions 5 and 6 cover the new pick.*
+
 **Current problem:** Patients with a regular doctor lose time and money getting care: reaching the clinic or securing an appointment, travelling, and waiting, while doctors handle more demand than the day or staffing can absorb.
 
 **Week 3 learning:** Long waits are not universal: they were about 1.5–2 hours in three patient cases, while one patient waited 30 minutes. The long waits in two cases followed failed calls and unplanned visits. Separately, two patients with urgent changes between visits made repeated calls; both went in, while a third patient got a callback on day two. A doctor also reported two-minute walk-in questions from patients who could not reach him. Keep testing this between-visit problem without assuming every call fails or every patient needs a trip.
