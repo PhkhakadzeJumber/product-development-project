@@ -57,3 +57,6 @@ Wk5 · Jumber Phkhakadze · Claude Code · re-ran the Four Filters on Pattern 2 
 Wk5 · Jumber Phkhakadze · Claude Code · tidied log 09 (follow-up title, estimate labels, 15-minute delay, comparison with log 08) without changing her words or the raw notes, added its outreach tracker rows, and folded it into the affinity map, patterns analysis, problem statement, ICP and competitive landscape, plus one DECISIONS.md line · checked every number and quote against logs 03, 04, 08 and 09
 
 Wk5 · Luka · Claude Code · tidied log 10 (bold labels to match the other logs, links to logs 02, 03, 04, 07 and 09, the doctor's hallway quote added to the verbatim list) without changing Dato's words or the raw notes, updated Dato's outreach tracker row and added the row for his coworker referral · checked every number and quote against the raw notes; the synthesis is not yet updated for log 10
+
+
+Wk5 · Luka · Claude Code · folded log 10 into the affinity map (Patterns 1, 2, 3 and 5, a direct-number complication, a fold-in note), patterns analysis (whys, Pattern 2 root cause, strongest-pattern paragraph), problem statement (fourth patient, second open question, root cause), ICP (evidence line, table row, links) and competitive landscape (Viber row, log counts), plus one DECISIONS.md line · checked every number and quote against log 10 and the raw notes; logs 01–10 not edited
