@@ -14,9 +14,9 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 ## Pattern 1: An appointment does not mean being seen on time — walk-ins taken in gaps push booked patients late
 
-**Interviews behind it:** 01, 02, 03, 04, 08
+**Interviews behind it:** 01, 02, 03, 04, 08, 09
 
-1. Why does this happen? Reception sends walk-ins to sit outside the door and the doctor takes them in the gaps, so booked patients go in late. (04 logged mechanism; 02 watched three booked patients go in late.)
+1. Why does this happen? Reception sends walk-ins to sit outside the door and the doctor takes them in the gaps, so booked patients go in late. (04 logged mechanism; 02 watched three booked patients go in late; 09, from the reception desk: one walk-in slipped in at 2:50 PM made the 3:00 and 3:15 booked patients each start 15 minutes late.)
 2. Why do so many come without an appointment? They could not reach the clinic by phone first, so showing up is the fallback. (03: "Nothing happened. It rang. Nobody picked up." — 6 calls over 3 days; 02: 2 calls, no callback. 05 hit the same phone wall but booked in person instead of walking in, so his detail sits in Pattern 2.)
 3. Why does phone contact fail? The doctor is seeing patients and gives out no mobile, so everything funnels via the reception/registry line. (04: does not give out mobile number; 03: mobile refused, "Only that the girl at reception decides everything. If she likes you, she passes the message. If not, nothing.")
 4. Why take walk-ins in the gaps at all instead of turning them away? Anyone who looks unwell goes first and there is nobody else to send them to. (04: unwell first; 06: nurses prioritise who looks worst.)
@@ -27,22 +27,23 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 ## Pattern 2: When something changes between visits, patients cannot reach the doctor by phone, so they keep calling for days or come in person
 
-**Interviews behind it:** 02, 03, 05, 04, 07
+**Interviews behind it:** 02, 03, 05, 04, 07, 09
 
-1. Why does this happen? Lines are busy, ring with no pickup, and give no callback. (03: "Nothing happened. It rang. Nobody picked up."; 05: "I called three days, nobody picks up." — morning and afternoon, ~6 calls; 02: called twice, no callback; 07: 4 calls over 2 days, message passed through reception, no callback the first day.)
+1. Why does this happen? Lines are busy, ring with no pickup, and give no callback. (03: "Nothing happened. It rang. Nobody picked up."; 05: "I called three days, nobody picks up." — morning and afternoon, ~6 calls; 02: called twice, no callback; 07: 4 calls over 2 days, message passed through reception, no callback the first day; 09, the reception side: 18 missed calls on the desk phone's screen by 10:30 on a Monday, no queue and no callback, "I can see the numbers piling up on the screen, but I have a line of sick people staring at me.")
 2. Why does that force a trip? The only fallback offered is showing up. (03, reception as reported: "Why do you keep calling, come in if it's urgent."; 05: "I closed the garage for an hour just to book."; 02 went Monday without an appointment. 07 is the exception that proves it: the doctor called back on day 2, so no trip.)
 3. Why is there no other channel? Doctor mobiles are withheld and the tried alternatives failed. (04: does not give mobile to avoid evening calls; 07: "normally they don't give you a direct number"; 03 tried mobile — refused, daughter searched online — nothing useful, 5th-floor nurse — would not comment on dose.)
+4. Why does a call that gets through still not reach the doctor? The doctor is with booked patients back to back, so a transferred call goes unanswered and the message becomes a handwritten note on the doctor's desk, rarely returned the same day. (09: "I transfer the call, but ninety percent of the time the doctor doesn't pick up because they have someone on the couch."; 03: "If she likes you, she passes the message. If not, nothing.")
 
-**Root cause, one sentence:** All between-visit contact funnels through an overloaded reception/registry line with no async fallback, so any change forces a physical trip.
+**Root cause, one sentence:** All between-visit contact funnels through one reception line that cannot answer or return the calls, and the messages that do get through wait on paper on a busy doctor's desk, so any change forces a physical trip.
 
-**Which of the answers above is a guess rather than a quote?** "Overloaded" for reception is inferred from call volumes (6 + 6 + 2 + 4 calls) and 04's 31-patient day. The receptionist interview (08) was meant to test this, but the short call did not cover call volume or callbacks, so the guess stays open. Follow-up needed: ask 08 again for call volume and callback practice.
+**Which of the answers above is a guess rather than a quote?** Until 09, "overloaded" for reception was inferred from patients' call counts (6 + 6 + 2 + 4) and 04's 31-patient day. The follow-up with the receptionist (09) backs it from the reception side: 18 missed calls by 10:30, read off the phone, and no callback. Still a guess: how many calls come in ("over 100 before lunch" and "ninety percent" of transfers failing are her estimates), and how many of the paper notes ever get a call back. Next interview: the head nurse she referred us to, who returns calls from the notes at the end of the shift.
 
 ## Pattern 3: A 3- to 10-minute visit costs half a day, bus fare, and lost work — and repeats every month
 
-**Interviews behind it:** 01, 02, 03, 05
+**Interviews behind it:** 01, 02, 03, 05, 09
 
 1. Why does this happen? Long travel each way plus a corridor wait buys only minutes with the doctor. (01: 1h bus each way + 2h wait, left unseen; 03: 40 min each way + ~2h wait for 3 minutes; 02: "I sat an hour and a half for five minutes."; 05: 30 min corridor for ~10 minutes.)
-2. Why go in person for such short needs? The same repeat prescription and quick dose checks have no remote path. (01: same prescription monthly, "Every month half a day, and this month twice."; 03: "The tablet, you can't wait a month with 3.4." yet still had to come in.)
+2. Why go in person for such short needs? The same repeat prescription and quick dose checks have no remote path. (01: same prescription monthly, "Every month half a day, and this month twice."; 03: "The tablet, you can't wait a month with 3.4." yet still had to come in; 09, the receptionist about patients who lose a prescription and cannot get through by phone: "They spend three lari on a minibus and wait two hours just to have the doctor write the same name on a new piece of paper.")
 3. Why does it cost money beyond fare? Companions miss work and earners close up. (02: "My daughter had to miss work to bring me."; 03: "fifty, eighty lari I didn't make, who knows." plus 4 GEL transport and a closed shop morning; 05: "I closed the garage for an hour just to book." plus a lost working morning, and 2 weeks working half-strength: "If the book is full, you wait in pain.")
 
 **Root cause, one sentence:** Routine and short-duration needs require physical presence, so travel plus queue plus lost work repeat on every cycle.
@@ -76,6 +77,6 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 **Strongest pattern (most interviews, clearest root cause):** Pattern 2 — when something changes between visits, patients cannot reach the doctor by phone, so they keep calling for days or come in person.
 
-**Why it is the strongest, in two sentences, citing log numbers:** It has the most interviews behind it (02, 03, 04, 05, 07), with counted calls and a call log shown: 2 calls with no callback (02), 6 calls in three days on the phone's call log (03), 4 calls over two days (07), and the doctor's walk-ins with two-minute questions they could not ask by phone (04). It also explains most of Pattern 3: Gocha and Zura paid the half day only because their calls went unanswered and they came without an appointment, while with an appointment Zura waits 20 to 30 minutes and calls it normal (02, 03).
+**Why it is the strongest, in two sentences, citing log numbers:** It has the most interviews behind it (02, 03, 04, 05, 07, 09), with counted calls and a call log shown: 2 calls with no callback (02), 6 calls in three days on the phone's call log (03), 4 calls over two days (07), the doctor's walk-ins with two-minute questions they could not ask by phone (04), and 18 missed calls on the reception phone's screen by 10:30 on a Monday (09). It also explains most of Pattern 3: Gocha and Zura paid the half day only because their calls went unanswered and they came without an appointment, while with an appointment Zura waits 20 to 30 minutes and calls it normal (02, 03).
 
 *Changed 09.11.2026 after the Milestone 1 review and the Four Filters re-run (`00-foundation/four-filters-scorecard.md`). Until then this section named Pattern 3 as strongest "because it is the one the product attacks first"; that chose the pattern by the product, not by the evidence. See DECISIONS.md.*

@@ -1,6 +1,6 @@
 # Affinity Map
 
-**Interviews behind the clusters (8 logs total):**
+**Interviews behind the clusters (9 logs total):**
 - 01 = `01-grandmother-district-clinic.md` (72, hypertension, monthly prescription, district clinic)
 - 02 = `02-heart-patient-ward.md` (60, heart failure, every-two-weeks ward check)
 - 03 = `03-diabetic-polyclinic.md` (diabetic, monthly cardiologist, polyclinic)
@@ -9,6 +9,7 @@
 - 06 = `06-aunt-hospital.md` (doctor, Kutaisi Central Hospital)
 - 07 = `07-long-term-patient-clinic.md` (long-term patient of one doctor at a clinic, Luka's solo phone call)
 - 08 = `08-receptionist-polyclinic.md` (receptionist at the public polyclinic, phone, 10.10.2026; short call, mostly paraphrased notes, three verbatim quotes)
+- 09 = `09-receptionist-polyclinic-followup.md` (the same receptionist as 08, second interview, in person at the reception desk, 08.11.2026; follow-up on missed calls, callbacks and how messages reach the doctor)
 
 A cluster counts as a pattern only when it holds quotes from 2 or more different interviews. Quotes are verbatim from the logs unless marked otherwise, each tagged with its log number.
 
@@ -16,7 +17,7 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 
 **Pattern:** An appointment does not mean being seen on time — walk-ins taken in gaps push booked patients late.
 
-**Interviews behind it:** 01, 02, 03, 04, 08
+**Interviews behind it:** 01, 02, 03, 04, 08, 09
 
 **Quotes:**
 - "I had an appointment, but what does that mean? I still waited." (01)
@@ -27,12 +28,13 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "Thirty-one in one day, twenty-two booked. I left after five." (04 — booked patients went in late while 9 walk-ins were taken in the gaps)
 - "I am not sure about how long the waiting time is for patients, but i can remember once, when one patient waited around 2 and a half hours to see her doctor because there were around 10 patients in front of her to see the doctor and she did not book an appointment in advance." (08 — the receptionist; one patient without an appointment, about 10 patients ahead)
 - *Paraphrased (08), not a quote:* booked patients wait about 10 minutes, but patients without an appointment wait about 40 minutes to an hour or more (the receptionist's estimates from memory; she said she is not sure how long the wait is; supports the size of the gap rather than the mechanism).
+- *Paraphrased (09), not a quote:* the receptionist slipped one walk-in in at 2:50 PM after a wait of just under 2 hours, which made the 3:00 and 3:15 booked patients each start 15 minutes late; the booked patients knocked on the doctor's door.
 
 ## Pattern 2
 
 **Pattern:** When something changes between visits, patients cannot reach the doctor by phone, so they keep calling for days or come in person.
 
-**Interviews behind it:** 02, 03, 05, 04, 07
+**Interviews behind it:** 02, 03, 05, 04, 07, 09
 
 **Quotes:**
 - "Nothing happened. It rang. Nobody picked up." (03 — 6 calls over 3 days, 18th/19th/20th per call log)
@@ -44,14 +46,20 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "I first called the clinic. They didn't answer, so I called again later. The third time somebody answered and told me the doctor was with another patient and that they would pass on the message." (07 — 4 calls over 2 days; the doctor called back on day 2, so no trip)
 - "I think I called maybe five or six times over two days. Probably an hour or so altogether, including waiting and talking to reception." (07 — his estimate is higher than the 4 calls he walked through; the log counts 4)
 - "I've also asked the doctor before whether I can call directly, but normally they don't give you a direct number." (07 — same wall as 03's mobile refused and 04 not giving his out)
+- "I can see the numbers piling up on the screen, but I have a line of sick people staring at me." (09 — the receptionist; 18 missed calls on the desk phone's screen by 10:30 on a Monday, read off the screen; no queue, no callback)
+- "I transfer the call, but ninety percent of the time the doctor doesn't pick up because they have someone on the couch." (09 — when a call does get through; otherwise a handwritten note on the doctor's desk, rarely called back the same day)
+- "He told me, 'I just need two minutes to ask if I should cut the pill in half, nobody is answering the phone.'" (09 — the patient, as she reported it: blood-pressure dose changed on Tuesday, dizzy, 3 unanswered calls on Thursday, came by minibus, waited just under 2 hours for a 2-minute answer)
+- "Only that the girl at reception decides everything. If she likes you, she passes the message. If not, nothing." (03 — moved up from "Not yet a pattern": 09 describes the same single route from the reception side, a note on paper that may or may not get a call back)
 
 **Complication (08, paraphrased):** the receptionist said patients with a question usually do not call but decide to come in, because doctors are rarely free to answer between patients. This neither confirms nor refutes the calling pattern — it may reflect patients defaulting to coming in after calls fail — and 08 gave no counts.
+
+**Follow-up (09):** asked again, the same receptionist described patients calling first and coming in after the calls fail (the Thursday case: 3 calls, then a trip), with 18 missed calls on screen by 10:30 and an estimated 15–20 walk-ins with a question on that Monday (her estimate; unclear whether clinic-wide or for one doctor). Both may be true for different patients; which is more common is still open.
 
 ## Pattern 3
 
 **Pattern:** A 3- to 10-minute visit costs half a day, bus fare, and lost work — and repeats every month.
 
-**Interviews behind it:** 01, 02, 03, 05
+**Interviews behind it:** 01, 02, 03, 05, 09
 
 **Quotes:**
 - "Every month half a day, and this month twice." (01 — 1h bus each way + 2h wait, left unseen, must return)
@@ -62,6 +70,7 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 - "The tablet, you can't wait a month with 3.4." (03)
 - "If the book is full, you wait in pain." (05 — waited 2 weeks, worked half-strength)
 - "I closed the garage for an hour just to book." (05 — plus a lost working morning on the final visit day for ~10 minutes with the doctor)
+- "They spend three lari on a minibus and wait two hours just to have the doctor write the same name on a new piece of paper." (09 — the receptionist, about patients who lose or forget a prescription and cannot get through by phone; a general observation, no specific case)
 
 ## Pattern 4
 
@@ -95,11 +104,14 @@ A cluster counts as a pattern only when it holds quotes from 2 or more different
 
 Quotes that stand alone so far (one interview). Keep them here; if a later interview echoes one, it moves up.
 
-- "Only that the girl at reception decides everything. If she likes you, she passes the message. If not, nothing." (03). One mention. Watching for reception-gatekeeping echo — ask who else is blocked or passed through by reception.
 - "I know you shouldn't do that. But what do I do, sit and shake?" (03 — took half an old tablet from the drawer while waiting 3 days). Partial echo in 05 working half-strength for 2 weeks with neighbour help lifting, but not yet a full self-managed-risk pattern. Watching.
 - Village first-bus surge (04): “People from the villages come on the first bus and all arrive around 9.” Single doctor mention so far; needs patient-side echo.
 
 ## Log 08 (receptionist) — folded in
 
-`08-receptionist-polyclinic.md` (10.10.2026, phone, asker Jumber, loggers Luka and Giorgi) is included above. It was a short call with three verbatim quotes and no call or walk-in counts: it adds one remembered 2.5-hour wait without an appointment to Pattern 1 and reception strain to Pattern 4. It did **not** cover the missed-call/callback question, so the reception-line guess in `patterns-analysis.md` Pattern 2 stays open and needs a follow-up. The reception-gatekeeping quote (03) remains in "Not yet a pattern".
+`08-receptionist-polyclinic.md` (10.10.2026, phone, asker Jumber, loggers Luka and Giorgi) is included above. It was a short call with three verbatim quotes and no call or walk-in counts: it adds one remembered 2.5-hour wait without an appointment to Pattern 1 and reception strain to Pattern 4. It did **not** cover the missed-call/callback question, so the reception-line guess in `patterns-analysis.md` Pattern 2 stayed open until the follow-up interview (09, below).
+
+## Log 09 (receptionist, follow-up) — folded in
+
+`09-receptionist-polyclinic-followup.md` (08.11.2026, in person, asker Jumber, loggers Luka and Giorgi) is the second interview with the receptionist from 08. It adds to Pattern 2 the reception side of the phone wall: 18 missed calls on screen by 10:30 on a Monday, no queue or callback, transfers the doctor rarely answers, and messages left as handwritten notes on the doctor's desk. It adds one walk-in who made two booked patients start 15 minutes late to Pattern 1, and the prescription trip to Pattern 3. It echoes 03's reception quote, which moves from "Not yet a pattern" to Pattern 2. The dizzy man's case is second-hand, and most of her numbers are estimates; the 18 missed calls is the one number read off a screen.
 
