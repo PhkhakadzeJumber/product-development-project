@@ -18,8 +18,19 @@ Revised 06.10.2026 together with the interview script, clarified 07.10.2026 with
 > **Today they** go anyway and wait, come without an appointment when they cannot get one that fits, or leave without being seen
 > **We are wrong if** patients generally get appointments easily, reach the hospital without significant difficulty, see their doctor without long waits, and do not feel that the process takes too much of their time and financial effort. We are also wrong if doctors generally do not experience large numbers of patients as stressful or disruptive to their work.
 
+**Revised 09.11.2026, after the Milestone 1 review and the Four Filters re-run.** The block above is kept as history. Its "we are wrong if" line joined several conditions with "generally", so no single log could show it wrong. The pick moved to Pattern 2 (`00-foundation/four-filters-scorecard.md`), so the hypothesis we test from now on is the one below, close to our first version of 06.10.2026, and its "we are wrong if" line is one condition that one log can show:
+
+> **We believe** people like Gela, 56, who have a long-running illness and one regular doctor at a public clinic
+> **struggle with** getting an answer from that doctor between visits
+> **when** the doctor changes a medicine or a new result comes in, something feels wrong at home a day or two later, and they phone the clinic to ask
+> **which costs them** 2 to 6 calls over up to three days, and often a trip without an appointment: about four hours door to door and 1.5–2 hours in the corridor for a 3–5 minute answer
+> **Today they** keep calling reception and ask it to pass a message, then come in without an appointment and wait, or hold the question until the next visit
+> **We are wrong if** a patient whose medicine or result changed between visits tells us they got their doctor's answer on the first call or message, without a trip.
+
 ## Step 3: The beliefs we did not pick
 Each one becomes at least one question in your interview script, so you still hear about it.
+
+*Since 09.11.2026 the first bullet below is the hypothesis we test (Step 2, revised). The belief not picked is now the time a single visit takes (the first Step 2 block) → script v2 patient questions 3, 4, 7 and 8.*
 - The real pain is getting an answer from the doctor between visits, not the visit itself → script questions 2 and 6 (why they came without an appointment) and question 17
 - The real pain is having to show up in person for something that needs no examination, like a repeat prescription → script questions 1 and 2
 

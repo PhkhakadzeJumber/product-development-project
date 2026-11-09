@@ -1,6 +1,6 @@
 # Team One
 
-**Investigating:** Patients with a regular doctor at a public clinic or hospital lose hours on a single visit: getting an appointment, travelling there and waiting to be seen, while their doctors work through more patients than the day has room for.
+**Investigating:** Patients with an ongoing condition and one regular doctor at a public clinic or hospital cannot reach that doctor between visits: when a medicine or result changes, they call for days and often end up travelling in and waiting hours for a few minutes' answer.
 **Team One:** @PhkhakadzeJumber · @mr-irrational · @beka-169 · @LuDeVing
 **Product:** MediBook
 

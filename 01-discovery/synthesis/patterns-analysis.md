@@ -74,6 +74,8 @@ One section per pattern from the affinity map. Each why is answered in one sente
 
 ---
 
-**Strongest pattern (closest to our pick and the cleanest quote trail):** Pattern 3 — a 3- to 10-minute visit costs half a day, bus fare, and lost work, and repeats. Pattern 2 carries more interviews (02, 03, 04, 05, 07), but Pattern 3 is the one the problem statement is built on and the one the product attacks first.
+**Strongest pattern (most interviews, clearest root cause):** Pattern 2 — when something changes between visits, patients cannot reach the doctor by phone, so they keep calling for days or come in person.
 
-**Why it is the strongest, in two sentences, citing log numbers:** Four of the eight interviews pay it directly (01 monthly same prescription "Every month half a day, and this month twice."; 02 "My daughter had to miss work to bring me."; 03 shop morning "fifty, eighty lari I didn't make" plus 4 GEL for 3 minutes; 05 closed garage plus 2 weeks "in pain"), and its root cause — routine and short needs forcing physical presence — is exactly what the website attacks: remote renewal, async check-in, and booking without the extra trip.
+**Why it is the strongest, in two sentences, citing log numbers:** It has the most interviews behind it (02, 03, 04, 05, 07), with counted calls and a call log shown: 2 calls with no callback (02), 6 calls in three days on the phone's call log (03), 4 calls over two days (07), and the doctor's walk-ins with two-minute questions they could not ask by phone (04). It also explains most of Pattern 3: Gocha and Zura paid the half day only because their calls went unanswered and they came without an appointment, while with an appointment Zura waits 20 to 30 minutes and calls it normal (02, 03).
+
+*Changed 09.11.2026 after the Milestone 1 review and the Four Filters re-run (`00-foundation/four-filters-scorecard.md`). Until then this section named Pattern 3 as strongest "because it is the one the product attacks first"; that chose the pattern by the product, not by the evidence. See DECISIONS.md.*

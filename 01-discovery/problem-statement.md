@@ -2,21 +2,23 @@
 
 ## The statement
 
-1. **Who:** People with ongoing conditions who return to the same doctor at a public clinic or hospital for recurring prescriptions, monitoring, or check-ups, such as the monthly hypertension and diabetes patients and the heart patient seen every two weeks. (01, 02, 03)
-2. **When:** On a visit day, they arrive at a corridor where a booked visit may already be running late or walk-ins are being fitted between appointments, and wait outside the doctor's room to be seen. (01, 02, 03, 04)
-3. **Cost:** In the Week 3 patient trial, 3 of 4 patients waited 1.5–2 hours on a difficult visit and one waited 30 minutes; one monthly prescription trip took half a day and had to be repeated, while another visit cost four hours door-to-door, 4 GEL in transport, and an estimated 50–80 lari in missed shop earnings. (01, 02, 03, 05)
-4. **Today:** They book the next routine visit before leaving, call the clinic or ward when something changes, and otherwise travel in, wait in the corridor, or ask a relative to help with calls or transport. (01, 02, 03, 07)
-5. **Why it fails:** An appointment does not guarantee a predictable wait or a brief visit: “I had an appointment, but what does that mean? I still waited.” (01); “I sat an hour and a half for five minutes.” (02)
+1. **Who:** People with an ongoing condition who see the same doctor at a public clinic or hospital on a regular rhythm, such as a diabetic seen once a month by one cardiologist, a heart-failure patient checked on the ward every two weeks, and a patient who has gone to the same doctor for four or five years. (02, 03, 07)
+2. **When:** In the days after the doctor changes a medicine or a new result comes in, when something feels wrong at home (shaking with a sugar of 3.4 at eleven in the morning, 2 kg gained with swollen ankles, not knowing when to take a new tablet) and they phone the clinic to ask their doctor. (02, 03, 07)
+3. **Cost:** 2, 6 and 4 calls over up to three days before any answer; 2 of the 3 then came in without an appointment and waited 1.5–2 hours in the corridor for a 3–5 minute answer, about four hours door to door with 4 GEL in transport and a lost shop morning (03) or a daughter's half day off work (02), while the third spent about an hour on the phone over two days. (02, 03, 07)
+4. **Today:** They call reception again and again and ask it to pass a message, ask for the doctor's direct number and are refused, adjust the dose themselves while they wait, and when nobody calls back they come in without an appointment and are seen in the gaps between booked patients; a question that is not urgent waits for the next visit. (02, 03, 04, 07)
+5. **Why it fails:** Every route to the doctor goes through the reception line, and when it rings out there is no callback and no other way in: “Nothing happened. It rang. Nobody picked up.” and “I know you shouldn't do that. But what do I do, sit and shake?” (03)
 
 ## What the evidence ruled out
 
-We expected patients might wait two to four hours just in the waiting area. Week 3 narrowed that claim to about 1.5–2 hours: 3 of 4 patients hit that range on a difficult visit, while one waited 30 minutes and identified booking as the problem; the doctor described 31 patients in a day with 22 booked and leaving two hours late. The long waits for Gocha and Zura followed unanswered calls and visits without appointments, so the evidence does not show that every scheduled visit has a long wait. (01, 02, 03, 04, 05)
+We believed the visit itself was the problem: two to four hours in the waiting area. Week 3 narrowed that to about 1.5–2 hours for 3 of 4 patients, with one at 30 minutes, and the two long waits in 02 and 03 came after unanswered calls, on visits without an appointment. With an appointment Zura waits 20 to 30 minutes and calls it normal, Gocha says his booked visits are fine, and booking was easy in 02, 03 and 07; only 05 struggled to get an appointment. The cost of a visit is real but mostly follows from not reaching the doctor, so it stays the runner-up. (01, 02, 03, 05, 07)
 
 ## What is still open
 
-How often do recurring patients with appointments face a 1.5–2-hour wait, compared with patients who arrive without an appointment after failing to reach the clinic? The logs show both a long wait despite an appointment and long waits after unanswered calls, but do not establish how common either situation is across clinics or ordinary visit days. (01, 02, 03)
+Why the calls go unanswered: whether the reception line is overloaded, or whether there is simply no way to pass a question on to the doctor. No log counts the calls reception gets, the calls it misses or the callbacks it makes; log 08 did not cover them. It is the first question for the next receptionist interview. (08)
 
 ## Pattern behind it
 
-- **Pattern:** A 3- to 10-minute visit costs half a day, bus fare, and lost work — and repeats every month. (01, 02, 03, 05)
-- **Root cause:** Routine and short-duration needs require physical presence, so travel plus queue plus lost work repeat on every cycle. (01, 02, 03, 05)
+- **Pattern:** When something changes between visits, patients cannot reach the doctor by phone, so they keep calling for days or come in person. (02, 03, 04, 05, 07)
+- **Root cause:** All between-visit contact funnels through an overloaded reception/registry line with no async fallback, so any change forces a physical trip. (02, 03, 04, 07)
+
+*v2, 09.11.2026: rebuilt from Pattern 2 after the Milestone 1 review and the Four Filters re-run (`00-foundation/four-filters-scorecard.md`). v1 (Week 4) was built on Pattern 3, the cost of a visit, which is now the runner-up; it is in the git history. See DECISIONS.md.*
