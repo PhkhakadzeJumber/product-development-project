@@ -101,9 +101,3 @@ The task is read in Georgian from one fixed translation, the same words in every
 ## After 3 sessions: apply the decision rule
 
 **Sessions run:** 4 (Patient-1, Patient-2, Patient-3, Patient-5) · **Fails:** 2 (session 1, failure behavior 2; session 3, failure behavior 3) · **Rule says:** keep going. 2 fails is below the "3 or more of 5" threshold, so the rule is not triggered yet; Patient-4 decides it: a fail makes 3 of 5 and the flow is revised, a pass makes 2 of 5 and the flow stands.
-
-**If change course:** the DECISIONS.md line, one line, this shape:
-
-```
-Wk<N> · Prototype test: <what the rule decided> · evidence: 02-design/user-testing/usability-findings.md (sessions 1 to 3) · owner: <initials>
-```
