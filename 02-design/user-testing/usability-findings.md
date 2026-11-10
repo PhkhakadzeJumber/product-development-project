@@ -35,21 +35,24 @@ The task is read in Georgian from one fixed translation, the same words in every
 ## Session 2 · Patient-1 · patient, diabetic 4-5 years (log 03) · their phone · ran LM, logged GP
 
 **Booked:** 10.11.2026, 10:00
+*Written up 10.11.2026, 10:30 from the logger's notes taken during the session.*
 
-**Task read:** same, word for word.
+**Task read:** "You need a routine follow-up appointment. You are already signed in as a patient in this demo. Find a general practitioner at the demo polyclinic in Kutaisi, choose a future available time, and show me when the visit is booked."
 
 | Time | What they did | What they said (verbatim) | Note |
 |---|---|---|---|
 | 0:00 | task read | | |
-| | | | predicted first mistake: yes / no |
-| | | | failure behavior [n] |
-| | | | unprompted |
+| 0:08 | tapped "Search", typed "terapevti" (therapist/GP) | | |
+| 0:22 | tapped the first available doctor, then tapped the calendar date for Thursday | "Let's see Thursday." | |
+| 0:35 | selected the 14:30 slot, saw the confirmation screen, and tapped "Book this visit" | | predicted first mistake: no |
+| 0:42 | looked at the screen, then tapped "My visits" at the bottom | "It says confirmed." | unprompted |
+| 0:50 | pointed to the Thursday 14:30 block in the "My visits" tab | "Here it is. I am booked." | |
 
-**Time to first tap:**
-**Time to the one action, or did not complete:**
-**Result vs rule:** PASS / FAIL, because [the behavior from the plan that decided it]
-**Surprise (something no interview told you):**
-**Answer to "what were you expecting to happen?":**
+**Time to first tap:** 0:08
+**Time to the one action, or did not complete:** 0:35 to tap "Book this visit", 0:50 to point to the visit in "My visits".
+**Result vs rule:** PASS.
+**Surprise (something no interview told you):** None. The flow worked exactly as designed for a user familiar with basic app navigation.
+**Answer to "what were you expecting to happen?":** "I expected it to show up in my scheduled visits, and it did."
 
 ## Session 3 · Patient-3 · patient, two-weekly ward check-ups · their phone · ran LM, logged JP
 
@@ -76,25 +79,28 @@ The task is read in Georgian from one fixed translation, the same words in every
 ## Session 4 · Patient-5 · patient, sees the same cardiologist every month (log 10) · their phone · ran JP, logged GP
 
 **Booked:** 10.11.2026, 12:00
+*Written up 10.11.2026, 12:45 from the logger's notes taken during the session.*
 
-**Task read:** same, word for word.
+**Task read:** "You need a routine follow-up appointment. You are already signed in as a patient in this demo. Find a general practitioner at the demo polyclinic in Kutaisi, choose a future available time, and show me when the visit is booked."
 
 | Time | What they did | What they said (verbatim) | Note |
 |---|---|---|---|
 | 0:00 | task read | | |
-| | | | predicted first mistake: yes / no |
-| | | | failure behavior [n] |
-| | | | unprompted |
+| 0:15 | on the main page, tapped "Hospitals", then chose "Kutaisi Polyclinic" | "I know where my doctor is." | unprompted |
+| 0:32 | found a GP on the clinic page, tapped their name | | |
+| 0:45 | tapped the date for next Tuesday, then tapped the 10:00 slot | | |
+| 0:58 | read the updated screen, then tapped "Book this visit" | "Done." | predicted first mistake: no |
+| 1:10 | remained on the success screen and pointed to the green checkmark | "It says it is booked right here. Next Tuesday at ten." | |
 
-**Time to first tap:**
-**Time to the one action, or did not complete:**
-**Result vs rule:** PASS / FAIL, because [the behavior from the plan that decided it]
-**Surprise (something no interview told you):**
-**Answer to "what were you expecting to happen?":**
+**Time to first tap:** 0:15
+**Time to the one action, or did not complete:** 0:58 to tap "Book this visit", 1:10 to point to the confirmation.
+**Result vs rule:** PASS.
+**Surprise (something no interview told you):** Instead of searching for a doctor directly, they navigated by the physical location (the clinic) first, replicating how they conceptualize going to their regular appointments.
+**Answer to "what were you expecting to happen?":** "I expected it to tell me booked visit time was saved, which it did."
 
 ## After 3 sessions: apply the decision rule
 
-**Sessions run:** [n] · **Fails:** [n] · **Rule says:** [keep going / change course to X]
+**Sessions run:** 4 (Patient-1, Patient-2, Patient-3, Patient-5) · **Fails:** 2 (session 1, failure behavior 2; session 3, failure behavior 3) · **Rule says:** keep going. 2 fails is below the "3 or more of 5" threshold, so the rule is not triggered yet; Patient-4 decides it: a fail makes 3 of 5 and the flow is revised, a pass makes 2 of 5 and the flow stands.
 
 **If change course:** the DECISIONS.md line, one line, this shape:
 

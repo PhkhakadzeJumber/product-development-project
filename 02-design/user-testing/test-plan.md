@@ -23,11 +23,11 @@
 
 | # | Code name | Role | Why they fit the ICP | Runner | Logger | Target day | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Patient-1 | Patient, diabetic 4-5 years | Log 03. Spends too much money and time. | LM | GP | 10.11, 10:00 | booked |
+| 1 | Patient-1 | Patient, diabetic 4-5 years | Log 03. Spends too much money and time. | LM | GP | 10.11, 10:00 | done |
 | 2 | Patient-2 | Patient, about 60, heart check-ups every two weeks | Log 02. 1.5-hour wait for 5 minutes after two unanswered calls. | BS | JP | 09.11, 21:00 | done |
 | 3 | Patient-3 | Patient, two-weekly ward check-ups | referral via Patient-2. Same ward, same rhythm. | LM | JP | 10.11, 11:00 | done |
 | 4 | Patient-4 | Patient, back pain | Log 05. Getting the slot costs 3 days + 1 trip + 2 weeks in pain. | GP | BS | Lab week, TBD | contact pending |
-| 5 | Patient-5 | Patient, sees the same cardiologist every month | referral via Patient-1. | JP | GP | 10.11, 12:00 | booked |
+| 5 | Patient-5 | Patient, sees the same cardiologist every month | referral via Patient-1. | JP | GP | 10.11, 12:00 | done |
 | 6 | Doctor-1 | GP at the public polyclinic | Log 04. 22 booked + 9 walk-ins on his worst Monday. | LM | JP | Lab week, TBD | contact pending |
 | 7 | Doctor-2 | Doctor at Kutaisi Central Hospital | Log 06. Short-staffed shifts. | LM | BS | Lab week, TBD | contact pending |
 | 8 | Receptionist-1 | Receptionist at the public polyclinic in Kutaisi | Log 08. Remembered a patient without an appointment who waited about 2.5 hours | GP | BS | Lab week, TBD | contact pending |
