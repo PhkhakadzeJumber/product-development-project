@@ -20,6 +20,9 @@ Your metric is only as good as your instrumentation. Every row here becomes one 
 | Activation (north star) ★ | `patient_confirms_remote_resolution` | patient | patient_id, doctor_id, resolution_type (renewal, answer), days_since_request, is_first_resolution_for_patient | LM |
 | Activation | `receptionist_books_appointment` | receptionist | receptionist_id, patient_id, doctor_id, slot_id, appointment_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, routing_basis (patient_preference, specialty_match, closest_available, receptionist_recommendation), time_to_book_seconds, is_new_patient | JP |
 | Activation | `receptionist_adds_ad_hoc_block` | receptionist | receptionist_id, doctor_id, slot_id, visit_type (renewal, check_up, new_or_changed), duration_minutes, doctor_agreed | JP |
+| Activation (precursor) | `patient_sends_question` | patient | patient_id, doctor_id, question_id, char_count (never the text) | JP |
+| Activation (precursor) | `doctor_answers_question` | doctor | doctor_id, patient_id, question_id, minutes_since_question | JP |
+| Activation (precursor) | `patient_views_answer` | patient | patient_id, doctor_id, question_id, minutes_since_answer | JP |
 
 Referral and Revenue are empty on purpose. There is nothing to refer and nothing to pay for before Week 12.
 
@@ -40,7 +43,7 @@ Referral and Revenue are empty on purpose. There is nothing to refer and nothing
 
 **Event most likely to fail silently:** `patient_confirms_remote_resolution`
 **How it would fail:** double fire; the confirm screen re-renders after the tap and the capture call is on the render, not the tap.
-**The check that would catch it:** count the patient-confirmed resolutions in our own database for the same week and compare to the event count. If the event count is about double, it is the render.
+**The check that would catch it:** count the question rows with `patient_confirmed_at` set in our own database for the same week and compare to the event count. If the event count is about double, it is the render.
 **Who runs the check in Week 7:** LM, in the lab, before the gate is confirmed.
 
-*The check needs a `patient_confirmed_at` field on the renewal/question row — the database currently stops at the doctor's `APPROVED`/`ANSWERED` — so add it before Week 7, or the event can only be bounded, not reconciled.*
+*`patient_confirmed_at` is written on the question row when the patient taps "This solved it, no trip needed" (step 5 of `03-build/mvp-boundary.md`), so the field ships in Sprint 1 with the north star step and the check can run in the Week 7 lab. Renewals are on the cut list; when they come back, their row gets the same field.*
