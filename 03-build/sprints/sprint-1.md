@@ -14,9 +14,9 @@ A story is done when it is merged to `main`, deployed at the public URL, tested 
 | LM | 5 | Saturday and Sunday evenings, 2.5 hours each, hard stop |
 | GP | 7 | Friday 8PM to 10PM, Saturday 7PM to 10PM, Sunday 8PM to 10PM |
 | BS | 7 | Friday 7PM to 10PM, Saturday 8PM to 11PM, Sunday 8PM to 9PM |
-| *Total* | 25 | |
+| *Total* | *25* | |
 
-Story hours below total 22 h. If the total free hours are fewer than that, we cut estimates before we start, or the slip rule applies earlier.
+Story hours below total 21 h, inside the 25 h we have, and each owner's stories fit inside their own hours (BS 7 of 7, GP 7 of 7, JP 4 of 6, LM 3 of 5). Reviewers are people free on Saturday or Sunday evening, after the first deploy.
 
 ## The board
 
@@ -26,7 +26,7 @@ GitHub Projects on the team repo: [link]. Four columns: next, doing, review, don
 
 S1 is the north star step and comes first: it can be built on a seeded (test) answered question, then S2 to S5 fill in the real path to it.
 
-### S1 · Gela confirms the answer solved it (north star step) · owner LM · reviewer BS · 4 h
+### S1 · Gela confirms the answer solved it (north star step) · owner BS · reviewer LM · 4 h
 
 *As* Gela, *I* tap "This solved it, no trip needed" *so that* a change between visits is settled without travelling in and waiting in the corridor.
 
@@ -37,7 +37,7 @@ S1 is the north star step and comes first: it can be built on a seeded (test) an
 
 *Smallest demo that proves it:* on a seeded answered question, tap twice and reload; show one `patient_confirmed_at` and one event.
 
-### S2 · Gela opens his link and finds his doctor · owner GP · reviewer BS · 3 h
+### S2 · Gela opens his link and finds his doctor · owner GP · reviewer BS · 2 h
 
 *As* Gela, *I* open the link my clinic gave me and see my own doctor *so that* I know where to send my question without calling reception.
 
@@ -59,7 +59,7 @@ S1 is the north star step and comes first: it can be built on a seeded (test) an
 
 *Smallest demo that proves it:* send a question on a phone, show the row, show the event without the text.
 
-### S4 · The doctor answers · owner GP · reviewer JP · 5 h
+### S4 · The doctor answers · owner GP · reviewer BS · 5 h
 
 *As* Gela's doctor, *I* see the questions sent to me and answer one *so that* the patient does not have to come in for a two-minute answer.
 
@@ -81,7 +81,7 @@ S1 is the north star step and comes first: it can be built on a seeded (test) an
 
 *Smallest demo that proves it:* open the link twice after an answer; show one `patient_viewed_at` and one event.
 
-### S6 · Deploy and instrument · owner LM · reviewer JP · 3 h
+### S6 · Deploy and instrument · owner LM · reviewer GP · 3 h
 
 First, not last: `Lab-6/setup/SHIP-STACK-SETUP.md` on the first evening, so S1 to S5 deploy the day they merge. Public URL in the README's Live product row, every journey event visible in PostHog's Activity view, the reconcile check from `03-build/analytics/event-schema.md` written. The Week 7 lab adds the dashboard.
 
