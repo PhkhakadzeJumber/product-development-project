@@ -20,7 +20,7 @@ Story hours below total 21 h, inside the 25 h we have, and each owner's stories 
 
 ## The board
 
-GitHub Projects on the team repo: [link]. Four columns: next, doing, review, done. One card per story below. Merge to `main` every day anyone works.
+GitHub Projects on the team repo: https://github.com/users/mr-irrational/projects/1/views/1. Four columns: next, doing, review, done. One card per story below. Merge to `main` every day anyone works.
 
 ## Stories
 
@@ -83,7 +83,7 @@ S1 is the north star step and comes first: it can be built on a seeded (test) an
 
 ### S6 · Deploy and instrument · owner LM · reviewer GP · 3 h
 
-First, not last: `Lab-6/setup/SHIP-STACK-SETUP.md` on the first evening, so S1 to S5 deploy the day they merge. Public URL in the README's Live product row, every journey event visible in PostHog's Activity view, the reconcile check from `03-build/analytics/event-schema.md` written. The Week 7 lab adds the dashboard.
+First, on LM's first free slot, Saturday evening, with Lab-6/setup/SHIP-STACK-SETUP.md. From Thursday to Saturday afternoon the other stories are built and merged to main; the first deploy puts them all live, and every story after it deploys the day it merges. Public URL in the README's Live product row, every journey event visible in PostHog's Activity view, the reconcile check from 03-build/analytics/event-schema.md written. The Week 7 lab adds the dashboard.
 
 ## Slip rule
 
