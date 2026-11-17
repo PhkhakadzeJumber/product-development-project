@@ -83,7 +83,7 @@ S1 is the north star step and comes first: it can be built on a seeded (test) an
 
 ### S6 · Deploy and instrument · owner LM · reviewer GP · 3 h
 
-First, on LM's first free slot, Saturday evening, with Lab-6/setup/SHIP-STACK-SETUP.md. From Thursday to Saturday afternoon the other stories are built and merged to main; the first deploy puts them all live, and every story after it deploys the day it merges. Public URL in the README's Live product row, every journey event visible in PostHog's Activity view, the reconcile check from 03-build/analytics/event-schema.md written. The Week 7 lab adds the dashboard.
+First, on LM's first free slot, Saturday evening, with `Lab-6/setup/SHIP-STACK-SETUP.md`. From Thursday to Saturday afternoon the other stories are built and merged to `main`; the first deploy puts them all live, and every story after it deploys the day it merges. Public URL in the README's Live product row, every journey event visible in PostHog's Activity view, the reconcile check from `03-build/analytics/event-schema.md` written. The Week 7 lab adds the dashboard.
 
 ## Slip rule
 
