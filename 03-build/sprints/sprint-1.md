@@ -10,11 +10,11 @@ A story is done when it is merged to `main`, deployed at the public URL, tested 
 
 | Initials | Hours free | When, specifically |
 |---|---|---|
-| JP | [h] | [days and times] |
-| LM | [h] | [days and times] |
-| GP | [h] | [days and times] |
-| BS | [h] | [days and times] |
-| *Total* | *[h]* | |
+| JP | 6 | Thursday 8PM to 10PM, Friday 7PM to 9PM, Saturday 3PM to 5PM |
+| LM | 5 | Saturday and Sunday evenings, 2.5 hours each, hard stop |
+| GP | 7 | Friday 8PM to 10PM, Saturday 7PM to 10PM, Sunday 8PM to 10PM |
+| BS | 7 | Friday 7PM to 10PM, Saturday 8PM to 11PM, Sunday 8PM to 9PM |
+| *Total* | 25 | |
 
 Story hours below total 22 h. If the total free hours are fewer than that, we cut estimates before we start, or the slip rule applies earlier.
 
