@@ -62,3 +62,5 @@ Wk5 · Luka · Claude Code · tidied log 10 (bold labels to match the other logs
 Wk5 · Luka · Claude Code · folded log 10 into the affinity map (Patterns 1, 2, 3 and 5, a direct-number complication, a fold-in note), patterns analysis (whys, Pattern 2 root cause, strongest-pattern paragraph), problem statement (fourth patient, second open question, root cause), ICP (evidence line, table row, links) and competitive landscape (Viber row, log counts), plus one DECISIONS.md line · checked every number and quote against log 10 and the raw notes; logs 01–10 not edited
 
 Wk6 · Jumber Phkhakadze · Claude Code · drafted my Week 5 pattern journal entry from my own Week 5 commits and DECISIONS.md lines · I check every fact against the repo and rewrite it in my own words before committing
+
+Wk6 · Jumber Phkhakadze · Claude Code · checked that nothing in the repo depends on app/ or backend/, deleted both, and wrote the DECISIONS.md line · confirmed only architecture.md (the new app/) and old DECISIONS.md lines mention them
