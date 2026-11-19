@@ -64,3 +64,5 @@ Wk5 · Luka · Claude Code · folded log 10 into the affinity map (Patterns 1, 2
 Wk6 · Jumber Phkhakadze · Claude Code · drafted my Week 5 pattern journal entry from my own Week 5 commits and DECISIONS.md lines · I check every fact against the repo and rewrite it in my own words before committing
 
 Wk6 · Jumber Phkhakadze · Claude Code · checked that nothing in the repo depends on app/ or backend/, deleted both, and wrote the DECISIONS.md line · confirmed only architecture.md (the new app/) and old DECISIONS.md lines mention them
+
+Wk6 · Jumber Phkhakadze · Claude Code · Sprint 1 setup: created the Next.js app in app/ with the course command (pages in app/app), added the Neon driver, lib/db.ts and .env.example, switched off the experimental cacheComponents setting so the setup guide works as written, and replaced the demo page with a plain MediBook page and a team README · checked that the app builds and that only 12 files are committed, with no secrets or node_modules
