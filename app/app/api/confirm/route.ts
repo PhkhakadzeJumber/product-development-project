@@ -1,0 +1,59 @@
+import { NextResponse } from "next/server";
+import { sql } from "@/lib/db";
+
+// S1 · Gela confirms that an answered question resolved it without a trip.
+export async function POST(request: Request) {
+  const payload = await request.json().catch(() => null);
+  const token = typeof payload?.token === "string" ? payload.token : "";
+  const questionId = payload?.question_id != null ? String(payload.question_id) : "";
+
+  if (!questionId) {
+    return NextResponse.json({ error: "missing_question" }, { status: 400 });
+  }
+
+  const [patient] = await sql`select id from patients where token = ${token}`;
+  if (!patient) {
+    return NextResponse.json({ error: "invalid_link" }, { status: 404 });
+  }
+
+  // Only this patient's answered question, and only while patient_confirmed_at
+  // is still null: a second tap or reload changes nothing. The subquery reads
+  // the patient's earlier resolutions from the same snapshot as the update.
+  const [question] = await sql`
+    with newly_confirmed as (
+      update questions
+      set patient_confirmed_at = now()
+      where id::text = ${questionId} and patient_id = ${patient.id}
+        and answer is not null and patient_confirmed_at is null
+      returning id, patient_id, doctor_id, created_at
+    )
+    select n.id::text as question_id, n.patient_id::text as patient_id,
+      n.doctor_id::text as doctor_id,
+      floor(extract(epoch from (now() - n.created_at)) / 86400)::int as days_since_request,
+      not exists (
+        select 1 from questions q
+        where q.patient_id = ${patient.id} and q.patient_confirmed_at is not null
+      ) as is_first_resolution_for_patient
+    from newly_confirmed n`;
+
+  if (!question) {
+    const [existing] = await sql`
+      select answer, patient_confirmed_at from questions
+      where id::text = ${questionId} and patient_id = ${patient.id}`;
+    if (!existing) {
+      return NextResponse.json({ error: "not_found" }, { status: 404 });
+    }
+    return NextResponse.json(
+      { error: existing.answer ? "already_confirmed" : "not_answered" },
+      { status: 409 },
+    );
+  }
+
+  return NextResponse.json({
+    question_id: question.question_id,
+    patient_id: question.patient_id,
+    doctor_id: question.doctor_id,
+    days_since_request: question.days_since_request,
+    is_first_resolution_for_patient: question.is_first_resolution_for_patient,
+  });
+}

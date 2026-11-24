@@ -1,11 +1,29 @@
 import Link from "next/link";
 import { sql } from "@/lib/db";
-import { initials } from "@/lib/format";
+import { clockTime, initials, timeAgo } from "@/lib/format";
 import OpensDoctorListEvent from "./OpensDoctorListEvent";
+import ConfirmResolutionButton from "./ConfirmResolutionButton";
+import ViewedAnswersEvent from "./ViewedAnswersEvent";
 
 export const dynamic = "force-dynamic";
 
 const SOURCES = ["demo_invite", "clinic_referral"];
+
+type Question = {
+  id: string;
+  body: string;
+  created_at: string;
+  answer: string | null;
+  answered_at: string | null;
+  patient_confirmed_at: string | null;
+};
+
+type ViewedAnswer = {
+  question_id: string;
+  patient_id: string;
+  doctor_id: string;
+  minutes_since_answer: number;
+};
 
 // S2 · Gela opens his link and finds his doctor (Figma frame "MVP 1 · Your doctor").
 export default async function PatientHome({
@@ -30,6 +48,21 @@ export default async function PatientHome({
 
   const doctorName: string = row.display_name;
   const source = src && SOURCES.includes(src) ? src : "other";
+
+  // S5 · Stamping the answer on first display happens here, on the server: the
+  // where clause makes later loads (and double renders) leave the value alone.
+  const newlyViewed = (await sql`
+    update questions
+    set patient_viewed_at = now()
+    where patient_id = ${row.patient_id} and answer is not null and patient_viewed_at is null
+    returning id::text as question_id, patient_id::text as patient_id, doctor_id::text as doctor_id,
+      floor(extract(epoch from (now() - answered_at)) / 60)::int as minutes_since_answer`) as ViewedAnswer[];
+
+  const questions = (await sql`
+    select id::text as id, body, created_at, answer, answered_at, patient_confirmed_at
+    from questions
+    where patient_id = ${row.patient_id}
+    order by created_at desc, id desc`) as Question[];
 
   return (
     <div className="flex flex-col gap-4 px-5 py-5">
@@ -67,6 +100,68 @@ export default async function PatientHome({
           Ask a question
         </Link>
       </div>
+
+      <ViewedAnswersEvent events={newlyViewed} />
+
+      {/* S5 and S1 · Gela reads the answer, then confirms it (Figma MVP frames for "My questions" and "Resolved"). */}
+      <section id="my-questions" className="flex scroll-mt-4 flex-col gap-3">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-bold">My questions</h2>
+          <span className="rounded-full bg-brand-tint px-3 py-1 text-xs font-semibold text-brand-dark">
+            {questions.length} {questions.length === 1 ? "question" : "questions"}
+          </span>
+        </div>
+
+        {questions.length === 0 ? (
+          <p className="rounded-2xl border border-slate-200 bg-white p-5 text-center text-sm text-slate-500">
+            No questions yet. Ask your doctor when something changes.
+          </p>
+        ) : (
+          questions.map((question) => (
+            <article
+              key={question.id}
+              className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <p className="whitespace-pre-wrap text-sm text-slate-800">{question.body}</p>
+                <span className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-semibold text-slate-500">
+                  {clockTime(question.created_at)}
+                </span>
+              </div>
+              <p className="text-xs text-slate-500">Asked {timeAgo(question.created_at)}</p>
+
+              {question.answer ? (
+                <div className="flex flex-col gap-3 rounded-xl border border-brand-soft bg-brand-tint p-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-xs font-semibold tracking-wide text-brand-dark">
+                      YOUR DOCTOR&apos;S ANSWER · {clockTime(question.answered_at!)}
+                    </p>
+                    {question.patient_confirmed_at && (
+                      <span className="rounded-full bg-brand px-2.5 py-1 text-[11px] font-bold text-white">
+                        Resolved
+                      </span>
+                    )}
+                  </div>
+                  <p className="whitespace-pre-wrap text-sm text-brand-dark">{question.answer}</p>
+                  <Link
+                    href={`/p/${token}/questions/${question.id}`}
+                    className="w-fit text-xs font-semibold text-brand-dark"
+                  >
+                    {question.patient_confirmed_at ? "View answer" : "Read answer"} →
+                  </Link>
+                  {!question.patient_confirmed_at && (
+                    <ConfirmResolutionButton token={token} questionId={question.id} />
+                  )}
+                </div>
+              ) : (
+                <p className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm text-slate-500">
+                  Waiting for your doctor
+                </p>
+              )}
+            </article>
+          ))
+        )}
+      </section>
     </div>
   );
 }
