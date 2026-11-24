@@ -11,30 +11,32 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "missing_question" }, { status: 400 });
   }
 
-  const [patient] = await sql`select id from patients where token = ${token}`;
+  // Serialize confirmations for the same patient. Under READ COMMITTED, the
+  // update takes its snapshot after acquiring the lock, so only one can be first.
+  const [[patient], [question]] = await sql.transaction([
+    sql`select id from patients where token = ${token} for no key update`,
+    sql`
+      with newly_confirmed as (
+        update questions q
+        set patient_confirmed_at = statement_timestamp()
+        from patients p
+        where p.token = ${token} and q.patient_id = p.id and q.id::text = ${questionId}
+          and q.answer is not null and q.patient_confirmed_at is null
+        returning q.id, q.patient_id, q.doctor_id, q.created_at
+      )
+      select n.id::text as question_id, n.patient_id::text as patient_id,
+        n.doctor_id::text as doctor_id,
+        floor(extract(epoch from (statement_timestamp() - n.created_at)) / 86400)::int as days_since_request,
+        not exists (
+          select 1 from questions q
+          where q.patient_id = n.patient_id and q.patient_confirmed_at is not null
+        ) as is_first_resolution_for_patient
+      from newly_confirmed n`,
+  ], { isolationLevel: "ReadCommitted" });
+
   if (!patient) {
     return NextResponse.json({ error: "invalid_link" }, { status: 404 });
   }
-
-  // Only this patient's answered question, and only while patient_confirmed_at
-  // is still null: a second tap or reload changes nothing. The subquery reads
-  // the patient's earlier resolutions from the same snapshot as the update.
-  const [question] = await sql`
-    with newly_confirmed as (
-      update questions
-      set patient_confirmed_at = now()
-      where id::text = ${questionId} and patient_id = ${patient.id}
-        and answer is not null and patient_confirmed_at is null
-      returning id, patient_id, doctor_id, created_at
-    )
-    select n.id::text as question_id, n.patient_id::text as patient_id,
-      n.doctor_id::text as doctor_id,
-      floor(extract(epoch from (now() - n.created_at)) / 86400)::int as days_since_request,
-      not exists (
-        select 1 from questions q
-        where q.patient_id = ${patient.id} and q.patient_confirmed_at is not null
-      ) as is_first_resolution_for_patient
-    from newly_confirmed n`;
 
   if (!question) {
     const [existing] = await sql`

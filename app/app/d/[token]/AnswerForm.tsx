@@ -44,14 +44,16 @@ export default function AnswerForm({
       return;
     }
 
-    const data = await res.json();
+    const data = await res.json().catch(() => null);
+    router.replace(`/d/${token}?q=${questionId}&sent=1`, { scroll: false });
+    if (!data) return;
+
     posthog.capture("doctor_answers_question", {
       doctor_id: data.doctor_id,
       patient_id: data.patient_id,
       question_id: data.question_id,
       minutes_since_question: data.minutes_since_question,
     });
-    router.replace(`/d/${token}?q=${data.question_id}&sent=1`, { scroll: false });
   }
 
   return (

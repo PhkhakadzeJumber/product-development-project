@@ -31,13 +31,16 @@ function analyticsPath(pathname: string) {
 }
 
 const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
-if (key && key !== "phc_..." && host) {
+const host = process.env.NEXT_PUBLIC_POSTHOG_HOST?.trim() || "/ingest";
+// The SDK forwards these to fetch, but its config type only declares cache options.
+const transportOptions = { cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer" } satisfies RequestInit;
+if (key && key !== "phc_...") {
   posthog.init(key, {
     api_host: host,
     ui_host: "https://eu.posthog.com",
     defaults: "2026-08-30",
-    capture_pageview: true,
+    capture_pageview: "history_change",
+    fetch_options: transportOptions,
     capture_pageleave: false,
     autocapture: false,
     disable_session_recording: true,
@@ -51,6 +54,10 @@ if (key && key !== "phc_..." && host) {
       const filtered = Object.fromEntries(
         Object.entries(properties).filter(([name]) => allowed.has(name)),
       );
+      // Some queries return native numeric IDs and others explicitly cast to text.
+      for (const name of ["patient_id", "doctor_id", "question_id"]) {
+        if (typeof filtered[name] === "number") filtered[name] = String(filtered[name]);
+      }
       // Send route templates, not private links, query parameters, or referrers.
       const pathname = analyticsPath(window.location.pathname);
       return {

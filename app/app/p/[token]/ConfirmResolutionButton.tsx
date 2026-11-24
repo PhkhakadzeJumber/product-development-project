@@ -52,7 +52,12 @@ export default function ConfirmResolutionButton({
       return;
     }
 
-    const data = await res.json();
+    setResolved(true);
+    setSending(false);
+
+    const data = await res.json().catch(() => null);
+    if (!data) return;
+
     posthog.capture("patient_confirms_remote_resolution", {
       patient_id: data.patient_id,
       doctor_id: data.doctor_id,
@@ -60,8 +65,6 @@ export default function ConfirmResolutionButton({
       days_since_request: data.days_since_request,
       is_first_resolution_for_patient: data.is_first_resolution_for_patient,
     });
-    setResolved(true);
-    setSending(false);
   }
 
   // The full-screen frame (Figma step 5) replaces the action bar with the

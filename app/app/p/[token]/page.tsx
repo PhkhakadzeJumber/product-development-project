@@ -16,13 +16,7 @@ type Question = {
   answer: string | null;
   answered_at: string | null;
   patient_confirmed_at: string | null;
-};
-
-type ViewedAnswer = {
-  question_id: string;
-  patient_id: string;
-  doctor_id: string;
-  minutes_since_answer: number;
+  patient_viewed_at: string | null;
 };
 
 // S2 · Gela opens his link and finds his doctor (Figma frame "MVP 1 · Your doctor").
@@ -49,17 +43,8 @@ export default async function PatientHome({
   const doctorName: string = row.display_name;
   const source = src && SOURCES.includes(src) ? src : "other";
 
-  // S5 · Stamping the answer on first display happens here, on the server: the
-  // where clause makes later loads (and double renders) leave the value alone.
-  const newlyViewed = (await sql`
-    update questions
-    set patient_viewed_at = now()
-    where patient_id = ${row.patient_id} and answer is not null and patient_viewed_at is null
-    returning id::text as question_id, patient_id::text as patient_id, doctor_id::text as doctor_id,
-      floor(extract(epoch from (now() - answered_at)) / 60)::int as minutes_since_answer`) as ViewedAnswer[];
-
   const questions = (await sql`
-    select id::text as id, body, created_at, answer, answered_at, patient_confirmed_at
+    select id::text as id, body, created_at, answer, answered_at, patient_confirmed_at, patient_viewed_at
     from questions
     where patient_id = ${row.patient_id}
     order by created_at desc, id desc`) as Question[];
@@ -101,7 +86,10 @@ export default async function PatientHome({
         </Link>
       </div>
 
-      <ViewedAnswersEvent events={newlyViewed} />
+      <ViewedAnswersEvent
+        token={token}
+        questionIds={questions.filter((question) => question.answer && !question.patient_viewed_at).map((question) => question.id)}
+      />
 
       {/* S5 and S1 · Gela reads the answer, then confirms it (Figma MVP frames for "My questions" and "Resolved"). */}
       <section id="my-questions" className="flex scroll-mt-4 flex-col gap-3">

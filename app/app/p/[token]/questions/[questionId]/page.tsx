@@ -6,13 +6,6 @@ import ViewedAnswersEvent from "../../ViewedAnswersEvent";
 
 export const dynamic = "force-dynamic";
 
-type ViewedAnswer = {
-  question_id: string;
-  patient_id: string;
-  doctor_id: string;
-  minutes_since_answer: number;
-};
-
 // Figma calls her "Dr. Chkheidze" on the solved banner, so use the surname.
 function doctorShortName(name: string) {
   const surname = name.trim().split(/\s+/).pop() ?? name;
@@ -57,10 +50,8 @@ export default async function AnswerPage({
   const { token, questionId } = await params;
 
   const [row] = await sql`
-    select p.id::text as patient_id, p.first_name,
-      d.id::text as doctor_id, d.display_name as doctor_name, d.specialty,
-      q.id::text as question_id, q.body, q.answer, q.created_at,
-      q.answered_at, q.patient_confirmed_at
+    select p.first_name, d.display_name as doctor_name, d.specialty,
+      q.body, q.answer, q.created_at, q.answered_at, q.patient_confirmed_at, q.patient_viewed_at
     from patients p
     join doctors d on d.id = p.doctor_id
     join questions q on q.patient_id = p.id and q.id::text = ${questionId}
@@ -70,23 +61,13 @@ export default async function AnswerPage({
     return <p className="p-6 text-center text-slate-600">This link is not valid.</p>;
   }
 
-  // Same first-view stamp as the home link. The where clause makes a reload a no-op.
-  const newlyViewed = row.answer
-    ? ((await sql`
-        update questions
-        set patient_viewed_at = now()
-        where id::text = ${questionId} and patient_id = ${row.patient_id}
-          and answer is not null and patient_viewed_at is null
-        returning id::text as question_id, patient_id::text as patient_id,
-          doctor_id::text as doctor_id,
-          floor(extract(epoch from (now() - answered_at)) / 60)::int as minutes_since_answer`) as ViewedAnswer[])
-    : [];
-
   const confirmed = Boolean(row.patient_confirmed_at);
 
   return (
     <div className="flex flex-1 flex-col bg-slate-100 px-5 pt-[51px]">
-      <ViewedAnswersEvent events={newlyViewed} />
+      {row.answer && !row.patient_viewed_at && (
+        <ViewedAnswersEvent token={token} questionIds={[questionId]} />
+      )}
 
       <Link
         href={`/p/${token}#my-questions`}

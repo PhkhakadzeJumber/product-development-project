@@ -7,7 +7,7 @@ import { useState } from "react";
 const MAX_LENGTH = 500;
 const HINTS = ["Since when", "Medicine name", "Readings or numbers", "What changed"];
 
-type Sent = { body: string; createdAt: string };
+type Sent = { body: string; createdAt?: string };
 
 export default function QuestionForm({ token, doctorName }: { token: string; doctorName: string }) {
   const [text, setText] = useState("");
@@ -41,23 +41,26 @@ export default function QuestionForm({ token, doctorName }: { token: string; doc
       return;
     }
 
-    const data = await res.json();
+    const data = await res.json().catch(() => null);
+    setSent({ body: trimmed, createdAt: data?.created_at });
+    setSending(false);
+    if (!data) return;
+
     posthog.capture("patient_sends_question", {
       patient_id: data.patient_id,
       doctor_id: data.doctor_id,
       question_id: data.question_id,
       char_count: data.char_count,
     });
-    setSent({ body: trimmed, createdAt: data.created_at });
-    setSending(false);
   }
 
   if (sent) {
-    const time = new Date(sent.createdAt).toLocaleString("en-GB", {
+    const time = sent.createdAt && new Date(sent.createdAt).toLocaleString("en-GB", {
       day: "numeric",
       month: "short",
       hour: "2-digit",
       minute: "2-digit",
+      timeZone: "Asia/Tbilisi",
     });
     return (
       <div className="flex flex-col gap-4">
@@ -69,7 +72,7 @@ export default function QuestionForm({ token, doctorName }: { token: string; doc
         </div>
         <div className="rounded-2xl border border-slate-200 bg-white p-4">
           <p className="whitespace-pre-wrap text-slate-800">{sent.body}</p>
-          <p className="mt-3 text-xs text-slate-500">Sent {time}</p>
+          {time && <p className="mt-3 text-xs text-slate-500">Sent {time}</p>}
         </div>
         <Link
           href={`/p/${token}`}

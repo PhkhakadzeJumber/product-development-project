@@ -45,3 +45,25 @@ export async function POST(request: Request) {
     minutes_since_question: question.minutes_since_question,
   });
 }
+
+// The patient acknowledges answers after the page displaying them has mounted.
+export async function PATCH(request: Request) {
+  const payload = await request.json().catch(() => null);
+  const token = typeof payload?.token === "string" ? payload.token : "";
+  const ids: unknown = payload?.question_ids;
+  if (!token || !Array.isArray(ids) || !ids.length || ids.some((id) => typeof id !== "string" || !id)) {
+    return NextResponse.json({ error: "invalid_view" }, { status: 400 });
+  }
+
+  const events = await sql`
+    update questions q
+    set patient_viewed_at = now()
+    from patients p
+    where p.token = ${token} and q.patient_id = p.id
+      and q.id::text in (select jsonb_array_elements_text(${JSON.stringify(ids)}::jsonb))
+      and q.answer is not null and q.patient_viewed_at is null
+    returning q.id::text as question_id, q.patient_id::text as patient_id, q.doctor_id::text as doctor_id,
+      floor(extract(epoch from (q.patient_viewed_at - q.answered_at)) / 60)::int as minutes_since_answer`;
+
+  return NextResponse.json({ events });
+}

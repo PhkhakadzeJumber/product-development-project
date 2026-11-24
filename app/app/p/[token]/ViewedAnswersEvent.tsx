@@ -3,30 +3,38 @@
 import posthog from "posthog-js";
 import { useEffect, useRef } from "react";
 
-export type ViewedAnswer = {
+type ViewedAnswer = {
   question_id: string;
   patient_id: string;
   doctor_id: string;
   minutes_since_answer: number;
 };
 
-// S5 · fires patient_views_answer once for each answer the server marked as newly viewed.
-// The ref stops React's dev double-run from firing the same event twice.
-export default function ViewedAnswersEvent({ events }: { events: ViewedAnswer[] }) {
-  const fired = useRef<Set<string>>(new Set());
+// Prefetches never run this effect. The server returns only newly viewed answers.
+export default function ViewedAnswersEvent({ token, questionIds }: { token: string; questionIds: string[] }) {
+  const requested = useRef(new Set<string>());
 
   useEffect(() => {
-    for (const event of events) {
-      if (fired.current.has(event.question_id)) continue;
-      fired.current.add(event.question_id);
-      posthog.capture("patient_views_answer", {
-        patient_id: event.patient_id,
-        doctor_id: event.doctor_id,
-        question_id: event.question_id,
-        minutes_since_answer: event.minutes_since_answer,
+    const ids = questionIds.filter((id) => !requested.current.has(id));
+    if (!ids.length) return;
+    for (const id of ids) requested.current.add(id);
+
+    async function acknowledge() {
+      const res = await fetch("/api/answers", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token, question_ids: ids }),
       });
+      if (!res.ok) throw new Error("Could not acknowledge viewed answers");
+
+      const { events }: { events: ViewedAnswer[] } = await res.json();
+      for (const event of events) posthog.capture("patient_views_answer", event);
     }
-  }, [events]);
+
+    void acknowledge().catch(() => {
+      for (const id of ids) requested.current.delete(id);
+    });
+  }, [token, questionIds]);
 
   return null;
 }
