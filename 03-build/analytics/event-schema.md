@@ -47,3 +47,7 @@ Referral and Revenue are empty on purpose. There is nothing to refer and nothing
 **Who runs the check in Week 7:** LM, in the lab, before the gate is confirmed.
 
 *`patient_confirmed_at` is written on the question row when the patient taps "This solved it, no trip needed" (step 5 of `03-build/mvp-boundary.md`), so the field ships in Sprint 1 with the north star step and the check can run in the Week 7 lab. Renewals are on the cut list; when they come back, their row gets the same field.*
+
+*First reconcile, 2026-11-24:* After reloading on the live URL, PostHog Activity still showed 1 `patient_confirms_remote_resolution` event, matching 1 Neon question row with `patient_confirmed_at` set. Reloading did not fire a second confirmation event.
+
+*Teammate follow-up:* A teammate completed a separate run on a phone using the live URL, tapped “This solved it” twice, and reloaded. PostHog Activity showed all five journey events and exactly 1 `patient_confirms_remote_resolution` event for that run. The two confirmation events visible in Activity came from two separate runs.
