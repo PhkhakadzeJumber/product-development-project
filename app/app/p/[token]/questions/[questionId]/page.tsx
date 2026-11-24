@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { sql } from "@/lib/db";
-import { clockTime, initials } from "@/lib/format";
+import { initials } from "@/lib/format";
 import ConfirmResolutionButton from "../../ConfirmResolutionButton";
 import ViewedAnswersEvent from "../../ViewedAnswersEvent";
 
@@ -17,6 +17,35 @@ type ViewedAnswer = {
 function doctorShortName(name: string) {
   const surname = name.trim().split(/\s+/).pop() ?? name;
   return `Dr. ${surname}`;
+}
+
+// Question and answer times are shown in Georgian time. Only a Tbilisi calendar
+// match counts as "Today"; older dates get "24 Nov, HH:MM" in the same zone.
+function displayTime(value: string | Date) {
+  function partsFor(date: Date) {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Tbilisi",
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(date);
+    const get = (type: string) => parts.find((part) => part.type === type)?.value ?? "";
+    return {
+      year: get("year"),
+      month: get("month"),
+      day: get("day"),
+      time: `${get("hour")}:${get("minute")}`,
+    };
+  }
+
+  const shown = partsFor(value instanceof Date ? value : new Date(value));
+  const today = partsFor(new Date());
+  return shown.year === today.year && shown.month === today.month && shown.day === today.day
+    ? `Today, ${shown.time}`
+    : `${shown.day} ${shown.month}, ${shown.time}`;
 }
 
 // S5 and S1 · the full "MVP 4 · Read the answer" / "MVP 5 · Solved, no trip" frames.
@@ -74,7 +103,7 @@ export default async function AnswerPage({
         <span
           className={`rounded-full border px-3 py-1 text-[11px] font-bold tracking-wide ${
             confirmed
-              ? "border-emerald-700/20 bg-emerald-50 text-emerald-700"
+              ? "border-brand-soft bg-brand-tint text-brand-dark"
               : "border-blue-700/20 bg-blue-50 text-blue-700"
           }`}
         >
@@ -95,7 +124,7 @@ export default async function AnswerPage({
       <section className="mt-4">
         <div className="flex items-center justify-between text-[13px] text-slate-500">
           <span>You</span>
-          <span>Today, {clockTime(row.created_at)}</span>
+          <span>{displayTime(row.created_at)}</span>
         </div>
         <div className="mt-1.5 whitespace-pre-wrap rounded-[14px] bg-white p-3.5 text-[15px] leading-[21px] text-slate-900">
           {row.body}
@@ -106,7 +135,7 @@ export default async function AnswerPage({
         <section className="mt-4">
           <div className="flex items-center justify-between gap-3 text-[13px]">
             <span className="truncate font-semibold text-brand-dark">{row.doctor_name}</span>
-            <span className="shrink-0 text-slate-500">Today, {clockTime(row.answered_at!)}</span>
+            <span className="shrink-0 text-slate-500">{displayTime(row.answered_at!)}</span>
           </div>
           <div className="mt-1.5 whitespace-pre-wrap rounded-[14px] bg-brand-tint p-3.5 text-[15px] leading-[21px] text-slate-900">
             {row.answer}

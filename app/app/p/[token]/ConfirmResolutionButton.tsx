@@ -69,17 +69,17 @@ export default function ConfirmResolutionButton({
   if (resolved && variant === "frame") {
     return (
       <div className="-mx-5 bg-slate-100 px-5 pb-4">
-        <div className="flex gap-3 rounded-[14px] bg-emerald-50 p-3">
-          <span className="mt-0.5 shrink-0 text-emerald-700" aria-hidden="true">
+        <div className="flex gap-3 rounded-[14px] bg-brand-tint p-3">
+          <span className="mt-0.5 shrink-0 text-brand-dark" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
               <circle cx="12" cy="12" r="10" />
               <path d="m8 12 2.6 2.6L16 9" />
             </svg>
           </span>
           <div>
-            <p className="text-[15px] font-semibold text-emerald-700">Solved — no trip needed</p>
-            <p className="mt-0.5 text-[13px] leading-5 text-emerald-700">
-              Thank you, {patientFirstName}. {doctorShortName} can see that her answer solved it.
+            <p className="text-[15px] font-semibold text-brand-dark">Solved — no trip needed</p>
+            <p className="mt-0.5 text-[13px] leading-5 text-brand-dark">
+              Thank you, {patientFirstName}. {doctorShortName} can see that the answer solved it.
             </p>
           </div>
         </div>
