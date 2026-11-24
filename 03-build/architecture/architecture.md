@@ -19,7 +19,7 @@ Two private pages and no accounts. Gela's page is reached only through a long ra
 
 | Layer | Choice | Why we can deploy it by Week 7 (who has done it before, or the free tier that makes it easy) |
 |---|---|---|
-| Hosting | Vercel | Free Hobby plan; every push to `main` deploys in two to three minutes. LM owns the Vercel project and the deploy; the repo is on JP's GitHub account, so JP grants Vercel access to it once (the course's Vercel guide); everyone else only pushes to GitHub |
+| Hosting | Vercel | Free Hobby plan; every push to `main` deploys in two to three minutes. LM set up and owns the Vercel project and manages the deploy setup; JP owns the GitHub repo; everyone else only pushes to GitHub |
 | App framework | Next.js (App Router), in `app/` | The course's ship-stack guide covers every command from an empty `app/` to a public URL; server routes mean no separate backend to host |
 | Database | Postgres on Neon | Hosted, free, no card, Frankfurt region; three small tables are all the journey needs |
 | Analytics | PostHog (wired on the first sprint evening, `setup/SHIP-STACK-SETUP.md`) | fixed for the course |
