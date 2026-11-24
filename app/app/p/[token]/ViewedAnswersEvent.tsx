@@ -1,5 +1,6 @@
 "use client";
 
+import posthog from "posthog-js";
 import { useEffect, useRef } from "react";
 
 export type ViewedAnswer = {
@@ -18,13 +19,12 @@ export default function ViewedAnswersEvent({ events }: { events: ViewedAnswer[] 
     for (const event of events) {
       if (fired.current.has(event.question_id)) continue;
       fired.current.add(event.question_id);
-      // TODO (S6, when PostHog is wired): fire the event here, once, when patient_viewed_at was empty.
-      // posthog.capture("patient_views_answer", {
-      //   patient_id: event.patient_id,
-      //   doctor_id: event.doctor_id,
-      //   question_id: event.question_id,
-      //   minutes_since_answer: event.minutes_since_answer,
-      // });
+      posthog.capture("patient_views_answer", {
+        patient_id: event.patient_id,
+        doctor_id: event.doctor_id,
+        question_id: event.question_id,
+        minutes_since_answer: event.minutes_since_answer,
+      });
     }
   }, [events]);
 

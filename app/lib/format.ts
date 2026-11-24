@@ -21,5 +21,5 @@ export function timeAgo(value: string | Date, now: Date = new Date()) {
 }
 
 export function clockTime(value: string | Date) {
-  return new Date(value).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+  return new Date(value).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Tbilisi" });
 }

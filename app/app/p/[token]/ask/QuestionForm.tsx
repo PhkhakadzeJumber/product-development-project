@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import posthog from "posthog-js";
 import { useState } from "react";
 
 const MAX_LENGTH = 500;
@@ -41,13 +42,12 @@ export default function QuestionForm({ token, doctorName }: { token: string; doc
     }
 
     const data = await res.json();
-    // TODO (S6, when PostHog is wired): fire the event here, after the server said OK, never on render.
-    // posthog.capture("patient_sends_question", {
-    //   patient_id: data.patient_id,
-    //   doctor_id: data.doctor_id,
-    //   question_id: data.question_id,
-    //   char_count: data.char_count,
-    // });
+    posthog.capture("patient_sends_question", {
+      patient_id: data.patient_id,
+      doctor_id: data.doctor_id,
+      question_id: data.question_id,
+      char_count: data.char_count,
+    });
     setSent({ body: trimmed, createdAt: data.created_at });
     setSending(false);
   }

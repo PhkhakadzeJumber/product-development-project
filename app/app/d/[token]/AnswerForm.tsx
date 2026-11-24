@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import { useState } from "react";
 
 const MAX_LENGTH = 1000;
@@ -44,13 +45,12 @@ export default function AnswerForm({
     }
 
     const data = await res.json();
-    // TODO (S6, when PostHog is wired): fire the event here, after the server said OK, never on render.
-    // posthog.capture("doctor_answers_question", {
-    //   doctor_id: data.doctor_id,
-    //   patient_id: data.patient_id,
-    //   question_id: data.question_id,
-    //   minutes_since_question: data.minutes_since_question,
-    // });
+    posthog.capture("doctor_answers_question", {
+      doctor_id: data.doctor_id,
+      patient_id: data.patient_id,
+      question_id: data.question_id,
+      minutes_since_question: data.minutes_since_question,
+    });
     router.replace(`/d/${token}?q=${data.question_id}&sent=1`, { scroll: false });
   }
 

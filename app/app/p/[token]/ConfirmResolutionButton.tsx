@@ -1,5 +1,6 @@
 "use client";
 
+import posthog from "posthog-js";
 import { useState } from "react";
 
 // S1 · Gela confirms the answer settled it. The event is captured in this tap
@@ -51,15 +52,14 @@ export default function ConfirmResolutionButton({
       return;
     }
 
-    // TODO (S6, when PostHog is wired): fire the event here, after the server said OK, never on render.
-    // const data = await res.json();
-    // posthog.capture("patient_confirms_remote_resolution", {
-    //   patient_id: data.patient_id,
-    //   doctor_id: data.doctor_id,
-    //   resolution_type: "answer",
-    //   days_since_request: data.days_since_request,
-    //   is_first_resolution_for_patient: data.is_first_resolution_for_patient,
-    // });
+    const data = await res.json();
+    posthog.capture("patient_confirms_remote_resolution", {
+      patient_id: data.patient_id,
+      doctor_id: data.doctor_id,
+      resolution_type: "answer",
+      days_since_request: data.days_since_request,
+      is_first_resolution_for_patient: data.is_first_resolution_for_patient,
+    });
     setResolved(true);
     setSending(false);
   }
