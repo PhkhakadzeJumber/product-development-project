@@ -23,3 +23,18 @@ Links: [DECISIONS.md](../../DECISIONS.md), [problem hypothesis](../../01-discove
 I own two of the five testers in the plan: Zura from my own interview, and Dato, the referral he gave me on the same cardiologist. Neither is contacted yet, and Zura's condition for coming back is that we bring something to show him. Outside my lane: I wrote my prediction verdict into [DECISIONS.md](../../DECISIONS.md) and the [problem hypothesis](../../01-discovery/problem-hypothesis.md) before any tester saw anything, so next week can contradict something I wrote down. Hack: I checked the plan's booking action against logs 02, 03 and 05 first, so I know what that test cannot tell us.
 
 Links: [prototype plan](../../02-design/prototype-plan.md), [problem hypothesis](../../01-discovery/problem-hypothesis.md), [DECISIONS.md](../../DECISIONS.md)
+
+## Week 5 · One metric that matters
+*Written in Week 7; I did not write it in its own week.* The metric I worked on was the event schema: I added `patient_selects_visit_type` and the visit-type properties so the funnel could show where a booking breaks before the north star, and when booking was cut in Week 6 those events stayed in the schema but out of Sprint 1, so `patient_confirms_remote_resolution` stayed the one number. Beyond my lane, I messaged and booked my two testers, Patient-1 (log 03) and Patient-5 (log 10), and logged both sessions; both booked alone. I also wrote the verdict on my own prediction and said the test did not measure it, because it counted bookings, not trips avoided. Hack: I booked both sessions on the same day, so both logs were written while the sessions were fresh.
+
+Links: [event schema](../../03-build/analytics/event-schema.md), [usability findings](../../02-design/user-testing/usability-findings.md), [DECISIONS.md](../../DECISIONS.md)
+
+## Week 6 · The smallest complete journey
+*Written in Week 7; I did not write it in its own week.* I turned the five-step journey into the Sprint 1 plan: one story per step, the north star step first so it could be built on a seeded answer, and a slip rule that keeps the doctor's answer in no matter what, because without step 3 the journey is not complete. When the hours came in, Luka had 7 hours of stories with 5 free and I had 8 with 7, so S1 moved to Beka and S2 dropped to 2 hours: 21 hours inside 25, and inside each person's own. Hack: I wrote "story hours never exceed free hours" into the plan before anyone gave their hours, so cutting was a rule, not an argument.
+
+Links: [Sprint 1](../../03-build/sprints/sprint-1.md), [MVP boundary](../../03-build/mvp-boundary.md)
+
+## Week 7 · Ship to learn
+I built and shipped S2 (Gela finds his own doctor) and S4 (the doctor reads and answers) in one commit, live with the first deploy on 24.11. Beyond my story, I found that the Figma frame for step 1 listed every doctor at the clinic while our boundary says Gela sees his own, so I changed that frame first and built from it. Hack: instead of waiting for the schema to be written down, I checked the real Neon tables with a read-only query, then ran both pages against the demo patient and his doctor before pushing. This week I own the field-week links for Patient-1 and Patient-5.
+
+Links: [S2 and S4 commit](https://github.com/PhkhakadzeJumber/product-development-project/commit/3a914df), [live product](https://product-development-project.vercel.app/), [Sprint 2](../../03-build/sprints/sprint-2.md)

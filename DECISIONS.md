@@ -89,3 +89,5 @@ Wk5 · Giorgi's prediction "a 2-minute question turns into a trip", verdict afte
 Wk6 · MVP boundary: 5-step journey (Gela opens his doctor's link to Gela confirms the question was resolved without a trip); cut booking with visit types, prescription renewals, SMS notices, login and payment · evidence: 03-build/mvp-boundary.md, logs 01, 02, 03, 09, 10, sessions 1 to 4 · owner: JP
 
 Wk6 · Removed the pre-discovery build (app/ and backend/, first committed 04.10 before any interview): it covered booking, chat, prescriptions, ratings and a separate Python backend, all outside the MVP boundary and the architecture; Sprint 1 rebuilds only the 5-step question journey from an empty app/ (Next.js with server routes, no separate backend), as the Milestone 1 feedback asked; the old code stays in the git history · evidence: [MVP boundary](03-build/mvp-boundary.md), [architecture](03-build/architecture/architecture.md) · owner: JP
+
+Wk7 · Gate open at rung 5: dashboard not built yet; rungs 1 to 4 reached (PostHog 2 = database 2), owners and times in sprint-2.md · evidence: 03-build/sprints/sprint-2.md · owner: GP
