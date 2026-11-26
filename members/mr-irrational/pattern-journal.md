@@ -34,7 +34,3 @@ Links: [event schema](../../03-build/analytics/event-schema.md), [usability find
 
 Links: [Sprint 1](../../03-build/sprints/sprint-1.md), [MVP boundary](../../03-build/mvp-boundary.md)
 
-## Week 7 · Ship to learn
-I built and shipped S2 (Gela finds his own doctor) and S4 (the doctor reads and answers) in one commit, live with the first deploy on 24.11. Beyond my story, I found that the Figma frame for step 1 listed every doctor at the clinic while our boundary says Gela sees his own, so I changed that frame first and built from it. Hack: instead of waiting for the schema to be written down, I checked the real Neon tables with a read-only query, then ran both pages against the demo patient and his doctor before pushing. This week I own the field-week links for Patient-1 and Patient-5.
-
-Links: [S2 and S4 commit](https://github.com/PhkhakadzeJumber/product-development-project/commit/3a914df), [live product](https://product-development-project.vercel.app/), [Sprint 2](../../03-build/sprints/sprint-2.md)
