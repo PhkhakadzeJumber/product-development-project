@@ -10,19 +10,19 @@ Your metric is only as good as your instrumentation. Every row here becomes one 
 
 ## Events
 
-| Step | Event (actor_verb_object) | Fired by | Properties | Owner |
-|---|---|---|---|---|
-| Acquisition | `patient_opens_doctor_list` | patient | patient_id, source (demo_invite, clinic_referral, other) | GP |
-| Activation (precursor) | `patient_selects_visit_type` | patient | patient_id, doctor_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, has_description | GP |
-| Retention | `patient_confirms_repeat_booking` | patient | patient_id, doctor_id, slot_id, appointment_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, time_to_book_seconds, days_since_last_confirm | GP |
-| Activation | `doctor_marks_visit_seen` | doctor | doctor_id, patient_id, appointment_id, slot_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, actual_minutes | LM |
-| Activation | `doctor_marks_visit_no_show` | doctor | doctor_id, patient_id, appointment_id, slot_id | LM |
-| Activation (north star) ★ | `patient_confirms_remote_resolution` | patient | patient_id, doctor_id, resolution_type (renewal, answer), days_since_request, is_first_resolution_for_patient | LM |
-| Activation | `receptionist_books_appointment` | receptionist | receptionist_id, patient_id, doctor_id, slot_id, appointment_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, routing_basis (patient_preference, specialty_match, closest_available, receptionist_recommendation), time_to_book_seconds, is_new_patient | JP |
-| Activation | `receptionist_adds_ad_hoc_block` | receptionist | receptionist_id, doctor_id, slot_id, visit_type (renewal, check_up, new_or_changed), duration_minutes, doctor_agreed | JP |
-| Activation (precursor) | `patient_sends_question` | patient | patient_id, doctor_id, question_id, char_count (never the text) | JP |
-| Activation (precursor) | `doctor_answers_question` | doctor | doctor_id, patient_id, question_id, minutes_since_question | JP |
-| Activation (precursor) | `patient_views_answer` | patient | patient_id, doctor_id, question_id, minutes_since_answer | JP |
+| Step | Event (actor_verb_object) | Fired by | Properties | Owner | Live |
+|---|---|---|---|---|---|
+| Acquisition | patient_opens_doctor_list | patient | patient_id, source (demo_invite, clinic_referral, other) | GP | yes |
+| Activation (precursor) | patient_selects_visit_type | patient | patient_id, doctor_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, has_description | GP | no (booking is on the cut list) |
+| Retention | patient_confirms_repeat_booking | patient | patient_id, doctor_id, slot_id, appointment_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, time_to_book_seconds, days_since_last_confirm | GP | no (booking is on the cut list) |
+| Activation | doctor_marks_visit_seen | doctor | doctor_id, patient_id, appointment_id, slot_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, actual_minutes | LM | no (booking is on the cut list) |
+| Activation | doctor_marks_visit_no_show | doctor | doctor_id, patient_id, appointment_id, slot_id | LM | no (booking is on the cut list) |
+| Activation (north star) ★ | patient_confirms_remote_resolution | patient | patient_id, doctor_id, resolution_type (renewal, answer), days_since_request, is_first_resolution_for_patient | LM | yes |
+| Activation | receptionist_books_appointment | receptionist | receptionist_id, patient_id, doctor_id, slot_id, appointment_id, visit_type (renewal, check_up, new_or_changed), planned_minutes, routing_basis (patient_preference, specialty_match, closest_available, receptionist_recommendation), time_to_book_seconds, is_new_patient | JP | no (booking is on the cut list) |
+| Activation | receptionist_adds_ad_hoc_block | receptionist | receptionist_id, doctor_id, slot_id, visit_type (renewal, check_up, new_or_changed), duration_minutes, doctor_agreed | JP | no (booking is on the cut list) |
+| Activation (precursor) | patient_sends_question | patient | patient_id, doctor_id, question_id, char_count (never the text) | JP | yes |
+| Activation (precursor) | doctor_answers_question | doctor | doctor_id, patient_id, question_id, minutes_since_question | JP | yes |
+| Activation (precursor) | patient_views_answer | patient | patient_id, doctor_id, question_id, minutes_since_answer | JP | yes |
 
 Referral and Revenue are empty on purpose. There is nothing to refer and nothing to pay for before Week 12.
 
