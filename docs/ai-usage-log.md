@@ -78,3 +78,9 @@ Wk7 · Giorgi Phurtseladze · Claude Code · HW2 and Sprint 2: drafted my Week 7
 Wk7 · Beka Shekiladze · Opencode · drafted the Week 5–7 pattern-journal entries and members/beka-169/hw2.md from Beka's own commits, the test plan, the sprint plans and DECISIONS.md · checked every commit hash, event name and DECISIONS line against the repo
 
 Wk7 · Jumber Phkhakadze · Claude Code · drafted my HW2 and my Week 7 journal entry from my own commits, DECISIONS.md lines and the field-week data · I checked every commit link, number and date against the repo and the database and put the text in my own words
+
+Wk7 · Luka Mikautadze · Claude Code · R4: queried PostHog and Neon, configured the demo-patient, demo-doctor and localhost exclusions, and wrote the gate reconcile block and Sprint 2 update · verified PostHog 3 = database 3 for the same UTC window, read back the saved filters, checked 0 non-demo confirmations and 2 non-demo question events; JP's later review is recorded in ef6ca68
+
+Wk7 · Luka Mikautadze · Claude Code · R5: created the three PostHog insights and public dashboard, added its README link, updated Sprint 2 and appended the gate-passed decision · verified the internal filter on every saved insight and rendered all three tiles in a fresh signed-out Chrome profile; the zero confirmations and empty retention were kept, not replaced with demo activity; Teams posting was not performed
+
+Wk7 · Luka Mikautadze · Claude Code · drafted my HW2 and Weeks 5–7 journal entries from the course template, my commits, DECISIONS.md and Sprint 2; marked Weeks 5 and 6 as written retrospectively on 27.11 · checked commit authors, all four verbatim decision quotations, matching journal text and file links; kept Patient-5's 28.11 outreach as planned and unrecorded reviews as pending; the first-person wording is AI-assisted and remains for Luka to review and personalize before submitting

@@ -25,3 +25,15 @@ I don't book any of the five testers: Jumber, Giorgi and Beka cover all five fro
 Links: [prototype plan](../../02-design/prototype-plan.md), [log 05](../../01-discovery/interview-logs/05-father-clinic.md), [log 07](../../01-discovery/interview-logs/07-long-term-patient-clinic.md), [affinity map, Patterns 1, 2 and 5](../../01-discovery/synthesis/affinity-map.md), [DECISIONS.md](../../DECISIONS.md)
 
 DECISIONS.md lines I drove: the problem pick with the runner-up, the Week 3 confirmed verdict, the change of my outreach target, my prediction verdict, and my check of the prototype plan against the logs.
+
+## Week 5 · One metric that matters
+
+I did not write this entry in its own week; I am writing it on 27.11. I made remote resolution the schema's one north star and added my doctor events: a booking still leaves a trip ([a73232d](https://github.com/PhkhakadzeJumber/product-development-project/commit/a73232d)). I added planned and actual visit lengths to check the timing assumption ([83a37e2](https://github.com/PhkhakadzeJumber/product-development-project/commit/83a37e2)). Outside coding, I asked interview 10 with Giorgi logging and updated the synthesis ([d15053f](https://github.com/PhkhakadzeJumber/product-development-project/commit/d15053f), [c70d6c7](https://github.com/PhkhakadzeJumber/product-development-project/commit/c70d6c7)). My shortcut was checking the message and calls on the participant's phone, not only their memory.
+
+## Week 6 · The smallest complete journey
+
+I did not write this entry in its own week; I am writing it on 27.11. I designed the stack for the question journey, with private links and no separate backend ([e3b4686](https://github.com/PhkhakadzeJumber/product-development-project/commit/e3b4686)). I wired five events, fixed `/ingest` and Georgian times, and documented deployment ([be7c1fa](https://github.com/PhkhakadzeJumber/product-development-project/commit/be7c1fa), [0e9e832](https://github.com/PhkhakadzeJumber/product-development-project/commit/0e9e832), [047a199](https://github.com/PhkhakadzeJumber/product-development-project/commit/047a199)). Beyond deployment, I fixed S5's premature answer-view tracking. My shortcut was a live walk and manual one-event/one-row reconcile before the dashboard, plus a separate double-tap/reload phone run ([e247065](https://github.com/PhkhakadzeJumber/product-development-project/commit/e247065)).
+
+## Week 7 · Ship to learn
+
+I reconciled 3 = 3 and excluded demo/localhost traffic; those confirmations were tests, not real successes ([7dd6587](https://github.com/PhkhakadzeJumber/product-development-project/commit/7dd6587)). I published the north star trend, journey counts and weekly retention dashboard, then recorded the gate as passed ([bf32388](https://github.com/PhkhakadzeJumber/product-development-project/commit/bf32388)). Beyond analytics, I reminded Doctor-1 about two unanswered questions: the [mid-week look](../../03-build/sprints/sprint-2.md#prediction) showed the doctor was the slow step. My shortcut was checking the public dashboard in signed-out Chrome instead of assuming its sharing setting worked.
