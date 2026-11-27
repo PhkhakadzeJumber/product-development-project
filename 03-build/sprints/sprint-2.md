@@ -66,8 +66,8 @@ Our journey needs a doctor who answers, and we do not know the patients' own doc
 | Code name and role | Log or session they come from | How the link reaches them | Sent by, and by when | Opened? (fill in during the week) |
 |---|---|---|---|---|
 | Doctor-1, GP at the public polyclinic (answers) | Log 04 | Phone call, then his private doctor link by message | LM, 27.11 before 21:00 | |
-| Patient-2, heart patient, two-weekly ward checks | Log 02, test session 1 | WhatsApp message with his private link | JP, 27.11 before 21:00 | |
-| Patient-3, two-weekly ward checks | Referral via log 02, test session 3 | Message through Jumber's sister, then his link | JP, 27.11 before 21:00 | |
+| Patient-2, heart patient, two-weekly ward checks | Log 02, test session 1 | WhatsApp message with his private link | JP, 27.11 before 21:00 | Yes; sent a question at 18:31 on 27.11 |
+| Patient-3, two-weekly ward checks | Referral via log 02, test session 3 | Message through Jumber's sister, then his link | JP, 27.11 before 21:00 | Yes; sent a question at 18:29 on 27.11 |
 | Patient-1, diabetic, monthly cardiologist | Log 03, test session 2 | In person, opening the link with him on his phone | GP, 28.11 | |
 | Patient-5, heart patient, monthly cardiologist | Log 10, test session 4 | Message with his private link | LM, 28.11 | |
 
@@ -81,7 +81,7 @@ Written in the lab, before the week starts. Never edited afterwards; Lab 8 reads
 
 **We are wrong if:** 0 `patient_sends_question` from real people, or a question waits more than 24 hours without an answer from Doctor-1.
 
-**Mid-week look:** GP opens the dashboard on 27.11 from 21:00 to 23:00, right after the Sprint 2 work is done, and writes one line here: what the counts are and one thing we change because of them, or nothing.
+**Mid-week look:** GP opens the dashboard on 27.11 from 18:00 to 20:00 (planned for 21:00 to 23:00, moved because GP realized this morning that he is not available then), right after the first field-week links went out, and writes one line here: what the counts are and one thing we change because of them, or nothing.
 
 ## The DECISIONS.md line
 
