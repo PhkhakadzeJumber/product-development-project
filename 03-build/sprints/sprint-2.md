@@ -83,6 +83,8 @@ Written in the lab, before the week starts. Never edited afterwards; Lab 8 reads
 
 **Mid-week look:** GP opens the dashboard on 27.11 from 18:00 to 20:00 (planned for 21:00 to 23:00, moved because GP realized this morning that he is not available then), right after the first field-week links went out, and writes one line here: what the counts are and one thing we change because of them, or nothing.
 
+27.11, 18:46: 3 people have links (Doctor-1, Patient-2, Patient-3); Patient-2 and Patient-3 each sent a question (18:31, 18:29); 0 answered by Doctor-1 yet. Change: Luka reminded Doctor-1 that two questions are waiting on his link.
+
 ## The DECISIONS.md line
 
 `Wk7 · Gate open at rung 5: dashboard not built yet; rungs 1 to 4 reached (PostHog 2 = database 2), owners and times in sprint-2.md · evidence: 03-build/sprints/sprint-2.md · owner: GP`
