@@ -72,7 +72,7 @@ WHERE patient_confirmed_at >= TIMESTAMPTZ '2026-11-24 00:00:00+00'
 
 **Match:** yes — PostHog 3 = database 3. PostHog was checked at 15:31:54 UTC and Neon at 15:31:58 UTC. The Trends query used `math: total`, `date_from: 2026-11-24T00:00:00+00:00` and `date_to: 2026-11-27T23:59:59.999999+00:00` via `POST /api/projects/366802/query/`.
 
-**Earlier discrepancy:** on 26.11 the team removed four test rows created before PostHog was wired, then recorded PostHog 2 = database 2 in Sprint 2. The original before-cleanup pair and a cleanup commit were not recorded. No database rows or PostHog events were changed or deleted for this check.
+**Earlier discrepancy:** on 26.11 the team removed four test rows created before PostHog was wired, then recorded PostHog 2 = database 2 in Sprint 2. Before the cleanup the pair was PostHog 2, database 4: the two extra confirmed rows were demo confirmations created before PostHog was wired, so they had no events. No cleanup commit exists because the rows were removed in Neon only. No database rows or PostHog events were changed or deleted for this check.
 
 **Silent failure we predicted in Lab 5:** double fire; the confirm screen re-renders after the tap and the capture call is on the render, not the tap. · **Did it happen?** No double fire was observed in the recorded double-tap/reload checks above; today's three events also match three confirmed rows.
 
@@ -89,4 +89,4 @@ WHERE patient_confirmed_at >= TIMESTAMPTZ '2026-11-24 00:00:00+00'
 
 **Field-event check:** after exclusion, PostHog still counts 16 `patient_opens_doctor_list` events and 2 `patient_sends_question` events in this window (unfiltered: 28 and 5). The filter does not discard doctor-list events merely because they lack `doctor_id`.
 
-**Checked by:** LM, using PostHog's API and a read-only Neon query; JP's R4 review pending. · **Events still not Live:** none in the five-step Sprint 1 journey. The six booking/scheduling events remain on the cut list: two owned by GP, two by LM and two by JP, as listed in the Events table; no delivery date is committed for those out-of-scope events.
+**Checked by:** LM, using PostHog's API and a read-only Neon query; reviewed by JP on 27.11. · **Events still not Live:** none in the five-step Sprint 1 journey. The six booking/scheduling events remain on the cut list: two owned by GP, two by LM and two by JP, as listed in the Events table; no delivery date is committed for those out-of-scope events.

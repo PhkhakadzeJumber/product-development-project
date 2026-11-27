@@ -21,7 +21,7 @@ Our definition of done: merged to `main`, deployed at the public URL, tested on 
 
 | Rung | Reached? | Evidence: a link or a number | If not: owner, and by when |
 |---|---|---|---|
-| 1 Production URL loads on a phone | Yes | Live product row in README; team phone runs on 24.11 | The Wi-Fi-off walk is still to do: GP, by 28.11 |
+| 1 Production URL loads on a phone | Yes | Live product row in README; Wi-Fi-off walk on mobile data by GP on 27.11, events checked by BS ([25abaa2](https://github.com/PhkhakadzeJumber/product-development-project/commit/25abaa2)) | |
 | 2 Journey completes there | Yes | Team runs on 24.11: two questions sent, answered and confirmed on the test patient | |
 | 3 North star event in Activity, from production | Yes | `patient_confirms_remote_resolution` from the live URL, `posthog-js` in the browser, seen by LM | |
 | 4 Counts reconcile | Yes | PostHog 3 = database 3 on 27.11, same 24–27.11 UTC window; [gate reconcile block](../analytics/event-schema.md#gate-reconcile-lab-7). Earlier check on 26.11: 2 = 2 after removing 4 pre-instrumentation test rows. | LM filled the block and saved the demo/localhost exclusions on 27.11; filtered confirmations = 0. JP review pending. |
