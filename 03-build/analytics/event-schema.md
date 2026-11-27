@@ -51,3 +51,42 @@ Referral and Revenue are empty on purpose. There is nothing to refer and nothing
 *First reconcile, 2026-11-24:* After reloading on the live URL, PostHog Activity still showed 1 `patient_confirms_remote_resolution` event, matching 1 Neon question row with `patient_confirmed_at` set. Reloading did not fire a second confirmation event.
 
 *Teammate follow-up:* A teammate completed a separate run on a phone using the live URL, tapped “This solved it” twice, and reloaded. PostHog Activity showed all five journey events and exactly 1 `patient_confirms_remote_resolution` event for that run. The two confirmation events visible in Activity came from two separate runs.
+
+## Gate reconcile (Lab 7)
+
+**Production URL walked:** https://product-development-project.vercel.app/ · **walked by:** GP, who did not build the north star step · on a phone, mobile data: yes, 27.11.2026; BS checked the five journey events in Activity ([R1 evidence](https://github.com/PhkhakadzeJumber/product-development-project/commit/25abaa24d5068681befee75bdb474b5f3ea1761c)).
+
+**Window:** `2026-11-24 00:00:00 UTC <= timestamp < 2026-11-28 00:00:00 UTC` (24–27 November UTC). Snapshot checked on 27.11 at 15:31 UTC; later activity can change the count. This comparison includes demo traffic to check instrumentation, not real-user outcomes.
+
+| Source | Count | Window | Exactly how it was counted |
+|---|---|---|---|
+| PostHog | 3 | UTC window above | Project 366802 (UTC), Trends API query: total count of `patient_confirms_remote_resolution`, `$current_url` contains `https://product-development-project.vercel.app/`, `filterTestAccounts: false`. Daily counts: 2, 0, 0, 1. |
+| Database | 3 | UTC window above | Read-only Neon query below; all three rows have `patient_id = 'pt-demo'` and `doctor_id = 'dr-demo'`. |
+
+```sql
+SELECT COUNT(*) AS confirmed_count
+FROM questions
+WHERE patient_confirmed_at >= TIMESTAMPTZ '2026-11-24 00:00:00+00'
+  AND patient_confirmed_at < TIMESTAMPTZ '2026-11-28 00:00:00+00';
+```
+
+**Match:** yes — PostHog 3 = database 3. PostHog was checked at 15:31:54 UTC and Neon at 15:31:58 UTC. The Trends query used `math: total`, `date_from: 2026-11-24T00:00:00+00:00` and `date_to: 2026-11-27T23:59:59.999999+00:00` via `POST /api/projects/366802/query/`.
+
+**Earlier discrepancy:** on 26.11 the team removed four test rows created before PostHog was wired, then recorded PostHog 2 = database 2 in Sprint 2. The original before-cleanup pair and a cleanup commit were not recorded. No database rows or PostHog events were changed or deleted for this check.
+
+**Silent failure we predicted in Lab 5:** double fire; the confirm screen re-renders after the tap and the capture call is on the render, not the tap. · **Did it happen?** No double fire was observed in the recorded double-tap/reload checks above; today's three events also match three confirmed rows.
+
+**Internal filter set in PostHog:** saved and read back on 27.11 at 15:31:44 UTC. All conditions below are combined with **AND** when internal traffic is excluded:
+
+- Event property `patient_id` **is not** `pt-demo` (`is_not`).
+- Event property `doctor_id` **is not** `dr-demo` (`is_not`).
+- Event property `$current_url` **does not contain** `localhost` (`not_icontains`, case-insensitive).
+- Person **is not in** the existing **Internal / Test users** cohort (347791); this prior exclusion was preserved.
+
+**Exclude internal/test users by default:** enabled (`test_account_filters_default_checked: true`). Existing saved insights that explicitly disable it still need it switched on; R5 must enable it on all three dashboard tiles. The app sends the sanitized `$current_url`, not `$host`, so the localhost condition uses the URL property.
+
+**Our test records are:** patient `pt-demo`, doctor `dr-demo`. Verified with the same production Trends query: exclusions off = **3** confirmations; exclusions on = **0**. Neon also returns **0** with the query above plus `AND patient_id::text <> 'pt-demo' AND doctor_id::text <> 'dr-demo'`. The three demo confirmations do not count as field-week success.
+
+**Field-event check:** after exclusion, PostHog still counts 16 `patient_opens_doctor_list` events and 2 `patient_sends_question` events in this window (unfiltered: 28 and 5). The filter does not discard doctor-list events merely because they lack `doctor_id`.
+
+**Checked by:** LM, using PostHog's API and a read-only Neon query; JP's R4 review pending. · **Events still not Live:** none in the five-step Sprint 1 journey. The six booking/scheduling events remain on the cut list: two owned by GP, two by LM and two by JP, as listed in the Events table; no delivery date is committed for those out-of-scope events.

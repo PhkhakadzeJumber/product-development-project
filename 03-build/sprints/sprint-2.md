@@ -24,7 +24,7 @@ Our definition of done: merged to `main`, deployed at the public URL, tested on 
 | 1 Production URL loads on a phone | Yes | Live product row in README; team phone runs on 24.11 | The Wi-Fi-off walk is still to do: GP, by 28.11 |
 | 2 Journey completes there | Yes | Team runs on 24.11: two questions sent, answered and confirmed on the test patient | |
 | 3 North star event in Activity, from production | Yes | `patient_confirms_remote_resolution` from the live URL, `posthog-js` in the browser, seen by LM | |
-| 4 Counts reconcile | Yes | PostHog 2 = database 2 on 26.11, after removing 4 test rows created before PostHog was wired | Gate reconcile block in the schema file: LM, by 28.11 |
+| 4 Counts reconcile | Yes | PostHog 3 = database 3 on 27.11, same 24–27.11 UTC window; [gate reconcile block](../analytics/event-schema.md#gate-reconcile-lab-7). Earlier check on 26.11: 2 = 2 after removing 4 pre-instrumentation test rows. | LM filled the block and saved the demo/localhost exclusions on 27.11; filtered confirmations = 0. JP review pending. |
 | 5 Dashboard, linked in README | No | | LM, by 28.11 |
 
 ## Real hours before Lab 8
