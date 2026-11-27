@@ -43,3 +43,9 @@ I did not write this entry in its own week; I am writing it on 27.11, from my We
 Links: [MVP boundary](../../03-build/mvp-boundary.md), [Sprint 1](../../03-build/sprints/sprint-1.md), [event schema](../../03-build/analytics/event-schema.md), [live product](https://product-development-project.vercel.app/), [DECISIONS.md](../../DECISIONS.md)
 
 DECISIONS.md lines I drove (Week 6, owner JP): the MVP boundary (5-step question journey; booking with visit types, renewals, SMS notices, login and payment cut), and removing the pre-discovery build (app/ and backend/) so Sprint 1 rebuilds only the journey.
+
+## Week 7 · Ship to learn
+
+This week shipping meant putting the product in front of real people, and it taught us something within hours. I created every field-week person's private link in Neon, one doctor and four patients, and sent Gocha and Gigi theirs: both opened it and sent a real question within about two hours, while the doctor has not answered yet, so the slow step is the doctor, not the patient side. As R4's reviewer I checked Luka's gate reconcile, PostHog 3 = database 3 with the filter hiding only our demo accounts, and added the before-cleanup pair (PostHog 2, database 4) so the wrong numbers stay on record. Beyond my lane: I wrote the Sprint 2 plan with the field week and the prediction, kept the Opened? column current, and moved the mid-week look when Giorgi could not make the evening slot. The hack: I sent my two patients' links the same evening, before the mid-week look, so it read two real questions instead of zero.
+
+Links: [Sprint 2](../../03-build/sprints/sprint-2.md), [event schema, gate reconcile](../../03-build/analytics/event-schema.md), [live product](https://product-development-project.vercel.app/), [dashboard](https://eu.posthog.com/shared/wVkOOfkt-AVqHEnKUs6w1O7gshNQpg)

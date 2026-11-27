@@ -76,3 +76,5 @@ Wk6 · Luka Mikautadze · Claude Code · wired PostHog for Sprint 1 (client init
 Wk7 · Giorgi Phurtseladze · Claude Code · HW2 and Sprint 2: drafted my Week 7 journal entry and hw2.md from the template, wrote the mid-week look line, and read the field-week counts from Neon with a read-only query · checked every commit link and DECISIONS line against git log and DECISIONS.md, confirmed the counts (2 questions from Patient-2 and Patient-3, 0 answered) in the production database
 
 Wk7 · Beka Shekiladze · Opencode · drafted the Week 5–7 pattern-journal entries and members/beka-169/hw2.md from Beka's own commits, the test plan, the sprint plans and DECISIONS.md · checked every commit hash, event name and DECISIONS line against the repo
+
+Wk7 · Jumber Phkhakadze · Claude Code · drafted my HW2 and my Week 7 journal entry from my own commits, DECISIONS.md lines and the field-week data · I checked every commit link, number and date against the repo and the database and put the text in my own words
