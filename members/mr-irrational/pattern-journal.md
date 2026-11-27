@@ -34,3 +34,8 @@ Links: [event schema](../../03-build/analytics/event-schema.md), [usability find
 
 Links: [Sprint 1](../../03-build/sprints/sprint-1.md), [MVP boundary](../../03-build/mvp-boundary.md)
 
+
+## Week 7 · Ship to learn
+I shipped S2 (Gela finds his own doctor) and S4 (the doctor answers) in one commit, live with the first deploy on 24.11, and on 27.11 walked the whole journey on production with Wi-Fi off while Beka checked every event in PostHog Activity. Beyond my lane, I wrote the gate line in DECISIONS.md, and at the mid-week look, with no dashboard built yet, I read the counts straight from the production database: two real questions from Patient-2 and Patient-3, zero answers. That number is what shipping taught us this week: patients ask within minutes of getting the link, and the slow step is the doctor, so Luka reminded Doctor-1 that two questions were waiting. Hack: before building I checked the real Neon tables with a read-only query instead of waiting for the schema to be written down, and ran both pages against the demo patient and doctor before pushing.
+
+Links: [S2 and S4 commit](https://github.com/PhkhakadzeJumber/product-development-project/commit/3a914df), [Sprint 2](../../03-build/sprints/sprint-2.md), [event schema](../../03-build/analytics/event-schema.md)
