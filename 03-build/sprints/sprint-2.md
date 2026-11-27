@@ -24,8 +24,8 @@ Our definition of done: merged to `main`, deployed at the public URL, tested on 
 | 1 Production URL loads on a phone | Yes | Live product row in README; Wi-Fi-off walk on mobile data by GP on 27.11, events checked by BS ([25abaa2](https://github.com/PhkhakadzeJumber/product-development-project/commit/25abaa2)) | |
 | 2 Journey completes there | Yes | Team runs on 24.11: two questions sent, answered and confirmed on the test patient | |
 | 3 North star event in Activity, from production | Yes | `patient_confirms_remote_resolution` from the live URL, `posthog-js` in the browser, seen by LM | |
-| 4 Counts reconcile | Yes | PostHog 3 = database 3 on 27.11, same 24–27.11 UTC window; [gate reconcile block](../analytics/event-schema.md#gate-reconcile-lab-7). Earlier check on 26.11: 2 = 2 after removing 4 pre-instrumentation test rows. | LM filled the block and saved the demo/localhost exclusions on 27.11; filtered confirmations = 0. JP review pending. |
-| 5 Dashboard, linked in README | No | | LM, by 28.11 |
+| 4 Counts reconcile | Yes | PostHog 3 = database 3 on 27.11, same 24–27.11 UTC window; [gate reconcile block](../analytics/event-schema.md#gate-reconcile-lab-7). Earlier check on 26.11: 2 = 2 after removing 4 pre-instrumentation test rows. | LM filled the block and saved the demo/localhost exclusions on 27.11; filtered confirmations = 0. Reviewed by JP on 27.11, as recorded in the gate reconcile block. |
+| 5 Dashboard, linked in README | Yes | [Public dashboard](https://eu.posthog.com/shared/wVkOOfkt-AVqHEnKUs6w1O7gshNQpg): north star trend, five journey step counts and weekly retention; internal filter on all three. Linked in README and rendered in a fresh, signed-out Chrome profile on 27.11. | GP review pending. |
 
 ## Real hours before Lab 8
 
@@ -50,6 +50,16 @@ Done when the gate reconcile block from `Lab-7/templates/gate-reconcile-block.md
 ### R5 · Dashboard, three tiles · owner LM · reviewer GP · 2 h
 
 Trends on `patient_confirms_remote_resolution`; the journey steps as step counts (the patient and the doctor do different steps, so not a funnel); Retention on `patient_confirms_remote_resolution`. Internal filter on each. Done when the dashboard opens from a public link without a login and the link is in the README's Analytics dashboard row.
+
+**Built and checked on 27.11 by LM:** [MediBook north star](https://eu.posthog.com/shared/wVkOOfkt-AVqHEnKUs6w1O7gshNQpg), dashboard 1158122 in PostHog project 366802. Last 30 days, UTC, production URL only. Each saved insight has `filterTestAccounts: true`; public sharing is enabled without a password, and all three tiles rendered in a fresh signed-out Chrome profile.
+
+| Tile | Saved insight | Configuration and check |
+|---|---|---|
+| North star trend | iThRgwLC | Daily total of `patient_confirms_remote_resolution`; 0 non-demo confirmations at verification. |
+| Journey step counts | OtbmLgjU | Side-by-side totals in order: open doctor link 16, send question 2, doctor answers 0, read answer 0, confirm resolution 0. Counts, not a cross-person funnel or conversion rates. |
+| Retention | 99ZweUJR | First `patient_confirms_remote_resolution`, then the same event in later weeks; four weekly intervals. No non-demo cohort yet, so empty retention is expected. Uses browser/device identity, not cross-device patient identity. |
+
+**Submission still to do:** post the live product URL and public dashboard link in the lab group's Teams channel. Not posted from this session.
 
 ### F1 · Field-week links · owner JP · reviewer LM · 2 h
 
@@ -87,4 +97,4 @@ Written in the lab, before the week starts. Never edited afterwards; Lab 8 reads
 
 ## The DECISIONS.md line
 
-`Wk7 · Gate open at rung 5: dashboard not built yet; rungs 1 to 4 reached (PostHog 2 = database 2), owners and times in sprint-2.md · evidence: 03-build/sprints/sprint-2.md · owner: GP`
+[Gate passed on 27.11.2026](../../DECISIONS.md?plain=1#L95): all five rungs reached; the previous gate-open line remains in DECISIONS.md. Teams link submission is still pending.
