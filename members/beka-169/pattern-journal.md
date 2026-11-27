@@ -30,3 +30,15 @@ Links: [prototype plan](../../02-design/prototype-plan.md), [father's interview]
 
 DECISIONS.md line I drove: the Week 4 entry for my Father-05 tester role in the prototype plan.
 
+## Week 5 · One metric that matters
+
+I did not write this entry in its own week; I am writing it on 27.11. The one metric that mattered that week was not a page view but whether a patient could finish the booking alone, so I ran test session 1 with Patient-2 against the frozen rule and the predicted first mistake. He picked the 11:00 slot and stopped before pressing "Book this visit" (failure behavior 2), exactly the mistake the plan predicted, and I logged it in usability-findings.md. Beyond my build lane I also added Receptionist-1 to the test plan (3bcc278), because the reception fallback was part of prototype plan v2 even though the patient test had to stay frozen. Hack: I wrote the verdict against the rule we had frozen before the session, so my own expectation of a fail could not turn into the evidence.
+
+## Week 6 · The smallest complete journey
+
+I did not write this entry in its own week; I am writing it on 27.11. The smallest complete journey in the MVP boundary was the five-step question path, and my pieces were S1, the north star step, and S5, Gela reading the answer. In 135937f I built the "This solved it" button with /api/confirm, guarded so a second tap or reload cannot confirm twice, and captured `patient_confirms_remote_resolution` in the tap handler after the server returns OK, never on render. For S5 I built My questions and the full answer page, with `patient_viewed_at` stamped once by a conditional SQL update and `patient_views_answer` fired only for that first view. Hack: I used a seeded answered question to prove S1 before S2 to S5 existed, so the north star step could be tested on its own.
+
+## Week 7 · Ship to learn
+
+Ship to learn was the week I stopped treating my own code as the evidence: I fixed the S5/S1 dates, brand colours and wording in 472fda9, then checked the shipped journey on production. During Giorgi's Wi-Fi-off walk I read every event in PostHog Activity with him — name against the schema, every property present, fired once, from production — and wrote the Live column in 25abaa2. That put yes beside the five journey events and "no (booking is on the cut list)" beside the booking rows, which is a clearer statement of what we learned than a green build. Beyond my own stories this meant reading events JP, LM and Giorgi produced, not just the two screens I built. Hack: I used the schema table itself as the checklist so the next person can see shipped versus cut at a glance.
+
